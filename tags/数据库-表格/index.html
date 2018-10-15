@@ -178,15 +178,21 @@
     </nav>
 </header>
 
-
-
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover about-cover" style="background-image: url('/medias/cover.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col s12 m12 l12">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
                 <div class="brand">
-                    <div class="description center-align post-title">
-                        安装Python
+                    <div class="title center-align">
+                    
+                        闪烁之狐
+                    
+                    </div>
+
+                    <div class="description center-align">
+                    
+                        To be or not to be,this is a quesstion.
+                    
                     </div>
                 </div>
             </div>
@@ -194,178 +200,119 @@
     </div>
 </div>
 
+<script>
+// Dynamically switch banner pictures every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
 
-
-<main class="container content">
+<main class="content">
 
     
-    <!-- 文章内容详情 -->
-<div id="artDetail">
+
+<div id="tags" class="container chip-container">
     <div class="card">
-        <div class="card-content article-info">
-            
-            <div class="article-tag">
+        <div class="card-content">
+            <div class="tag-title center-align">Post Tags</div>
+            <div class="tag-chips">
                 
-                <a href="/tags/Python-软链接/" target="_blank">
-                    <span class="chip bg-color">Python 软链接</span>
+                
+                <a href="/tags/数据库/" title="数据库: 0">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="数据库" style="background-color: #F9EBEA;">数据库
+                        <span class="tag-length">0</span>
+                    </span>
                 </a>
                 
-            </div>
-            
-            <div class="post-info">
                 
-
-                <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
-                </span>
-            </div>
-        </div>
-        <hr>
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>CentOS安装Python3.7</p>
-<h2 id="1-下载Python源代码："><a href="#1-下载Python源代码：" class="headerlink" title="1.下载Python源代码："></a>1.下载Python源代码：</h2><p><a href="https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz</a></p>
-<h2 id="2-解压缩"><a href="#2-解压缩" class="headerlink" title="2.解压缩"></a>2.解压缩</h2><pre><code>gunzip Python-3.7.0.tgz
-</code></pre><h2 id="3-解归档"><a href="#3-解归档" class="headerlink" title="3.解归档"></a>3.解归档</h2><pre><code>tar -xvf Python-3.7.0.tar
-</code></pre><h2 id="4-安装底层依赖库"><a href="#4-安装底层依赖库" class="headerlink" title="4.安装底层依赖库"></a>4.安装底层依赖库</h2><pre><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
-</code></pre><h2 id="5-安装前的配置"><a href="#5-安装前的配置" class="headerlink" title="5.安装前的配置"></a>5.安装前的配置</h2><pre><code> ./configure --prefix=/usr/local/Python37 --enable-optimizations
-</code></pre><h2 id="6-构建安装"><a href="#6-构建安装" class="headerlink" title="6.构建安装"></a>6.构建安装</h2><pre><code>make &amp;&amp; make install
-</code></pre><p>##7.配置环境变量</p>
-<pre><code>export PATH=$PATH:/usr/local/Python37/bin
-</code></pre><p>##8.注册软连接（符号链接）</p>
-<pre><code>ln -s /usr/local/Python37/bin/python3 /usr/bin/python3
-</code></pre><p>硬链接 - 文件的引用，只要引用数不为0，文件就不会被删除<br>软链接 - 相当于是文件的快捷方式，如果文件被删除，软链接就会失效<br>ln -s 带完整路径的文件名，链接文件名</p>
-
-            </div>
-            <hr/>
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
-    
-    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
-    
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">Reprint please specify: </span>
-                    <a href="http://yoursite.com" class="b-link-green">闪烁之狐</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/CentOS安装Python3.7/" class="b-link-green">安装Python</a>
-                </p>
+                <a href="/tags/Python-软链接/" title="Python 软链接: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Python 软链接" style="background-color: #F5EEF8;">Python 软链接
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/操作系统-Linux-防火墙/" title="操作系统 Linux 防火墙: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="操作系统 Linux 防火墙" style="background-color: #D5F5E3;">操作系统 Linux 防火墙
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Python-Web-爬虫-数据分析-机器学习/" title="Python Web 爬虫 数据分析 机器学习: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Python Web 爬虫 数据分析 机器学习" style="background-color: #E8F8F5;">Python Web 爬虫 数据分析 机器学习
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/数据库-表格/" title="数据库 表格: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="数据库 表格" style="background-color: #FEF9E7;">数据库 表格
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/MySQL/" title="MySQL: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="MySQL" style="background-color: #F8F9F9;">MySQL
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Previous</div>
-            <div class="card">
-                <a href="/2018/10/15/Linux服务器/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux操作">
-                        
-                        <span class="card-title">Linux操作</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Linux系统下的操作系统1. 攻击方式PING to death  ———- 拼到死
-DOS - Deny of Service ————— 拒绝服务攻击
-DDoS - Distributed Deny of Service ———– 分</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/操作系统-Linux-防火墙/" target="_blank">
-                        <span class="chip bg-color">操作系统 Linux 防火墙</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">Next</div>
-            <div class="card">
-                <a href="/2018/10/15/MySQL预习/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL预习">
-                        
-                        <span class="card-title">MySQL预习</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">MySQL预习MySQL目录结构
-bin目录，存储可执行文件
-data目录，存储数据文件
-docs，文档
-include目录，存储包含的头文件
-lib目录，存储库文件
-share，错误消息和字符集文件
-
-MySQL的配置选项
-修改编码方式
 </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
-                            
-                        </span>
+
+    <div class="container">
+        
+
+        <article>
+            <div class="row tags-posts">
+                
+                
+                <div class="article tag-post col s12 m6 l4" data-tags="数据库 表格" data-aos="fade-up">
+                    <div class="card">
+                        <a href="/2018/10/15/数据库/">
+                            <div class="card-image tag-image">
+                                
+                                
+                                <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="数据库">
+                                
+                                <span class="card-title">数据库</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-user fa-fw"></i>
+                                    smile
+                                    
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/MySQL/" target="_blank">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
             </div>
-        </div>
-        
+        </article>
     </div>
-</article>
-</div>
-    
-
 </main>
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

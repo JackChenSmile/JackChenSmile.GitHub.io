@@ -180,13 +180,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        数据库
+                        Hello World
                     </div>
                 </div>
             </div>
@@ -204,14 +204,6 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/数据库-表格/" target="_blank">
-                    <span class="chip bg-color">数据库 表格</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
                 
 
@@ -223,116 +215,18 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>数据库 —– database - 数据的仓库（集散地）<ul>
-<li>通过数据库可以实现数据的持久化</li>
-<li>数据持久化：文件操作（读写文件）-文本文件 / Excel</li>
-<li>使用数据库的原因：当我们做数据持久化操作时不仅仅是希望能够把数据长久的保存下来，更为重要的是我们很方便的管理数据，在需要数据的时候能够很方便的把需要的数据取出来</li>
-</ul>
-</li>
-<li>1907s IBM - 关系型数据库<ul>
-<li>理论基础：关系代数和集合论</li>
-<li>具体表象：用二维表（行，列）来组织数据<ul>
-<li>行：记录（1212 电脑城 男） - 实体的具体记录</li>
-<li>列：字段（学号，姓名，性别） - 实体的属性</li>
-</ul>
-</li>
-<li>关系型数据库自己的编程语言 - SQL（结构化查询语言）</li>
-<li>DDL（数据定义语言）：create / drop / alter(修改）</li>
-<li>DML（数据操作语言）: insert / delete /update / select</li>
-<li>DCL（数据控制语言）: grant(授权）/ revoke(撤销）</li>
-<li>关系型数据库产品：<ul>
-<li>Oracle - Oracle 12c</li>
-<li>MySQL -Oracle</li>
-<li>SQLServer</li>
-<li>PostgreSQl</li>
-<li>DB2<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>SQL （Structred Query Language)</li>
-<li>DDL（数据定义语言）：create / drop / alter(修改）</li>
-<li>DML（数据操作语言）: insert / delete /update / select</li>
-<li>DCL（数据控制语言）: grant(授权）/ revoke(撤销)</li>
-<li>DDL(Data Default Language)</li>
-</ul>
-<p><code>create database school default charset utf8;</code></p>
-<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><p><code>drop database if exists school;</code></p>
-<h4 id="切换到数据库school"><a href="#切换到数据库school" class="headerlink" title="切换到数据库school"></a>切换到数据库school</h4><p><code>use school;</code></p>
-<h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><p><code>drop table if exists tb_student;</code></p>
-<h4 id="创建二维表保存数据"><a href="#创建二维表保存数据" class="headerlink" title="创建二维表保存数据"></a>创建二维表保存数据</h4><ul>
-<li>列名 数据类型 约束条件</li>
-<li>非空约束 —- not null</li>
-<li>默认值约束 —– default</li>
-<li>主键 ——- 表中能够唯一标识一条记录的列</li>
-<li>主键约束 —— primary key<pre><code>create table tb_student
-(
-stuid int not null,
-stuname varchar(4) not null,
-gender bit default 1,
-brith date,
-addr varchar(50),
-primary key (stuid)
-);
-</code></pre></li>
-<li>修改表<pre><code>alter table tb_student add column tel char(11) not null;
-alter table tb_student drop column brith;
-alter table tb_student add score int not null;
-</code></pre></li>
-<li>插入数据<br>– DMl (Data Manipulation Language)<pre><code>insert into tb_student values 
-(1001, &#39;天明&#39;, 0, &#39;四川&#39;, &#39;17640141329&#39;, 90);
-insert into tb_student values 
-(1002, &#39;王大锤&#39;, 1, &#39;四川&#39;, &#39;17640141329&#39;,80);
-insert into tb_student (stuid, tel, stuname, score, addr) values
-(1003, &#39;17640141329&#39;, &#39;盖聂&#39;, 100, &#39;四川成都&#39;);
-insert into tb_student (stuid, tel, stuname, score) values
-(1004, &#39;17640141329&#39;, &#39;张三&#39;, 60),
-(1005, &#39;17640141329&#39;, &#39;豆丁&#39;, 85),
-(1006, &#39;17640141329&#39;, &#39;小明&#39;, 55);
-</code></pre></li>
-<li>删除数据<pre><code>delete from tb_student where stuid=1006;
-delete from tb_student where stuname=&#39;天明&#39;;
-delete from tb_student where stuid in (1004, 1006, 2000);
-</code></pre></li>
-<li>截断数据（删除全表）<br><code>truncate table tb_student;</code></li>
-<li>更新数据<pre><code>update tb_student set addr=&#39;四川绵阳&#39;, gender=0 
-where stuid in (1003, 1004);
-</code></pre></li>
-<li>查询数据<pre><code>select * from tb_student;
--- 投影
-select stuname, gender from tb_student;
--- 别名（alias --- as）
-select stuname as 姓名,gender 性别 from tb_student;
-select stuname as 姓名,if(gender, &#39;男&#39;, &#39;女&#39;) as 性别 from tb_student;
-select stuname as 姓名,case gender when 1 then &#39;男&#39; else &#39;女&#39; end as 性别 from tb_student;
-</code></pre></li>
-<li>对列做运算<br>select concat(stuname, ‘: ‘, tel) as 信息 from tb_student;</li>
-<li>筛选<br>select * from tb_student where stuid=1001;</li>
-<li>不等号用&lt;&gt;表示<br><code>`</code><br>select <em> from tb_student where stuid&lt;&gt;1001;<br>select </em> from tb_student where stuid in (1001, 1003, 1005);<br>select stuid, stuname, gender from tb_student where stuid&gt;1002;<br>select stuid, stuname, gender from tb_student where stuid&lt;=1002;<br>select stuid, stuname, gender from tb_student where gender=0;<br>select <em> from tb_student where stuid between 1002 and 1004;<br>select </em> from tb_student where stuid&gt;1004 and gender=0;<br>select * from tb_student where stuid&gt;1004 or gender=0;</li>
-<li>注意：判断一个字段是否为null不能用=和&lt;&gt;<br>select <em> from tb_student where addr is null;<br>select </em> from tb_student where addr is not null;<br><code>`</code></li>
-<li>%是一个通配符表示零个或任意多个字符<pre><code>select * from tb_student where stuname like &#39;张%&#39;;
-select * from tb_student where stuname like &#39;%三%&#39;;
-</code></pre></li>
-<li>_也是一个通配符，它表示一个字符<pre><code>select * from tb_student where stuname like &#39;张_&#39;;
-select * from tb_student where stuname like &#39;张__&#39;;
-</code></pre></li>
-<li>排序——order by </li>
-<li>默认升序（ascending）可以不写，降序descending必须写<pre><code>select * from tb_student order by stuid desc;
-select * from tb_student order by tel asc;
-select * from tb_student order by gender asc, stuid desc;
-select * from tb_student where gender=0 order by stuid desc;
-</code></pre></li>
-<li>分页（限制）<pre><code>select * from tb_student limit 3;
-select * from tb_student limit 3 offset 3;
-</code></pre></li>
-<li><p>跳过6条信息，查3条信息<br><code>select * from tb_student limit 3 offset 6;</code></p>
-</li>
-<li><p>跳过2条信息，查4条信息</p>
-<pre><code>select * from tb_student limit 2,4;
-select * from tb_student where gender=1 order by stuid desc limit 0, 3;
-</code></pre></li>
-</ul>
+                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-zh-"><code class="language-zh-">$ hexo new "My New Post"
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code>$ hexo deploy
+</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
             </div>
             <hr/>
@@ -352,7 +246,7 @@ select * from tb_student where gender=1 order by stuid desc limit 0, 3;
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">闪烁之狐</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/数据库/" class="b-link-green">数据库</a>
+                    <a href="/2018/10/15/hello-world/" class="b-link-green">Hello World</a>
                 </p>
             </div>
         </div>
@@ -372,21 +266,21 @@ select * from tb_student where gender=1 order by stuid desc limit 0, 3;
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/10/15/vim/">
+                <a href="/2018/10/15/README/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="vim">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Python">
                         
-                        <span class="card-title">vim</span>
+                        <span class="card-title">Python</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">vimrc ——————- 保存格式的文件vim
-文件意外中断，r恢复，b删除
-vim 文件1 文件2 ———– 同时打开多个文件
-vim -d 文件1 文件2 ———— 比较文件1和文件2如果vim打开了多个文件，可以在末行模式中
-：ls</div>
+                    <div class="summary">Python第1天
+前端页面 = 标签(内容) + CSS(显示) + JavaScript(行为)
+JavaScript = ECMAScript + BOM(window) + DOM(document)
+window 
+alert()</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
@@ -407,20 +301,21 @@ vim -d 文件1 文件2 ———— 比较文件1和文件2如果vim打开了多
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/10/15/Python参考书籍/">
+                <a href="/2018/10/15/vim/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="编程相关书籍">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="vim">
                         
-                        <span class="card-title">编程相关书籍</span>
+                        <span class="card-title">vim</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Python参考书籍入门读物
-《Python基础教程》（Beginning Python From Novice to Professional）
-《Python学习手册》（Learning Python）
-《Python编程》（Progr</div>
+                    <div class="summary">vimrc ——————- 保存格式的文件vim
+文件意外中断，r恢复，b删除
+vim 文件1 文件2 ———– 同时打开多个文件
+vim -d 文件1 文件2 ———— 比较文件1和文件2如果vim打开了多个文件，可以在末行模式中
+：ls</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
@@ -432,14 +327,6 @@ vim -d 文件1 文件2 ———— 比较文件1和文件2如果vim打开了多
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python-Web-爬虫-数据分析-机器学习/" target="_blank">
-                        <span class="chip bg-color">Python Web 爬虫 数据分析 机器学习</span>
-                    </a>
-                    
                 </div>
                 
             </div>
