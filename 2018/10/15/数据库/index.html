@@ -223,7 +223,10 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
+                <p>​        数据库（Database）是按照数据结构来组织、存储和管理数据的仓库，</p>
+<p>每个数据库都有一个或多个不同的API用于创建，访问，管理，搜索和复制所保存的数据。</p>
+<p>—– 从删库，到跑路额！</p>
+<ul>
 <li>数据库 —– database - 数据的仓库（集散地）<ul>
 <li>通过数据库可以实现数据的持久化</li>
 <li>数据持久化：文件操作（读写文件）-文本文件 / Excel</li>
@@ -266,7 +269,7 @@
 <li>非空约束 —- not null</li>
 <li>默认值约束 —– default</li>
 <li>主键 ——- 表中能够唯一标识一条记录的列</li>
-<li>主键约束 —— primary key<pre><code>create table tb_student
+<li>主键约束 —— primary key<pre class=" language-mysql"><code class="language-mysql">create table tb_student
 (
 stuid int not null,
 stuname varchar(4) not null,
@@ -275,63 +278,74 @@ brith date,
 addr varchar(50),
 primary key (stuid)
 );
-</code></pre></li>
-<li>修改表<pre><code>alter table tb_student add column tel char(11) not null;
+</code></pre>
+</li>
+<li>修改表<pre class=" language-mysql"><code class="language-mysql">alter table tb_student add column tel char(11) not null;
 alter table tb_student drop column brith;
 alter table tb_student add score int not null;
-</code></pre></li>
-<li>插入数据<br>– DMl (Data Manipulation Language)<pre><code>insert into tb_student values 
-(1001, &#39;天明&#39;, 0, &#39;四川&#39;, &#39;17640141329&#39;, 90);
+</code></pre>
+</li>
+<li>插入数据<br>– DMl (Data Manipulation Language)<pre class=" language-mysql"><code class="language-mysql">insert into tb_student values 
+(1001, '天明', 0, '四川', '17640141329', 90);
 insert into tb_student values 
-(1002, &#39;王大锤&#39;, 1, &#39;四川&#39;, &#39;17640141329&#39;,80);
+(1002, '王大锤', 1, '四川', '17640141329',80);
 insert into tb_student (stuid, tel, stuname, score, addr) values
-(1003, &#39;17640141329&#39;, &#39;盖聂&#39;, 100, &#39;四川成都&#39;);
+(1003, '17640141329', '盖聂', 100, '四川成都');
 insert into tb_student (stuid, tel, stuname, score) values
-(1004, &#39;17640141329&#39;, &#39;张三&#39;, 60),
-(1005, &#39;17640141329&#39;, &#39;豆丁&#39;, 85),
-(1006, &#39;17640141329&#39;, &#39;小明&#39;, 55);
-</code></pre></li>
-<li>删除数据<pre><code>delete from tb_student where stuid=1006;
-delete from tb_student where stuname=&#39;天明&#39;;
+(1004, '17640141329', '张三', 60),
+(1005, '17640141329', '豆丁', 85),
+(1006, '17640141329', '小明', 55);
+</code></pre>
+</li>
+<li>删除数据<pre class=" language-mysql"><code class="language-mysql">delete from tb_student where stuid=1006;
+delete from tb_student where stuname='天明';
 delete from tb_student where stuid in (1004, 1006, 2000);
-</code></pre></li>
+</code></pre>
+</li>
 <li>截断数据（删除全表）<br><code>truncate table tb_student;</code></li>
-<li>更新数据<pre><code>update tb_student set addr=&#39;四川绵阳&#39;, gender=0 
+<li>更新数据<pre class=" language-mysql"><code class="language-mysql">update tb_student set addr='四川绵阳', gender=0 
 where stuid in (1003, 1004);
-</code></pre></li>
-<li>查询数据<pre><code>select * from tb_student;
+</code></pre>
+</li>
+<li>查询数据<pre class=" language-mysql"><code class="language-mysql">select * from tb_student;
 -- 投影
 select stuname, gender from tb_student;
 -- 别名（alias --- as）
 select stuname as 姓名,gender 性别 from tb_student;
-select stuname as 姓名,if(gender, &#39;男&#39;, &#39;女&#39;) as 性别 from tb_student;
-select stuname as 姓名,case gender when 1 then &#39;男&#39; else &#39;女&#39; end as 性别 from tb_student;
-</code></pre></li>
+select stuname as 姓名,if(gender, '男', '女') as 性别 from tb_student;
+select stuname as 姓名,case gender when 1 then '男' else '女' end as 性别 from tb_student;
+</code></pre>
+</li>
 <li>对列做运算<br>select concat(stuname, ‘: ‘, tel) as 信息 from tb_student;</li>
 <li>筛选<br>select * from tb_student where stuid=1001;</li>
-<li>不等号用&lt;&gt;表示<br><code>`</code><br>select <em> from tb_student where stuid&lt;&gt;1001;<br>select </em> from tb_student where stuid in (1001, 1003, 1005);<br>select stuid, stuname, gender from tb_student where stuid&gt;1002;<br>select stuid, stuname, gender from tb_student where stuid&lt;=1002;<br>select stuid, stuname, gender from tb_student where gender=0;<br>select <em> from tb_student where stuid between 1002 and 1004;<br>select </em> from tb_student where stuid&gt;1004 and gender=0;<br>select * from tb_student where stuid&gt;1004 or gender=0;</li>
+<li>不等号用&lt;&gt;表示<br><code>`</code>mysql<br>select <em> from tb_student where stuid&lt;&gt;1001;<br>select </em> from tb_student where stuid in (1001, 1003, 1005);<br>select stuid, stuname, gender from tb_student where stuid&gt;1002;<br>select stuid, stuname, gender from tb_student where stuid&lt;=1002;<br>select stuid, stuname, gender from tb_student where gender=0;<br>select <em> from tb_student where stuid between 1002 and 1004;<br>select </em> from tb_student where stuid&gt;1004 and gender=0;<br>select * from tb_student where stuid&gt;1004 or gender=0;</li>
 <li>注意：判断一个字段是否为null不能用=和&lt;&gt;<br>select <em> from tb_student where addr is null;<br>select </em> from tb_student where addr is not null;<br><code>`</code></li>
-<li>%是一个通配符表示零个或任意多个字符<pre><code>select * from tb_student where stuname like &#39;张%&#39;;
-select * from tb_student where stuname like &#39;%三%&#39;;
-</code></pre></li>
-<li>_也是一个通配符，它表示一个字符<pre><code>select * from tb_student where stuname like &#39;张_&#39;;
-select * from tb_student where stuname like &#39;张__&#39;;
-</code></pre></li>
+<li>%是一个通配符表示零个或任意多个字符<pre class=" language-mysql"><code class="language-mysql">select * from tb_student where stuname like '张%';
+select * from tb_student where stuname like '%三%';
+</code></pre>
+</li>
+<li>_也是一个通配符，它表示一个字符<pre class=" language-mysql"><code class="language-mysql">select * from tb_student where stuname like '张_';
+select * from tb_student where stuname like '张__';
+</code></pre>
+</li>
 <li>排序——order by </li>
-<li>默认升序（ascending）可以不写，降序descending必须写<pre><code>select * from tb_student order by stuid desc;
+<li>默认升序（ascending）可以不写，降序descending必须写<pre class=" language-mysql"><code class="language-mysql">select * from tb_student order by stuid desc;
 select * from tb_student order by tel asc;
 select * from tb_student order by gender asc, stuid desc;
 select * from tb_student where gender=0 order by stuid desc;
-</code></pre></li>
-<li>分页（限制）<pre><code>select * from tb_student limit 3;
+</code></pre>
+</li>
+<li>分页（限制）<pre class=" language-mysql"><code class="language-mysql">select * from tb_student limit 3;
 select * from tb_student limit 3 offset 3;
-</code></pre></li>
+</code></pre>
+</li>
 <li><p>跳过6条信息，查3条信息<br><code>select * from tb_student limit 3 offset 6;</code></p>
 </li>
 <li><p>跳过2条信息，查4条信息</p>
-<pre><code>select * from tb_student limit 2,4;
+<pre class=" language-mysql"><code class="language-mysql">select * from tb_student limit 2,4;
 select * from tb_student where gender=1 order by stuid desc limit 0, 3;
-</code></pre></li>
+</code></pre>
+</li>
 </ul>
 
             </div>
@@ -372,17 +386,18 @@ select * from tb_student where gender=1 order by stuid desc limit 0, 3;
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2018/10/15/hello-world/">
+                <a href="/2018/10/15/MySQL预习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL预习">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">MySQL预习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="summary">MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。
+MySQL预习MySQL</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
@@ -394,6 +409,14 @@ select * from tb_student where gender=1 order by stuid desc limit 0, 3;
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/" target="_blank">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -413,10 +436,10 @@ select * from tb_student where gender=1 order by stuid desc limit 0, 3;
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Python参考书籍入门读物
-《Python基础教程》（Beginning Python From Novice to Professional）
-《Python学习手册》（Learning Python）
-《Python编程》（Progr</div>
+                    <div class="summary">Read ten thousand books and travel ten thousand miles！
+Books are ladders of human progress！
+Python参考书籍入门读物
+《Python基础教程》（</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
