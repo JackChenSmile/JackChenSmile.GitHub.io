@@ -215,9 +215,9 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>好记心不如烂笔头</p>
-<p>站在岸上学不会游泳</p>
-<p>人生在于不断地学习</p>
+                <p><strong>好记心不如烂笔头</strong></p>
+<p><strong>站在岸上学不会游泳</strong></p>
+<p><strong>人生在于不断地学习</strong></p>
 <h2 id="创建列表过程"><a href="#创建列表过程" class="headerlink" title="创建列表过程"></a>创建列表过程</h2><ul>
 <li><p>创建SRS数据库</p>
 <pre class=" language-mysql"><code class="language-mysql">drop database if exists SRS;
@@ -486,7 +486,7 @@ select sid from tb_score group by sid having count(sid)>2);
 </code></pre>
 </li>
 <li><p>查询选课学生的姓名和平均成绩(子查询和连接查询)</p>
-<pre class=" language-mysql"><code class="language-mysql">- select sname, avgmark from tb_student t1,
+<pre class=" language-mysql"><code class="language-mysql">select sname, avgmark from tb_student t1,
 (select sid, avg(mark) as avgmark from tb_score group by sid) t2
 where stuid=sid;
 
@@ -494,6 +494,7 @@ select sname,cname,mark from tb_student
 inner join tb_score on stuid=sid
 inner join tb_course on couid=cid
 where mark is not null;
+-- 注意：在连接查询时结果没有给出连接条件就会形成笛卡尔积
 
 -- 笛卡儿积
 -- A(a, b, c)*B(d, e)={ad, ae,bd, be, cd, ce}
@@ -503,6 +504,13 @@ where mark is not null;
 select sname,cname,mark
 from tb_score, tb_student, tb_course
 where stuid=sid and couid=cid and mark is not null;
+
+-- 查询每个学生的姓名和选课数量（左外连接和子查询）
+-- 左外连接 ----- 把左表（写在连接前面的表）不满足连接条件的记录也查询出来对应记录补null值
+-- 右外连接 ----- 把右表（写在连接后面的表）不满足连接条件的记录也查询出来对应记录补null值
+select sname as 姓名, conter as 选课数量 from tb_student left join,
+(select sid, count(sid) as conter from tb_score group by sid)t2
+on stuid(+)=sid;
 
 </code></pre>
 </li>

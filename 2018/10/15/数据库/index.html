@@ -260,7 +260,7 @@
 <li>DCL（数据控制语言）: grant(授权）/ revoke(撤销)</li>
 <li>DDL(Data Default Language)</li>
 </ul>
-<p><code>create database school default charset utf8;</code></p>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><p><code>create database school default charset utf8;</code></p>
 <h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><p><code>drop database if exists school;</code></p>
 <h4 id="切换到数据库school"><a href="#切换到数据库school" class="headerlink" title="切换到数据库school"></a>切换到数据库school</h4><p><code>use school;</code></p>
 <h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><p><code>drop table if exists tb_student;</code></p>
@@ -346,6 +346,68 @@ select * from tb_student limit 3 offset 3;
 select * from tb_student where gender=1 order by stuid desc limit 0, 3;
 </code></pre>
 </li>
+</ul>
+<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2><ul>
+<li><p>创建hellokitty用户并设置口令</p>
+<pre class=" language-mysql"><code class="language-mysql">create user 'hellokitty'@'%'identified by '123123';
+</code></pre>
+</li>
+<li><p>给hellokitty授权</p>
+<pre class=" language-mysql"><code class="language-mysql">grant select on srs.* to 'hellokitty'@'%';
+grant insert, delete, update on srs.* to 'hellokitty'@'%';
+grant create, drop, alter on srs.* to 'hellokitty'@'%';
+</code></pre>
+</li>
+<li><p>获得srs的所有权限，但不能授权给别人</p>
+<pre class=" language-mysql"><code class="language-mysql">grant all privileges on srs.* to 'hellokitty'@'%';
+grant all privileges on *.* to 'hellokitty'@'%';
+</code></pre>
+</li>
+<li><p>将hellokitty自己得到的权限再授权给别人</p>
+<pre class=" language-mysql"><code class="language-mysql">grant all privileges on srs.* to 'hellokitty'@'%' with grant option;
+</code></pre>
+</li>
+<li><p>召回权限</p>
+<pre class=" language-mysql"><code class="language-mysql">revoke all privileges on srs.* from 'hellokitty'@'%';
+</code></pre>
+</li>
+</ul>
+<h5 id="事务控制"><a href="#事务控制" class="headerlink" title="事务控制"></a>事务控制</h5><ul>
+<li><p>创建hellokitty用户并设置口令</p>
+<pre class=" language-mysql"><code class="language-mysql">create user 'hellokitty'@'%'identified by '123123';
+</code></pre>
+</li>
+<li><p>给hellokitty授权</p>
+<pre class=" language-mysql"><code class="language-mysql">grant select on srs.* to 'hellokitty'@'%';
+grant insert, delete, update on srs.* to 'hellokitty'@'%';
+grant create, drop, alter on srs.* to 'hellokitty'@'%';
+</code></pre>
+</li>
+<li><p>获得srs的所有权限，但不能授权给别人</p>
+<pre class=" language-mysql"><code class="language-mysql">grant all privileges on srs.* to 'hellokitty'@'%';
+grant all privileges on *.* to 'hellokitty'@'%';
+</code></pre>
+</li>
+<li><p>将hellokitty自己得到的权限再授权给别人</p>
+<pre class=" language-mysql"><code class="language-mysql">grant all privileges on srs.* to 'hellokitty'@'%' with grant option;
+</code></pre>
+</li>
+<li><p>召回权限</p>
+<pre class=" language-mysql"><code class="language-mysql">revoke all privileges on srs.* from 'hellokitty'@'%';
+</code></pre>
+</li>
+</ul>
+<h6 id="事务控制-1"><a href="#事务控制-1" class="headerlink" title="事务控制"></a>事务控制</h6><ul>
+<li><p>开启事务环境</p>
+<pre class=" language-mysql"><code class="language-mysql">begin
+-- start transaction
+update tb_score set mark=mark-2 where sid=1001 and mark is not null;
+update tb_score set mark=mark+2 where sid=1002 and mark is not null;
+</code></pre>
+</li>
+<li><p>事务提交<br><code>commit；</code></p>
+</li>
+<li>事务回滚<br><code>rollback；</code></li>
 </ul>
 
             </div>
