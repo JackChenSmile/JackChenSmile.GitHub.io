@@ -180,13 +180,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        MySQL预习
+                        redis_order
                     </div>
                 </div>
             </div>
@@ -206,8 +206,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/MySQL/" target="_blank">
-                    <span class="chip bg-color">MySQL</span>
+                <a href="/tags/order/" target="_blank">
+                    <span class="chip bg-color">order</span>
                 </a>
                 
             </div>
@@ -216,103 +216,186 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-18
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。</p>
-<h1 id="MySQL预习"><a href="#MySQL预习" class="headerlink" title="MySQL预习"></a>MySQL预习</h1><h3 id="MySQL目录结构"><a href="#MySQL目录结构" class="headerlink" title="MySQL目录结构"></a>MySQL目录结构</h3><ul>
-<li>bin目录，存储可执行文件</li>
-<li>data目录，存储数据文件</li>
-<li>docs，文档</li>
-<li>include目录，存储包含的头文件</li>
-<li>lib目录，存储库文件</li>
-<li>share，错误消息和字符集文件</li>
+                <h2 id="redis-命令"><a href="#redis-命令" class="headerlink" title="redis 命令"></a>redis 命令</h2><ul>
+<li>Redis：REmote Dictionary </li>
+<li>Server(Redis)远程字典服务器，为网站提供高速缓存服务</li>
 </ul>
-<h3 id="MySQL的配置选项"><a href="#MySQL的配置选项" class="headerlink" title="MySQL的配置选项"></a>MySQL的配置选项</h3><ul>
-<li><p><strong>修改编码方式</strong></p>
-<p><strong>[mysql]</strong></p>
-<p><strong>default-character-set=utf8</strong></p>
-<p><strong>[mysqld]</strong></p>
-<p><strong>character-set-server=utf8</strong></p>
-</li>
+<h4 id="信息隐藏"><a href="#信息隐藏" class="headerlink" title="信息隐藏:"></a>信息隐藏:</h4><p>&emsp;&emsp;信息隐藏是指在设计和确定模块时，使得一个模块内包含的特定信息（过程或数据），对于不需要这些信息的其他模块来说，是不可访问的</p>
+<h5 id="启动Redis服务器步骤-谨慎"><a href="#启动Redis服务器步骤-谨慎" class="headerlink" title="启动Redis服务器步骤(谨慎):"></a>启动Redis服务器步骤(谨慎):</h5><pre><code>1.修改Redis配置文件redis.conf(安装文件目录下)
+    cp redis-4.0.11/redis.conf redis.conf
+    vim redis.conf
+    bind 内网地址
+    requirepass 密码
+    appendonly yes
+2.启动服务器
+    redis-server redis.conf(配置文件) &gt; redis.log &amp;
+3.启动客户端
+    redis-cli -h ip地址(私用ip地址)
+4.验证身份
+    auth 密码
+5.测试连接输入ping 回应PONG表示连接成功
+
+操作:
+    keys *  查看所有键
+    select 1切换到1号数据库
+    select 15切换到15号数据库
+    flushall 删掉所有数据库的所有数据
+    flushdb 删掉当前一个数据库的数据删掉
+    save 保存数据
+    bgsave 后台保存
+    set key value ex 存活时间 ：设置键值对并设置存活时间
+    ttl key:查看数据的存活时间（ttl time to live),如果看到-1说明这个数据永不超时，如果-2说明没这个数据
+    expire key 时间: 设置已有键的存活时间
+    ince key:增加值
+    decr key:减少值
+
+基准测试：
+    redis-benchmark -h ip -a 密码    测试redis性能
+
+
+    LBS：Location-Base Service
+字符串:
+    setnx:如果不存在才赋值
+    setex:在设置键值对的时候同时设置存活时间
+    mset:一次放很多键值对
+    mget:一次获取多个键值对
+
+哈希表(hash)
+    hset:设置hash类型
+    hget:获取值 hget key filed
+    hgetall:获取对应key的所有值（hgetall key）
+    hmget:一次性获取多个值
+    hmset:一次性赋值多个
+        hmset stu1 id 101 name baiyuan age 12 gender male
+    hdel:删除哈希数据
+        hdel stu1 age
+    hexists:判断对应键是否存在某字典
+        hexists stu1 mile
+    hlen:统计键有多少字段
+    hkey:取出对应键的所有字段
+    hvals:取出对应键的所有值
+    hscan:遍历键值对
+
+列表:(List)
+    lpush:向列表放原始(从左边开始放)
+        lpush list1 1 2 3 4 5
+
+    lpop:从左边开始取
+    rpop:从右边开始取
+    rpush:(从右边开始放)
+    lrange:指定范围取元素()
+        lrange list1 start end
+        lrange list1 0 -1
+    lset:修改列表指定下标的值
+        lset list 1 1000
+    blpop:如果列表没东西，且时间未超时就阻塞，有东西拿走，超时就结束（从左边取）
+        blpop list1 20
+    brpop：如果列表没东西，且时间未超时就阻塞，有东西拿走，超时就结束（从右边取）
+    brpoplpush:从右边取一个元素，并把这个元素放到另一个列表的左边（阻塞式）
+
+集合(Set):
+    sadd:向集合添加元素
+        sadd set1 10 20 10 20 30
+    smebers:查看集合中的元素    
+        smerbers set1
+    sinter:交集
+        sinter 集合1 集合2
+    sunion:并集
+        sunion 集合1 集合2
+    sdiff:差集
+        sdiff 集合1 集合2
+    sismenber:判断元素在不在集合中
+        sismenber 集合 元素
+    spop:从集合中取出一个元素
+    srandmenber:从集合中随机返回一个元素（实际没有拿走）
+    srem:移除集合中的一个或者多个元素，如果不存在就忽略
+
+浮点数表示法的问题
+    有序集合（SortedSet）
+    zadd:添加有序集合
+        zadd 集合名 值 元素
+    zrange:查看元素
+        zrange zs1 0 -1
+        zrange zs1 0 -1 withscores 显示元素的时候把分数值也显示出来
+    zrangebyscore:指定搜索范围来搜索数据
+        zrangebyscore zs1 10 20
+    zrank:查看元素的排名
+        zrank zs1 apple
+    zreverange:从大到小排序查询
+        zreverange zs1
+
+type(值)：查看对应值的类型
+
+事务:
+mult开始事务
+exec:执行
+discard：放弃执行
+
+
+服务器:
+bgsave：后台保存
+dbsize: 查看数据库有多少键
+slaveof:把redis设置成那个的奴隶（主从复制，读写分离）
+shutdown：关闭服务器
+info:查看服务器相关信息
+
+redis-check-aof -fix appendonly.aof    修复aof的文件
+</code></pre><ul>
+<li>type —– 查看键的类型</li>
+<li>setnx —– 设置已存在键的值</li>
+<li>sentex —- 设置键值对的同时设置时间</li>
 </ul>
-<h3 id="MySQL服务的启动和关闭"><a href="#MySQL服务的启动和关闭" class="headerlink" title="MySQL服务的启动和关闭"></a>MySQL服务的启动和关闭</h3><ul>
-<li><p><strong>启动MySQL服务</strong></p>
-<p><strong>net start mysql</strong></p>
-</li>
-<li><p><strong>关闭MySQL服务</strong></p>
-<p><strong>net stop mysql</strong></p>
-</li>
+<h4 id="Hash-——-保存对象"><a href="#Hash-——-保存对象" class="headerlink" title="Hash ——- 保存对象"></a>Hash ——- 保存对象</h4><ul>
+<li>hset —– 创建key</li>
+<li>hget —– 取出key</li>
+<li>hgetall —- 取出key的全部属性</li>
+<li>hmset ——- 创建key并设置多个属性</li>
+<li>hmget ——- 取出key的多个属性</li>
+<li>hdel —– 删除key的一个或多个属性</li>
+<li>hexists —– 查看key是否存在</li>
+<li>hlen —– 统计key对应多少个字段</li>
+<li>hkeys ——- 返回key中的所有的域</li>
+<li>hscan ——- 遍历key及域（遍历字典的键和值）</li>
 </ul>
-<h3 id="MySQL的使用"><a href="#MySQL的使用" class="headerlink" title="MySQL的使用"></a>MySQL的使用</h3><ol>
-<li><p><strong>MySQL登录</strong></p>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p><strong><code>lset list1 0 name</code></strong></p>
 <ul>
-<li><p>mysql  参数</p>
-<p><img src="/2018/10/15/MySQL预习/MySQL1.jpg" alt="MySQL1"></p>
-</li>
+<li>lset —— 给列表1中的下标为0的元素赋值为name</li>
+<li>lpop —— 取出列表的头元素（左边第一个）元素</li>
+<li>rpop —— 取出列表的尾元素（右边第一个）元素</li>
+<li>lpush —— 在表头插入一个或多个值</li>
+<li>rpush —— 在表尾插入一个或多个值</li>
+<li>lrange —— 取出指定的元素</li>
+<li>lset —— 修改原有列表的特定元素值</li>
+<li>blpop —— 阻塞式从左边取出元素（有元素，不阻塞，没有元素，等待输入元素，然后取出）</li>
+<li>blpop —— 阻塞式从右边取出元素（有元素，不阻塞，没有元素，等待输入元素，然后取出）</li>
+<li>rpoplpush A B —— 从A中取出，从B中左边存入</li>
 </ul>
-</li>
-<li><p><strong>MySQL退出</strong></p>
-<ul>
-<li><strong>mysql &gt; exit;</strong></li>
-<li><strong>mysql &gt; quit;</strong></li>
-<li><strong>mysql &gt; \q;</strong></li>
+<h4 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h4><ul>
+<li>sadd —– 添加一个或多个元素</li>
+<li>srem —– 删除一个或多个指定的元素</li>
+<li>scard —— 查看集合中有多少个元素</li>
+<li>smembers —– 查看集合的元素</li>
+<li>sinter —— 查看两个集合的交集</li>
+<li>sunion —– 查看两个集合的并集</li>
+<li>sdiff —— 查看两个集合的差集</li>
+<li>sismember —— 查看一个集合中是否存在一个给定的元素</li>
+<li>spop —– 取出一个随机元素（不同）</li>
+<li>srandmember —— 取出一个随机元素（可能相同）</li>
 </ul>
-</li>
-</ol>
-<h3 id="修改MySQL提示符"><a href="#修改MySQL提示符" class="headerlink" title="修改MySQL提示符"></a>修改MySQL提示符</h3><ul>
-<li><p><strong>连接客户端时通过参数指定</strong></p>
-<p><code>shell&gt;mysql -uroot -proot -prompt 提示符</code>    </p>
-</li>
-<li><p><strong>连接上客户端后，通过prompt的命令来实现</strong></p>
-<ul>
-<li><code>mysql&gt;prompt 提示符</code>    <ul>
-<li><strong>\D ———– 完整的日期</strong></li>
-<li><strong>\d ———– 当前数据库</strong></li>
-<li><strong>\h ———– 服务器的名称</strong></li>
-<li><strong>\u ———– 当前用户</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="MySQL常用命令"><a href="#MySQL常用命令" class="headerlink" title="MySQL常用命令"></a>MySQL常用命令</h3><ul>
-<li><p><strong>显示当前服务器版本</strong></p>
-<p><strong>SELECT  VERSION();</strong></p>
-</li>
-<li><p><strong>显示当前日期时间</strong></p>
-<p><strong>SELECT  NOW();</strong></p>
-</li>
-<li><p><strong>显示当前用户</strong></p>
-<p><strong>SELECT  USER();</strong></p>
-</li>
-</ul>
-<h3 id="MySQL语句的规范"><a href="#MySQL语句的规范" class="headerlink" title="MySQL语句的规范"></a>MySQL语句的规范</h3><ul>
-<li><strong>关键字与函数名称全部大写</strong></li>
-<li><strong>数据库名称、表名称、字段名称全部小写</strong></li>
-<li><strong>SQL语句必须以分号结尾</strong></li>
-</ul>
-<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ul>
-<li><p><strong>CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] DB_name</strong></p>
-<p><strong>[DEFAULT] CHARACTER SET [=] charset_name</strong></p>
-</li>
-</ul>
-<h3 id="查看当前服务器下的数据表列表"><a href="#查看当前服务器下的数据表列表" class="headerlink" title="查看当前服务器下的数据表列表"></a>查看当前服务器下的数据表列表</h3><ul>
-<li><p><strong>SHOW {DATABASES | SCHEMAS}</strong></p>
-<p><strong>[LIKE ‘pattern‘ | WHERE expr]</strong></p>
-</li>
-</ul>
-<h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><ul>
-<li><p><strong>ALTER {DATABASE | SCHEMA} [db_name]</strong></p>
-<p><strong>[DEFAULT] CHARACTER SET [=] charset_name</strong></p>
-</li>
-</ul>
-<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><ul>
-<li><strong>DROP {DATABASE | SCHEMA} [IF EXISTS] bd_name</strong></li>
+<h4 id="Sortedset（有序集合）"><a href="#Sortedset（有序集合）" class="headerlink" title="Sortedset（有序集合）"></a>Sortedset（有序集合）</h4><ul>
+<li>zadd —– 添加元素</li>
+<li>zrange —– 查看元素（排好序的）</li>
+<li>zrangebyscore —- 指定范围查看</li>
+<li>zrank —– 排名（从0开始排的）</li>
+<li>zrem —– 删除</li>
+<li>zrevrange —— 倒序排列</li>
 </ul>
 
             </div>
@@ -333,7 +416,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/MySQL预习/" class="b-link-green">MySQL预习</a>
+                    <a href="/2018/10/18/redis-order/" class="b-link-green">redis_order</a>
                 </p>
             </div>
         </div>
@@ -350,26 +433,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Previous</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Current</div>
             <div class="card">
-                <a href="/2018/10/15/Linux服务器/">
+                <a href="/2018/10/18/redis-order/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux操作">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="redis_order">
                         
-                        <span class="card-title">Linux操作</span>
+                        <span class="card-title">redis_order</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Linux内核最初只是由芬兰人李纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。
-Linux能运行主要的UNIX工具软件、应用程序和网络协议
-Linux发行版本：Ubuntu、RedHat、CentOS</div>
+                    <div class="summary">redis 命令
+Redis：REmote Dictionary 
+Server(Redis)远程字典服务器，为网站提供高速缓存服务
+
+信息隐藏:&emsp;&emsp;信息隐藏是指在设计和确定模块时，使得一个模块内包含的特定信息（过程或数</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -378,11 +463,12 @@ Linux发行版本：Ubuntu、RedHat、CentOS</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/操作系统-Linux-防火墙/" target="_blank">
-                        <span class="chip bg-color">操作系统 Linux 防火墙</span>
+                    <a href="/tags/order/" target="_blank">
+                        <span class="chip bg-color">order</span>
                     </a>
                     
                 </div>
@@ -394,24 +480,27 @@ Linux发行版本：Ubuntu、RedHat、CentOS</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/10/15/README/">
+                <a href="/2018/10/17/python-database/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Python">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="python_database">
                         
-                        <span class="card-title">Python</span>
+                        <span class="card-title">python_database</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">学习是一件庄严而又神圣的事情，贵在坚持
-不断地积累,才能体会到其中的乐趣
-Python第1天
-前端页面 = 标签(内容) + CSS(显示) + JavaScript(行为)
-JavaScript = ECMAScript + BOM(wi</div>
+                    <div class="summary">数据库的微操做进行数据的增加，修改，删除，查看
+在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。
+—– 从删库，到跑路额！
+import pymysql
+
+
+class Dept(object):
+   </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-17
                             </span>
                         <span class="publish-author">
                             
