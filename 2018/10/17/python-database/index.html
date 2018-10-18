@@ -180,13 +180,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Linux操作
+                        python_database
                     </div>
                 </div>
             </div>
@@ -204,92 +204,130 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/操作系统-Linux-防火墙/" target="_blank">
-                    <span class="chip bg-color">操作系统 Linux 防火墙</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-17
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Linux内核最初只是由芬兰人李纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。</p>
-<p>Linux能运行主要的UNIX工具软件、应用程序和网络协议</p>
-<p>Linux发行版本：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。</p>
-<h1 id="Linux系统下的操作系统"><a href="#Linux系统下的操作系统" class="headerlink" title="Linux系统下的操作系统"></a>Linux系统下的操作系统</h1><h2 id="1-攻击方式"><a href="#1-攻击方式" class="headerlink" title="1. 攻击方式"></a>1. 攻击方式</h2><p>PING to death  ———- 拼到死</p>
-<p>DOS - Deny of Service ————— 拒绝服务攻击</p>
-<p>DDoS - Distributed Deny of Service ———– 分布式拒绝服务攻击</p>
-<h2 id="2-查看本机IP"><a href="#2-查看本机IP" class="headerlink" title="2. 查看本机IP"></a>2. 查看本机IP</h2><p>ifconfig</p>
-<h2 id="3-连接其它的服务器"><a href="#3-连接其它的服务器" class="headerlink" title="3. 连接其它的服务器"></a>3. 连接其它的服务器</h2><p>ssh <a href="mailto:root@IP" target="_blank" rel="noopener">root@IP</a></p>
-<p>断开某个用户的终端连接： </p>
-<p>​    命令：fuser -k /dev/pts/x  （x为who下看到的这个用户的pts序号，比如本例中的pts/0,pts/1）   </p>
-<p>​            example： fuser -k /dev/pts/0</p>
-<h2 id="4-给其它的服务器拷贝文件"><a href="#4-给其它的服务器拷贝文件" class="headerlink" title="4. 给其它的服务器拷贝文件"></a>4. 给其它的服务器拷贝文件</h2><p>一个用户操作另外两个用户的文件：</p>
-<p> scp  用户名@IP：/绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p>
-<p>从本地到远程用户：</p>
-<p>scp /绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p>
-<h2 id="5-操作远端用户"><a href="#5-操作远端用户" class="headerlink" title="5. 操作远端用户"></a>5. 操作远端用户</h2><p>sftp 用户名@IP</p>
-<p>​    用户名密码</p>
-<p>​    get 要下载的文件名</p>
-<p>​    put 上传的文件名</p>
-<p>​    lls 查看本地目录</p>
-<p>在输入的命令前加上<l>，就可以操作本地文件，直接输入命令，操作连接的用户文件</l></p>
-<p>​    l(命令) 操作本地文件</p>
-<h2 id="6-网络端口"><a href="#6-网络端口" class="headerlink" title="6. 网络端口"></a>6. 网络端口</h2><p>netstat -na | grep 80   查询网络状态</p>
-<p>netstat -nap | grep 80   查看占用端口的进程</p>
-<h2 id="7-服务操作"><a href="#7-服务操作" class="headerlink" title="7. 服务操作"></a>7. 服务操作</h2><p>systemctl start &lt;进程的名字&gt;       开启服务</p>
-<p>systemctl stop <name>       禁用服务</name></p>
-<p>systemctl restart <name>    重启服务</name></p>
-<p>systemctl status <name>    查看服务状态</name></p>
-<p>systemctl senable <name>  开机自启服务</name></p>
-<p>systemctl disable <name>   禁用开机自启服务</name></p>
-<p>计算机网络分层结构模型</p>
-<p>Internet —– TCP/IP协议族</p>
-<p>TCP - Transfer Control Protocol - 传输控制协议</p>
-<p>UDP - User Datagram Protocol - 用户数据报协议</p>
-<p>IP - Internet Protocol - 网际协议</p>
-<p>TCP/IP模型</p>
-<p>应用层（定义应用之间如何传输数据，定义应用级协议）- HTTP/SMTP/SSH/POP3/FTP/ICQ</p>
-<p>传输层（端到端传输数据）- TCP/ UDP</p>
-<p>网络层/网际层 （寻址和路由）</p>
-<p>物理链路层 （数据分帧 + 校验）- 冗余校验码</p>
-<h2 id="Linux常用的防火墙服务有firewall和iptables"><a href="#Linux常用的防火墙服务有firewall和iptables" class="headerlink" title="Linux常用的防火墙服务有firewall和iptables"></a>Linux常用的防火墙服务有firewall和iptables</h2><ul>
-<li><p>systemctl start firewalld    开启防火墙</p>
-</li>
-<li><p>systemctl enable firewalld     设置开机自启防火墙</p>
-</li>
-</ul>
-<ul>
-<li><p>firewalls-cmd  –add-port=80/tcp  –permanent</p>
-</li>
-<li><p>firewalls-cmd  –add-service=80/tcp  –permanent</p>
-</li>
-</ul>
-<ul>
-<li>top —— 查看进程（CPU的利用率排序）</li>
-<li>ctrl + z     —— 把进程放到后台</li>
-<li>ctrl + c    ——  终止进程</li>
-<li>jobs —— 查看后台进程<h2 id="如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行"><a href="#如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行" class="headerlink" title="如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行"></a>如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行</h2>_bg %编号 —— 让暂停的进程继续在后台运行background</li>
-<li>fg %编号 —— 将后台的进程放到前台foreground</li>
-</ul>
-<h2 id="8-Linux根目录下"><a href="#8-Linux根目录下" class="headerlink" title="8. Linux根目录下"></a>8. Linux根目录下</h2><h2 id="http-www-runoob-com-linux-linux-system-contents-html"><a href="#http-www-runoob-com-linux-linux-system-contents-html" class="headerlink" title="http://www.runoob.com/linux/linux-system-contents.html"></a><a href="http://www.runoob.com/linux/linux-system-contents.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-system-contents.html</a></h2><p>etc:保存下载安装的文件夹</p>
-<p>安装的软件名.conf ———- 安装的软件的配置</p>
-<p>dev: 设备管理器</p>
-<p>tmp ————— 临时文件</p>
-<p>usr ————– 用户目录</p>
-<h2 id="9-Linux环境"><a href="#9-Linux环境" class="headerlink" title="9. Linux环境"></a>9. Linux环境</h2><p>Linux的shall也是一个交互式的环境，可以输入代码</p>
-<p>执行多个程序可以用分号 隔开 / &amp;&amp; 隔开 / 并列符号 ||</p>
-<p><img src="/2018/10/15/Linux服务器/Linux1.jpg" alt="Linux1"></p>
+                <h2 id="数据库的微操做"><a href="#数据库的微操做" class="headerlink" title="数据库的微操做"></a>数据库的微操做</h2><p>进行数据的增加，修改，删除，查看</p>
+<p>在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。</p>
+<p>—– 从删库，到跑路额！</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
+
+
+<span class="token keyword">class</span> <span class="token class-name">Dept</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> no<span class="token punctuation">,</span> name<span class="token punctuation">,</span> location<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>no <span class="token operator">=</span> no
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>location <span class="token operator">=</span> location
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    no = int(input('部门编号：'))
+    name = input('部门名称：')
+    location = input('部门地址：')
+    '''</span>
+
+    <span class="token comment" spellcheck="true"># 1.创建数据库连接</span>
+    conn <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+                           db<span class="token operator">=</span><span class="token string">'hrs'</span><span class="token punctuation">,</span> user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>
+                           charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">,</span> password<span class="token operator">=</span><span class="token string">'123456'</span><span class="token punctuation">,</span>
+                           autocommit<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+                           cursorclass<span class="token operator">=</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 2.获得游标对象</span>
+        <span class="token keyword">with</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cursor<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 3.向数据库服务器发出SQL</span>
+            <span class="token comment" spellcheck="true"># cursor 游标，上下文语法</span>
+            <span class="token triple-quoted-string string">'''
+            # 删除
+            result = cursor.execute(
+                'delete from TbDept where dno=40')
+            if result == 1:
+                print('删除成功!')
+           '''</span>
+
+            <span class="token triple-quoted-string string">'''
+            # 添加
+            result = cursor.execute(
+                args=(no, name, location),
+                query="insert into TbDept values (%s, %s, %s)")
+            if result == 1:
+                print('添加成功!')
+            '''</span>
+
+            <span class="token triple-quoted-string string">'''
+            如果没有添加autocommit这个属性，就可以添加下面这一段代码来提交数据
+            try:
+                result
+                conn.commit()
+            except:
+                conn.rollback()
+            '''</span>
+
+            <span class="token triple-quoted-string string">'''
+            # 修改
+            result = cursor.execute(
+                args=(name, location, no),
+                query="update TbDept set dname=%s, dloc=%s where dno=%s")
+            if result == 1:
+                print('修改成功！')
+            '''</span>
+            <span class="token triple-quoted-string string">'''
+            # 命名占位符
+            result = cursor.execute(
+                args={'no':no, 'name':name, 'loc':location},
+                query="update TbDept set dname=%(name)s, dloc=%(loc)s where dno=%(no)s")
+            if result == 1:
+                print('修改成功！')
+            '''</span>
+            <span class="token triple-quoted-string string">'''
+            # 查看信息1
+            cursor.execute(
+                "select dno, dname, dloc from TbDept")
+            for row in cursor.fetchall():
+                print(f'部门编号：{row[0]}')
+                print(f'部门名称：{row[1]}')
+                print(f'部门地址：{row[2]}')
+                print('-' * 20)
+            '''</span>
+            <span class="token triple-quoted-string string">'''
+            # 查看信息2
+            cursor.execute("select dno as no, dname as name, dloc as loc from TbDept")
+            print('-' * 20)
+            for row in cursor.fetchall():
+                print(row['no'], end='\t')
+                print(row['name'], end='\t')
+                print(row['loc'])
+            '''</span>
+            <span class="token comment" spellcheck="true"># 查看信息3</span>
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">" select dno as no, dname as name, dloc as location "</span>
+                           <span class="token string">" from TbDept"</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span> <span class="token operator">*</span> <span class="token number">20</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> row <span class="token keyword">in</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span>
+                dept <span class="token operator">=</span> Dept<span class="token punctuation">(</span><span class="token operator">**</span>row<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>dept<span class="token punctuation">.</span>no<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>dept<span class="token punctuation">.</span>name<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>dept<span class="token punctuation">.</span>location<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span> <span class="token operator">*</span> <span class="token number">20</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -309,7 +347,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/Linux服务器/" class="b-link-green">Linux操作</a>
+                    <a href="/2018/10/17/python-database/" class="b-link-green">python_database</a>
                 </p>
             </div>
         </div>
@@ -326,24 +364,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Previous</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Current</div>
             <div class="card">
-                <a href="/2018/10/15/hello-world/">
+                <a href="/2018/10/17/python-database/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="python_database">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">python_database</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="summary">数据库的微操做进行数据的增加，修改，删除，查看
+在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。
+—– 从删库，到跑路额！
+import pymysql
+
+
+class Dept(object):
+   </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -352,6 +397,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -360,24 +406,20 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/10/15/数据库/">
+                <a href="/2018/10/16/基础语法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="数据库">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="基础语法">
                         
-                        <span class="card-title">数据库</span>
+                        <span class="card-title">基础语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">​        数据库（Database）是按照数据结构来组织、存储和管理数据的仓库，
-每个数据库都有一个或多个不同的API用于创建，访问，管理，搜索和复制所保存的数据。
-—– 从删库，到跑路额！
-
-数据库 —– database - 数</div>
+                    <div class="summary">###（一）基础1.快捷键： control+/      注释/取消注释 control+s      保存（养成习惯） control+c      复制、拷贝 control+v      粘贴 control+x      剪切 c</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-16
                             </span>
                         <span class="publish-author">
                             
@@ -390,8 +432,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/数据库-表格/" target="_blank">
-                        <span class="chip bg-color">数据库 表格</span>
+                    <a href="/tags/python/" target="_blank">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>

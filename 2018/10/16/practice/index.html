@@ -12,7 +12,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>闪烁之狐</title>
+    <title>微笑看你</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -38,7 +38,7 @@
                         
                         <img src="/medias/logo.png" class="logo-img hide-on-small-only">
                         
-                        <span class="logo-span">闪烁之狐</span>
+                        <span class="logo-span">微笑看你</span>
                     </a>
                 </div>
 
@@ -104,7 +104,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">闪烁之狐</div>
+        <div class="logo-name">微笑看你</div>
         <div class="logo-desc">
             
             To be or not to be,this is a question.
@@ -218,7 +218,7 @@
                 <p><strong>好记心不如烂笔头</strong></p>
 <p><strong>站在岸上学不会游泳</strong></p>
 <p><strong>人生在于不断地学习</strong></p>
-<h2 id="创建列表过程"><a href="#创建列表过程" class="headerlink" title="创建列表过程"></a>创建列表过程</h2><ul>
+<h3 id="practice1"><a href="#practice1" class="headerlink" title="practice1"></a>practice1</h3><h5 id="创建列表过程"><a href="#创建列表过程" class="headerlink" title="创建列表过程"></a>创建列表过程</h5><ul>
 <li><p>创建SRS数据库</p>
 <pre class=" language-mysql"><code class="language-mysql">drop database if exists SRS;
 create database SRS default charset utf8 collate utf8_bin;
@@ -380,7 +380,7 @@ alter table tb_score add constraint uni_score_sid_cid unique (sid, cid);
 </code></pre>
 </li>
 </ul>
-<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><ul>
+<h5 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h5><ul>
 <li><p>查询所有学生信</p>
 <pre class=" language-mysql"><code class="language-mysql">select * from tb_student;
 </code></pre>
@@ -515,6 +515,195 @@ on stuid(+)=sid;
 </code></pre>
 </li>
 </ul>
+<h3 id="表的连接关系"><a href="#表的连接关系" class="headerlink" title="表的连接关系"></a>表的连接关系</h3><p><img src="/2018/10/16/practice/F:/hexo\source\_posts\practice\表连接1.png" alt="表连接1"></p>
+<h4 id="内连接的方式"><a href="#内连接的方式" class="headerlink" title="内连接的方式"></a>内连接的方式</h4><p><img src="/2018/10/16/practice/F:/hexo\source\_posts\practice\表连接2.png" alt="表连接2"></p>
+<h4 id="自连接的方式"><a href="#自连接的方式" class="headerlink" title="自连接的方式"></a>自连接的方式</h4><p><img src="/2018/10/16/practice/F:/hexo\source\_posts\practice\表连接3.png" alt="表连接3"></p>
+<h4 id="外连接的方式"><a href="#外连接的方式" class="headerlink" title="外连接的方式"></a>外连接的方式</h4><p><img src="/2018/10/16/practice/F:/hexo\source\_posts\practice\表连接4.png" alt="表连接4"></p>
+<h2 id="practice2"><a href="#practice2" class="headerlink" title="practice2"></a>practice2</h2><ul>
+<li><p>创建人力资源管理系统数据库</p>
+<pre class=" language-mysql"><code class="language-mysql">drop database if exists HRS;
+create database HRS default charset utf8 collate utf8_bin;
+</code></pre>
+</li>
+<li><p>切换数据库上下文环境<br><code>use HRS;</code></p>
+</li>
+<li><p>删除表</p>
+<pre class=" language-mysql"><code class="language-mysql">drop table if exists TbEmp;
+drop table if exists TbDept;
+</code></pre>
+</li>
+<li><p>创建部门表</p>
+<pre class=" language-mysql"><code class="language-mysql">create table TbDept
+(
+dno tinyint not null comment '部门编号',
+dname varchar(10) not null comment '部门名称',
+dloc varchar(20) not null comment '部门所在地',
+primary key (dno)
+);
+</code></pre>
+</li>
+<li><p>添加部门记录</p>
+<pre class=" language-mysql"><code class="language-mysql">insert into TbDept values (10, '会计部', '北京');
+insert into TbDept values (20, '研发部', '成都');
+insert into TbDept values (30, '销售部', '重庆');
+insert into TbDept values (40, '运维部', '深圳');
+</code></pre>
+</li>
+<li><p>创建员工表</p>
+<pre class=" language-mysql"><code class="language-mysql">create table TbEmp
+(
+eno int not null comment '员工编号',
+ename varchar(20) not null comment '员工姓名',
+job varchar(20) not null comment '员工职位',
+mgr int comment '主管编号',
+sal int not null comment '月薪',
+comm int comment '月补贴',
+dno tinyint comment '所在部门编号',
+primary key (eno)
+);
+</code></pre>
+</li>
+<li><p>添加外键约束</p>
+<pre class=" language-mysql"><code class="language-mysql">alter table TbEmp add constraint fk_dno foreign key (dno) references TbDept(dno) on delete set null on update cascade;
+-- 更新，删除后赋值为null，所以前面创建的时候就不能添加（is not null)
+-- on delete set null on update cascade;
+</code></pre>
+</li>
+<li><p>添加员工记录</p>
+<pre class=" language-mysql"><code class="language-mysql">insert into TbEmp values 
+(7800, '张三丰', '总裁', null, 9000, 1200, 20),
+(2056, '乔峰', '分析师', 7800, 5000, 1500, 20),
+(3088, '李莫愁', '设计师', 2056, 3500, 800, 20),
+(3211, '张无忌', '程序员', 2056, 3200, null, 20),
+(3233, '丘处机', '程序员', 2056, 3400, null, 20),
+(3251, '张翠山', '程序员', 2056, 4000, null, 20),
+(5566, '宋远桥', '会计师', 7800, 4000, 1000, 10),
+(5234, '郭靖', '出纳', 5566, 2000, null, 10),
+(3344, '黄蓉', '销售主管', 7800, 3000, 800, 30),
+(1359, '胡一刀', '销售员', 3344, 1800, 200, 30),
+(4466, '苗人凤', '销售员', 3344, 2500, null, 30),
+(3244, '欧阳锋', '程序员', 3088, 3200, null, 20),
+(3577, '杨过', '会计', 5566, 2200, null, 10),
+(3588, '朱九真', '会计', 5566, 2500, null, 10);
+</code></pre>
+<h4 id="习题-1"><a href="#习题-1" class="headerlink" title="习题"></a>习题</h4></li>
+<li><p>查询薪资最高的员工姓名和工资</p>
+<pre class=" language-mysql"><code class="language-mysql">-- select ename, sal+comm from TbEmp order by sal desc limit 0, 1;        ------- 排序出现的问题：可能前几个人的工资一样
+select ename as 总裁, sal as 工资 from tbemp
+where sal=(select max(sal) from tbemp);
+</code></pre>
+</li>
+<li><p>查询员工的姓名和年薪((月薪+补贴)*12)</p>
+<pre class=" language-mysql"><code class="language-mysql">-- select ename as 姓名, sal12 + if(comm12,comm12,0) as 年薪 from TbEmp; or
+select ename as 姓名, (sal + ifnull(comm,0))12 as 年薪 from TbEmp;
+</code></pre>
+</li>
+<li><p>查询年薪大于5万的员工的姓名和年薪</p>
+<pre class=" language-mysql"><code class="language-mysql">select ename as 姓名, (sal + ifnull(comm,0))12 as 年薪
+-- from TbEmp where 年薪>50000;
+from TbEmp where (sal + ifnull(comm,0))12>50000;
+</code></pre>
+</li>
+<li><p>查询有员工的部门的编号和人数<br><code>select dno,count(dno) as 人数 from TbEmp group by dno;</code>.</p>
+</li>
+<li><p>查询所有部门的名称和人数</p>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">select dno as 部门编号,dname as 部门名称,counter as 人数 from tbdept as t1,
+(select dno as d,count(dno) as counter from tbemp group by dno)t2
+where t1.dno=t2.d;
+</code></pre>
+<pre class=" language-mysql"><code class="language-mysql">select dname as 部门名称, ifnull(total, 0) as 人数 from tbdept t1 left join
+(select dno, count(dno) as total from tbemp group by dno)t2
+on t1.dno=t2.dno;
+</code></pre>
+<ul>
+<li><p>查询薪资最高的员工(Boss除外)的姓名和工资</p>
+<pre class=" language-mysql"><code class="language-mysql">-- select ename as 姓名, sal+if(comm, comm, 0) as 工资 from TbEmp
+-- order by (sal+if(comm, comm, 0)) desc limit 1, 1;
+select ename as 员工, sal as 工资 from tbemp
+where sal=(select max(sal) from tbemp where mgr is not null);
+</code></pre>
+</li>
+<li><p>查询薪水超过平均薪水的员工的姓名和工资</p>
+<pre class=" language-mysql"><code class="language-mysql">select ename as 姓名, sal as 工资 from tbemp
+where (sal+if(comm, comm, 0))>(
+select avg(sal+if(comm, comm, 0)) from tbemp);
+</code></pre>
+<pre class=" language-mysql"><code class="language-mysql">select ename as 姓名, sal as 工资 from TbEmp
+where sal>(select avg(sal) from tbemp);
+</code></pre>
+</li>
+<li><p>查询薪水超过其所在部门平均薪水的员工的姓名、部门编号和工资</p>
+<pre class=" language-mysql"><code class="language-mysql">select ename, t1.dno, avgsal from tbemp t1,
+(select dno, avg(sal) as avgsal from tbemp group by dno)t2
+where t1.dno=t2.dno and sal>avgsal;
+-- 多个连表条件之间用and连接
+</code></pre>
+</li>
+<li><p>查询薪水超过其所在部门平均薪水的员工的姓名、部门名称和工资</p>
+<pre class=" language-mysql"><code class="language-mysql">select ename, dname, sal from tbemp t1,
+(select dno, avg(sal) as avgsal from tbemp group by dno)t2,
+tbdept t3
+where t1.dno=t2.dno and sal>avgsal and t2.dno=t3.dno;
+</code></pre>
+</li>
+<li><p>查询部门中薪水最高的人姓名、工资和所在部门名称</p>
+<pre class=" language-mysql"><code class="language-mysql">select ename, dname, sal from tbemp t1,
+(select dno, max(sal) as maxsal from tbemp group by dno)t2,
+tbdept t3
+where t1.dno=t2.dno and t2.dno=t3.dno and sal=maxsal;
+</code></pre>
+</li>
+<li><p>查询主管的姓名</p>
+<pre class=" language-mysql"><code class="language-mysql">- -- select ename from tbemp where job like'%主管%';
+select ename, job from tbemp
+where eno in (select distinct mgr from tbemp where mgr is not null);
+
+-- 说明：去重操作和集合运算效率是非常低的
+
+</code></pre>
+</li>
+<li><p>通常建议用exists或者not exists操作来代替去重和集合运算</p>
+<pre class=" language-mysql"><code class="language-mysql">select ename, job from tbemp t1
+where exists (select 'x' from tbemp t2 where t1.eno=t2.mgr);
+</code></pre>
+</li>
+<li><p>视图是查询的快照</p>
+<pre class=" language-mysql"><code class="language-mysql">-- 通过视图可以将用户对表的访问权限进一步加以限制
+-- 也就是说普通用户看到的就是限制的视图内容
+create view emp_no_sal as
+select ename, dname, sal from tbemp t1,
+(select dno, avg(sal) as avgsal from tbemp group by dno)t2,
+tbdept t3
+where t1.dno=t2.dno and sal>avgsal and t2.dno=t3.dno;
+</code></pre>
+</li>
+<li><p>索引(相当于一本书的目录）</p>
+<ul>
+<li><p>为表创建索引可以加速查询(用空间换时间)</p>
+</li>
+<li><p>索引不能滥用：</p>
+<ul>
+<li><p>一、索引会让增删改变得更慢，应为增删改的操作可能会导致更新索引</p>
+</li>
+<li><p>二、索引会占用额外的存储空间</p>
+</li>
+<li>索引应该建在经常被用于查询的筛选条件的列上面主键上有默认的索引(唯一索引)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>创建索引</p>
+<pre class=" language-mysql"><code class="language-mysql">-- 说明：使用模糊查询 ----- 如果查询条件不以%开头，索引有效;反之,无效
+create index idx_emp_ename on tbemp(ename);
+-- 唯一索引
+create unique index uni_emp_ename on tbemp(ename);
+</code></pre>
+</li>
+<li><p>删除索引<br><code>alter table tbemp drop index uni_emp_ename;</code></p>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -532,7 +721,7 @@ on stuid(+)=sid;
             <div class="reprint">
                 <p>
                     <span class="reprint-tip">Reprint please specify: </span>
-                    <a href="http://yoursite.com" class="b-link-green">闪烁之狐</a>
+                    <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
                     <a href="/2018/10/16/practice/" class="b-link-green">practice</a>
                 </p>
