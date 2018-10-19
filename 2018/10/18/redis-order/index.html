@@ -224,12 +224,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="redis-命令"><a href="#redis-命令" class="headerlink" title="redis 命令"></a>redis 命令</h2><ul>
-<li>Redis：REmote Dictionary </li>
+<li>Redis：REmote Dictionary Server</li>
 <li>Server(Redis)远程字典服务器，为网站提供高速缓存服务</li>
 </ul>
+<h4 id="网站优化两大定律"><a href="#网站优化两大定律" class="headerlink" title="网站优化两大定律"></a>网站优化两大定律</h4><p>1.缓存 —– 用空间换时间（redis/Memcached）</p>
+<p>2.削峰 —— 能推迟的事情都不要马上做(RabbitMQ/ RocketMQ)</p>
 <h4 id="信息隐藏"><a href="#信息隐藏" class="headerlink" title="信息隐藏:"></a>信息隐藏:</h4><p>&emsp;&emsp;信息隐藏是指在设计和确定模块时，使得一个模块内包含的特定信息（过程或数据），对于不需要这些信息的其他模块来说，是不可访问的</p>
 <h5 id="启动Redis服务器步骤-谨慎"><a href="#启动Redis服务器步骤-谨慎" class="headerlink" title="启动Redis服务器步骤(谨慎):"></a>启动Redis服务器步骤(谨慎):</h5><pre><code>1.修改Redis配置文件redis.conf(安装文件目录下)
     cp redis-4.0.11/redis.conf redis.conf
+    # redis-server --post -- requirepass   ----- 也可以修改配置
     vim redis.conf
     bind 内网地址
     requirepass 密码
@@ -240,7 +243,11 @@
     redis-cli -h ip地址(私用ip地址)
 4.验证身份
     auth 密码
-5.测试连接输入ping 回应PONG表示连接成功
+5.停止服务器
+   1.kill 进程号
+   2.把进程放到前台，Ctrl c
+   3.客户端&gt;shutdown
+6.测试连接输入ping 回应PONG表示连接成功
 
 操作:
     keys *  查看所有键
@@ -397,6 +404,37 @@ redis-check-aof -fix appendonly.aof    修复aof的文件
 <li>zrem —– 删除</li>
 <li>zrevrange —— 倒序排列</li>
 </ul>
+<h3 id="复制："><a href="#复制：" class="headerlink" title="复制："></a>复制：</h3><h5 id="主从复制（读写分离）修改内容："><a href="#主从复制（读写分离）修改内容：" class="headerlink" title="主从复制（读写分离）修改内容："></a>主从复制（读写分离）修改内容：</h5><ul>
+<li>master不用修改配置</li>
+<li>slave修改两条配置<ul>
+<li>slaveof master的IP地址 master的端口</li>
+<li>masterrauth master的口令</li>
+</ul>
+</li>
+<li>info replication ——- 查看是否有奴隶</li>
+<li>info ——- 查看服务器信息 </li>
+<li>ps -ef | grep deris | grep -v grep | awk ‘{print $2}’ | xargs kill ——- 杀掉所有的奴隶</li>
+<li>slaveof no one ——— 拒绝当奴隶</li>
+</ul>
+<h6 id="故障处理"><a href="#故障处理" class="headerlink" title="故障处理"></a>故障处理</h6><p>配置哨兵（sentinel.conf）</p>
+<ul>
+<li>修改sentinel.conf配置文件<ul>
+<li>修改69行的监视窗口 跟上票数</li>
+<li>98行master的死亡时间设置<ul>
+<li>在规定的时间回来了，还是master，没回来就重选</li>
+</ul>
+</li>
+<li>131行的意思：master在3分钟内回来，也只能当奴隶，没回来，就直接杀死</li>
+</ul>
+</li>
+<li>redis-server sentinel.conf –sentinel ——– 启动哨兵文件</li>
+</ul>
+<h3 id="MySQL-MongoDB"><a href="#MySQL-MongoDB" class="headerlink" title="MySQL / MongoDB"></a>MySQL / MongoDB</h3><ul>
+<li><p>热（点）数据 —- 经常被访问的数据</p>
+</li>
+<li><p>redis放的应该是体量不大的热点数据</p>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -447,10 +485,11 @@ redis-check-aof -fix appendonly.aof    修复aof的文件
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">redis 命令
-Redis：REmote Dictionary 
+Redis：REmote Dictionary Server
 Server(Redis)远程字典服务器，为网站提供高速缓存服务
 
-信息隐藏:&emsp;&emsp;信息隐藏是指在设计和确定模块时，使得一个模块内包含的特定信息（过程或数</div>
+网站优化两大定律1.缓存 —– 用空间换时间（redis/Memcached）
+2.削峰 —</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-18
