@@ -3,6 +3,17 @@
   
     
     <entry>
+      <title>web-the firstone</title>
+      <link href="/2018/10/22/web-the-firstone/"/>
+      <url>/2018/10/22/web-the-firstone/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Django-Python-Web应用开发框架"><a href="#Django-Python-Web应用开发框架" class="headerlink" title="Django:Python Web应用开发框架"></a>Django:Python Web应用开发框架</h3><p>&emsp;&emsp;Django 应该是最出名的Python框架，GAE甚至Erlang都有框架受它影响。Django是走大而全的方向，它最出名的是其全自动化的管理后台：只需要使用起ORM，做简单的对象定义，它就能自动生成数据库结构、以及全功能的管理后台。</p><h3 id="MVC："><a href="#MVC：" class="headerlink" title="MVC："></a>MVC：</h3><p>&emsp;&emsp;MVC（Model View Controller）是模型-视图-控制器，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑狙击到一个部件里，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。通俗的来讲就是，强制性的使应用程序的输入，处理和输出分开。</p><p><img src="/2018/10/22/web-the-firstone/QQ截图20181022103251.png" alt="QQ截图20181022103251"></p><h3 id="MVT："><a href="#MVT：" class="headerlink" title="MVT："></a>MVT：</h3><p>&emsp;&emsp;严格来说，Django的模式应该是MVT模式，本质上和MVC没什么区别，也是各组件之间为了保持松耦合关系，只是定义上有些许不同。</p><p>Model： 负责业务与数据库(ORM)的对象</p><p>View： 负责业务逻辑并适当调用Model和Template</p><p>Template: 负责把页面渲染展示给用户</p><p>注意： Django中还有一个url分发器，也叫作路由。主要用于将url请求发送给不同的View处理，View在进行相关的业务逻辑处理。</p><h3 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h3><h5 id="VIRTUALENV创建虚拟环境"><a href="#VIRTUALENV创建虚拟环境" class="headerlink" title="VIRTUALENV创建虚拟环境"></a>VIRTUALENV创建虚拟环境</h5><p>1.在cmd中能通过python去启动，如果不可以，直接跳到第三部</p><p><img src="/2018/10/22/web-the-firstone/python.png" alt="python"></p><p>2.在cmd中能通过pip3启动安装软件，如果不可以直接跳到第三步</p><p><img src="/2018/10/22/web-the-firstone/pip3.png" alt="pip3"></p><p>3.配置python环境和pip环境</p><p><img src="/2018/10/22/web-the-firstone/python_pip_envir.png" alt="python_pip_envir"></p><p>4.确认pip安装成功，如果Scrip文件夹下没有pip可执行文件，则执行第五步</p><p>5.由于python3.6安装以后，在Scrip文件中没有pip的可执行软件，需要输入下一个命令进行安装</p><p><code>python -m ensurepip</code></p><p><img src="/2018/10/22/web-the-firstone/ensurepip.png" alt="ensurepip"></p><p>注：现在在python的安装文件夹Scripts下就有pip.exe以及easy_install.exe等可执行文件了，就可以使用pip安装</p><h5 id="window中安装使用"><a href="#window中安装使用" class="headerlink" title="window中安装使用"></a>window中安装使用</h5><p>1.安装virtualenv</p><p><code>pip install virtualenv</code></p><p><img src="/2018/10/22/web-the-firstone/pip_virtualenv.png" alt="pip_virtualenv"></p><p>2.创建虚拟环境</p><p>先查看一下安装虚拟环境有那些参数，是必须填写的</p><p><img src="/2018/10/22/web-the-firstone/virtualenv_help.png" alt="virtualenv_help"></p><p>参数： –no-site-package 和-p参数</p><p><code>virtualenv --no-site-package venv</code></p><p>以下是指定安装虚拟环境中的python版本和安装方式：</p><p><img src="/2018/10/22/web-the-firstone/virtualenv_env_p.png" alt="virtualenv_env_p"></p><p>3.进入/退出evn</p><pre><code>进入 cd env/Scripts/文件夹 在activate命令退出 deactivate</code></pre><p>ubuntu中安装使用</p><p>1.安装virtualenv</p><p><code>apt-get install python-virtualenv</code></p><p>2.创建包含python3版本的虚拟环境</p><p><code>virtualenv -p /usr/bin/python3 env</code></p><p>env代表创建的虚拟环境的名称</p><p>3.进入/退出env</p><pre><code>进入 source env/bin/activate    pip list    pip install django==1.11 ---------- 安装django退出 deactivate</code></pre><p>4.pip使用</p><p>查看虚拟环境下安装的所有包</p><p><code>pip list</code></p><p>查看虚拟环境中通过pip安装的包</p><p><code>pip freeze</code></p><h4 id="创建虚拟环境（2）"><a href="#创建虚拟环境（2）" class="headerlink" title="创建虚拟环境（2）"></a>创建虚拟环境（2）</h4><p>1.新建文件夹  ——–&gt;  env</p><p>2.在env中 新建文件 ——— djenv6</p><p>3.在djenv6中，保存pip所有需要的文件</p><p>4.通过<code>pip list</code>查看虚拟环境下安装的所有包</p><p>5.安装Django</p><p><code>pip install django==1.11</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
       <title>practice linkman</title>
       <link href="/2018/10/20/practice-linkman/"/>
       <url>/2018/10/20/practice-linkman/</url>
@@ -114,13 +125,41 @@
       <link href="/2018/10/16/%E6%84%8F%E5%A4%96%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
       <url>/2018/10/16/%E6%84%8F%E5%A4%96%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
       
-        <content type="html"><![CDATA[<h4 id="hexo中，将图片上传到hexo中"><a href="#hexo中，将图片上传到hexo中" class="headerlink" title="hexo中，将图片上传到hexo中"></a>hexo中，将图片上传到hexo中</h4><h5 id="First"><a href="#First" class="headerlink" title="First"></a>First</h5><ul><li><p>1 把主页配置文件_config.yml里的post_asset_folder:这个选项设置为true</p></li><li><p>2 在你的hexo目录下执行这样一句话npm install hexo-asset-image –save，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git</p></li><li><p>3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹</p></li></ul><h5 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h5><ul><li>4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：<br><code>![你想输入的替代文字](xxxx/图片名.jpg)</code></li></ul><p>注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。</p><ul><li>5 最后检查一下，hexo g 生成页面后，进入public\2017\02\26\index.html文件中查看相关字段，可以发现，html标签内的语句是<code>&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;</code>，而不是<code>&lt;img src=&quot;xxxx/图片名.jpg&gt;</code>这很重要，关乎你的网页是否可以真正加载你想插入的图片。</li></ul><h4 id="在git中，将本地的文件上传到GitHub库中"><a href="#在git中，将本地的文件上传到GitHub库中" class="headerlink" title="在git中，将本地的文件上传到GitHub库中"></a>在git中，将本地的文件上传到GitHub库中</h4><ul><li>先添加一个本地文件 <code>git add 文件名</code></li><li>再上传到库中 <code>git commit -m &quot;上传说明&quot;</code></li><li>最后同步GitHub上 <code>git push</code></li></ul>]]></content>
+        <content type="html"><![CDATA[<h4 id="hexo中，将图片上传到hexo中"><a href="#hexo中，将图片上传到hexo中" class="headerlink" title="hexo中，将图片上传到hexo中"></a>hexo中，将图片上传到hexo中</h4><h5 id="First"><a href="#First" class="headerlink" title="First"></a>First</h5><ul><li><p>1 把主页配置文件_config.yml里的post_asset_folder:这个选项设置为true</p></li><li><p>2 在你的hexo目录下执行这样一句话npm install hexo-asset-image –save，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git</p></li><li><p>3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹</p></li></ul><h5 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h5><ul><li>4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：<br><code>![你想输入的替代文字](xxxx/图片名.jpg)</code></li></ul><p>注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。</p><ul><li>5 最后检查一下，hexo g 生成页面后，进入public\2017\02\26\index.html文件中查看相关字段，可以发现，html标签内的语句是<code>&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;</code>，而不是<code>&lt;img src=&quot;xxxx/图片名.jpg&gt;</code>这很重要，关乎你的网页是否可以真正加载你想插入的图片。</li></ul><h4 id="在git中，将本地的文件上传到GitHub库中"><a href="#在git中，将本地的文件上传到GitHub库中" class="headerlink" title="在git中，将本地的文件上传到GitHub库中"></a>在git中，将本地的文件上传到GitHub库中</h4><ul><li>先添加一个本地文件 <code>git add 文件名</code></li><li>再上传到库中 <code>git commit -m &quot;上传说明&quot;</code></li><li>最后同步GitHub上 <code>git push</code></li></ul><h4 id="博客连接GItHub的二级域名的方法："><a href="#博客连接GItHub的二级域名的方法：" class="headerlink" title="博客连接GItHub的二级域名的方法："></a>博客连接GItHub的二级域名的方法：</h4><p><a href="https://blog.csdn.net/lmj623565791/article/details/51319147" target="_blank" rel="noopener">https://blog.csdn.net/lmj623565791/article/details/51319147</a></p><h4 id="修改服务器的登录提示语"><a href="#修改服务器的登录提示语" class="headerlink" title="修改服务器的登录提示语"></a>修改服务器的登录提示语</h4><p>修改文件夹      / etc / profile</p>]]></content>
       
       
       
         <tags>
             
             <tag> hexo, github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2018/10/15/hello-world/"/>
+      <url>/2018/10/15/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-zh-"><code class="language-zh-">$ hexo new "My New Post"</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code>$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
+      <title>Linux操作</title>
+      <link href="/2018/10/15/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <url>/2018/10/15/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<p>Linux内核最初只是由芬兰人李纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。</p><p>Linux能运行主要的UNIX工具软件、应用程序和网络协议</p><p>Linux发行版本：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。</p><h1 id="Linux系统下的操作系统"><a href="#Linux系统下的操作系统" class="headerlink" title="Linux系统下的操作系统"></a>Linux系统下的操作系统</h1><h2 id="1-攻击方式"><a href="#1-攻击方式" class="headerlink" title="1. 攻击方式"></a>1. 攻击方式</h2><p>PING to death  ———- 拼到死</p><p>DOS - Deny of Service ————— 拒绝服务攻击</p><p>DDoS - Distributed Deny of Service ———– 分布式拒绝服务攻击</p><h2 id="2-查看本机IP"><a href="#2-查看本机IP" class="headerlink" title="2. 查看本机IP"></a>2. 查看本机IP</h2><p>ifconfig</p><h2 id="3-连接其它的服务器"><a href="#3-连接其它的服务器" class="headerlink" title="3. 连接其它的服务器"></a>3. 连接其它的服务器</h2><p>ssh <a href="mailto:root@IP" target="_blank" rel="noopener">root@IP</a></p><p>断开某个用户的终端连接： </p><p>​    命令：fuser -k /dev/pts/x  （x为who下看到的这个用户的pts序号，比如本例中的pts/0,pts/1）   </p><p>​            example： fuser -k /dev/pts/0</p><h2 id="4-给其它的服务器拷贝文件"><a href="#4-给其它的服务器拷贝文件" class="headerlink" title="4. 给其它的服务器拷贝文件"></a>4. 给其它的服务器拷贝文件</h2><p>一个用户操作另外两个用户的文件：</p><p> scp  用户名@IP：/绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p><p>从本地到远程用户：</p><p>scp /绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p><h2 id="5-操作远端用户"><a href="#5-操作远端用户" class="headerlink" title="5. 操作远端用户"></a>5. 操作远端用户</h2><p>sftp 用户名@IP</p><p>​    用户名密码</p><p>​    get 要下载的文件名</p><p>​    put 上传的文件名</p><p>​    lls 查看本地目录</p><p>在输入的命令前加上<l>，就可以操作本地文件，直接输入命令，操作连接的用户文件</l></p><p>​    l(命令) 操作本地文件</p><h2 id="6-网络端口"><a href="#6-网络端口" class="headerlink" title="6. 网络端口"></a>6. 网络端口</h2><p>netstat -na | grep 80   查询网络状态</p><p>netstat -nap | grep 80   查看占用端口的进程</p><h2 id="7-服务操作"><a href="#7-服务操作" class="headerlink" title="7. 服务操作"></a>7. 服务操作</h2><p>systemctl start &lt;进程的名字&gt;       开启服务</p><p>systemctl stop <name>       禁用服务</name></p><p>systemctl restart <name>    重启服务</name></p><p>systemctl status <name>    查看服务状态</name></p><p>systemctl senable <name>  开机自启服务</name></p><p>systemctl disable <name>   禁用开机自启服务</name></p><p>计算机网络分层结构模型</p><p>Internet —– TCP/IP协议族</p><p>TCP - Transfer Control Protocol - 传输控制协议</p><p>UDP - User Datagram Protocol - 用户数据报协议</p><p>IP - Internet Protocol - 网际协议</p><p>TCP/IP模型</p><p>应用层（定义应用之间如何传输数据，定义应用级协议）- HTTP/SMTP/SSH/POP3/FTP/ICQ</p><p>传输层（端到端传输数据）- TCP/ UDP</p><p>网络层/网际层 （寻址和路由）</p><p>物理链路层 （数据分帧 + 校验）- 冗余校验码</p><h2 id="Linux常用的防火墙服务有firewall和iptables"><a href="#Linux常用的防火墙服务有firewall和iptables" class="headerlink" title="Linux常用的防火墙服务有firewall和iptables"></a>Linux常用的防火墙服务有firewall和iptables</h2><ul><li><p>systemctl start firewalld    开启防火墙</p></li><li><p>systemctl enable firewalld     设置开机自启防火墙</p></li></ul><ul><li><p>firewalls-cmd  –add-port=80/tcp  –permanent</p></li><li><p>firewalls-cmd  –add-service=80/tcp  –permanent</p></li></ul><ul><li>top —— 查看进程（CPU的利用率排序）</li><li>ctrl + z     —— 把进程放到后台</li><li>ctrl + c    ——  终止进程</li><li>jobs —— 查看后台进程<h2 id="如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行"><a href="#如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行" class="headerlink" title="如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行"></a>如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行</h2>_bg %编号 —— 让暂停的进程继续在后台运行background</li><li>fg %编号 —— 将后台的进程放到前台foreground</li></ul><h2 id="8-Linux根目录下"><a href="#8-Linux根目录下" class="headerlink" title="8. Linux根目录下"></a>8. Linux根目录下</h2><h2 id="http-www-runoob-com-linux-linux-system-contents-html"><a href="#http-www-runoob-com-linux-linux-system-contents-html" class="headerlink" title="http://www.runoob.com/linux/linux-system-contents.html"></a><a href="http://www.runoob.com/linux/linux-system-contents.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-system-contents.html</a></h2><p>etc:保存下载安装的文件夹</p><p>安装的软件名.conf ———- 安装的软件的配置</p><p>dev: 设备管理器</p><p>tmp ————— 临时文件</p><p>usr ————– 用户目录</p><h2 id="9-Linux环境"><a href="#9-Linux环境" class="headerlink" title="9. Linux环境"></a>9. Linux环境</h2><p>Linux的shall也是一个交互式的环境，可以输入代码</p><p>执行多个程序可以用分号 隔开 / &amp;&amp; 隔开 / 并列符号 ||</p><p><img src="/2018/10/15/Linux服务器/Linux1.jpg" alt="Linux1"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 操作系统 Linux 防火墙 </tag>
             
         </tags>
       
@@ -166,40 +205,6 @@
     </entry>
     
     <entry>
-      <title>安装Python</title>
-      <link href="/2018/10/15/CentOS%E5%AE%89%E8%A3%85Python3.7/"/>
-      <url>/2018/10/15/CentOS%E5%AE%89%E8%A3%85Python3.7/</url>
-      
-        <content type="html"><![CDATA[<p>认真学习也是有前提的：</p><p>好的学习环境, 好的学习方法, 好的学习状态</p><p>缺一不可哟！</p><p>CentOS安装Python3.7</p><h2 id="1-下载Python源代码："><a href="#1-下载Python源代码：" class="headerlink" title="1.下载Python源代码："></a>1.下载Python源代码：</h2><p><a href="https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz</a></p><h2 id="2-解压缩"><a href="#2-解压缩" class="headerlink" title="2.解压缩"></a>2.解压缩</h2><pre><code>gunzip Python-3.7.0.tgz</code></pre><h2 id="3-解归档"><a href="#3-解归档" class="headerlink" title="3.解归档"></a>3.解归档</h2><pre><code>tar -xvf Python-3.7.0.tar</code></pre><h2 id="4-安装底层依赖库"><a href="#4-安装底层依赖库" class="headerlink" title="4.安装底层依赖库"></a>4.安装底层依赖库</h2><pre><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</code></pre><h2 id="5-安装前的配置"><a href="#5-安装前的配置" class="headerlink" title="5.安装前的配置"></a>5.安装前的配置</h2><pre><code> ./configure --prefix=/usr/local/Python37 --enable-optimizations</code></pre><h2 id="6-构建安装"><a href="#6-构建安装" class="headerlink" title="6.构建安装"></a>6.构建安装</h2><pre><code>make &amp;&amp; make install</code></pre><p>##7.配置环境变量</p><pre><code>export PATH=$PATH:/usr/local/Python37/bin</code></pre><p>##8.注册软连接（符号链接）</p><pre><code>ln -s /usr/local/Python37/bin/python3 /usr/bin/python3</code></pre><p>硬链接 - 文件的引用，只要引用数不为0，文件就不会被删除<br>软链接 - 相当于是文件的快捷方式，如果文件被删除，软链接就会失效<br>ln -s 带完整路径的文件名，链接文件名</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Python 软链接 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Linux操作</title>
-      <link href="/2018/10/15/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-      <url>/2018/10/15/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
-      
-        <content type="html"><![CDATA[<p>Linux内核最初只是由芬兰人李纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。</p><p>Linux能运行主要的UNIX工具软件、应用程序和网络协议</p><p>Linux发行版本：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。</p><h1 id="Linux系统下的操作系统"><a href="#Linux系统下的操作系统" class="headerlink" title="Linux系统下的操作系统"></a>Linux系统下的操作系统</h1><h2 id="1-攻击方式"><a href="#1-攻击方式" class="headerlink" title="1. 攻击方式"></a>1. 攻击方式</h2><p>PING to death  ———- 拼到死</p><p>DOS - Deny of Service ————— 拒绝服务攻击</p><p>DDoS - Distributed Deny of Service ———– 分布式拒绝服务攻击</p><h2 id="2-查看本机IP"><a href="#2-查看本机IP" class="headerlink" title="2. 查看本机IP"></a>2. 查看本机IP</h2><p>ifconfig</p><h2 id="3-连接其它的服务器"><a href="#3-连接其它的服务器" class="headerlink" title="3. 连接其它的服务器"></a>3. 连接其它的服务器</h2><p>ssh <a href="mailto:root@IP" target="_blank" rel="noopener">root@IP</a></p><p>断开某个用户的终端连接： </p><p>​    命令：fuser -k /dev/pts/x  （x为who下看到的这个用户的pts序号，比如本例中的pts/0,pts/1）   </p><p>​            example： fuser -k /dev/pts/0</p><h2 id="4-给其它的服务器拷贝文件"><a href="#4-给其它的服务器拷贝文件" class="headerlink" title="4. 给其它的服务器拷贝文件"></a>4. 给其它的服务器拷贝文件</h2><p>一个用户操作另外两个用户的文件：</p><p> scp  用户名@IP：/绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p><p>从本地到远程用户：</p><p>scp /绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p><h2 id="5-操作远端用户"><a href="#5-操作远端用户" class="headerlink" title="5. 操作远端用户"></a>5. 操作远端用户</h2><p>sftp 用户名@IP</p><p>​    用户名密码</p><p>​    get 要下载的文件名</p><p>​    put 上传的文件名</p><p>​    lls 查看本地目录</p><p>在输入的命令前加上<l>，就可以操作本地文件，直接输入命令，操作连接的用户文件</l></p><p>​    l(命令) 操作本地文件</p><h2 id="6-网络端口"><a href="#6-网络端口" class="headerlink" title="6. 网络端口"></a>6. 网络端口</h2><p>netstat -na | grep 80   查询网络状态</p><p>netstat -nap | grep 80   查看占用端口的进程</p><h2 id="7-服务操作"><a href="#7-服务操作" class="headerlink" title="7. 服务操作"></a>7. 服务操作</h2><p>systemctl start &lt;进程的名字&gt;       开启服务</p><p>systemctl stop <name>       禁用服务</name></p><p>systemctl restart <name>    重启服务</name></p><p>systemctl status <name>    查看服务状态</name></p><p>systemctl senable <name>  开机自启服务</name></p><p>systemctl disable <name>   禁用开机自启服务</name></p><p>计算机网络分层结构模型</p><p>Internet —– TCP/IP协议族</p><p>TCP - Transfer Control Protocol - 传输控制协议</p><p>UDP - User Datagram Protocol - 用户数据报协议</p><p>IP - Internet Protocol - 网际协议</p><p>TCP/IP模型</p><p>应用层（定义应用之间如何传输数据，定义应用级协议）- HTTP/SMTP/SSH/POP3/FTP/ICQ</p><p>传输层（端到端传输数据）- TCP/ UDP</p><p>网络层/网际层 （寻址和路由）</p><p>物理链路层 （数据分帧 + 校验）- 冗余校验码</p><h2 id="Linux常用的防火墙服务有firewall和iptables"><a href="#Linux常用的防火墙服务有firewall和iptables" class="headerlink" title="Linux常用的防火墙服务有firewall和iptables"></a>Linux常用的防火墙服务有firewall和iptables</h2><ul><li><p>systemctl start firewalld    开启防火墙</p></li><li><p>systemctl enable firewalld     设置开机自启防火墙</p></li></ul><ul><li><p>firewalls-cmd  –add-port=80/tcp  –permanent</p></li><li><p>firewalls-cmd  –add-service=80/tcp  –permanent</p></li></ul><ul><li>top —— 查看进程（CPU的利用率排序）</li><li>ctrl + z     —— 把进程放到后台</li><li>ctrl + c    ——  终止进程</li><li>jobs —— 查看后台进程<h2 id="如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行"><a href="#如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行" class="headerlink" title="如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行"></a>如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行</h2>_bg %编号 —— 让暂停的进程继续在后台运行background</li><li>fg %编号 —— 将后台的进程放到前台foreground</li></ul><h2 id="8-Linux根目录下"><a href="#8-Linux根目录下" class="headerlink" title="8. Linux根目录下"></a>8. Linux根目录下</h2><h2 id="http-www-runoob-com-linux-linux-system-contents-html"><a href="#http-www-runoob-com-linux-linux-system-contents-html" class="headerlink" title="http://www.runoob.com/linux/linux-system-contents.html"></a><a href="http://www.runoob.com/linux/linux-system-contents.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-system-contents.html</a></h2><p>etc:保存下载安装的文件夹</p><p>安装的软件名.conf ———- 安装的软件的配置</p><p>dev: 设备管理器</p><p>tmp ————— 临时文件</p><p>usr ————– 用户目录</p><h2 id="9-Linux环境"><a href="#9-Linux环境" class="headerlink" title="9. Linux环境"></a>9. Linux环境</h2><p>Linux的shall也是一个交互式的环境，可以输入代码</p><p>执行多个程序可以用分号 隔开 / &amp;&amp; 隔开 / 并列符号 ||</p><p><img src="/2018/10/15/Linux服务器/Linux1.jpg" alt="Linux1"></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 操作系统 Linux 防火墙 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>数据库</title>
       <link href="/2018/10/15/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
       <url>/2018/10/15/%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
@@ -217,13 +222,19 @@
     </entry>
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2018/10/15/hello-world/"/>
-      <url>/2018/10/15/hello-world/</url>
+      <title>安装Python</title>
+      <link href="/2018/10/15/CentOS%E5%AE%89%E8%A3%85Python3.7/"/>
+      <url>/2018/10/15/CentOS%E5%AE%89%E8%A3%85Python3.7/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-zh-"><code class="language-zh-">$ hexo new "My New Post"</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code>$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>认真学习也是有前提的：</p><p>好的学习环境, 好的学习方法, 好的学习状态</p><p>缺一不可哟！</p><p>CentOS安装Python3.7</p><h2 id="1-下载Python源代码："><a href="#1-下载Python源代码：" class="headerlink" title="1.下载Python源代码："></a>1.下载Python源代码：</h2><p><a href="https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz</a></p><h2 id="2-解压缩"><a href="#2-解压缩" class="headerlink" title="2.解压缩"></a>2.解压缩</h2><pre><code>gunzip Python-3.7.0.tgz</code></pre><h2 id="3-解归档"><a href="#3-解归档" class="headerlink" title="3.解归档"></a>3.解归档</h2><pre><code>tar -xvf Python-3.7.0.tar</code></pre><h2 id="4-安装底层依赖库"><a href="#4-安装底层依赖库" class="headerlink" title="4.安装底层依赖库"></a>4.安装底层依赖库</h2><pre><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</code></pre><h2 id="5-安装前的配置"><a href="#5-安装前的配置" class="headerlink" title="5.安装前的配置"></a>5.安装前的配置</h2><pre><code> ./configure --prefix=/usr/local/Python37 --enable-optimizations</code></pre><h2 id="6-构建安装"><a href="#6-构建安装" class="headerlink" title="6.构建安装"></a>6.构建安装</h2><pre><code>make &amp;&amp; make install</code></pre><p>##7.配置环境变量</p><pre><code>export PATH=$PATH:/usr/local/Python37/bin</code></pre><p>##8.注册软连接（符号链接）</p><pre><code>ln -s /usr/local/Python37/bin/python3 /usr/bin/python3</code></pre><p>硬链接 - 文件的引用，只要引用数不为0，文件就不会被删除<br>软链接 - 相当于是文件的快捷方式，如果文件被删除，软链接就会失效<br>ln -s 带完整路径的文件名，链接文件名</p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> Python 软链接 </tag>
+            
+        </tags>
       
     </entry>
     

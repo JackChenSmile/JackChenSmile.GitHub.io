@@ -180,13 +180,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        vim
+                        web-the firstone
                     </div>
                 </div>
             </div>
@@ -208,156 +208,67 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-22
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="vimrc-——————-保存格式的文件"><a href="#vimrc-——————-保存格式的文件" class="headerlink" title="vimrc ——————- 保存格式的文件"></a>vimrc ——————- 保存格式的文件</h3><h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><ul>
-<li>文件意外中断，r恢复，b删除</li>
-<li>vim 文件1 文件2 ———– 同时打开多个文件</li>
-<li>vim -d 文件1 文件2 ———— 比较文件1和文件2<h5 id="如果vim打开了多个文件，可以在末行模式中"><a href="#如果vim打开了多个文件，可以在末行模式中" class="headerlink" title="如果vim打开了多个文件，可以在末行模式中"></a>如果vim打开了多个文件，可以在末行模式中</h5></li>
-<li>：ls ——— 查看多个文件的编号</li>
-<li>：b 编号 ——— 跳转文件</li>
-<li>：vs —————- 垂直拆分成两个窗口</li>
-<li>：sp —————- 水平拆分成两个窗口</li>
-<li>Ctrl + w Ctrl + w ————— 将光标移到另一个窗口</li>
-<li>：qa —————– 关闭全部窗口</li>
-</ul>
-<h4 id="vim-文件名-————-进入Linux编辑框"><a href="#vim-文件名-————-进入Linux编辑框" class="headerlink" title="vim 文件名 ———— 进入Linux编辑框"></a>vim 文件名 ———— 进入Linux编辑框</h4><h5 id="刚进入是在命令模式下"><a href="#刚进入是在命令模式下" class="headerlink" title="刚进入是在命令模式下"></a>刚进入是在命令模式下</h5><ul>
-<li>i / a ———- 进入编辑模式或者插入模式</li>
-<li><p>（Esc ——— 退出编辑模式）</p>
-</li>
-<li><p>：/ ?/ /————– 进入末行编辑格式</p>
-<ul>
-<li>set nu / nonu ———— 打开/关闭行号</li>
-<li>set autoindent ———— 保存缩进</li>
-<li>syntax on / off ———- 打开/关闭高量语法</li>
-<li>shift + zz ————– 保存</li>
-<li>wq ————— 保存退出</li>
-<li>q! —————- 强制退出，不保存</li>
-<li>w! —————- 强制保存</li>
-<li>map ———— 映射 快捷键</li>
-<li>imap ————– 在插入模式下映射快捷键</li>
-<li>inoremap ————– 在插入模式下不要递归的映射快捷键</li>
-</ul>
-</li>
-</ul>
-<h5 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h5><ul>
-<li>/正则表达式</li>
-<li>n ——— 正向搜索</li>
-<li>N ——— 反向搜索</li>
-<li>？正则表达式 ——– 反向搜索</li>
-<li>：1,100s/查找内容（正则表达式）/替换内容<br>替换范围substitute/正则表达式/替换内容</li>
-<li>：1,$s/查找内容（正则表达式）/替换内容/gice<ul>
-<li>-g:全局模式</li>
-<li>-i:忽略大小写</li>
-<li>-c:确认模式</li>
-<li>-e:忽略错误</li>
-</ul>
-</li>
-</ul>
-<h5 id="检查工具"><a href="#检查工具" class="headerlink" title="检查工具"></a>检查工具</h5><ul>
-<li>pip3 install pycodestyle —– 初步的代码格式检查工具</li>
-<li>pip3 install pylint ——- 高级代码格式检查</li>
-</ul>
-<h5 id="修改操作权限"><a href="#修改操作权限" class="headerlink" title="修改操作权限"></a>修改操作权限</h5><ul>
-<li>ll ——– 查看模式</li>
-<li>chmod ———— 修改读写模式 </li>
-<li>chmod 数字 ———– 修改模式</li>
-<li>chmod a+x ———— 所有用户都添加操作权限</li>
-<li>chmod u+x g+x o+x ———- 添加执行操作</li>
-<li>Ctrl x &amp; Ctrl o ———– 代码提示并补全</li>
-</ul>
-<h5 id="编辑器操作："><a href="#编辑器操作：" class="headerlink" title="编辑器操作："></a>编辑器操作：</h5><ul>
-<li>在命令模式下：都可以配合数字使用<ul>
-<li>光标移动<ul>
-<li>H ———— 左</li>
-<li>J ————- 下</li>
-<li>K ————- 上</li>
-<li>L ————- 右</li>
-<li>HML ————第一行的第一列/页面中间行的第一列/页面最后一行的第一列</li>
-<li>w ————– 移动一个单词</li>
-<li>gg/1G ——— 到第一行</li>
-<li>G ————- 到最后一行</li>
-<li>$ ———– 行末</li>
-<li>0 ———– 行首</li>
-<li>dd ———– 删掉一行代码</li>
-<li>dw ———- 删一个单词</li>
-<li>Ctrl + e ————- 往下翻一行</li>
-<li>Ctrl + y ————- 往上翻一行</li>
-<li>Ctrl + f ————- 往上翻一页</li>
-<li>Ctrl + b ————- 往下翻一页</li>
-<li>数字 + yy ———- 复制多少行</li>
-<li>p ———- 粘贴</li>
-<li>u ————– 撤销</li>
-<li>Ctrl + r ————- 反撤销</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="vim模式下的Python"><a href="#vim模式下的Python" class="headerlink" title="vim模式下的Python"></a>vim模式下的Python</h2><h4 id="三元运算："><a href="#三元运算：" class="headerlink" title="三元运算："></a>三元运算：</h4><ul>
-<li>if成立取前面，不成立取后面</li>
-</ul>
-<p><code>y = year if month &gt;= 3 else year - 1</code></p>
-<h4 id="占位"><a href="#占位" class="headerlink" title="占位"></a>占位</h4><ul>
-<li>{} ————— 占位符，与%d的作用一样</li>
-</ul>
-<p><code>print(f&#39;{month_names[month]} {year}&#39;.center(20))</code></p>
-<h4 id="字符居中"><a href="#字符居中" class="headerlink" title="字符居中"></a>字符居中</h4><p><code>print（f&#39;{}&#39;.center(num))</code></p>
-<h4 id="取命令行参数："><a href="#取命令行参数：" class="headerlink" title="取命令行参数："></a>取命令行参数：</h4><p>从标准输入读取数据</p>
-<pre><code>调用函数 import sys
-
- if len(sys.argv) == 3:
-     year = int(sys.argv[2])
-     month = int(sys.argv[1])
-</code></pre><h4 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h4><p>&emsp;&emsp;在某个时候必须给一个确定的结果，递归函数必须要有一个出口；然后必须要有一个递归公式，在函数中调用函数的部分</p>
-<h4 id="动态规划：牺牲空间，减少时间"><a href="#动态规划：牺牲空间，减少时间" class="headerlink" title="动态规划：牺牲空间，减少时间"></a>动态规划：牺牲空间，减少时间</h4><p>优化重复计算的过程，用一个字典保存要重复计算的值，当需要时直接查找字典</p>
-<pre><code>if num &lt;= 0:
-     return 1 if num == 0 else 0
-  try:
-     return temp[num]
-  except KeyError:
-     temp[num] = walk(num - 1) + walk(num - 2) + walk(num - 3)
-     return temp[num]
-</code></pre><h4 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h4><p>终极原则：高内聚 低耦合(一个函数或者一个类只做一个事情，一个函数或者一个类只表示自己，不与其他关联)【high cohesion low coupling】</p>
-<h6 id="在Python中函数是一等公民"><a href="#在Python中函数是一等公民" class="headerlink" title="在Python中函数是一等公民"></a>在Python中函数是一等公民</h6><h6 id="函数可以赋值给变量，可以作为方法的参数和返回值"><a href="#函数可以赋值给变量，可以作为方法的参数和返回值" class="headerlink" title="函数可以赋值给变量，可以作为方法的参数和返回值"></a>函数可以赋值给变量，可以作为方法的参数和返回值</h6><pre><code>def calc(items, fn=lambda x, y: x - y): 
-    result = items[0]
-    for index in range(1, len(items)):
-        result = fn(result,items[index])
-    return result
-
-items = [1, 2, 3, 4, 5]
-    print(calc(items, lambda x, y: x + y))
-    print(calc(items, lambda x, y: x * y))
-</code></pre><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>面向对象的程序设计基本上就是三步走：</p>
-<ol>
-<li>定义类<br>-数据抽象：找属性（名词）<br>-行为抽象：找方法（动词）</li>
-<li>创建对象</li>
-<li>给对象发消息</li>
-</ol>
-<h4 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h4><pre><code>def foo(*args, **kwargs)
-*args ------- 可变参数（不知道有多少个参数，可以通过*号表示）
-**kwargs --------- 关键字参数（给了参数名的参数，会被打包成一个字典传入函数）
-默认参数 ----------- 不传入参数
-
-def foo1(a, *, b, c)
-*前面的参数是位置参数在传参的时候可以不用指定参数名
-*后面的参数是命名关键字参数在传参的时候必须指定参数名否则报错
-
-解包
-items = [1, 2, 3, 4, 5]
-start， *_ ， end = items（取列表的第一个数和最后一个数）
-</code></pre><h4 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h4><ul>
-<li>a.装饰器函数：用一个函数装饰另一个函数，给它增加额外的功能</li>
-<li>b.装饰器函数的参数是被装饰的函数，返回的是起装饰作用的函数</li>
-<li>c.当调用被装饰的函数时，其实是执行装饰器中返回的那个函数</li>
-<li>d.凡是需要这个额外功能的函数，只需要加上装饰器即可，而不需要书写重复的代码</li>
-<li>e.给函数添加装饰器的语法就是在函数前写上  @装饰器函数</li>
-</ul>
+                <h3 id="Django-Python-Web应用开发框架"><a href="#Django-Python-Web应用开发框架" class="headerlink" title="Django:Python Web应用开发框架"></a>Django:Python Web应用开发框架</h3><p>&emsp;&emsp;Django 应该是最出名的Python框架，GAE甚至Erlang都有框架受它影响。Django是走大而全的方向，它最出名的是其全自动化的管理后台：只需要使用起ORM，做简单的对象定义，它就能自动生成数据库结构、以及全功能的管理后台。</p>
+<h3 id="MVC："><a href="#MVC：" class="headerlink" title="MVC："></a>MVC：</h3><p>&emsp;&emsp;MVC（Model View Controller）是模型-视图-控制器，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑狙击到一个部件里，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。通俗的来讲就是，强制性的使应用程序的输入，处理和输出分开。</p>
+<p><img src="/2018/10/22/web-the-firstone/QQ截图20181022103251.png" alt="QQ截图20181022103251"></p>
+<h3 id="MVT："><a href="#MVT：" class="headerlink" title="MVT："></a>MVT：</h3><p>&emsp;&emsp;严格来说，Django的模式应该是MVT模式，本质上和MVC没什么区别，也是各组件之间为了保持松耦合关系，只是定义上有些许不同。</p>
+<p>Model： 负责业务与数据库(ORM)的对象</p>
+<p>View： 负责业务逻辑并适当调用Model和Template</p>
+<p>Template: 负责把页面渲染展示给用户</p>
+<p>注意： Django中还有一个url分发器，也叫作路由。主要用于将url请求发送给不同的View处理，View在进行相关的业务逻辑处理。</p>
+<h3 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h3><h5 id="VIRTUALENV创建虚拟环境"><a href="#VIRTUALENV创建虚拟环境" class="headerlink" title="VIRTUALENV创建虚拟环境"></a>VIRTUALENV创建虚拟环境</h5><p>1.在cmd中能通过python去启动，如果不可以，直接跳到第三部</p>
+<p><img src="/2018/10/22/web-the-firstone/python.png" alt="python"></p>
+<p>2.在cmd中能通过pip3启动安装软件，如果不可以直接跳到第三步</p>
+<p><img src="/2018/10/22/web-the-firstone/pip3.png" alt="pip3"></p>
+<p>3.配置python环境和pip环境</p>
+<p><img src="/2018/10/22/web-the-firstone/python_pip_envir.png" alt="python_pip_envir"></p>
+<p>4.确认pip安装成功，如果Scrip文件夹下没有pip可执行文件，则执行第五步</p>
+<p>5.由于python3.6安装以后，在Scrip文件中没有pip的可执行软件，需要输入下一个命令进行安装</p>
+<p><code>python -m ensurepip</code></p>
+<p><img src="/2018/10/22/web-the-firstone/ensurepip.png" alt="ensurepip"></p>
+<p>注：现在在python的安装文件夹Scripts下就有pip.exe以及easy_install.exe等可执行文件了，就可以使用pip安装</p>
+<h5 id="window中安装使用"><a href="#window中安装使用" class="headerlink" title="window中安装使用"></a>window中安装使用</h5><p>1.安装virtualenv</p>
+<p><code>pip install virtualenv</code></p>
+<p><img src="/2018/10/22/web-the-firstone/pip_virtualenv.png" alt="pip_virtualenv"></p>
+<p>2.创建虚拟环境</p>
+<p>先查看一下安装虚拟环境有那些参数，是必须填写的</p>
+<p><img src="/2018/10/22/web-the-firstone/virtualenv_help.png" alt="virtualenv_help"></p>
+<p>参数： –no-site-package 和-p参数</p>
+<p><code>virtualenv --no-site-package venv</code></p>
+<p>以下是指定安装虚拟环境中的python版本和安装方式：</p>
+<p><img src="/2018/10/22/web-the-firstone/virtualenv_env_p.png" alt="virtualenv_env_p"></p>
+<p>3.进入/退出evn</p>
+<pre><code>进入 cd env/Scripts/文件夹 在activate命令
+退出 deactivate
+</code></pre><p>ubuntu中安装使用</p>
+<p>1.安装virtualenv</p>
+<p><code>apt-get install python-virtualenv</code></p>
+<p>2.创建包含python3版本的虚拟环境</p>
+<p><code>virtualenv -p /usr/bin/python3 env</code></p>
+<p>env代表创建的虚拟环境的名称</p>
+<p>3.进入/退出env</p>
+<pre><code>进入 source env/bin/activate
+    pip list
+    pip install django==1.11 ---------- 安装django
+退出 deactivate
+</code></pre><p>4.pip使用</p>
+<p>查看虚拟环境下安装的所有包</p>
+<p><code>pip list</code></p>
+<p>查看虚拟环境中通过pip安装的包</p>
+<p><code>pip freeze</code></p>
+<h4 id="创建虚拟环境（2）"><a href="#创建虚拟环境（2）" class="headerlink" title="创建虚拟环境（2）"></a>创建虚拟环境（2）</h4><p>1.新建文件夹  ——–&gt;  env</p>
+<p>2.在env中 新建文件 ——— djenv6</p>
+<p>3.在djenv6中，保存pip所有需要的文件</p>
+<p>4.通过<code>pip list</code>查看虚拟环境下安装的所有包</p>
+<p>5.安装Django</p>
+<p><code>pip install django==1.11</code></p>
 
             </div>
             <hr/>
@@ -377,7 +288,7 @@ start， *_ ， end = items（取列表的第一个数和最后一个数）
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/vim/" class="b-link-green">vim</a>
+                    <a href="/2018/10/22/web-the-firstone/" class="b-link-green">web-the firstone</a>
                 </p>
             </div>
         </div>
@@ -394,28 +305,24 @@ start， *_ ， end = items（取列表的第一个数和最后一个数）
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2018/10/15/README/">
+                <a href="/2018/10/22/web-the-firstone/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Python">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="web-the firstone">
                         
-                        <span class="card-title">Python</span>
+                        <span class="card-title">web-the firstone</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">学习是一件庄严而又神圣的事情，贵在坚持
-不断地积累,才能体会到其中的乐趣
-Python第1天
-前端页面 = 标签(内容) + CSS(显示) + JavaScript(行为)
-JavaScript = ECMAScript + BOM(wi</div>
+                    <div class="summary">Django:Python Web应用开发框架&emsp;&emsp;Django 应该是最出名的Python框架，GAE甚至Erlang都有框架受它影响。Django是走大而全的方向，它最出名的是其全自动化的管理后台：只需要使用起ORM，</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -424,6 +331,7 @@ JavaScript = ECMAScript + BOM(wi</div>
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -432,24 +340,26 @@ JavaScript = ECMAScript + BOM(wi</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/10/15/数据库/">
+                <a href="/2018/10/20/practice-linkman/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="数据库">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="practice linkman">
                         
-                        <span class="card-title">数据库</span>
+                        <span class="card-title">practice linkman</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">​        数据库（Database）是按照数据结构来组织、存储和管理数据的仓库，
-每个数据库都有一个或多个不同的API用于创建，访问，管理，搜索和复制所保存的数据。
-—– 从删库，到跑路额！
+                    <div class="summary">简单的联系人练习import pymysql
 
-数据库 —– database - 数</div>
+
+def add_con(con):
+    while True:
+        telname = input('联系人姓名：')
+        relation = input('与</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-20
                             </span>
                         <span class="publish-author">
                             
@@ -462,8 +372,8 @@ JavaScript = ECMAScript + BOM(wi</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/数据库-表格/" target="_blank">
-                        <span class="chip bg-color">数据库 表格</span>
+                    <a href="/tags/linkman/" target="_blank">
+                        <span class="chip bg-color">linkman</span>
                     </a>
                     
                 </div>
