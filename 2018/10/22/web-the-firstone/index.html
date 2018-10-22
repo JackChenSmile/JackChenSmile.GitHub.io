@@ -215,15 +215,22 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Django-Python-Web应用开发框架"><a href="#Django-Python-Web应用开发框架" class="headerlink" title="Django:Python Web应用开发框架"></a>Django:Python Web应用开发框架</h3><p>&emsp;&emsp;Django 应该是最出名的Python框架，GAE甚至Erlang都有框架受它影响。Django是走大而全的方向，它最出名的是其全自动化的管理后台：只需要使用起ORM，做简单的对象定义，它就能自动生成数据库结构、以及全功能的管理后台。</p>
-<h3 id="MVC："><a href="#MVC：" class="headerlink" title="MVC："></a>MVC：</h3><p>&emsp;&emsp;MVC（Model View Controller）是模型-视图-控制器，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑狙击到一个部件里，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。通俗的来讲就是，强制性的使应用程序的输入，处理和输出分开。</p>
+                <h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h3 id="Django-Python-Web应用开发框架"><a href="#Django-Python-Web应用开发框架" class="headerlink" title="Django:Python Web应用开发框架"></a>Django:Python Web应用开发框架</h3><p>&emsp;&emsp;Django 应该是最出名的Python框架，GAE甚至Erlang都有框架受它影响。Django是走大而全的方向，它最出名的是其全自动化的管理后台：只需要使用起ORM，做简单的对象定义，它就能自动生成数据库结构、以及全功能的管理后台。</p>
+<h3 id="Flask：一个用Python编写的轻量级Web应用框架"><a href="#Flask：一个用Python编写的轻量级Web应用框架" class="headerlink" title="Flask：一个用Python编写的轻量级Web应用框架"></a>Flask：一个用Python编写的轻量级Web应用框架</h3><p>&emsp;&emsp;Flask是一个使用Python编写的轻量级Web应用框架。基于Werkzeug WSGI工具箱和Jinja2<br>模板引擎。Flask也被称为“microframework”，因为它使用简单的核心，用extension增加其他功能。Flask没有默认使用的数<br>据库、窗体验证工具.</p>
+<h3 id="Cubes：轻量级Python-OLAP框架"><a href="#Cubes：轻量级Python-OLAP框架" class="headerlink" title="Cubes：轻量级Python OLAP框架"></a>Cubes：轻量级Python OLAP框架</h3><p>&emsp;&emsp;Cubes是一个轻量级Python框架，包含OLAP、多维数据分析和浏览聚合数据（aggregated data）等工具.</p>
+<h3 id="Pulsar：Python的事件驱动并发框架"><a href="#Pulsar：Python的事件驱动并发框架" class="headerlink" title="Pulsar：Python的事件驱动并发框架"></a>Pulsar：Python的事件驱动并发框架</h3><p>&emsp;&emsp;Pulsar是一个事件驱动的并发框架，有了pulsar，你可以写出在不同进程或线程中运行一个或多个活动的异步服务器.</p>
+<h3 id="Web2py：全栈式Web框架"><a href="#Web2py：全栈式Web框架" class="headerlink" title="Web2py：全栈式Web框架"></a>Web2py：全栈式Web框架</h3><p>&emsp;&emsp;Web2py是一个为Python语言提供的全功能Web应用框架，旨在敏捷快速的开发Web应用，具有快速、安全以及可移植的数据库驱动的应用，兼容Google App Engine.</p>
+<h3 id="Scrapy：Python的爬虫框架"><a href="#Scrapy：Python的爬虫框架" class="headerlink" title="Scrapy：Python的爬虫框架"></a>Scrapy：Python的爬虫框架</h3><p>&emsp;&emsp;Scrapy是一个使用Python编写的，轻量级的，简单轻巧，并且使用起来非常的方便.</p>
+<h2 id="Django"><a href="#Django" class="headerlink" title="Django"></a>Django</h2><h3 id="MVC："><a href="#MVC：" class="headerlink" title="MVC："></a>MVC：</h3><p>M(模型层)、V(视图层)、C(业务层)</p>
+<p>&emsp;&emsp;MVC（Model View Controller）是模型-视图-控制器，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑狙击到一个部件里，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。通俗的来讲就是，强制性的使应用程序的输入，处理和输出分开。</p>
 <p><img src="/2018/10/22/web-the-firstone/QQ截图20181022103251.png" alt="QQ截图20181022103251"></p>
-<h3 id="MVT："><a href="#MVT：" class="headerlink" title="MVT："></a>MVT：</h3><p>&emsp;&emsp;严格来说，Django的模式应该是MVT模式，本质上和MVC没什么区别，也是各组件之间为了保持松耦合关系，只是定义上有些许不同。</p>
+<h3 id="MVT："><a href="#MVT：" class="headerlink" title="MVT："></a>MVT：</h3><p>M(模型层)、V(视图：处理业务逻辑)、T(模板Template：html)</p>
+<p>&emsp;&emsp;严格来说，Django的模式应该是MVT模式，本质上和MVC没什么区别，也是各组件之间为了保持松耦合关系，只是定义上有些许不同。</p>
 <p>Model： 负责业务与数据库(ORM)的对象</p>
 <p>View： 负责业务逻辑并适当调用Model和Template</p>
 <p>Template: 负责把页面渲染展示给用户</p>
 <p>注意： Django中还有一个url分发器，也叫作路由。主要用于将url请求发送给不同的View处理，View在进行相关的业务逻辑处理。</p>
-<h3 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h3><h5 id="VIRTUALENV创建虚拟环境"><a href="#VIRTUALENV创建虚拟环境" class="headerlink" title="VIRTUALENV创建虚拟环境"></a>VIRTUALENV创建虚拟环境</h5><p>1.在cmd中能通过python去启动，如果不可以，直接跳到第三部</p>
+<h2 id="安装Django和创建Django的虚拟环境"><a href="#安装Django和创建Django的虚拟环境" class="headerlink" title="安装Django和创建Django的虚拟环境"></a>安装Django和创建Django的虚拟环境</h2><h3 id="创建虚拟环境（1）"><a href="#创建虚拟环境（1）" class="headerlink" title="创建虚拟环境（1）"></a>创建虚拟环境（1）</h3><h4 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h4><h5 id="VIRTUALENV创建虚拟环境"><a href="#VIRTUALENV创建虚拟环境" class="headerlink" title="VIRTUALENV创建虚拟环境"></a>VIRTUALENV创建虚拟环境</h5><p>1.在cmd中能通过python去启动，如果不可以，直接跳到第三部</p>
 <p><img src="/2018/10/22/web-the-firstone/python.png" alt="python"></p>
 <p>2.在cmd中能通过pip3启动安装软件，如果不可以直接跳到第三步</p>
 <p><img src="/2018/10/22/web-the-firstone/pip3.png" alt="pip3"></p>
@@ -241,8 +248,10 @@
 <p>先查看一下安装虚拟环境有那些参数，是必须填写的</p>
 <p><img src="/2018/10/22/web-the-firstone/virtualenv_help.png" alt="virtualenv_help"></p>
 <p>参数： –no-site-package 和-p参数</p>
-<p><code>virtualenv --no-site-package venv</code></p>
-<p>以下是指定安装虚拟环境中的python版本和安装方式：</p>
+<pre><code>创建纯净的虚拟环境：
+virtualenv --no-site-package  环境名
+</code></pre><p>以下是指定安装虚拟环境中的python版本和安装方式：</p>
+<p>python版本3.6 + Django 1.11</p>
 <p><img src="/2018/10/22/web-the-firstone/virtualenv_env_p.png" alt="virtualenv_env_p"></p>
 <p>3.进入/退出evn</p>
 <pre><code>进入 cd env/Scripts/文件夹 在activate命令
@@ -257,6 +266,7 @@
 <pre><code>进入 source env/bin/activate
     pip list
     pip install django==1.11 ---------- 安装django
+    pip install PyMySQL ------------ 安装PyMySQL
 退出 deactivate
 </code></pre><p>4.pip使用</p>
 <p>查看虚拟环境下安装的所有包</p>
@@ -269,6 +279,58 @@
 <p>4.通过<code>pip list</code>查看虚拟环境下安装的所有包</p>
 <p>5.安装Django</p>
 <p><code>pip install django==1.11</code></p>
+<h2 id="在Django的虚拟环境中"><a href="#在Django的虚拟环境中" class="headerlink" title="在Django的虚拟环境中"></a>在Django的虚拟环境中</h2><ul>
+<li><p>创建项目</p>
+<p><code>django-admin startproject day01</code></p>
+</li>
+<li><p>在python中打开文件</p>
+<p><img src="/2018/10/22/web-the-firstone/QQ截图20181022171438.png" alt="QQ截图20181022171438"></p>
+<ul>
+<li><strong>init</strong>.py：说明该目录结构是一个python包，会在后期被用来初始化一些工具。</li>
+<li>seetings.py：Django项目的配置文件，其中定义了本项目的引用组件，项目名，数据库，静态资源，调试模式，域名限制等，可以用来修改一些文件设置。</li>
+<li>urls：项目的URL路由映射，实现客户端请求的url由那个模块进行响应。</li>
+<li>wsgi.py：定义WSGI接口信息，通常本文件生成后无需改动。</li>
+<li>manage.py：是Django用于管理本项目的管理集工具，之后站点运行，数据库自动生成，数据表的修改等都是通过该文件完成。</li>
+</ul>
+</li>
+<li><p>Django驱动页面</p>
+<p><code>python manage.py runserver</code></p>
+</li>
+<li><p>修改Django的驱动页面的语言设置</p>
+</li>
+</ul>
+<p>中文和时区设置：</p>
+<p><img src="/2018/10/22/web-the-firstone/QQ截图20181022152640.png" alt="QQ截图20181022152640"></p>
+<p>英文和时区设置：</p>
+<p><img src="/2018/10/22/web-the-firstone/F:/hexo\source\_posts\web-the-firstone\QQ截图20181022152916.png" alt="QQ截图20181022152916"></p>
+<ul>
+<li><p>启动Django的方法</p>
+<p><code>python manage.py runserver 8080</code></p>
+<p><code>python manage.py runserver IP:8080</code></p>
+</li>
+<li><p>访问管理后台 ——- admin</p>
+<p><code>http://127.0.0.1:8080/admin</code></p>
+</li>
+<li><p>修改数据库的配置 ——– settings.py</p>
+<p><code>ENGINE, USER, PASSWORD, HOST, PORT, NAME</code></p>
+</li>
+<li><p>将Django中自带的模型迁移（映射）到数据库中</p>
+<p><code>python manage.py migrate</code></p>
+</li>
+<li><p>安装数据库驱动</p>
+<p><code>pip install pymysql</code></p>
+</li>
+<li><p>初始化数据库的驱动<strong>__</strong>init__.py</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
+pymysql<span class="token punctuation">.</span>install__as__mysqldb<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p>设置Django后台账户和密码</p>
+<pre class=" language-python"><code class="language-python">python manage<span class="token punctuation">.</span>py createsuperuser
+python manage<span class="token punctuation">.</span>py changepassword
+</code></pre>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -318,7 +380,7 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Django:Python Web应用开发框架&emsp;&emsp;Django 应该是最出名的Python框架，GAE甚至Erlang都有框架受它影响。Django是走大而全的方向，它最出名的是其全自动化的管理后台：只需要使用起ORM，</div>
+                    <div class="summary">框架Django:Python Web应用开发框架&emsp;&emsp;Django 应该是最出名的Python框架，GAE甚至Erlang都有框架受它影响。Django是走大而全的方向，它最出名的是其全自动化的管理后台：只需要使用起OR</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-22
