@@ -164,13 +164,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Linux操作
+                        web-daytwo
                     </div>
                 </div>
             </div>
@@ -190,8 +190,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/操作系统-Linux-防火墙/" target="_blank">
-                    <span class="chip bg-color">操作系统 Linux 防火墙</span>
+                <a href="/tags/web框架/" target="_blank">
+                    <span class="chip bg-color">web框架</span>
                 </a>
                 
             </div>
@@ -200,80 +200,92 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-23
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Linux内核最初只是由芬兰人李纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。</p>
-<p>Linux能运行主要的UNIX工具软件、应用程序和网络协议</p>
-<p>Linux发行版本：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。</p>
-<h1 id="Linux系统下的操作系统"><a href="#Linux系统下的操作系统" class="headerlink" title="Linux系统下的操作系统"></a>Linux系统下的操作系统</h1><h2 id="1-攻击方式"><a href="#1-攻击方式" class="headerlink" title="1. 攻击方式"></a>1. 攻击方式</h2><p>PING to death  ———- 拼到死</p>
-<p>DOS - Deny of Service ————— 拒绝服务攻击</p>
-<p>DDoS - Distributed Deny of Service ———– 分布式拒绝服务攻击</p>
-<h2 id="2-查看本机IP"><a href="#2-查看本机IP" class="headerlink" title="2. 查看本机IP"></a>2. 查看本机IP</h2><p>ifconfig</p>
-<h2 id="3-连接其它的服务器"><a href="#3-连接其它的服务器" class="headerlink" title="3. 连接其它的服务器"></a>3. 连接其它的服务器</h2><p>ssh <a href="mailto:root@IP" target="_blank" rel="noopener">root@IP</a></p>
-<p>断开某个用户的终端连接： </p>
-<p>​    命令：fuser -k /dev/pts/x  （x为who下看到的这个用户的pts序号，比如本例中的pts/0,pts/1）   </p>
-<p>​            example： fuser -k /dev/pts/0</p>
-<h2 id="4-给其它的服务器拷贝文件"><a href="#4-给其它的服务器拷贝文件" class="headerlink" title="4. 给其它的服务器拷贝文件"></a>4. 给其它的服务器拷贝文件</h2><p>一个用户操作另外两个用户的文件：</p>
-<p> scp  用户名@IP：/绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p>
-<p>从本地到远程用户：</p>
-<p>scp /绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p>
-<h2 id="5-操作远端用户"><a href="#5-操作远端用户" class="headerlink" title="5. 操作远端用户"></a>5. 操作远端用户</h2><p>sftp 用户名@IP</p>
-<p>​    用户名密码</p>
-<p>​    get 要下载的文件名</p>
-<p>​    put 上传的文件名</p>
-<p>​    lls 查看本地目录</p>
-<p>在输入的命令前加上<l>，就可以操作本地文件，直接输入命令，操作连接的用户文件</l></p>
-<p>​    l(命令) 操作本地文件</p>
-<h2 id="6-网络端口"><a href="#6-网络端口" class="headerlink" title="6. 网络端口"></a>6. 网络端口</h2><p>netstat -na | grep 80   查询网络状态</p>
-<p>netstat -nap | grep 80   查看占用端口的进程</p>
-<h2 id="7-服务操作"><a href="#7-服务操作" class="headerlink" title="7. 服务操作"></a>7. 服务操作</h2><p>systemctl start &lt;进程的名字&gt;       开启服务</p>
-<p>systemctl stop <name>       禁用服务</name></p>
-<p>systemctl restart <name>    重启服务</name></p>
-<p>systemctl status <name>    查看服务状态</name></p>
-<p>systemctl senable <name>  开机自启服务</name></p>
-<p>systemctl disable <name>   禁用开机自启服务</name></p>
-<p>计算机网络分层结构模型</p>
-<p>Internet —– TCP/IP协议族</p>
-<p>TCP - Transfer Control Protocol - 传输控制协议</p>
-<p>UDP - User Datagram Protocol - 用户数据报协议</p>
-<p>IP - Internet Protocol - 网际协议</p>
-<p>TCP/IP模型</p>
-<p>应用层（定义应用之间如何传输数据，定义应用级协议）- HTTP/SMTP/SSH/POP3/FTP/ICQ</p>
-<p>传输层（端到端传输数据）- TCP/ UDP</p>
-<p>网络层/网际层 （寻址和路由）</p>
-<p>物理链路层 （数据分帧 + 校验）- 冗余校验码</p>
-<h2 id="Linux常用的防火墙服务有firewall和iptables"><a href="#Linux常用的防火墙服务有firewall和iptables" class="headerlink" title="Linux常用的防火墙服务有firewall和iptables"></a>Linux常用的防火墙服务有firewall和iptables</h2><ul>
-<li><p>systemctl start firewalld    开启防火墙</p>
-</li>
-<li><p>systemctl enable firewalld     设置开机自启防火墙</p>
-</li>
+                <h4 id="进入虚拟环境"><a href="#进入虚拟环境" class="headerlink" title="进入虚拟环境"></a>进入虚拟环境</h4><ul>
+<li>env/djenv6/Scripts/activate<ul>
+<li>将代码放到code文件中,从虚拟环境中，进入code文件夹</li>
 </ul>
+</li>
+<li>退出虚拟环境 ——- deactivate</li>
+</ul>
+<h4 id="启动一个脚本文件："><a href="#启动一个脚本文件：" class="headerlink" title="启动一个脚本文件："></a>启动一个脚本文件：</h4><p><img src="/2018/10/23/web-daytwo/QQ截图20181023121317.png" alt="QQ截图20181023121317"></p>
 <ul>
-<li><p>firewalls-cmd  –add-port=80/tcp  –permanent</p>
-</li>
-<li><p>firewalls-cmd  –add-service=80/tcp  –permanent</p>
-</li>
+<li>Run -&gt; Debug Configurations —- 修改<ul>
+<li>Parameters 改成 runserver 8080</li>
 </ul>
+</li>
+<li>引入Django模块</li>
+<li>修改settings中的DATABASE的数据</li>
+</ul>
+<h4 id="在model中创建表格模型"><a href="#在model中创建表格模型" class="headerlink" title="在model中创建表格模型"></a>在model中创建表格模型</h4><p>1.在settings中的INSTALLED_APPS中添加app</p>
+<p><img src="/2018/10/23/web-daytwo/QQ截图20181023121548.png" alt="QQ截图20181023121548"></p>
+<p>2.执行python manage.py startapp app</p>
+<p>3.执行python manage.py makemiigrations</p>
 <ul>
-<li>top —— 查看进程（CPU的利用率排序）</li>
-<li>ctrl + z     —— 把进程放到后台</li>
-<li>ctrl + c    ——  终止进程</li>
-<li>jobs —— 查看后台进程<h2 id="如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行"><a href="#如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行" class="headerlink" title="如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行"></a>如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行</h2>_bg %编号 —— 让暂停的进程继续在后台运行background</li>
-<li>fg %编号 —— 将后台的进程放到前台foreground</li>
+<li>Provide a one-off default now (will be set on all existing rows) ——— 缺少一个默认值</li>
 </ul>
-<h2 id="8-Linux根目录下"><a href="#8-Linux根目录下" class="headerlink" title="8. Linux根目录下"></a>8. Linux根目录下</h2><h2 id="http-www-runoob-com-linux-linux-system-contents-html"><a href="#http-www-runoob-com-linux-linux-system-contents-html" class="headerlink" title="http://www.runoob.com/linux/linux-system-contents.html"></a><a href="http://www.runoob.com/linux/linux-system-contents.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-system-contents.html</a></h2><p>etc:保存下载安装的文件夹</p>
-<p>安装的软件名.conf ———- 安装的软件的配置</p>
-<p>dev: 设备管理器</p>
-<p>tmp ————— 临时文件</p>
-<p>usr ————– 用户目录</p>
-<h2 id="9-Linux环境"><a href="#9-Linux环境" class="headerlink" title="9. Linux环境"></a>9. Linux环境</h2><p>Linux的shall也是一个交互式的环境，可以输入代码</p>
-<p>执行多个程序可以用分号 隔开 / &amp;&amp; 隔开 / 并列符号 ||</p>
-<p><img src="/2018/10/15/Linux服务器/Linux1.jpg" alt="Linux1"></p>
+<p>4.再执行python manage.py migrate  —- 迁移表格</p>
+<p>5.如果报错，查看Django_migrations的表格的最后一行</p>
+<h4 id="表格中的操作"><a href="#表格中的操作" class="headerlink" title="表格中的操作"></a>表格中的操作</h4><ul>
+<li><p>添加表格的列（定义字段）都写在models.py中创建的模型（类）中，定义字段，就表示定义这个类的对象的属性，然后执行上面的第三、四步骤就创建好了</p>
+<p><code>`</code>python<br>from django.db import models</p>
+<h1 id="Create-your-models-here"><a href="#Create-your-models-here" class="headerlink" title="Create your models here."></a>Create your models here.</h1><p>class Student(models.Model):</p>
+<pre><code># 定义s_name字段，varchar类型，最长不超过6字符，唯一
+s_name = models.CharField(max_length=6, unique=True)
+# 定义s_age字段，int类型
+s_age = models.IntegerField(default=18)
+# 定义s_gender字段，bool型
+s_gender = models.BooleanField(default=1)
+# 定义create_time字段，创建时间
+create_time = models.DateTimeField(auto_now_add=True, null=True)
+# 定义operate_time字段，修改时间
+operate_time = models.DateTimeField(auto_now=True, null=True)
+</code></pre></li>
+</ul>
+<pre><code>  class Meta:
+      # 定义模型迁移到数据库中的表格
+      db_table = &#39;student&#39;
+</code></pre><pre><code>
+- 创建表格中的数据：
+  - **1.url路由**
+
+    在urls.py --&gt; urlpatterns中添加一个url（正则表达式，调用views中的方法）
+
+    ```python
+    from app import views
+
+    urlpatterns = [
+        # 127.0.0.1:8080/admin/
+        url(r&#39;^admin/&#39;, admin.site.urls),
+        # 127.0.0.1/8080/hello/
+        url(r&#39;^hello/&#39;, views.hello),
+        # 127.0.0.1:8080/create_stu/
+        url(r&#39;^create_stu&#39;, views.create_stu)
+</code></pre><pre><code>```python
+def hello(request):
+    return HttpResponse(&#39;你好， hello！&#39;)
+
+
+def create_stu(request):
+    # 创建学生
+    stu = Student()
+    stu.s_name = &#39;李二狗&#39;
+    stu.s_age = 20
+    stu.save()
+    return HttpResponse(&#39;创建成功&#39;)
+```
+</code></pre><ul>
+<li><p><strong>2.运行程序</strong></p>
+<p>查看调用方法生成的ip地址，在数据库中就创建好了数据</p>
+<p><img src="/2018/10/23/web-daytwo/QQ截图20181023122235.png" alt="QQ截图20181023122235"></p>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -293,7 +305,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/Linux服务器/" class="b-link-green">Linux操作</a>
+                    <a href="/2018/10/23/web-daytwo/" class="b-link-green">web-daytwo</a>
                 </p>
             </div>
         </div>
@@ -310,62 +322,32 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2018/10/15/README/">
+                <a href="/2018/10/23/web-daytwo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Python">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="web-daytwo">
                         
-                        <span class="card-title">Python</span>
+                        <span class="card-title">web-daytwo</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">学习是一件庄严而又神圣的事情，贵在坚持
-不断地积累,才能体会到其中的乐趣
-Python第1天
-前端页面 = 标签(内容) + CSS(显示) + JavaScript(行为)
-JavaScript = ECMAScript + BOM(wi</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2018/10/15/数据库/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="数据库">
-                        
-                        <span class="card-title">数据库</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">​        数据库（Database）是按照数据结构来组织、存储和管理数据的仓库，
-每个数据库都有一个或多个不同的API用于创建，访问，管理，搜索和复制所保存的数据。
-—– 从删库，到跑路额！
+                    <div class="summary">进入虚拟环境
+env/djenv6/Scripts/activate
+将代码放到code文件中,从虚拟环境中，进入code文件夹
 
-数据库 —– database - 数</div>
+
+退出虚拟环境 ——- deactivate
+
+启动一个脚本文件：
+
+Run -&gt; Debug Con</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-23
                             </span>
                         <span class="publish-author">
                             
@@ -375,13 +357,45 @@ JavaScript = ECMAScript + BOM(wi</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/数据库-表格/" target="_blank">
-                        <span class="chip bg-color">数据库 表格</span>
+                    <a href="/tags/web框架/" target="_blank">
+                        <span class="chip bg-color">web框架</span>
                     </a>
                     
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2018/10/22/web-the-firstone/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="web-the firstone">
+                        
+                        <span class="card-title">web-the firstone</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">框架Django:Python Web应用开发框架&emsp;&emsp;Django 应该是最出名的Python框架，GAE甚至Erlang都有框架受它影响。Django是走大而全的方向，它最出名的是其全自动化的管理后台：只需要使用起OR</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            smile
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
