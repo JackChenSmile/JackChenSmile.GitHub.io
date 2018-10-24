@@ -208,19 +208,41 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h4 id="hexo中，将图片上传到hexo中"><a href="#hexo中，将图片上传到hexo中" class="headerlink" title="hexo中，将图片上传到hexo中"></a>hexo中，将图片上传到hexo中</h4><h5 id="First"><a href="#First" class="headerlink" title="First"></a>First</h5><ul>
-<li><p>1 把主页配置文件_config.yml里的post_asset_folder:这个选项设置为true</p>
+<li><ol>
+<li>把主页配置文件_config.yml里的post_asset_folder:这个选项设置为true</li>
+</ol>
 </li>
-<li><p>2 在你的hexo目录下执行这样一句话npm install hexo-asset-image –save，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git</p>
+<li><ol start="2">
+<li>在你的hexo目录下执行这样一句话npm install hexo-asset-image –save，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git</li>
+</ol>
 </li>
-<li><p>3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹</p>
+<li><ol start="3">
+<li>等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹</li>
+</ol>
 </li>
 </ul>
 <h5 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h5><ul>
-<li>4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：<br><code>![你想输入的替代文字](xxxx/图片名.jpg)</code></li>
+<li><ol start="4">
+<li>最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：<br><code>![你想输入的替代文字](xxxx/图片名.jpg)</code></li>
+</ol>
+</li>
 </ul>
 <p>注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。</p>
 <ul>
-<li>5 最后检查一下，hexo g 生成页面后，进入public\2017\02\26\index.html文件中查看相关字段，可以发现，html标签内的语句是<code>&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;</code>，而不是<code>&lt;img src=&quot;xxxx/图片名.jpg&gt;</code>这很重要，关乎你的网页是否可以真正加载你想插入的图片。</li>
+<li><ol start="5">
+<li>最后检查一下，hexo g 生成页面后，进入public\2017\02\26\index.html文件中查看相关字段，可以发现，html标签内的语句是<code>&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;</code>，而不是<code>&lt;img src=&quot;xxxx/图片名.jpg&gt;</code>这很重要，关乎你的网页是否可以真正加载你想插入的图片。</li>
+</ol>
+</li>
+</ul>
+<h4 id="GitHub中上传的图片"><a href="#GitHub中上传的图片" class="headerlink" title="GitHub中上传的图片"></a>GitHub中上传的图片</h4><ul>
+<li>1.在git的文件夹中创建一个img的文件夹，用来存储图片</li>
+<li>2.然后上传到github中，每一张图片都有自己对应的url路由</li>
+<li>3.在写MarkDown的时候，需要插入图片，<strong><code>![你想输入的替代文字](url)</code></strong>保存后，在github上就可以看到了</li>
+</ul>
+<h4 id="Gitee中的图片"><a href="#Gitee中的图片" class="headerlink" title="Gitee中的图片"></a>Gitee中的图片</h4><ul>
+<li>1.gitee上有一个在线编辑的工具，进入你的MarkDown文件中，在右上角有一个编辑的按钮</li>
+<li>2.进入编辑，就有插入图片的标识，然后可以选择插入图片的地址（网上图片直接插入，点击那个地址框前面的图片标识，进入本地文件，然后选择本地图片）</li>
+<li>3.插入完成后，在末尾有一个保存更新，就成功插入图片了</li>
 </ul>
 <h4 id="在git中，将本地的文件上传到GitHub库中"><a href="#在git中，将本地的文件上传到GitHub库中" class="headerlink" title="在git中，将本地的文件上传到GitHub库中"></a>在git中，将本地的文件上传到GitHub库中</h4><ul>
 <li>先添加一个本地文件 <code>git add 文件名</code></li>
