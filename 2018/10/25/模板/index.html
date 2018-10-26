@@ -164,13 +164,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        MySQL预习
+                        模板
                     </div>
                 </div>
             </div>
@@ -188,117 +188,18 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/MySQL/" target="_blank">
-                    <span class="chip bg-color">MySQL</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-25
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。</p>
-<h1 id="MySQL预习"><a href="#MySQL预习" class="headerlink" title="MySQL预习"></a>MySQL预习</h1><h3 id="MySQL目录结构"><a href="#MySQL目录结构" class="headerlink" title="MySQL目录结构"></a>MySQL目录结构</h3><ul>
-<li>bin目录，存储可执行文件</li>
-<li>data目录，存储数据文件</li>
-<li>docs，文档</li>
-<li>include目录，存储包含的头文件</li>
-<li>lib目录，存储库文件</li>
-<li>share，错误消息和字符集文件</li>
-</ul>
-<h3 id="MySQL的配置选项"><a href="#MySQL的配置选项" class="headerlink" title="MySQL的配置选项"></a>MySQL的配置选项</h3><ul>
-<li><p><strong>修改编码方式</strong></p>
-<p><strong>[mysql]</strong></p>
-<p><strong>default-character-set=utf8</strong></p>
-<p><strong>[mysqld]</strong></p>
-<p><strong>character-set-server=utf8</strong></p>
-</li>
-</ul>
-<h3 id="MySQL服务的启动和关闭"><a href="#MySQL服务的启动和关闭" class="headerlink" title="MySQL服务的启动和关闭"></a>MySQL服务的启动和关闭</h3><ul>
-<li><p><strong>启动MySQL服务</strong></p>
-<p><strong>net start mysql</strong></p>
-</li>
-<li><p><strong>关闭MySQL服务</strong></p>
-<p><strong>net stop mysql</strong></p>
-</li>
-</ul>
-<h3 id="MySQL的使用"><a href="#MySQL的使用" class="headerlink" title="MySQL的使用"></a>MySQL的使用</h3><ol>
-<li><p><strong>MySQL登录</strong></p>
-<ul>
-<li><p>mysql  参数</p>
-<p><img src="/2018/10/15/MySQL预习/MySQL1.jpg" alt="MySQL1"></p>
-</li>
-</ul>
-</li>
-<li><p><strong>MySQL退出</strong></p>
-<ul>
-<li><strong>mysql &gt; exit;</strong></li>
-<li><strong>mysql &gt; quit;</strong></li>
-<li><strong>mysql &gt; \q;</strong></li>
-</ul>
-</li>
-</ol>
-<h3 id="修改MySQL提示符"><a href="#修改MySQL提示符" class="headerlink" title="修改MySQL提示符"></a>修改MySQL提示符</h3><ul>
-<li><p><strong>连接客户端时通过参数指定</strong></p>
-<p><code>shell&gt;mysql -uroot -proot -prompt 提示符</code>    </p>
-</li>
-<li><p><strong>连接上客户端后，通过prompt的命令来实现</strong></p>
-<ul>
-<li><code>mysql&gt;prompt 提示符</code>    <ul>
-<li><strong>\D ———– 完整的日期</strong></li>
-<li><strong>\d ———– 当前数据库</strong></li>
-<li><strong>\h ———– 服务器的名称</strong></li>
-<li><strong>\u ———– 当前用户</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="MySQL常用命令"><a href="#MySQL常用命令" class="headerlink" title="MySQL常用命令"></a>MySQL常用命令</h3><ul>
-<li><p><strong>显示当前服务器版本</strong></p>
-<p><strong>SELECT  VERSION();</strong></p>
-</li>
-<li><p><strong>显示当前日期时间</strong></p>
-<p><strong>SELECT  NOW();</strong></p>
-</li>
-<li><p><strong>显示当前用户</strong></p>
-<p><strong>SELECT  USER();</strong></p>
-</li>
-</ul>
-<h3 id="MySQL语句的规范"><a href="#MySQL语句的规范" class="headerlink" title="MySQL语句的规范"></a>MySQL语句的规范</h3><ul>
-<li><strong>关键字与函数名称全部大写</strong></li>
-<li><strong>数据库名称、表名称、字段名称全部小写</strong></li>
-<li><strong>SQL语句必须以分号结尾</strong></li>
-</ul>
-<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ul>
-<li><p><strong>CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] DB_name</strong></p>
-<p><strong>[DEFAULT] CHARACTER SET [=] charset_name</strong></p>
-</li>
-</ul>
-<h3 id="查看当前服务器下的数据表列表"><a href="#查看当前服务器下的数据表列表" class="headerlink" title="查看当前服务器下的数据表列表"></a>查看当前服务器下的数据表列表</h3><ul>
-<li><p><strong>SHOW {DATABASES | SCHEMAS}</strong></p>
-<p><strong>[LIKE ‘pattern‘ | WHERE expr]</strong></p>
-</li>
-</ul>
-<h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><ul>
-<li><p><strong>ALTER {DATABASE | SCHEMA} [db_name]</strong></p>
-<p><strong>[DEFAULT] CHARACTER SET [=] charset_name</strong></p>
-</li>
-</ul>
-<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><ul>
-<li><strong>DROP {DATABASE | SCHEMA} [IF EXISTS] bd_name</strong></li>
-</ul>
-
+                
             </div>
             <hr/>
 
@@ -317,7 +218,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/MySQL预习/" class="b-link-green">MySQL预习</a>
+                    <a href="/2018/10/25/模板/" class="b-link-green">模板</a>
                 </p>
             </div>
         </div>
@@ -337,23 +238,59 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/10/15/Linux服务器/">
+                <a href="/2018/10/26/day04/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux操作">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Linux操作</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Linux内核最初只是由芬兰人李纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。
-Linux能运行主要的UNIX工具软件、应用程序和网络协议
-Linux发行版本：Ubuntu、RedHat、CentOS</div>
+                    <div class="summary">title: day04
+date: 2018-10-22 09:42:39
+tags: 总结一波
+模型类型（1）定义模型一个模型可以看做一个类，它对应数据库中的一张表；模型中定义的一个字段，对应一个类的属性
+class Student(m</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-26
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            smile
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2018/10/25/http/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="http">
+                        
+                        <span class="card-title">http</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">HTTP的错误提示1开头的http状态码表示临时响应并需要请求者继续执行操作的状态代码。
+
+100   （继续） 请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。 
+101   （切换协议） 请求者已要</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -365,41 +302,10 @@ Linux发行版本：Ubuntu、RedHat、CentOS</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/操作系统-Linux-防火墙/" target="_blank">
-                        <span class="chip bg-color">操作系统 Linux 防火墙</span>
+                    <a href="/tags/状态码/" target="_blank">
+                        <span class="chip bg-color">状态码</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2018/10/15/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
