@@ -164,13 +164,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        CSS样式表
                     </div>
                 </div>
             </div>
@@ -188,29 +188,122 @@
     <div class="card">
         <div class="card-content article-info">
             
+            <div class="article-tag">
+                
+                <a href="/tags/选择器/" target="_blank">
+                    <span class="chip bg-color">选择器</span>
+                </a>
+                
+            </div>
+            
             <div class="post-info">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-30
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-zh-"><code class="language-zh-">$ hexo new "My New Post"
+                <h2 id="CSS显示"><a href="#CSS显示" class="headerlink" title="CSS显示"></a>CSS显示</h2><p>&emsp;&emsp;css 是 web 标准中的表现标准，专门用来对网页标签进行布局和设置样式的一门语言，目前使用css3，css 又名层叠样式表.</p>
+<h4 id="CSS代码的位置"><a href="#CSS代码的位置" class="headerlink" title="CSS代码的位置"></a>CSS代码的位置</h4><p><strong>1.内联样式</strong></p>
+<p>&emsp;&emsp;将样式表写在标签的 style 的属性中</p>
+<p><strong>2.内部样式</strong></p>
+<p>&emsp;&emsp;将样式表也在 head 中的 style 中的标签中，只可用于当前的 html 文件</p>
+<p><strong>3.外部样式</strong></p>
+<p>&emsp;&emsp;在外面新建一个 css 后缀的样式文件，并通过 link 引入到 html 文件中，可用于所有的 html 文件中</p>
+<pre class=" language-html"><code class="language-html">link标签：
+作用：导入外部文件
+用法：
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>theme.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    rel：说明属性的功能
+    type：设置导入文件的类型
+    href：导入的 css 文件的位置
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<h4 id="CSS基本语法"><a href="#CSS基本语法" class="headerlink" title="CSS基本语法"></a>CSS基本语法</h4><p>&emsp;&emsp;选择器{属性:属性值:属性:属性值:多个属性}<br>说明：<br>​    选择器：用来选中/确定需要设置样式的标签<br>​    属性与属性值之间用冒号连接；属性与属性之间用分号隔开</p>
+<ul>
+<li>注释：/<em> 用来解释代码，但不执行 </em>/</li>
+<li>颜色表示<ul>
+<li>颜色的英文单词</li>
+<li>‘#’ + 颜色的十六进制值</li>
+<li>rgb(r, g, b)或者 rgba (r, g, b, alpha); r/g/b 的范围(0,255),alpha 范围(0,1)</li>
+</ul>
+</li>
+<li>常用的属性</li>
+</ul>
+<p><img src="/2018/10/30/CSS样式表/HTML/常用的属性.png" alt="常用的属性"></p>
+<h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><pre class=" language-html"><code class="language-html">作用：选中需要添加样式的标签
+内联样式优先级最高
+优先级1：越详细的选择器，定位越准确的选择器，优先级越高；如果详细程度一样，就看就近原则
+优先级2：权重值越大，优先级越高
+权重：元素选择器（1）、id 选择器（4）、类选择器（2）、群组选择器（看单独一个）、父子选择器（所有选择器权重之和）、为类选择器（1）
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<ul>
+<li>元素选择器<ul>
+<li>注解：将标签名作为选择器，选中所有指定的标签</li>
+<li>用法：标签名{样式}</li>
+</ul>
+</li>
+<li>id选择器<ul>
+<li>注解：通过标签的 id 属性，来定位到某一个特定的标签，或者所有相同 id 的标签，并设置样式</li>
+<li>用法：#id{样式}</li>
+</ul>
+</li>
+<li>class选择器<ul>
+<li>注解：将标签的类属性作为定位的标准，将所有带有这个类的标签选出来，并设置样式</li>
+<li>用法：    点类选择器{样式}</li>
+</ul>
+</li>
+<li>群组选择器<ul>
+<li>注解：多个选择器之间用逗号隔开作为一个选择器，同时选中所有的选择器对应的标签</li>
+<li>用法：#id，p,div{样式}</li>
+</ul>
+</li>
+<li>后代选择器<ul>
+<li>注解：又名包含选择器/父子选择器，可以多类选择器进行组合</li>
+<li>用法：用来选择特定元素或元素组的后代，将对父元素的选择放在前面，对子元素的选择放在后面，中间加一个空格分开。后代选择器中的元素不仅仅只能有两个，对于多层祖先后代关系，可以有多个空格加以分开，如id为a、b、c的三个元素，则后代选择器可以写成#a #b #c{}的形式，只要对祖先元素的选择在后代元素之前、中间以空格分开即可。</li>
+</ul>
+</li>
+<li>子选择器<ul>
+<li>注解：请注意这个选择器与后代选择器的区别，子选择器（child selector）仅是指它的直接后代，或者你可以理解为作用于子元素的第一个后代。而后代选择器是作用于所有子后代元素。</li>
+<li>用法：后代选择器通过空格来进行选择，而子选择器是通过“&gt;”进行选择。</li>
+</ul>
+</li>
+<li>伪类选择器<ul>
+<li></li>
+<li>注解：选中某个标签的不同状态，可以给不同状态设置不同的样式</li>
+<li>用法：<ul>
+<li>a:Link    表示链接在没有被点击时的样式,选中所有 a 标签的初始状态,并设置标签原来的样式</li>
+<li>‘#’a:Visited   表示链接已经被访问后的样式，选中所有 id 为 a 的标签，并设置访问后的样式</li>
+<li>.b:Hover    表示当鼠标悬停在链接上面时的样式,选中所有的类属性为 b 的标签，并设置鼠标悬停时的样式</li>
+<li>a:active    表示链接被激活即鼠标按下不放时的状态，选中所有 a 标签，并设置鼠标按下不放时的样式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>通用选择器<ul>
+<li>注解：通用选择器用（*）来表示。</li>
+<li>用法：*{样式}</li>
+</ul>
+</li>
+<li>兄弟选择器<ul>
+<li>注解：选取相邻间的标签</li>
+<li>用法：+和~的区别：类似上面一个，两者都表示兄弟关系，但是+必须是“大哥+二哥”，~还能是“大哥~三弟”、“二哥~四妹”</li>
+</ul>
+</li>
+<li>属性选择器<ul>
+<li>注解：属性选择器，是根据元素的属性来匹配的，其属性可以是标准属性也可以是自定义属性；!ie6，0 0 1 0；当然，也可以同时匹配多个属性；</li>
+<li>用法:</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-html"><code class="language-html">attr=val {margin-right: 10px}
+  //选择属性 title 的值等于 this 的所有元素
+  attr^=val {margin-left: 15px}
+  //选择属性title的值以this开头的所有元素
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code>$ hexo deploy
-</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
             </div>
             <hr/>
@@ -230,7 +323,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/hello-world/" class="b-link-green">Hello World</a>
+                    <a href="/2018/10/30/CSS样式表/" class="b-link-green">CSS样式表</a>
                 </p>
             </div>
         </div>
@@ -247,28 +340,26 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2018/10/15/CentOS安装Python3.7/">
+                <a href="/2018/10/30/CSS样式表/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="安装Python">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="CSS样式表">
                         
-                        <span class="card-title">安装Python</span>
+                        <span class="card-title">CSS样式表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">认真学习也是有前提的：
-好的学习环境, 好的学习方法, 好的学习状态
-缺一不可哟！
-CentOS安装Python3.7
-1.下载Python源代码：https://www.python.org/ftp/python/3.7.0/Python</div>
+                    <div class="summary">CSS显示&emsp;&emsp;css 是 web 标准中的表现标准，专门用来对网页标签进行布局和设置样式的一门语言，目前使用css3，css 又名层叠样式表.
+CSS代码的位置1.内联样式
+&emsp;&emsp;将样式表写在标签的 s</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -277,11 +368,12 @@ CentOS安装Python3.7
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python-软链接/" target="_blank">
-                        <span class="chip bg-color">Python 软链接</span>
+                    <a href="/tags/选择器/" target="_blank">
+                        <span class="chip bg-color">选择器</span>
                     </a>
                     
                 </div>
@@ -293,24 +385,26 @@ CentOS安装Python3.7
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/10/15/vim/">
+                <a href="/2018/10/29/HTML/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vim">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="HTML">
                         
-                        <span class="card-title">vim</span>
+                        <span class="card-title">HTML</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">vimrc ——————- 保存格式的文件vim
-文件意外中断，r恢复，b删除
-vim 文件1 文件2 ———– 同时打开多个文件
-vim -d 文件1 文件2 ———— 比较文件1和文件2如果vim打开了多个文件，可以在末行模式中
-：ls</div>
+                    <div class="summary">HTML，CSS，JavaScript
+HTML：超文本标记语言，结构样式表，决定网页的结构
+CSS:表现样式表/层叠样式表，决定网页的样式和布局
+JavaScript：行为样式表，决定网页中的行为和动作变化
+
+HTML的一些特性
+HTML</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-29
                             </span>
                         <span class="publish-author">
                             
@@ -319,6 +413,14 @@ vim -d 文件1 文件2 ———— 比较文件1和文件2如果vim打开了多
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/HTML/" target="_blank">
+                        <span class="chip bg-color">HTML</span>
+                    </a>
+                    
                 </div>
                 
             </div>
