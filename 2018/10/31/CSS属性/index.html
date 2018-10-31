@@ -164,13 +164,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        CSS属性
                     </div>
                 </div>
             </div>
@@ -188,29 +188,119 @@
     <div class="card">
         <div class="card-content article-info">
             
+            <div class="article-tag">
+                
+                <a href="/tags/float/" target="_blank">
+                    <span class="chip bg-color">float</span>
+                </a>
+                
+            </div>
+            
             <div class="post-info">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-31
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-zh-"><code class="language-zh-">$ hexo new "My New Post"
+                <h3 id="标准流布局"><a href="#标准流布局" class="headerlink" title="标准流布局"></a>标准流布局</h3><p>&emsp;&emsp;在标准流中</p>
+<ul>
+<li>块级标签：是一个占一行，默认宽度是父标签的宽度，默认高度是内容的高度；并且可以设置宽度和高度</li>
+<li>行内标签：一行可以显示多个，默认宽高都是内容的高度，设置宽高无效</li>
+<li>行内块标签：一行可以显示多个，默认宽高都是内容的高度，设置宽高有效</li>
+</ul>
+<h3 id="display属性"><a href="#display属性" class="headerlink" title="display属性"></a>display属性</h3><p>设置标签的性质</p>
+<ul>
+<li>block：将标签设置为块级标签</li>
+<li>inline-block：将标签设置为行内块标签，可以设置宽高</li>
+<li>inline：将标签设置为行内标签，不可以设置宽高</li>
+</ul>
+<h3 id="float属性"><a href="#float属性" class="headerlink" title="float属性"></a>float属性</h3><p>设置浮动之后，元素会（脱离标准流）脱流</p>
+<ul>
+<li>效果：消除两个div之间的空白可以用float(浮动)；文字环绕的效果，将被环绕的元素设置为浮动</li>
+<li>注意：绝对定位的元素，float属性无效</li>
+</ul>
+<h5 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h5><p><strong>1.清除浮动指的是清除因为浮动而产生的高度塌陷问题</strong></p>
+<p><strong>2.高度塌陷</strong></p>
+<ul>
+<li>当父标签不浮动，并且不设置高度，但是子标签浮动的时候，就会产生高度塌陷的问题</li>
+</ul>
+<p><strong>3.清除浮动的方法</strong></p>
+<ul>
+<li>添加空的div标签：在父标签的后面添加一个空的div，并且设置样式<strong>clear:both</strong></li>
+<li>在会出现塌陷的标签中设置<strong>overflow:hidden</strong>这个样式</li>
+</ul>
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><p>分为内容、padding、border、margin四个部分</p>
+<h5 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h5><ul>
+<li>属性<ul>
+<li>可见的，设置width和height实质就是设置内容的大小，默认大小与标签中的内容有关</li>
+<li>添加子标签或者设置文字内容都是添加或者显示在内容部分的</li>
+<li>设置背景颜色(background-color)会作用于内容部分</li>
+</ul>
+</li>
+</ul>
+<h5 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h5><ul>
+<li>属性<ul>
+<li>可见的，分上下左右四个部分，一般默认都是0</li>
+<li>设置背景颜色(background-color)会作用于padding部分</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>设置内容与边界之间的距离</li>
+</ul>
+</li>
+</ul>
+<h5 id="border"><a href="#border" class="headerlink" title="border"></a>border</h5><ul>
+<li>属性<ul>
+<li>可见的，分上下左右四个部分，默认为0</li>
+<li>border的背景颜色需要单独设置</li>
+</ul>
+</li>
+<li>格式<ul>
+<li>border：边框样式 边框颜色 边框线的宽度</li>
+<li>线的样式：solid(实线) / double(双实线) / dashed(点划线) / dotted(虚线)</li>
+</ul>
+</li>
+</ul>
+<h5 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h5><ul>
+<li>属性<ul>
+<li>不可见，但是占位置；分上下左右四个部分，默认值为0</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他属性"><a href="#其他属性" class="headerlink" title="其他属性"></a>其他属性</h3><h5 id="字体相关的属性"><a href="#字体相关的属性" class="headerlink" title="字体相关的属性"></a>字体相关的属性</h5><ul>
+<li>字体的颜色：color</li>
+<li>字体大小：font-size</li>
+<li>字体加粗：font-weight（bolder(更粗)、bold（加粗）、normal（常规））</li>
+<li>字体倾斜：font-style（italic/oblique/normal )</li>
+<li>对齐方式：text-align：left、right、center</li>
+<li>垂直方向居中，只针对一行文字：line-height 属性的值与高度设置一样    </li>
+<li>文本修饰：text-decoration（none、underline、overline、line-through）</li>
+<li>首行缩进：text-indent（单位 em）</li>
+<li>字间距：letter-spacing（像素 px / 空格 em /百分比%）</li>
+<li>背景图片：background-image（url（）no-repeat（是否平铺）x 方向的坐标 y 方向的坐标 背景颜色）</li>
+<li>设置圆角：border-radius</li>
+</ul>
+<h2 id="CSS动画效果"><a href="#CSS动画效果" class="headerlink" title="CSS动画效果"></a>CSS动画效果</h2><h4 id="产生动画效果的参考网址"><a href="#产生动画效果的参考网址" class="headerlink" title="产生动画效果的参考网址"></a><a href="http://www.runoob.com/cssref/css-animatable.html" target="_blank" rel="noopener">产生动画效果的参考网址</a></h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 动画的效果，写在内部（head）样式中，通过装饰器来实现效果</span>
+<span class="token comment" spellcheck="true"># 设置颜色渐变：</span>
+控制器（用来定位的）<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true"># 定位部分的样式表内容</span>
+    animation<span class="token punctuation">:</span> 控制器 5s infinite<span class="token punctuation">;</span>
+    <span class="token operator">-</span>webkit<span class="token operator">-</span>animation<span class="token punctuation">:</span> 控制器 5s infinite<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+@keyframes 控制器<span class="token punctuation">{</span>
+    <span class="token keyword">from</span><span class="token punctuation">{</span>background<span class="token operator">-</span>color<span class="token punctuation">:</span> 初始颜色<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    to<span class="token punctuation">{</span>background<span class="token operator">-</span>color<span class="token punctuation">:</span> 渐变之后的颜色<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+@<span class="token operator">-</span>webkit<span class="token operator">-</span>keyframes 控制器<span class="token punctuation">{</span>
+    <span class="token keyword">from</span><span class="token punctuation">{</span>background<span class="token operator">-</span>color<span class="token punctuation">:</span> 初始颜色<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    to<span class="token punctuation">{</span>background<span class="token operator">-</span>color<span class="token punctuation">:</span> 渐变之后的颜色<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code>$ hexo deploy
-</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
             </div>
             <hr/>
@@ -230,7 +320,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/hello-world/" class="b-link-green">Hello World</a>
+                    <a href="/2018/10/31/CSS属性/" class="b-link-green">CSS属性</a>
                 </p>
             </div>
         </div>
@@ -247,25 +337,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2018/10/15/MySQL预习/">
+                <a href="/2018/10/31/CSS属性/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="MySQL预习">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="CSS属性">
                         
-                        <span class="card-title">MySQL预习</span>
+                        <span class="card-title">CSS属性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。
-MySQL预习MySQL</div>
+                    <div class="summary">标准流布局&emsp;&emsp;在标准流中
+
+块级标签：是一个占一行，默认宽度是父标签的宽度，默认高度是内容的高度；并且可以设置宽度和高度
+行内标签：一行可以显示多个，默认宽高都是内容的高度，设置宽高无效
+行内块标签：一行可以显示多个，默</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -274,11 +367,12 @@ MySQL预习MySQL</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/" target="_blank">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/float/" target="_blank">
+                        <span class="chip bg-color">float</span>
                     </a>
                     
                 </div>
@@ -290,24 +384,25 @@ MySQL预习MySQL</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/10/15/CentOS安装Python3.7/">
+                <a href="/2018/10/30/字典与集合/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="安装Python">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="字典与集合">
                         
-                        <span class="card-title">安装Python</span>
+                        <span class="card-title">字典与集合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">认真学习也是有前提的：
-好的学习环境, 好的学习方法, 好的学习状态
-缺一不可哟！
-CentOS安装Python3.7
-1.下载Python源代码：https://www.python.org/ftp/python/3.7.0/Python</div>
+                    <div class="summary">一、recode1.列表
+1.一个列表可以保存多个数据。容器类型，有序（下标），可变的（增删改）[元素，元素]—&gt; 元素可以是任意类型的数据
+2.声明列表
+3.元素的增删改查
+4.遍历列表
+5.列表存储（存地址，除了int、bool、</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
                             </span>
                         <span class="publish-author">
                             
@@ -316,14 +411,6 @@ CentOS安装Python3.7
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python-软链接/" target="_blank">
-                        <span class="chip bg-color">Python 软链接</span>
-                    </a>
-                    
                 </div>
                 
             </div>
