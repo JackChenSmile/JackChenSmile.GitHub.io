@@ -440,51 +440,6 @@
     </entry>
     
     <entry>
-      <title>安装Python</title>
-      <link href="/2018/10/15/CentOS%E5%AE%89%E8%A3%85Python3.7/"/>
-      <url>/2018/10/15/CentOS%E5%AE%89%E8%A3%85Python3.7/</url>
-      
-        <content type="html"><![CDATA[<p>认真学习也是有前提的：</p><p>好的学习环境, 好的学习方法, 好的学习状态</p><p>缺一不可哟！</p><p>CentOS安装Python3.7</p><h2 id="1-下载Python源代码："><a href="#1-下载Python源代码：" class="headerlink" title="1.下载Python源代码："></a>1.下载Python源代码：</h2><p><a href="https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz</a></p><h2 id="2-解压缩"><a href="#2-解压缩" class="headerlink" title="2.解压缩"></a>2.解压缩</h2><pre><code>gunzip Python-3.7.0.tgz</code></pre><h2 id="3-解归档"><a href="#3-解归档" class="headerlink" title="3.解归档"></a>3.解归档</h2><pre><code>tar -xvf Python-3.7.0.tar</code></pre><h2 id="4-安装底层依赖库"><a href="#4-安装底层依赖库" class="headerlink" title="4.安装底层依赖库"></a>4.安装底层依赖库</h2><pre><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</code></pre><h2 id="5-安装前的配置"><a href="#5-安装前的配置" class="headerlink" title="5.安装前的配置"></a>5.安装前的配置</h2><pre><code> ./configure --prefix=/usr/local/Python37 --enable-optimizations</code></pre><h2 id="6-构建安装"><a href="#6-构建安装" class="headerlink" title="6.构建安装"></a>6.构建安装</h2><pre><code>make &amp;&amp; make install</code></pre><p>##7.配置环境变量</p><pre><code>export PATH=$PATH:/usr/local/Python37/bin</code></pre><p>##8.注册软连接（符号链接）</p><pre><code>ln -s /usr/local/Python37/bin/python3 /usr/bin/python3</code></pre><p>硬链接 - 文件的引用，只要引用数不为0，文件就不会被删除<br>软链接 - 相当于是文件的快捷方式，如果文件被删除，软链接就会失效<br>ln -s 带完整路径的文件名，链接文件名</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Python 软链接 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>MySQL预习</title>
-      <link href="/2018/10/15/MySQL%E9%A2%84%E4%B9%A0/"/>
-      <url>/2018/10/15/MySQL%E9%A2%84%E4%B9%A0/</url>
-      
-        <content type="html"><![CDATA[<p>MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。</p><h1 id="MySQL预习"><a href="#MySQL预习" class="headerlink" title="MySQL预习"></a>MySQL预习</h1><h3 id="MySQL目录结构"><a href="#MySQL目录结构" class="headerlink" title="MySQL目录结构"></a>MySQL目录结构</h3><ul><li>bin目录，存储可执行文件</li><li>data目录，存储数据文件</li><li>docs，文档</li><li>include目录，存储包含的头文件</li><li>lib目录，存储库文件</li><li>share，错误消息和字符集文件</li></ul><h3 id="MySQL的配置选项"><a href="#MySQL的配置选项" class="headerlink" title="MySQL的配置选项"></a>MySQL的配置选项</h3><ul><li><p><strong>修改编码方式</strong></p><p><strong>[mysql]</strong></p><p><strong>default-character-set=utf8</strong></p><p><strong>[mysqld]</strong></p><p><strong>character-set-server=utf8</strong></p></li></ul><h3 id="MySQL服务的启动和关闭"><a href="#MySQL服务的启动和关闭" class="headerlink" title="MySQL服务的启动和关闭"></a>MySQL服务的启动和关闭</h3><ul><li><p><strong>启动MySQL服务</strong></p><p><strong>net start mysql</strong></p></li><li><p><strong>关闭MySQL服务</strong></p><p><strong>net stop mysql</strong></p></li></ul><h3 id="MySQL的使用"><a href="#MySQL的使用" class="headerlink" title="MySQL的使用"></a>MySQL的使用</h3><ol><li><p><strong>MySQL登录</strong></p><ul><li><p>mysql  参数</p><p><img src="/2018/10/15/MySQL预习/MySQL1.jpg" alt="MySQL1"></p></li></ul></li><li><p><strong>MySQL退出</strong></p><ul><li><strong>mysql &gt; exit;</strong></li><li><strong>mysql &gt; quit;</strong></li><li><strong>mysql &gt; \q;</strong></li></ul></li></ol><h3 id="修改MySQL提示符"><a href="#修改MySQL提示符" class="headerlink" title="修改MySQL提示符"></a>修改MySQL提示符</h3><ul><li><p><strong>连接客户端时通过参数指定</strong></p><p><code>shell&gt;mysql -uroot -proot -prompt 提示符</code>    </p></li><li><p><strong>连接上客户端后，通过prompt的命令来实现</strong></p><ul><li><code>mysql&gt;prompt 提示符</code>    <ul><li><strong>\D ———– 完整的日期</strong></li><li><strong>\d ———– 当前数据库</strong></li><li><strong>\h ———– 服务器的名称</strong></li><li><strong>\u ———– 当前用户</strong></li></ul></li></ul></li></ul><h3 id="MySQL常用命令"><a href="#MySQL常用命令" class="headerlink" title="MySQL常用命令"></a>MySQL常用命令</h3><ul><li><p><strong>显示当前服务器版本</strong></p><p><strong>SELECT  VERSION();</strong></p></li><li><p><strong>显示当前日期时间</strong></p><p><strong>SELECT  NOW();</strong></p></li><li><p><strong>显示当前用户</strong></p><p><strong>SELECT  USER();</strong></p></li></ul><h3 id="MySQL语句的规范"><a href="#MySQL语句的规范" class="headerlink" title="MySQL语句的规范"></a>MySQL语句的规范</h3><ul><li><strong>关键字与函数名称全部大写</strong></li><li><strong>数据库名称、表名称、字段名称全部小写</strong></li><li><strong>SQL语句必须以分号结尾</strong></li></ul><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ul><li><p><strong>CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] DB_name</strong></p><p><strong>[DEFAULT] CHARACTER SET [=] charset_name</strong></p></li></ul><h3 id="查看当前服务器下的数据表列表"><a href="#查看当前服务器下的数据表列表" class="headerlink" title="查看当前服务器下的数据表列表"></a>查看当前服务器下的数据表列表</h3><ul><li><p><strong>SHOW {DATABASES | SCHEMAS}</strong></p><p><strong>[LIKE ‘pattern‘ | WHERE expr]</strong></p></li></ul><h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><ul><li><p><strong>ALTER {DATABASE | SCHEMA} [db_name]</strong></p><p><strong>[DEFAULT] CHARACTER SET [=] charset_name</strong></p></li></ul><h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><ul><li><strong>DROP {DATABASE | SCHEMA} [IF EXISTS] bd_name</strong></li></ul>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> MySQL </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2018/10/15/hello-world/"/>
-      <url>/2018/10/15/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-zh-"><code class="language-zh-">$ hexo new "My New Post"</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code>$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    <entry>
       <title>Linux操作</title>
       <link href="/2018/10/15/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
       <url>/2018/10/15/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
@@ -498,6 +453,17 @@
             <tag> 操作系统 Linux 防火墙 </tag>
             
         </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2018/10/15/hello-world/"/>
+      <url>/2018/10/15/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-zh-"><code class="language-zh-">$ hexo new "My New Post"</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code>$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
       
     </entry>
     
@@ -541,6 +507,40 @@
         <tags>
             
             <tag> 大概指南 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>安装Python</title>
+      <link href="/2018/10/15/CentOS%E5%AE%89%E8%A3%85Python3.7/"/>
+      <url>/2018/10/15/CentOS%E5%AE%89%E8%A3%85Python3.7/</url>
+      
+        <content type="html"><![CDATA[<p>认真学习也是有前提的：</p><p>好的学习环境, 好的学习方法, 好的学习状态</p><p>缺一不可哟！</p><p>CentOS安装Python3.7</p><h2 id="1-下载Python源代码："><a href="#1-下载Python源代码：" class="headerlink" title="1.下载Python源代码："></a>1.下载Python源代码：</h2><p><a href="https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz</a></p><h2 id="2-解压缩"><a href="#2-解压缩" class="headerlink" title="2.解压缩"></a>2.解压缩</h2><pre><code>gunzip Python-3.7.0.tgz</code></pre><h2 id="3-解归档"><a href="#3-解归档" class="headerlink" title="3.解归档"></a>3.解归档</h2><pre><code>tar -xvf Python-3.7.0.tar</code></pre><h2 id="4-安装底层依赖库"><a href="#4-安装底层依赖库" class="headerlink" title="4.安装底层依赖库"></a>4.安装底层依赖库</h2><pre><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</code></pre><h2 id="5-安装前的配置"><a href="#5-安装前的配置" class="headerlink" title="5.安装前的配置"></a>5.安装前的配置</h2><pre><code> ./configure --prefix=/usr/local/Python37 --enable-optimizations</code></pre><h2 id="6-构建安装"><a href="#6-构建安装" class="headerlink" title="6.构建安装"></a>6.构建安装</h2><pre><code>make &amp;&amp; make install</code></pre><p>##7.配置环境变量</p><pre><code>export PATH=$PATH:/usr/local/Python37/bin</code></pre><p>##8.注册软连接（符号链接）</p><pre><code>ln -s /usr/local/Python37/bin/python3 /usr/bin/python3</code></pre><p>硬链接 - 文件的引用，只要引用数不为0，文件就不会被删除<br>软链接 - 相当于是文件的快捷方式，如果文件被删除，软链接就会失效<br>ln -s 带完整路径的文件名，链接文件名</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Python 软链接 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>MySQL预习</title>
+      <link href="/2018/10/15/MySQL%E9%A2%84%E4%B9%A0/"/>
+      <url>/2018/10/15/MySQL%E9%A2%84%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<p>MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。</p><h1 id="MySQL预习"><a href="#MySQL预习" class="headerlink" title="MySQL预习"></a>MySQL预习</h1><h3 id="MySQL目录结构"><a href="#MySQL目录结构" class="headerlink" title="MySQL目录结构"></a>MySQL目录结构</h3><ul><li>bin目录，存储可执行文件</li><li>data目录，存储数据文件</li><li>docs，文档</li><li>include目录，存储包含的头文件</li><li>lib目录，存储库文件</li><li>share，错误消息和字符集文件</li></ul><h3 id="MySQL的配置选项"><a href="#MySQL的配置选项" class="headerlink" title="MySQL的配置选项"></a>MySQL的配置选项</h3><ul><li><p><strong>修改编码方式</strong></p><p><strong>[mysql]</strong></p><p><strong>default-character-set=utf8</strong></p><p><strong>[mysqld]</strong></p><p><strong>character-set-server=utf8</strong></p></li></ul><h3 id="MySQL服务的启动和关闭"><a href="#MySQL服务的启动和关闭" class="headerlink" title="MySQL服务的启动和关闭"></a>MySQL服务的启动和关闭</h3><ul><li><p><strong>启动MySQL服务</strong></p><p><strong>net start mysql</strong></p></li><li><p><strong>关闭MySQL服务</strong></p><p><strong>net stop mysql</strong></p></li></ul><h3 id="MySQL的使用"><a href="#MySQL的使用" class="headerlink" title="MySQL的使用"></a>MySQL的使用</h3><ol><li><p><strong>MySQL登录</strong></p><ul><li><p>mysql  参数</p><p><img src="/2018/10/15/MySQL预习/MySQL1.jpg" alt="MySQL1"></p></li></ul></li><li><p><strong>MySQL退出</strong></p><ul><li><strong>mysql &gt; exit;</strong></li><li><strong>mysql &gt; quit;</strong></li><li><strong>mysql &gt; \q;</strong></li></ul></li></ol><h3 id="修改MySQL提示符"><a href="#修改MySQL提示符" class="headerlink" title="修改MySQL提示符"></a>修改MySQL提示符</h3><ul><li><p><strong>连接客户端时通过参数指定</strong></p><p><code>shell&gt;mysql -uroot -proot -prompt 提示符</code>    </p></li><li><p><strong>连接上客户端后，通过prompt的命令来实现</strong></p><ul><li><code>mysql&gt;prompt 提示符</code>    <ul><li><strong>\D ———– 完整的日期</strong></li><li><strong>\d ———– 当前数据库</strong></li><li><strong>\h ———– 服务器的名称</strong></li><li><strong>\u ———– 当前用户</strong></li></ul></li></ul></li></ul><h3 id="MySQL常用命令"><a href="#MySQL常用命令" class="headerlink" title="MySQL常用命令"></a>MySQL常用命令</h3><ul><li><p><strong>显示当前服务器版本</strong></p><p><strong>SELECT  VERSION();</strong></p></li><li><p><strong>显示当前日期时间</strong></p><p><strong>SELECT  NOW();</strong></p></li><li><p><strong>显示当前用户</strong></p><p><strong>SELECT  USER();</strong></p></li></ul><h3 id="MySQL语句的规范"><a href="#MySQL语句的规范" class="headerlink" title="MySQL语句的规范"></a>MySQL语句的规范</h3><ul><li><strong>关键字与函数名称全部大写</strong></li><li><strong>数据库名称、表名称、字段名称全部小写</strong></li><li><strong>SQL语句必须以分号结尾</strong></li></ul><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ul><li><p><strong>CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] DB_name</strong></p><p><strong>[DEFAULT] CHARACTER SET [=] charset_name</strong></p></li></ul><h3 id="查看当前服务器下的数据表列表"><a href="#查看当前服务器下的数据表列表" class="headerlink" title="查看当前服务器下的数据表列表"></a>查看当前服务器下的数据表列表</h3><ul><li><p><strong>SHOW {DATABASES | SCHEMAS}</strong></p><p><strong>[LIKE ‘pattern‘ | WHERE expr]</strong></p></li></ul><h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><ul><li><p><strong>ALTER {DATABASE | SCHEMA} [db_name]</strong></p><p><strong>[DEFAULT] CHARACTER SET [=] charset_name</strong></p></li></ul><h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><ul><li><strong>DROP {DATABASE | SCHEMA} [IF EXISTS] bd_name</strong></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
