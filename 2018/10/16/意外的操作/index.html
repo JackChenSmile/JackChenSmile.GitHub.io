@@ -257,7 +257,7 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="hexo中，将图片上传到hexo中"><a href="#hexo中，将图片上传到hexo中" class="headerlink" title="hexo中，将图片上传到hexo中"></a>hexo中，将图片上传到hexo中</h4><h5 id="First"><a href="#First" class="headerlink" title="First"></a>First</h5><ul>
+                <h3 id="hexo中，将图片上传到hexo中"><a href="#hexo中，将图片上传到hexo中" class="headerlink" title="hexo中，将图片上传到hexo中"></a>hexo中，将图片上传到hexo中</h3><h5 id="First"><a href="#First" class="headerlink" title="First"></a>First</h5><ul>
 <li><ol>
 <li>把主页配置文件_config.yml里的post_asset_folder:这个选项设置为true</li>
 </ol>
@@ -284,12 +284,12 @@
 </ol>
 </li>
 </ul>
-<h4 id="GitHub中上传的图片"><a href="#GitHub中上传的图片" class="headerlink" title="GitHub中上传的图片"></a>GitHub中上传的图片</h4><ul>
+<h3 id="GitHub中上传的图片"><a href="#GitHub中上传的图片" class="headerlink" title="GitHub中上传的图片"></a>GitHub中上传的图片</h3><ul>
 <li>1.在git的文件夹中创建一个img的文件夹，用来存储图片</li>
 <li>2.然后上传到github中，每一张图片都有自己对应的url路由</li>
 <li>3.在写MarkDown的时候，需要插入图片，<strong><code>![你想输入的替代文字](url)</code></strong>保存后，在github上就可以看到了</li>
 </ul>
-<h4 id="Gitee中的图片"><a href="#Gitee中的图片" class="headerlink" title="Gitee中的图片"></a>Gitee中的图片</h4><ul>
+<h3 id="Gitee中的图片"><a href="#Gitee中的图片" class="headerlink" title="Gitee中的图片"></a>Gitee中的图片</h3><ul>
 <li>1.gitee上有一个在线编辑的工具，进入你的MarkDown文件中，在右上角有一个编辑的按钮</li>
 <li>2.进入编辑，就有插入图片的标识，然后可以选择插入图片的地址（网上图片直接插入，点击那个地址框前面的图片标识，进入本地文件，然后选择本地图片）</li>
 <li>3.插入完成后，在末尾有一个保存更新，就成功插入图片了</li>
@@ -299,8 +299,35 @@
 <li>再上传到库中 <code>git commit -m &quot;上传说明&quot;</code></li>
 <li>最后同步GitHub上 <code>git push</code></li>
 </ul>
-<h4 id="博客连接GItHub的二级域名的方法："><a href="#博客连接GItHub的二级域名的方法：" class="headerlink" title="博客连接GItHub的二级域名的方法："></a>博客连接GItHub的二级域名的方法：</h4><p><a href="https://blog.csdn.net/lmj623565791/article/details/51319147" target="_blank" rel="noopener">https://blog.csdn.net/lmj623565791/article/details/51319147</a></p>
-<h4 id="修改服务器的登录提示语"><a href="#修改服务器的登录提示语" class="headerlink" title="修改服务器的登录提示语"></a>修改服务器的登录提示语</h4><p>修改文件夹      / etc / profile</p>
+<h3 id="博客连接GItHub的二级域名的方法："><a href="#博客连接GItHub的二级域名的方法：" class="headerlink" title="博客连接GItHub的二级域名的方法："></a>博客连接GItHub的二级域名的方法：</h3><p><a href="https://blog.csdn.net/lmj623565791/article/details/51319147" target="_blank" rel="noopener">https://blog.csdn.net/lmj623565791/article/details/51319147</a></p>
+<h3 id="修改服务器的登录提示语"><a href="#修改服务器的登录提示语" class="headerlink" title="修改服务器的登录提示语"></a>修改服务器的登录提示语</h3><p>修改文件夹      / etc / profile</p>
+<h3 id="从Linux上传文件到阿里云服务器"><a href="#从Linux上传文件到阿里云服务器" class="headerlink" title="从Linux上传文件到阿里云服务器"></a>从Linux上传文件到阿里云服务器</h3><h6 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h6><p><strong>Nginx</strong>:是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器</p>
+<p>1.安装Nginx：<br><code>yum -y install nginx</code> </p>
+<p>2.启动Nginx：<br><code>systemctl start nginx / service nginx start(centos6)</code></p>
+<p>（可以通过IP访问，打开防火墙）<br>IP地址可以确定网络上的一台主机，端口号可以用来区分不同的服务（http - 80）</p>
+<ul>
+<li>/usr/share/nginx/html ———- 服务器内容的存放位置，上传文件(put),下载文件(get)，首页文件index.html,在index.html文件中添加a标签的超链接</li>
+<li>/etc/nginx/nginx.conf ———- 服务器配置内容文件</li>
+</ul>
+<p>sftp root@Ip</p>
+<h5 id="sftp常用命令"><a href="#sftp常用命令" class="headerlink" title="sftp常用命令"></a>sftp常用命令</h5><ul>
+<li>quit / exit / bye — 退出sftp</li>
+<li>cd / lcd —– 切换远端工作目录/切换本地工作目录</li>
+<li>pwd / lpwd —- 查看远端工作目录/查看本地工作目录</li>
+<li>ls / lls —- 查看远端目录内容/查看本地目录内容</li>
+<li>mkdir / lmkdir —- 创建远端目录/创建本地目录</li>
+</ul>
+<p><strong>苹果系统</strong></p>
+<ul>
+<li>进到相应的文件夹</li>
+</ul>
+<p><img src="/2018/10/16/意外的操作/put.jpg" alt="put"></p>
+<ul>
+<li>上传文件</li>
+</ul>
+<p><img src="/2018/10/16/意外的操作/1.jpg" alt="1"></p>
+<p><strong>window系统</strong></p>
+<p>通过Xftp软件，上传文件</p>
 
             </div>
             <hr/>
