@@ -214,13 +214,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        安装Python
+                        Linux_vim
                     </div>
                 </div>
             </div>
@@ -238,40 +238,58 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/Python-软链接/" target="_blank">
-                    <span class="chip bg-color">Python 软链接</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-14
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>认真学习也是有前提的：</p>
-<p>好的学习环境, 好的学习方法, 好的学习状态</p>
-<p>缺一不可哟！</p>
-<p>CentOS安装Python3.7</p>
-<h2 id="1-下载Python源代码："><a href="#1-下载Python源代码：" class="headerlink" title="1.下载Python源代码："></a>1.下载Python源代码：</h2><p><a href="https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz</a></p>
-<h2 id="2-解压缩"><a href="#2-解压缩" class="headerlink" title="2.解压缩"></a>2.解压缩</h2><pre><code>gunzip Python-3.7.0.tgz
-</code></pre><h2 id="3-解归档"><a href="#3-解归档" class="headerlink" title="3.解归档"></a>3.解归档</h2><pre><code>tar -xvf Python-3.7.0.tar
-</code></pre><h2 id="4-安装底层依赖库"><a href="#4-安装底层依赖库" class="headerlink" title="4.安装底层依赖库"></a>4.安装底层依赖库</h2><pre><code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
-</code></pre><h2 id="5-安装前的配置"><a href="#5-安装前的配置" class="headerlink" title="5.安装前的配置"></a>5.安装前的配置</h2><pre><code> ./configure --prefix=/usr/local/Python37 --enable-optimizations
-</code></pre><h2 id="6-构建安装"><a href="#6-构建安装" class="headerlink" title="6.构建安装"></a>6.构建安装</h2><pre><code>make &amp;&amp; make install
-</code></pre><p>##7.配置环境变量</p>
-<pre><code>export PATH=$PATH:/usr/local/Python37/bin
-</code></pre><p>##8.注册软连接（符号链接）</p>
-<pre><code>ln -s /usr/local/Python37/bin/python3 /usr/bin/python3
-</code></pre><p>硬链接 - 文件的引用，只要引用数不为0，文件就不会被删除<br>软链接 - 相当于是文件的快捷方式，如果文件被删除，软链接就会失效<br>ln -s 带完整路径的文件名，链接文件名</p>
+                <h3 id="分鱼"><a href="#分鱼" class="headerlink" title="分鱼"></a>分鱼</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+  <span class="token number">2</span> 
+  <span class="token number">3</span> <span class="token triple-quoted-string string">"""
+  4 穷举法:穷尽所有可能直到找到正确答案
+  5 """</span>
+  <span class="token number">6</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token number">7</span>     <span class="token triple-quoted-string string">"""分鱼"""</span>
+  <span class="token number">8</span>     fish <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token number">9</span>     <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+ <span class="token number">10</span>         enough <span class="token operator">=</span> <span class="token boolean">True</span>
+ <span class="token number">11</span>         total <span class="token operator">=</span> fish
+ <span class="token number">12</span>         <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+ <span class="token number">13</span>             <span class="token keyword">if</span> <span class="token punctuation">(</span>total <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">5</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+ <span class="token number">14</span>                 total <span class="token operator">=</span> <span class="token punctuation">(</span>total <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">5</span> <span class="token operator">*</span><span class="token number">4</span>
+ <span class="token number">15</span>             <span class="token keyword">else</span><span class="token punctuation">:</span>
+ <span class="token number">16</span>                 enough <span class="token operator">=</span> <span class="token boolean">False</span>
+ <span class="token number">17</span>                 <span class="token keyword">break</span>
+ <span class="token number">18</span>         <span class="token keyword">if</span> enough<span class="token punctuation">:</span>
+ <span class="token number">19</span>             <span class="token keyword">print</span><span class="token punctuation">(</span>fish<span class="token punctuation">)</span>
+ <span class="token number">20</span>             <span class="token keyword">break</span>
+ <span class="token number">21</span>         fish <span class="token operator">+=</span> <span class="token number">1</span>
+ <span class="token number">22</span> 
+ <span class="token number">23</span> 
+ <span class="token number">24</span> <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+ <span class="token number">25</span>     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h3><pre class=" language-python"><code class="language-python">  <span class="token number">1</span> <span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+  <span class="token number">2</span> 
+  <span class="token number">3</span> <span class="token triple-quoted-string string">"""穷举法"""</span>
+  <span class="token number">4</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token number">5</span>     <span class="token triple-quoted-string string">"""主函数"""</span>
+  <span class="token number">6</span>     <span class="token keyword">for</span> cock <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token number">7</span>         <span class="token keyword">for</span> hen <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">34</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token number">8</span>             chick <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">-</span> cock <span class="token operator">-</span> hen
+  <span class="token number">9</span>             <span class="token keyword">if</span> chick <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">and</span> cock <span class="token operator">*</span> <span class="token number">5</span> <span class="token operator">+</span> hen <span class="token operator">*</span> <span class="token number">3</span> <span class="token operator">+</span> chick <span class="token operator">//</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">100</span><span class="token punctuation">:</span>
+ <span class="token number">10</span>                 <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"公鸡: {cock}只, 母鸡: {hen}只, 小鸡: {chick}只"</span><span class="token punctuation">)</span>
+ <span class="token number">11</span> 
+ <span class="token number">12</span> 
+ <span class="token number">13</span> <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+ <span class="token number">14</span>     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -291,7 +309,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/CentOS安装Python3.7/" class="b-link-green">安装Python</a>
+                    <a href="/2018/11/14/Linux-vim/" class="b-link-green">Linux_vim</a>
                 </p>
             </div>
         </div>
@@ -308,66 +326,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2018/10/15/MySQL预习/">
+                <a href="/2018/11/14/Linux-vim/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MySQL预习">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Linux_vim">
                         
-                        <span class="card-title">MySQL预习</span>
+                        <span class="card-title">Linux_vim</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。
-MySQL预习MySQL</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/MySQL/" target="_blank">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2018/10/15/Python参考书籍/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="编程相关书籍">
-                        
-                        <span class="card-title">编程相关书籍</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Read ten thousand books and travel ten thousand miles！
-Books are ladders of human progress！
-Python参考书籍入门读物
-《Python基础教程》（</div>
+                    <div class="summary">分鱼#!/usr/bin/python3
+  2 
+  3 """
+  4 穷举法:穷尽所有可能直到找到正确答案
+  5 """
+  6 def main():
+  7     """分鱼"""
+  8     fish = 1
+  9  </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-14
                             </span>
                         <span class="publish-author">
                             
@@ -377,13 +360,39 @@ Python参考书籍入门读物
                         </span>
                     </div>
                 </div>
+
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python-Web-爬虫/" target="_blank">
-                        <span class="chip bg-color">Python, Web, 爬虫</span>
-                    </a>
-                    
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2018/11/08/jQuery/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="jQuery">
+                        
+                        <span class="card-title">jQuery</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">下载jQuery库&lt;!--加载本地的jQuery文件适合开发和测试使用-->
+        &lt;script src="js/jQuery.min.js">&lt;/script>
+&lt;!--下面的适合商业项目通过CDN服务</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            smile
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
