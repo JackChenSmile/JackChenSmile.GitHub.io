@@ -212,174 +212,133 @@
     </nav>
 </header>
 
+<style type="text/css">
+    /* don't remove. */
+    .index-cover {
+        height: 100vh;
+    }
+</style>
 
-
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
+<div class="bg-cover about-cover" style="background-image: url('/medias/cover.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col s12 m12 l12">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
                 <div class="brand">
-                    <div class="description center-align post-title">
-                        Hello World
+                    <div class="title center-align">
+                    
+                        微笑看你
+                    
+                    </div>
+
+                    <div class="description center-align">
+                    
+                        To be or not to be,this is a question.
+                    
                     </div>
                 </div>
             </div>
         </div>
+		
     </div>
 </div>
 
+<script>
+// Dynamically switch banner pictures every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
 
-
-<main class="container content">
+<main class="content">
 
     
-    <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
+    <div class="container notice">
+        <div class="card">
+            <div class="card-content">
+                <i class="fa fa-volume-up fa-lg fa-fw text-color"></i>The best preparation for tomorrow is doing your best today.
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="recommend-sections">
+    
+    </div>
+
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
             
-            <div class="post-info">
-                
-
-                <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
-                </span>
-            </div>
-        </div>
-        <hr>
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-zh-"><code class="language-zh-">$ hexo new "My New Post"
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code>$ hexo deploy
-</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-            </div>
-            <hr/>
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
-    
-    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
-    
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">转载请注明: </span>
-                    <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/hello-world/" class="b-link-green">Hello World</a>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
-            <div class="card">
-                <a href="/2018/10/15/数据库/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="数据库">
-                        
-                        <span class="card-title">数据库</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">​        数据库（Database）是按照数据结构来组织、存储和管理数据的仓库，
-每个数据库都有一个或多个不同的API用于创建，访问，管理，搜索和复制所保存的数据。
-—– 从删库，到跑路额！
-
-数据库 —– database - 数</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
-                        </span>
-                        <span class="publish-author">
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/15/Python参考书籍/">
+                        <div class="card-image">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
                             
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/数据库-表格/" target="_blank">
-                        <span class="chip bg-color">数据库 表格</span>
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="编程相关书籍">
+                            
+                            <span class="card-title">编程相关书籍</span>
+                        </div>
                     </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2018/10/15/vim/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="vim">
-                        
-                        <span class="card-title">vim</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">vimrc ——————- 保存格式的文件vim
-文件意外中断，r恢复，b删除
-vim 文件1 文件2 ———– 同时打开多个文件
-vim -d 文件1 文件2 ———— 比较文件1和文件2如果vim打开了多个文件，可以在末行模式中
-：ls</div>
-                    <div class="publish-info">
+
+                    <div class="card-content article-content">
+                        <div class="summary">Read ten thousand books and travel ten thousand miles！
+Books are ladde</div>
+                        <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
                             </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
-                            
-                        </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-user fa-fw"></i>
+                                smile
+                                
+                            </span>
+                        </div>
                     </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Python-Web-爬虫/" target="_blank">
+                            <span class="chip bg-color">Python, Web, 爬虫</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
-                
             </div>
+            
         </div>
-        
-    </div>
-</article>
-</div>
-    
+    </article>
 
 </main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/4/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">5 / 5</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
