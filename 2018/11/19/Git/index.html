@@ -214,13 +214,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        vim
+                        Git
                     </div>
                 </div>
             </div>
@@ -242,156 +242,140 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-19
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="vimrc-——————-保存格式的文件"><a href="#vimrc-——————-保存格式的文件" class="headerlink" title="vimrc ——————- 保存格式的文件"></a>vimrc ——————- 保存格式的文件</h3><h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><ul>
-<li>文件意外中断，r恢复，b删除</li>
-<li>vim 文件1 文件2 ———– 同时打开多个文件</li>
-<li>vim -d 文件1 文件2 ———— 比较文件1和文件2<h5 id="如果vim打开了多个文件，可以在末行模式中"><a href="#如果vim打开了多个文件，可以在末行模式中" class="headerlink" title="如果vim打开了多个文件，可以在末行模式中"></a>如果vim打开了多个文件，可以在末行模式中</h5></li>
-<li>：ls ——— 查看多个文件的编号</li>
-<li>：b 编号 ——— 跳转文件</li>
-<li>：vs —————- 垂直拆分成两个窗口</li>
-<li>：sp —————- 水平拆分成两个窗口</li>
-<li>Ctrl + w Ctrl + w ————— 将光标移到另一个窗口</li>
-<li>：qa —————– 关闭全部窗口</li>
-</ul>
-<h4 id="vim-文件名-————-进入Linux编辑框"><a href="#vim-文件名-————-进入Linux编辑框" class="headerlink" title="vim 文件名 ———— 进入Linux编辑框"></a>vim 文件名 ———— 进入Linux编辑框</h4><h5 id="刚进入是在命令模式下"><a href="#刚进入是在命令模式下" class="headerlink" title="刚进入是在命令模式下"></a>刚进入是在命令模式下</h5><ul>
-<li>i / a ———- 进入编辑模式或者插入模式</li>
-<li><p>（Esc ——— 退出编辑模式）</p>
-</li>
-<li><p>：/ ?/ /————– 进入末行编辑格式</p>
-<ul>
-<li>set nu / nonu ———— 打开/关闭行号</li>
-<li>set autoindent ———— 保存缩进</li>
-<li>syntax on / off ———- 打开/关闭高量语法</li>
-<li>shift + zz ————– 保存</li>
-<li>wq ————— 保存退出</li>
-<li>q! —————- 强制退出，不保存</li>
-<li>w! —————- 强制保存</li>
-<li>map ———— 映射 快捷键</li>
-<li>imap ————– 在插入模式下映射快捷键</li>
-<li>inoremap ————– 在插入模式下不要递归的映射快捷键</li>
-</ul>
-</li>
-</ul>
-<h5 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h5><ul>
-<li>/正则表达式</li>
-<li>n ——— 正向搜索</li>
-<li>N ——— 反向搜索</li>
-<li>？正则表达式 ——– 反向搜索</li>
-<li>：1,100s/查找内容（正则表达式）/替换内容<br>替换范围substitute/正则表达式/替换内容</li>
-<li>：1,$s/查找内容（正则表达式）/替换内容/gice<ul>
-<li>-g:全局模式</li>
-<li>-i:忽略大小写</li>
-<li>-c:确认模式</li>
-<li>-e:忽略错误</li>
-</ul>
-</li>
-</ul>
-<h5 id="检查工具"><a href="#检查工具" class="headerlink" title="检查工具"></a>检查工具</h5><ul>
-<li>pip3 install pycodestyle —– 初步的代码格式检查工具</li>
-<li>pip3 install pylint ——- 高级代码格式检查</li>
-</ul>
-<h5 id="修改操作权限"><a href="#修改操作权限" class="headerlink" title="修改操作权限"></a>修改操作权限</h5><ul>
-<li>ll ——– 查看模式</li>
-<li>chmod ———— 修改读写模式 </li>
-<li>chmod 数字 ———– 修改模式</li>
-<li>chmod a+x ———— 所有用户都添加操作权限</li>
-<li>chmod u+x g+x o+x ———- 添加执行操作</li>
-<li>Ctrl x &amp; Ctrl o ———– 代码提示并补全</li>
-</ul>
-<h5 id="编辑器操作："><a href="#编辑器操作：" class="headerlink" title="编辑器操作："></a>编辑器操作：</h5><ul>
-<li>在命令模式下：都可以配合数字使用<ul>
-<li>光标移动<ul>
-<li>H ———— 左</li>
-<li>J ————- 下</li>
-<li>K ————- 上</li>
-<li>L ————- 右</li>
-<li>HML ————第一行的第一列/页面中间行的第一列/页面最后一行的第一列</li>
-<li>w ————– 移动一个单词</li>
-<li>gg/1G ——— 到第一行</li>
-<li>G ————- 到最后一行</li>
-<li>$ ———– 行末</li>
-<li>0 ———– 行首</li>
-<li>dd ———– 删掉一行代码</li>
-<li>dw ———- 删一个单词</li>
-<li>Ctrl + e ————- 往下翻一行</li>
-<li>Ctrl + y ————- 往上翻一行</li>
-<li>Ctrl + f ————- 往上翻一页</li>
-<li>Ctrl + b ————- 往下翻一页</li>
-<li>数字 + yy ———- 复制多少行</li>
-<li>p ———- 粘贴</li>
-<li>u ————– 撤销</li>
-<li>Ctrl + r ————- 反撤销</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="vim模式下的Python"><a href="#vim模式下的Python" class="headerlink" title="vim模式下的Python"></a>vim模式下的Python</h2><h4 id="三元运算："><a href="#三元运算：" class="headerlink" title="三元运算："></a>三元运算：</h4><ul>
-<li>if成立取前面，不成立取后面</li>
-</ul>
-<p><code>y = year if month &gt;= 3 else year - 1</code></p>
-<h4 id="占位"><a href="#占位" class="headerlink" title="占位"></a>占位</h4><ul>
-<li>{} ————— 占位符，与%d的作用一样</li>
-</ul>
-<p><code>print(f&#39;{month_names[month]} {year}&#39;.center(20))</code></p>
-<h4 id="字符居中"><a href="#字符居中" class="headerlink" title="字符居中"></a>字符居中</h4><p><code>print（f&#39;{}&#39;.center(num))</code></p>
-<h4 id="取命令行参数："><a href="#取命令行参数：" class="headerlink" title="取命令行参数："></a>取命令行参数：</h4><p>从标准输入读取数据</p>
-<pre><code>调用函数 import sys
-
- if len(sys.argv) == 3:
-     year = int(sys.argv[2])
-     month = int(sys.argv[1])
-</code></pre><h4 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h4><p>&emsp;&emsp;在某个时候必须给一个确定的结果，递归函数必须要有一个出口；然后必须要有一个递归公式，在函数中调用函数的部分</p>
-<h4 id="动态规划：牺牲空间，减少时间"><a href="#动态规划：牺牲空间，减少时间" class="headerlink" title="动态规划：牺牲空间，减少时间"></a>动态规划：牺牲空间，减少时间</h4><p>优化重复计算的过程，用一个字典保存要重复计算的值，当需要时直接查找字典</p>
-<pre><code>if num &lt;= 0:
-     return 1 if num == 0 else 0
-  try:
-     return temp[num]
-  except KeyError:
-     temp[num] = walk(num - 1) + walk(num - 2) + walk(num - 3)
-     return temp[num]
-</code></pre><h4 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h4><p>终极原则：高内聚 低耦合(一个函数或者一个类只做一个事情，一个函数或者一个类只表示自己，不与其他关联)【high cohesion low coupling】</p>
-<h6 id="在Python中函数是一等公民"><a href="#在Python中函数是一等公民" class="headerlink" title="在Python中函数是一等公民"></a>在Python中函数是一等公民</h6><h6 id="函数可以赋值给变量，可以作为方法的参数和返回值"><a href="#函数可以赋值给变量，可以作为方法的参数和返回值" class="headerlink" title="函数可以赋值给变量，可以作为方法的参数和返回值"></a>函数可以赋值给变量，可以作为方法的参数和返回值</h6><pre><code>def calc(items, fn=lambda x, y: x - y): 
-    result = items[0]
-    for index in range(1, len(items)):
-        result = fn(result,items[index])
-    return result
-
-items = [1, 2, 3, 4, 5]
-    print(calc(items, lambda x, y: x + y))
-    print(calc(items, lambda x, y: x * y))
-</code></pre><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>面向对象的程序设计基本上就是三步走：</p>
-<ol>
-<li>定义类<br>-数据抽象：找属性（名词）<br>-行为抽象：找方法（动词）</li>
-<li>创建对象</li>
-<li>给对象发消息</li>
+                <h2 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h2><ol>
+<li>使用已有的代码托管平台 —– github / gitee / coding</li>
+<li>搭建自己的Git私服 —- gitlab</li>
 </ol>
-<h4 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h4><pre><code>def foo(*args, **kwargs)
-*args ------- 可变参数（不知道有多少个参数，可以通过*号表示）
-**kwargs --------- 关键字参数（给了参数名的参数，会被打包成一个字典传入函数）
-默认参数 ----------- 不传入参数
-
-def foo1(a, *, b, c)
-*前面的参数是位置参数在传参的时候可以不用指定参数名
-*后面的参数是命名关键字参数在传参的时候必须指定参数名否则报错
-
-解包
-items = [1, 2, 3, 4, 5]
-start， *_ ， end = items（取列表的第一个数和最后一个数）
-</code></pre><h4 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h4><ul>
-<li>a.装饰器函数：用一个函数装饰另一个函数，给它增加额外的功能</li>
-<li>b.装饰器函数的参数是被装饰的函数，返回的是起装饰作用的函数</li>
-<li>c.当调用被装饰的函数时，其实是执行装饰器中返回的那个函数</li>
-<li>d.凡是需要这个额外功能的函数，只需要加上装饰器即可，而不需要书写重复的代码</li>
-<li>e.给函数添加装饰器的语法就是在函数前写上  @装饰器函数</li>
+<h3 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h3><h6 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h6><ul>
+<li>git clone ssh/https<ul>
+<li>连接远端仓库到本地仓库,ssh密钥对，在Administrator文件中的.ssh文件中，有一个密钥文件id_rsa.pub</li>
 </ul>
+</li>
+<li>git add 文件名<ul>
+<li>添加文件到工作区</li>
+</ul>
+</li>
+<li>git commit -m “注解”<ul>
+<li>将工作区中的文件添加到本地仓库</li>
+</ul>
+</li>
+<li>git push<ul>
+<li>将本地仓库中的文件上传到远端仓库</li>
+</ul>
+</li>
+<li>git pull<ul>
+<li>将远端仓库中的文件下载到本地仓库</li>
+</ul>
+</li>
+</ul>
+<h3 id="如果Git连网操作报错通常是因为底层依赖库libcurl安装不正确"><a href="#如果Git连网操作报错通常是因为底层依赖库libcurl安装不正确" class="headerlink" title="如果Git连网操作报错通常是因为底层依赖库libcurl安装不正确"></a>如果Git连网操作报错通常是因为底层依赖库libcurl安装不正确</h3><p>错误：<code>Could not read from remote repository.</code><br>解决方法：</p>
+<ol>
+<li>yum -y install curl libcurl libcurl-devel</li>
+<li>cd ~</li>
+<li>cd git-2.19.1</li>
+<li>make clean</li>
+<li>./configure –prefix=/usr/local</li>
+<li>make &amp;&amp; make install</li>
+</ol>
+<h2 id="hexo-搭建个人博客"><a href="#hexo-搭建个人博客" class="headerlink" title="hexo 搭建个人博客"></a>hexo 搭建个人博客</h2><ol>
+<li>安装Node.js — yum -y install nodejs</li>
+</ol>
+<ul>
+<li>node –version</li>
+<li>hexo –version</li>
+</ul>
+<ol start="2">
+<li>通过Node包管理工具npm安装hexo</li>
+</ol>
+<ul>
+<li>npm install hexo-cli -g</li>
+<li>hexo –version</li>
+</ul>
+<ol start="3">
+<li>使用hexo创建博客项目</li>
+</ol>
+<ul>
+<li>hexo init blog[项目名字]</li>
+<li>cd blog</li>
+<li>npm install</li>
+</ul>
+<ol start="4">
+<li>将写成的Markdown文件放到blog/source/_posts</li>
+<li>生成静态页面</li>
+</ol>
+<ul>
+<li><p>hexo generate / hexo g</p>
+</li>
+<li><p>hexo clean ——– 清除之前生成的内容</p>
+</li>
+</ul>
+<ol start="6">
+<li>启动服务器</li>
+</ol>
+<ul>
+<li>hexo server / hexo s</li>
+</ul>
+<h3 id="托管"><a href="#托管" class="headerlink" title="托管"></a>托管</h3><p>如果希望自己的博客部署到其他网站上托管，可以使用其他网站提供的pages服务</p>
+<h5 id="将博客托管到github"><a href="#将博客托管到github" class="headerlink" title="将博客托管到github"></a>将博客托管到github</h5><p>首先要在github上创建一个名为xxx.github.io项目<br>其中xxx是自己的github的用户名（必须完全一致）</p>
+<p>修改blog目录下的_config.yml文件 在文件的最后添加下面的内容</p>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:xxx/xxx.github.io.git
+  branch: master
+
+通过下面的命令可以实现一键部署
+hexo g -d
+hexo d -g
+
+如果操作失败可能有两个原因：
+1. 没有安装git部署器（可以用npm进行安装）
+npm install hexo-deployer-git --save
+
+2. 需要配置SSH证书（可以通过openssl创建证书）
+加密 - 通信安全
+对称加密 - 加密和解密使用同一个密钥 - AES
+attack at dawn - 明文
+dwwdfn dw gdzq - 密文
+
+
+非对称加密 - 加密和解密使用不同的密钥 - RSA
+生成密钥时需要生成两个密钥 一个叫公钥一个叫私钥
+Alice向Bob发送数据时 使用公钥加密数据
+Bob收到Alice发过来的数据时 使用私钥解密数据
+Bob向Alice发送数据时 使用私钥加密数据
+Alice收到Bob发过来的数据时 使用公钥解密数据
+
+创建密钥对
+ssh-keygen -t rsa -b 4096 -C &quot;xxx@qq.com&quot;
+
+id_rsa - 私钥
+id_rsa.pub - 公钥 - 添加到github上面
+Settings --&gt; Deploy keys --&gt; Add deploy keys
+https://hexo.io/themes/
+https://hexo.io/plugins/
+
+配置域名解析
+
+在阿里云或其他域名解析服务上配置一条CNAME解析
+所谓CNAME解析就是把自己的域名解析到github的pages服务
+
+可以在blog项目的source目录下添加一个CNAME文件，里面写上自己的域名（如：jackfrued.xyz），这样就可以直接通过自己的域名访问github的pages服务，要可以在访问github的pages服务时让域名自动切换为自己的域名
+</code></pre><h5 id="将博客托管到gitee"><a href="#将博客托管到gitee" class="headerlink" title="将博客托管到gitee"></a>将博客托管到gitee</h5><p>参照网站：<a href="https://www.jianshu.com/p/5014133ba61a" target="_blank" rel="noopener">https://www.jianshu.com/p/5014133ba61a</a></p>
+<h5 id="将gitee上的博客改成自己的域名"><a href="#将gitee上的博客改成自己的域名" class="headerlink" title="将gitee上的博客改成自己的域名"></a>将gitee上的博客改成自己的域名</h5><ol>
+<li>在一个项目中必须有index.html这个文件</li>
+<li>在项目主页点击「服务」-&gt;选择「GiteePages」，开启部署。 因为每个用户可免费试用一个月，所以这里点击「免费试用一个月」，也可以付费使用</li>
+<li>选择你需要部署的分支，填写要部署的分支上的目录，绑定你已经<strong>备案的域名</strong>（如i-love-gitee.com）。如果有需要，也可为网站配置 HTTPS 安全访问。</li>
+<li>点击「启动」后几十秒即部署成功，点击网站地址就可以访问啦。</li>
+</ol>
 
             </div>
             <hr/>
@@ -411,7 +395,7 @@ start， *_ ， end = items（取列表的第一个数和最后一个数）
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/vim/" class="b-link-green">vim</a>
+                    <a href="/2018/11/19/Git/" class="b-link-green">Git</a>
                 </p>
             </div>
         </div>
@@ -428,69 +412,29 @@ start， *_ ， end = items（取列表的第一个数和最后一个数）
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2018/10/16/意外的操作/">
+                <a href="/2018/11/19/Git/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="意外的操作">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Git">
                         
-                        <span class="card-title">意外的操作</span>
+                        <span class="card-title">Git</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">hexo中，将图片上传到hexo中First
+                    <div class="summary">搭建Git服务器
+使用已有的代码托管平台 —– github / gitee / coding
+搭建自己的Git私服 —- gitlab
 
-把主页配置文件_config.yml里的post_asset_folder:这个选项设置为true
-
-
-
-在你的hexo目录下执行这样一句话npm install hexo-asset-ima</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-16
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo-github/" target="_blank">
-                        <span class="chip bg-color">hexo, github</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2018/10/15/MySQL预习/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MySQL预习">
-                        
-                        <span class="card-title">MySQL预习</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。
-MySQL预习MySQL</div>
+git命令上传文件
+git clone ssh/https
+连接远端仓库到本地仓库,ssh密钥对，在</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-19
                             </span>
                         <span class="publish-author">
                             
@@ -500,13 +444,44 @@ MySQL预习MySQL</div>
                         </span>
                     </div>
                 </div>
+
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/MySQL/" target="_blank">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2018/11/16/vim_practice/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">practice1_fish  1 #!/usr/bin/python3
+  2 
+  3 """
+  4 穷举法:穷尽所有可能直到找到正确答案
+  5 """
+  6 def main():
+  7     """分鱼"""
+  8   </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            smile
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
