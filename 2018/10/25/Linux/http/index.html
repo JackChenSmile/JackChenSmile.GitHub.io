@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content=", hexo-theme-matery">
+    <meta name="description" content="To be or not to be,this is a question.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>微笑看你</title>
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <span class="logo-span">微笑看你</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>历史记录</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">微笑看你</div>
+        <div class="logo-desc">
+            
+            To be or not to be,this is a question.
+            
+        </div>
+    </div>
+    <ul class="menu-list">
+        
+        <li>
+            <a href="[object Object]" class="waves-effect waves-light">
+				<i class="fa fa-link fa-lg fa-fw"></i>首页
+			</a>
+		</li>
+		
+        <li>
+            <a href="[object Object]" class="waves-effect waves-light">
+				<i class="fa fa-link fa-lg fa-fw"></i>标签
+			</a>
+		</li>
+		
+        <li>
+            <a href="[object Object]" class="waves-effect waves-light">
+				<i class="fa fa-link fa-lg fa-fw"></i>分类
+			</a>
+		</li>
+		
+        <li>
+            <a href="[object Object]" class="waves-effect waves-light">
+				<i class="fa fa-link fa-lg fa-fw"></i>历史记录
+			</a>
+		</li>
+		
+        <li>
+            <a href="[object Object]" class="waves-effect waves-light">
+				<i class="fa fa-link fa-lg fa-fw"></i>关于
+			</a>
+		</li>
+		
+	</ul>
+    <div class="social-link">
+        <a href="https://github.com/JackChenSmile" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+           data-position="top" data-delay="50">
+            <i class="fa fa-github fa-lg"></i>
+        </a>
+        <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
+           data-position="top" data-delay="50">
+            <i class="fa fa-envelope fa-lg"></i>
+        </a>
+        <a href="#!" class="tooltipped" data-tooltip="QQ联系我：1963298993" data-position="top" data-delay="50">
+            <i class="fa fa-qq fa-lg"></i>
+        </a>
+    </div>
+</div>
+            </div>
+        </div>
+		
+		
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+    .github-corner .octo-arm {
+        animation: none;
+    }
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/JackChenSmile/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        http
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/状态码/" target="_blank">
+                    <span class="chip bg-color">状态码</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-25
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="HTTP的错误提示"><a href="#HTTP的错误提示" class="headerlink" title="HTTP的错误提示"></a>HTTP的错误提示</h2><h4 id="1开头的http状态码"><a href="#1开头的http状态码" class="headerlink" title="1开头的http状态码"></a>1开头的http状态码</h4><p>表示临时响应并需要请求者继续执行操作的状态代码。</p>
+<ul>
+<li>100   （继续） 请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。 </li>
+<li>101   （切换协议） 请求者已要求服务器切换协议，服务器已确认并准备切换。</li>
+</ul>
+<h4 id="2开头的http状态码"><a href="#2开头的http状态码" class="headerlink" title="2开头的http状态码"></a>2开头的http状态码</h4><p>表示请求成功</p>
+<ul>
+<li>200     成功处理了请求，一般情况下都是返回此状态码； </li>
+<li>201     请求成功并且服务器创建了新的资源。 </li>
+<li>202     接受请求但没创建资源； </li>
+<li>203     返回另一资源的请求； </li>
+<li>204     服务器成功处理了请求，但没有返回任何内容；</li>
+<li>205     服务器成功处理了请求，但没有返回任何内容；</li>
+<li>206     处理部分请求；</li>
+</ul>
+<h4 id="3xx-（重定向）"><a href="#3xx-（重定向）" class="headerlink" title="3xx （重定向）"></a>3xx （重定向）</h4><p>重定向代码，也是常见的代码</p>
+<ul>
+<li>300   （多种选择）  针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。 </li>
+<li>301   （永久移动）  请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。 </li>
+<li>302   （临时移动）  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。 </li>
+<li>303   （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。 </li>
+<li>304   （未修改） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。 </li>
+<li>305   （使用代理） 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。 </li>
+<li>307   （临时重定向）  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+</ul>
+<h4 id="4开头的http状态码表示请求出错"><a href="#4开头的http状态码表示请求出错" class="headerlink" title="4开头的http状态码表示请求出错"></a>4开头的http状态码表示请求出错</h4><ul>
+<li>400    服务器不理解请求的语法。 </li>
+<li>401   请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。 </li>
+<li>403   服务器拒绝请求。 </li>
+<li>404   服务器找不到请求的网页。 </li>
+<li>405   禁用请求中指定的方法。 </li>
+<li>406   无法使用请求的内容特性响应请求的网页。 </li>
+<li>407   此状态代码与 - 401类似，但指定请求者应当授权使用代理。 </li>
+<li>408   服务器等候请求时发生超时。 </li>
+<li>409   服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。 </li>
+<li>410   如果请求的资源已永久删除，服务器就会返回此响应。 </li>
+<li>411   服务器不接受不含有效内容长度标头字段的请求。 </li>
+<li>412   服务器未满足请求者在请求中设置的其中一个前提条件。 </li>
+<li>413   服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。 </li>
+<li>414   请求的 URI（通常为网址）过长，服务器无法处理。 </li>
+<li>415   请求的格式不受请求页面的支持。 </li>
+<li>416   如果页面无法提供请求的范围，则服务器会返回此状态代码。 </li>
+<li>417   服务器未满足”期望”请求标头字段的要求。</li>
+</ul>
+<h4 id="5开头状态码并不常见，但是我们应该知道"><a href="#5开头状态码并不常见，但是我们应该知道" class="headerlink" title="5开头状态码并不常见，但是我们应该知道"></a>5开头状态码并不常见，但是我们应该知道</h4><ul>
+<li>500   （服务器内部错误）  服务器遇到错误，无法完成请求。 </li>
+<li>501   （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。 </li>
+<li>502   （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。 </li>
+<li>503   （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。 </li>
+<li>504   （网关超时）  服务器作为网关或代理，但是没有及时从上游服务器收到请求。 </li>
+<li>505   （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/10/25/Linux/http/" class="b-link-green">http</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2018/10/25/前端/day04/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="模型">
+                        
+                        <span class="card-title">模型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">模型类型（1）定义模型一个模型可以看做一个类，它对应数据库中的一张表；模型中定义的一个字段，对应一个类的属性
+class Student(models.Model):
+    s_name = models.CharField(max_le</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            smile
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/总结/" target="_blank">
+                        <span class="chip bg-color">总结</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2018/10/24/前端/daythird/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="daythird">
+                        
+                        <span class="card-title">daythird</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">查询表格中的数据（2）：from django.http import HttpResponse
+
+1.或条件（引入函数模块Q）
+# Q(),alt+enter ----- 引入模块的快捷键 ------- from django.db.m</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            smile
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/查、删、改/" target="_blank">
+                        <span class="chip bg-color">查、删、改</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/JackChenSmile" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link">
+            <a href="https://github.com/JackChenSmile" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+                <i class="fa fa-github fa-lg"></i>
+            </a>
+            <a href="mailto:JackChenSmile@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+                <i class="fa fa-envelope fa-lg"></i>
+            </a>
+            <a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1963298993" data-position="top" data-delay="50">
+                <i class="fa fa-qq fa-lg"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
