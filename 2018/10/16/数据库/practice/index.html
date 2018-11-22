@@ -545,8 +545,9 @@ from tb_score, tb_student, tb_course
 where stuid=sid and couid=cid and mark is not null;
 
 -- 查询每个学生的姓名和选课数量（左外连接和子查询）
--- 左外连接 ----- 把左表（写在连接前面的表）不满足连接条件的记录也查询出来对应记录补null值
--- 右外连接 ----- 把右表（写在连接后面的表）不满足连接条件的记录也查询出来对应记录补null值
+-- 左外连接(left outer join) ----- 把左表（写在连接前面的表）不满足连接条件的记录也查询出来对应记录补null值
+-- 右外连接(right outer join) ----- 把右表（写在连接后面的表）不满足连接条件的记录也查询出来对应记录补null值
+-- 全外连接(full outer join) ------ 把满足和不满足条件的记录全部查出来，mysql数据库不支持此操作
 select sname as 姓名, conter as 选课数量 from tb_student left join,
 (select sid, count(sid) as conter from tb_score group by sid)t2
 on stuid(+)=sid;
@@ -699,8 +700,9 @@ where t1.dno=t2.dno and t2.dno=t3.dno and sal=maxsal;
 select ename, job from tbemp
 where eno in (select distinct mgr from tbemp where mgr is not null);
 
--- 说明：去重操作和集合运算效率是非常低的
-
+-- 说明：去重操作和集合运算效率是非常低的,可以使用以下方法
+select ename as 主管, job as 职位 from tbemp t1 where exists 
+(select 'x' from tbemp t2 where t1.eno=t2.mgr) order by eno desc;
 </code></pre>
 </li>
 <li><p>通常建议用exists或者not exists操作来代替去重和集合运算</p>
@@ -709,14 +711,23 @@ where exists (select 'x' from tbemp t2 where t1.eno=t2.mgr);
 </code></pre>
 </li>
 <li><p>视图是查询的快照</p>
-<pre class=" language-mysql"><code class="language-mysql">-- 通过视图可以将用户对表的访问权限进一步加以限制
+<pre class=" language-mysql"><code class="language-mysql">-- 创建视图
+create view vw_dept_emp_count as
+select dno, count(dno) from tbemp group by dno;
+-- 查看视图
+select * from vw_dept_emp_count;
+-- 通过视图可以将用户对表的访问权限进一步加以限制
 -- 也就是说普通用户看到的就是限制的视图内容
 create view emp_no_sal as
 select ename, dname, sal from tbemp t1,
 (select dno, avg(sal) as avgsal from tbemp group by dno)t2,
 tbdept t3
 where t1.dno=t2.dno and sal>avgsal and t2.dno=t3.dno;
+-- 查看视图,限制条件
+select ename, dname from emp_no_sal;
 </code></pre>
+</li>
+<li><p>用硬件做的事情，用软件也可以做；反之亦可</p>
 </li>
 <li><p>索引(相当于一本书的目录）</p>
 <ul>
@@ -728,7 +739,7 @@ where t1.dno=t2.dno and sal>avgsal and t2.dno=t3.dno;
 </li>
 <li><p>二、索引会占用额外的存储空间</p>
 </li>
-<li>索引应该建在经常被用于查询的筛选条件的列上面主键上有默认的索引(唯一索引)</li>
+<li>索引应该建在经常被用于查询的筛选条件的列上面，主键上有默认的索引(唯一索引)</li>
 </ul>
 </li>
 </ul>
