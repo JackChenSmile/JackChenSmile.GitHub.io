@@ -214,13 +214,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        类选择器相关
+                        spider相关
                     </div>
                 </div>
             </div>
@@ -240,8 +240,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/class/" target="_blank">
-                    <span class="chip bg-color">class</span>
+                <a href="/tags/爬虫相关/" target="_blank">
+                    <span class="chip bg-color">爬虫相关</span>
                 </a>
                 
             </div>
@@ -257,14 +257,17 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
-<li>一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示<pre class=" language-python"><code class="language-python">result <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.-live-layout-row.layout_sports_350_650'</span><span class="token punctuation">)</span>
-</code></pre>
-</li>
+                <h3 id="爬虫的结构"><a href="#爬虫的结构" class="headerlink" title="爬虫的结构"></a>爬虫的结构</h3><p>爬虫大致分为三个部分</p>
+<ul>
+<li>控制器：主要负责根据系统传过来的URL链接，分配线程，然后启动线程调用爬虫爬取网页的过程</li>
+<li>解析器：负责爬虫的主要部分，作用：下载网页功能，对网页的文本进行处理，如过滤，抽取标签的功能，分析数据的功能</li>
+<li>资源库：用来存储网页中下载下来的数据记录的容器，并生成索引目标源。中大型的数据库产品：Oracle、Sql Server等</li>
 </ul>
-<h3 id="清除数据库"><a href="#清除数据库" class="headerlink" title="清除数据库"></a>清除数据库</h3><pre class=" language-python"><code class="language-python">清除自增字段，下次创建的时候，id为<span class="token number">1</span>
-truncate table 名
-</code></pre>
+<h3 id="爬虫分类"><a href="#爬虫分类" class="headerlink" title="爬虫分类"></a>爬虫分类</h3><ul>
+<li>分布式爬虫(Nutch)问题：1.海量URL管理；2.网速；做搜索引擎可以选择</li>
+<li>JAVA爬虫问题：不支持多线程、不支持代理、不能过滤重复URL的，那都不叫开源爬虫，那叫循环执行http请求。</li>
+<li>非JAVA爬虫：在非JAVA语言编写的爬虫中，有很多优秀的爬虫。这里单独提取出来作为一类，并不是针对爬虫本身的质量进行讨论，而是针对larbin、scrapy这类爬虫，对开发成本的影响。</li>
+</ul>
 
             </div>
             <hr/>
@@ -284,7 +287,7 @@ truncate table 名
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/11/01/spider/day02/" class="b-link-green">类选择器相关</a>
+                    <a href="/2018/11/01/spider/spider相关/" class="b-link-green">spider相关</a>
                 </p>
             </div>
         </div>
@@ -304,24 +307,21 @@ truncate table 名
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/爬电影/">
+                <a href="/2018/11/01/spider/BeautifulSoup/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="movie">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="BeautifulSoup相关">
                         
-                        <span class="card-title">movie</span>
+                        <span class="card-title">BeautifulSoup相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">爬电影获取的是电影的种子，将这个链接发给迅雷，可以直接下载
-import json
-import re
-import requests
-
-
-def parse_page(html):
-    patters = re.compile('va</div>
+                    <div class="summary">#获取直接子节点：contents、children
+#获取父节点：parent
+#获取兄弟节点：next_siblings、next_sibling、previous_siblings、previous_sibling
+'''
+&lt;h</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -337,8 +337,8 @@ def parse_page(html):
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/movie/" target="_blank">
-                        <span class="chip bg-color">movie</span>
+                    <a href="/tags/beautifulSoup/" target="_blank">
+                        <span class="chip bg-color">beautifulSoup</span>
                     </a>
                     
                 </div>
@@ -350,23 +350,22 @@ def parse_page(html):
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/01/python/pygame相关/">
+                <a href="/2018/11/01/spider/类选择器/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="pygame相关">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="类选择器相关">
                         
-                        <span class="card-title">pygame相关</span>
+                        <span class="card-title">类选择器相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">01-pygame操作模块的导入：
-import pygameif __name__ == '__main__':
-    # 1.初始化游戏模块
-    pygame.init()
-    # 2.创建游戏窗口
-    '''
-    d</div>
+                    <div class="summary">选择器
+一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示result = soup.select('.-live-layout-row.layout_sports_350_650')
+
+
+
+清除数据库清除自</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -382,8 +381,8 @@ import pygameif __name__ == '__main__':
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/game/" target="_blank">
-                        <span class="chip bg-color">game</span>
+                    <a href="/tags/class/" target="_blank">
+                        <span class="chip bg-color">class</span>
                     </a>
                     
                 </div>
