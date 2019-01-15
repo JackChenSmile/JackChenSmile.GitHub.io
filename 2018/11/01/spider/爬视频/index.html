@@ -214,13 +214,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Linux操作
+                        video
                     </div>
                 </div>
             </div>
@@ -240,8 +240,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/操作系统-Linux-防火墙/" target="_blank">
-                    <span class="chip bg-color">操作系统 Linux 防火墙</span>
+                <a href="/tags/video/" target="_blank">
+                    <span class="chip bg-color">video</span>
                 </a>
                 
             </div>
@@ -250,80 +250,67 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-01
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Linux内核最初只是由芬兰人李纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。</p>
-<p>Linux能运行主要的UNIX工具软件、应用程序和网络协议</p>
-<p>Linux发行版本：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。</p>
-<h1 id="Linux系统下的操作系统"><a href="#Linux系统下的操作系统" class="headerlink" title="Linux系统下的操作系统"></a>Linux系统下的操作系统</h1><h2 id="1-攻击方式"><a href="#1-攻击方式" class="headerlink" title="1. 攻击方式"></a>1. 攻击方式</h2><p>PING to death  ———- 拼到死</p>
-<p>DOS - Deny of Service ————— 拒绝服务攻击</p>
-<p>DDoS - Distributed Deny of Service ———– 分布式拒绝服务攻击</p>
-<h2 id="2-查看本机IP"><a href="#2-查看本机IP" class="headerlink" title="2. 查看本机IP"></a>2. 查看本机IP</h2><p>ifconfig</p>
-<h2 id="3-连接其它的服务器"><a href="#3-连接其它的服务器" class="headerlink" title="3. 连接其它的服务器"></a>3. 连接其它的服务器</h2><p>ssh <a href="mailto:root@IP" target="_blank" rel="noopener">root@IP</a></p>
-<p>断开某个用户的终端连接： </p>
-<p>​    命令：fuser -k /dev/pts/x  （x为who下看到的这个用户的pts序号，比如本例中的pts/0,pts/1）   </p>
-<p>​            example： fuser -k /dev/pts/0</p>
-<h2 id="4-给其它的服务器拷贝文件"><a href="#4-给其它的服务器拷贝文件" class="headerlink" title="4. 给其它的服务器拷贝文件"></a>4. 给其它的服务器拷贝文件</h2><p>一个用户操作另外两个用户的文件：</p>
-<p> scp  用户名@IP：/绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p>
-<p>从本地到远程用户：</p>
-<p>scp /绝对路径/文件名 用户名@IP：/绝对路径/文件命名</p>
-<h2 id="5-操作远端用户"><a href="#5-操作远端用户" class="headerlink" title="5. 操作远端用户"></a>5. 操作远端用户</h2><p>sftp 用户名@IP</p>
-<p>​    用户名密码</p>
-<p>​    get 要下载的文件名</p>
-<p>​    put 上传的文件名</p>
-<p>​    lls 查看本地目录</p>
-<p>在输入的命令前加上<l>，就可以操作本地文件，直接输入命令，操作连接的用户文件</l></p>
-<p>​    l(命令) 操作本地文件</p>
-<h2 id="6-网络端口"><a href="#6-网络端口" class="headerlink" title="6. 网络端口"></a>6. 网络端口</h2><p>netstat -na | grep 80   查询网络状态</p>
-<p>netstat -nap | grep 80   查看占用端口的进程</p>
-<h2 id="7-服务操作"><a href="#7-服务操作" class="headerlink" title="7. 服务操作"></a>7. 服务操作</h2><p>systemctl start &lt;进程的名字&gt;       开启服务</p>
-<p>systemctl stop <name>       禁用服务</name></p>
-<p>systemctl restart <name>    重启服务</name></p>
-<p>systemctl status <name>    查看服务状态</name></p>
-<p>systemctl senable <name>  开机自启服务</name></p>
-<p>systemctl disable <name>   禁用开机自启服务</name></p>
-<p>计算机网络分层结构模型</p>
-<p>Internet —– TCP/IP协议族</p>
-<p>TCP - Transfer Control Protocol - 传输控制协议</p>
-<p>UDP - User Datagram Protocol - 用户数据报协议</p>
-<p>IP - Internet Protocol - 网际协议</p>
-<p>TCP/IP模型</p>
-<p>应用层（定义应用之间如何传输数据，定义应用级协议）- HTTP/SMTP/SSH/POP3/FTP/ICQ</p>
-<p>传输层（端到端传输数据）- TCP/ UDP</p>
-<p>网络层/网际层 （寻址和路由）</p>
-<p>物理链路层 （数据分帧 + 校验）- 冗余校验码</p>
-<h2 id="Linux常用的防火墙服务有firewall和iptables"><a href="#Linux常用的防火墙服务有firewall和iptables" class="headerlink" title="Linux常用的防火墙服务有firewall和iptables"></a>Linux常用的防火墙服务有firewall和iptables</h2><ul>
-<li><p>systemctl start firewalld    开启防火墙</p>
-</li>
-<li><p>systemctl enable firewalld     设置开机自启防火墙</p>
-</li>
-</ul>
-<ul>
-<li><p>firewalls-cmd  –add-port=80/tcp  –permanent</p>
-</li>
-<li><p>firewalls-cmd  –add-service=80/tcp  –permanent</p>
-</li>
-</ul>
-<ul>
-<li>top —— 查看进程（CPU的利用率排序）</li>
-<li>ctrl + z     —— 把进程放到后台</li>
-<li>ctrl + c    ——  终止进程</li>
-<li>jobs —— 查看后台进程<h2 id="如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行"><a href="#如果执行命令时在命令后面加上-amp-就可以将命令置于后台运行" class="headerlink" title="如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行"></a>如果执行命令时在命令后面加上&amp;就可以将命令置于后台运行</h2>_bg %编号 —— 让暂停的进程继续在后台运行background</li>
-<li>fg %编号 —— 将后台的进程放到前台foreground</li>
-</ul>
-<h2 id="8-Linux根目录下"><a href="#8-Linux根目录下" class="headerlink" title="8. Linux根目录下"></a>8. Linux根目录下</h2><h2 id="http-www-runoob-com-linux-linux-system-contents-html"><a href="#http-www-runoob-com-linux-linux-system-contents-html" class="headerlink" title="http://www.runoob.com/linux/linux-system-contents.html"></a><a href="http://www.runoob.com/linux/linux-system-contents.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-system-contents.html</a></h2><p>etc:保存下载安装的文件夹</p>
-<p>安装的软件名.conf ———- 安装的软件的配置</p>
-<p>dev: 设备管理器</p>
-<p>tmp ————— 临时文件</p>
-<p>usr ————– 用户目录</p>
-<h2 id="9-Linux环境"><a href="#9-Linux环境" class="headerlink" title="9. Linux环境"></a>9. Linux环境</h2><p>Linux的shall也是一个交互式的环境，可以输入代码</p>
-<p>执行多个程序可以用分号 隔开 / &amp;&amp; 隔开 / 并列符号 ||</p>
-<p><img src="/2018/10/15/Linux/Linux服务器/Linux1.jpg" alt="Linux1"></p>
+                <p>方法一：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
+<span class="token keyword">import</span> requests
+
+
+<span class="token comment" spellcheck="true"># 获取二进制资源</span>
+<span class="token keyword">def</span> <span class="token function">get_resource</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)"</span>
+    <span class="token punctuation">}</span>
+
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> response<span class="token punctuation">.</span>content
+    <span class="token keyword">return</span> None
+
+<span class="token comment" spellcheck="true"># 获取页面</span>
+<span class="token keyword">def</span> <span class="token function">get_page</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    headers <span class="token operator">=</span>  <span class="token punctuation">{</span>
+        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)"</span>
+    <span class="token punctuation">}</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+        text <span class="token operator">=</span> response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> text
+    <span class="token keyword">return</span> None
+
+<span class="token keyword">def</span> <span class="token function">parse_source</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 正则匹配路由</span>
+    video <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'data-mp4="(.*?)">'</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>
+    video <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>video<span class="token punctuation">,</span> html<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> video<span class="token punctuation">:</span>
+        save_video<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">'下载完成'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> video
+
+<span class="token keyword">def</span> <span class="token function">save_video</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    content <span class="token operator">=</span> get_resource<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    filename <span class="token operator">=</span> url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./video/%s'</span> <span class="token operator">%</span> filename<span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> page <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        url <span class="token operator">=</span> <span class="token string">"http://www.budejie.com/video/"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>page<span class="token punctuation">)</span>
+        html <span class="token operator">=</span> get_page<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+        parse_source<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -343,7 +330,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/10/15/Linux/Linux服务器/" class="b-link-green">Linux操作</a>
+                    <a href="/2018/11/01/spider/爬视频/" class="b-link-green">video</a>
                 </p>
             </div>
         </div>
@@ -363,24 +350,31 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/10/15/README/">
+                <a href="/2018/11/01/spider/u17/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Python">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="youyaoqi">
                         
-                        <span class="card-title">Python</span>
+                        <span class="card-title">youyaoqi</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">学习是一件庄严而又神圣的事情，贵在坚持
-不断地积累,才能体会到其中的乐趣
-Python第1天
-前端页面 = 标签(内容) + CSS(显示) + JavaScript(行为)
-JavaScript = ECMAScript + BOM(wi</div>
+                    <div class="summary">创建一个有个youyaoqi项目
+项目自带文件
+scrapy.cfg
+youyaoqi
+ init.py
+items.py
+middlewares.py
+pipelines.py
+settings.py
+spiders
+ init .py
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
                         </span>
                         <span class="publish-author">
                             
@@ -393,8 +387,8 @@ JavaScript = ECMAScript + BOM(wi</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/大概指南/" target="_blank">
-                        <span class="chip bg-color">大概指南</span>
+                    <a href="/tags/u17/" target="_blank">
+                        <span class="chip bg-color">u17</span>
                     </a>
                     
                 </div>
@@ -406,24 +400,25 @@ JavaScript = ECMAScript + BOM(wi</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/10/15/Linux/CentOS安装Python3.7/">
+                <a href="/2018/11/01/spider/爬音乐/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="安装Python">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="music">
                         
-                        <span class="card-title">安装Python</span>
+                        <span class="card-title">music</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">认真学习也是有前提的：
-好的学习环境, 好的学习方法, 好的学习状态
-缺一不可哟！
-CentOS安装Python3.7
-1.下载Python源代码：https://www.python.org/ftp/python/3.7.0/Python</div>
+                    <div class="summary">获取音乐的url，访问的时候，能直接播放音乐的地址
+import urllib
+from urllib import parse
+
+def str2url(s):
+    #s = '9hFaF2FF%_Et%m4F4%538t2i%795</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
                             </span>
                         <span class="publish-author">
                             
@@ -436,8 +431,8 @@ CentOS安装Python3.7
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python-软链接/" target="_blank">
-                        <span class="chip bg-color">Python 软链接</span>
+                    <a href="/tags/music/" target="_blank">
+                        <span class="chip bg-color">music</span>
                     </a>
                     
                 </div>
