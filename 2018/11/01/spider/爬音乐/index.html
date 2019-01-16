@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 </head>
 
 <body>
@@ -408,24 +408,24 @@ wait <span class="token operator">=</span> WebDriverWait<span class="token punct
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/auth_code/">
+                <a href="/2018/11/01/spider/爬电影/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="超级鹰">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="movie">
                         
-                        <span class="card-title">超级鹰</span>
+                        <span class="card-title">movie</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">使用验证平台   超级鹰(https://www.chaojiying.com/)字母数字验证码code
+                    <div class="summary">爬电影获取的是电影的种子，将这个链接发给迅雷，可以直接下载
+import json
+import re
+import requests
 
 
-import time
-from io import BytesIO
-
-from PIL import Image
-from se</div>
+def parse_page(html):
+    patters = re.compile('va</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -441,8 +441,8 @@ from se</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/code/" target="_blank">
-                        <span class="chip bg-color">code</span>
+                    <a href="/tags/movie/" target="_blank">
+                        <span class="chip bg-color">movie</span>
                     </a>
                     
                 </div>
@@ -454,27 +454,21 @@ from se</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/爬取网易云音乐/">
+                <a href="/2018/11/01/spider/BeautifulSoup/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="music_wy">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="BeautifulSoup相关">
                         
-                        <span class="card-title">music_wy</span>
+                        <span class="card-title">BeautifulSoup相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"># coding=utf-8
+                    <div class="summary">#获取直接子节点：contents、children
+#获取父节点：parent
+#获取兄弟节点：next_siblings、next_sibling、previous_siblings、previous_sibling
 '''
-爬取wy音乐榜单
-'''
-# 导入需要使用的模块
-import os
-import csv
-import time
-import random
-import requests
-import thread</div>
+&lt;h</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -490,8 +484,8 @@ import thread</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/music/" target="_blank">
-                        <span class="chip bg-color">music</span>
+                    <a href="/tags/beautifulSoup/" target="_blank">
+                        <span class="chip bg-color">beautifulSoup</span>
                     </a>
                     
                 </div>

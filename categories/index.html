@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 </head>
 
 <body>
@@ -237,6 +237,7 @@
 
 <script>
 // Dynamically switch banner pictures every day.
+// 修改页面主题图片
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
 
@@ -244,254 +245,86 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-<div id="tags" class="container chip-container">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
-            <div class="tag-title center-align">文章标签</div>
+            <div class="tag-title center-align">文章分类</div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/float/" title="float: 1">
+                
+                <a href="/categories/Markdown/" title="Markdown: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="float" style="background-color: #F9EBEA;">float
+                            style="background-color: #F9EBEA;">Markdown
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
-                
-                <a href="/tags/Python-软链接/" title="Python 软链接: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Python 软链接" style="background-color: #F5EEF8;">Python 软链接
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/选择器/" title="选择器: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="选择器" style="background-color: #D5F5E3;">选择器
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/虚拟机ER外键集合函数/" title="虚拟机	ER	外键	集合函数: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="虚拟机	ER	外键	集合函数" style="background-color: #E8F8F5;">虚拟机	ER	外键	集合函数
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Python-Web-爬虫/" title="Python, Web, 爬虫: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Python, Web, 爬虫" style="background-color: #FEF9E7;">Python, Web, 爬虫
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/HTML/" title="HTML: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="HTML" style="background-color: #F8F9F9;">HTML
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/MySQL/" title="MySQL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="MySQL" style="background-color: #82E0AA;">MySQL
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/查、删、改/" title="查、删、改: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="查、删、改" style="background-color: #D7BDE2;">查、删、改
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/总结/" title="总结: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="总结" style="background-color: #A3E4D7;">总结
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/linkman/" title="linkman: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="linkman" style="background-color: #85C1E9;">linkman
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/操作系统-Linux-防火墙/" title="操作系统 Linux 防火墙: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="操作系统 Linux 防火墙" style="background-color: #F8C471;">操作系统 Linux 防火墙
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/game/" title="game: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="game" style="background-color: #F9E79F;">game
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/状态码/" title="状态码: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="状态码" style="background-color: #FFF;">状态码
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/order/" title="order: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="order" style="background-color: #A3E4D7;">order
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/函数/" title="函数: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="函数" style="background-color: #E8F8F5;">函数
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/python/" title="python: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="python" style="background-color: #F8C471;">python
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/大概指南/" title="大概指南: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="大概指南" style="background-color: #F8C471;">大概指南
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/web框架/" title="web框架: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="web框架" style="background-color: #F9EBEA;">web框架
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/循环/" title="循环: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="循环" style="background-color: #FEF9E7;">循环
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/hexo-github/" title="hexo, github: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="hexo, github" style="background-color: #E8F8F5;">hexo, github
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/数据库-表格/" title="数据库 表格: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="数据库 表格" style="background-color: #E8F8F5;">数据库 表格
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/超级管理员-重启/" title="超级管理员, 重启: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="超级管理员, 重启" style="background-color: #F5EEF8;">超级管理员, 重启
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
                 
             </div>
         </div>
     </div>
 </div>
 
-    <div class="container">
-        
+    
+    <style type="text/css">
+    #category-radar {
+        width: 100%;
+        height: 360px;
+    }
+</style>
 
-        <article>
-            <div class="row tags-posts">
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="HTML" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/10/29/前端/HTML/">
-                            <div class="card-image tag-image">
-                                
-                                
-                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="HTML">
-                                
-                                <span class="card-title">HTML</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-29
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    smile
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="category-radar" class="card-content"></div>
     </div>
-</main>
+</div>
 
+<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
+<script type="text/javascript">
+    let radarChart = echarts.init(document.getElementById('category-radar'));
+
+    
+
+    let option = {
+        title: {
+            left: 'center',
+            text: '文章分类雷达图',
+            textStyle: {
+                fontWeight: 500,
+                fontSize: 22
+            }
+        },
+        tooltip: {},
+        radar: {
+            name: {
+                textStyle: {
+                    color: '#3C4858'
+                }
+            },
+            indicator: [{"name":"Markdown","max":2}],
+            nameGap: 5,
+            center: ['50%','55%'],
+            radius: '66%'
+        },
+        series: [{
+            type: 'radar',
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data : [
+                {
+                    value : [1],
+                    name : '文章分类数量'
+                }
+            ]
+        }]
+    };
+
+    radarChart.setOption(option);
+</script>
+    
+
+</main>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

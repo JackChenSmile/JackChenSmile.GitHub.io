@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 </head>
 
 <body>
@@ -443,27 +443,23 @@ create unique index ux_mogu_tradeitemid on mogu<span class="token punctuation">(
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/爬取网易云音乐/">
+                <a href="/2018/11/01/spider/jd/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="music_wy">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="practice——jd">
                         
-                        <span class="card-title">music_wy</span>
+                        <span class="card-title">practice——jd</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"># coding=utf-8
-'''
-爬取wy音乐榜单
-'''
-# 导入需要使用的模块
-import os
-import csv
-import time
-import random
-import requests
-import thread</div>
+                    <div class="summary">数据库字段创建
+create database jddb default character set=utf8;
+
+use jddb;
+
+create table jd (
+    id integer auto_increment pri</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -479,8 +475,8 @@ import thread</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/music/" target="_blank">
-                        <span class="chip bg-color">music</span>
+                    <a href="/tags/sqlalchemy/" target="_blank">
+                        <span class="chip bg-color">sqlalchemy</span>
                     </a>
                     
                 </div>
@@ -492,23 +488,22 @@ import thread</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/01/python/pygame相关/">
+                <a href="/2018/11/01/spider/类选择器/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="pygame相关">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="类选择器相关">
                         
-                        <span class="card-title">pygame相关</span>
+                        <span class="card-title">类选择器相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">01-pygame操作模块的导入：
-import pygameif __name__ == '__main__':
-    # 1.初始化游戏模块
-    pygame.init()
-    # 2.创建游戏窗口
-    '''
-    d</div>
+                    <div class="summary">选择器
+一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示result = soup.select('.-live-layout-row.layout_sports_350_650')
+
+
+
+清除数据库清除自</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -524,8 +519,8 @@ import pygameif __name__ == '__main__':
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/game/" target="_blank">
-                        <span class="chip bg-color">game</span>
+                    <a href="/tags/class/" target="_blank">
+                        <span class="chip bg-color">class</span>
                     </a>
                     
                 </div>
