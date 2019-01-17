@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 </head>
 
 <body>
@@ -237,6 +237,7 @@
 
 <script>
 // Dynamically switch banner pictures every day.
+// 修改页面主题图片
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
 
@@ -244,252 +245,563 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-<div id="tags" class="container chip-container">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
-            <div class="tag-title center-align">文章标签</div>
+            <div class="tag-title center-align">文章分类</div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/float/" title="float: 1">
+                
+                <a href="/categories/Markdown/" title="Markdown: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="float" style="background-color: #F9EBEA;">float
-                        <span class="tag-length">1</span>
+                            style="background-color: #F9EBEA;">Markdown
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Python-软链接/" title="Python 软链接: 1">
+                <a href="/categories/前端/" title="前端: 7">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Python 软链接" style="background-color: #F5EEF8;">Python 软链接
-                        <span class="tag-length">1</span>
+                            style="background-color: #F5EEF8;">前端
+                        <span class="tag-length">7</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/选择器/" title="选择器: 1">
+                <a href="/categories/databases/" title="databases: 7">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="选择器" style="background-color: #D5F5E3;">选择器
-                        <span class="tag-length">1</span>
+                            style="background-color: #D5F5E3;">databases
+                        <span class="tag-length">7</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/虚拟机ER外键集合函数/" title="虚拟机	ER	外键	集合函数: 1">
+                <a href="/categories/Django/" title="Django: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="虚拟机	ER	外键	集合函数" style="background-color: #E8F8F5;">虚拟机	ER	外键	集合函数
-                        <span class="tag-length">1</span>
+                            style="background-color: #E8F8F5;">Django
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Python-Web-爬虫/" title="Python, Web, 爬虫: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Python, Web, 爬虫" style="background-color: #FEF9E7;">Python, Web, 爬虫
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/HTML/" title="HTML: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="HTML" style="background-color: #F8F9F9;">HTML
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/MySQL/" title="MySQL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="MySQL" style="background-color: #82E0AA;">MySQL
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/查、删、改/" title="查、删、改: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="查、删、改" style="background-color: #D7BDE2;">查、删、改
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/总结/" title="总结: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="总结" style="background-color: #A3E4D7;">总结
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/linkman/" title="linkman: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="linkman" style="background-color: #85C1E9;">linkman
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/操作系统-Linux-防火墙/" title="操作系统 Linux 防火墙: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="操作系统 Linux 防火墙" style="background-color: #F8C471;">操作系统 Linux 防火墙
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/game/" title="game: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="game" style="background-color: #F9E79F;">game
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/状态码/" title="状态码: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="状态码" style="background-color: #FFF;">状态码
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/order/" title="order: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="order" style="background-color: #A3E4D7;">order
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/函数/" title="函数: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="函数" style="background-color: #E8F8F5;">函数
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/python/" title="python: 1">
+                <a href="/categories/Python/" title="Python: 11">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            data-tagname="python" style="background-color: #F8C471;">python
-                        <span class="tag-length">1</span>
+                            style="background-color: #FEF9E7;">Python
+                        <span class="tag-length">11</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/大概指南/" title="大概指南: 1">
+                <a href="/categories/git/" title="git: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="大概指南" style="background-color: #F8C471;">大概指南
+                            style="background-color: #F8F9F9;">git
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/web框架/" title="web框架: 1">
+                <a href="/categories/Linux/" title="Linux: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="web框架" style="background-color: #F9EBEA;">web框架
-                        <span class="tag-length">1</span>
+                            style="background-color: #82E0AA;">Linux
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/循环/" title="循环: 1">
+                <a href="/categories/spider/" title="spider: 12">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="循环" style="background-color: #FEF9E7;">循环
-                        <span class="tag-length">1</span>
+                            style="background-color: #D7BDE2;">spider
+                        <span class="tag-length">12</span>
                     </span>
                 </a>
                 
-                
-                <a href="/tags/hexo-github/" title="hexo, github: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="hexo, github" style="background-color: #E8F8F5;">hexo, github
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/数据库-表格/" title="数据库 表格: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="数据库 表格" style="background-color: #E8F8F5;">数据库 表格
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/超级管理员-重启/" title="超级管理员, 重启: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="超级管理员, 重启" style="background-color: #F5EEF8;">超级管理员, 重启
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
                 
             </div>
         </div>
     </div>
 </div>
 
-    <div class="container">
-        
+    
 
-        <article>
-            <div class="row tags-posts">
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="python" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2018/10/16/python/基础语法/">
-                            <div class="card-image tag-image">
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/11/01/python/多线程/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="多线程">
+                            
+                            <span class="card-title">多线程</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">01-多线程技术1.主线程每个进程默认都会有一个线程，这个线程我们一般叫作主线程默认情况下，我们所有的代码都在主线程中执行的2.子线程一个进</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
                                 
                                 
-                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="基础语法">
-                                
-                                <span class="card-title">基础语法</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-16
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    smile
-                                    
-                                </span>
-                            </div>
+                            </span>
                         </div>
                     </div>
+
+                    
                 </div>
-                
             </div>
-        </article>
-    </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/11/01/python/正则表达式/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="正则表达式">
+                            
+                            <span class="card-title">正则表达式</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">正则表达式
+正则表达式就是检测字符串是否满足某种规则的工具例如：账号是手机号/邮箱/多少位由什么东西组成的ect
+
+1.正则语法2.Pyth</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/11/01/python/类和对象/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="类和对象">
+                            
+                            <span class="card-title">类和对象</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">类和对象1.理论上的定义
+类：就是拥有相同功能和相同属性的对象的集合（类是抽象的）
+对象：类的实例（对象是具体的）
+2.从生活的角度
+如果说</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/class/" target="_blank">
+                            <span class="chip bg-color">class</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/11/01/python/pygame相关/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="pygame相关">
+                            
+                            <span class="card-title">pygame相关</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">01-pygame操作模块的导入：
+import pygameif __name__ == '__main__':
+    # 1.初始化游</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/game/" target="_blank">
+                            <span class="chip bg-color">game</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/11/01/python/python-summary/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="" class="responsive-img" alt="python-summary">
+                            
+                            <span class="card-title">python-summary</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">函数一、认识函数
+没有函数的时候问题是什么？1.同样的代码需要写多次2.一个功能的需求发生改变，需要修改多个地方
+怎么解决以上问题？使用函数</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/函数/" target="_blank">
+                            <span class="chip bg-color">函数</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/30/python/字典与集合/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="字典与集合">
+                            
+                            <span class="card-title">字典与集合</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">一、recode1.列表
+1.一个列表可以保存多个数据。容器类型，有序（下标），可变的（增删改）[元素，元素]—&gt; 元素可以是任意类型</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/dict/" target="_blank">
+                            <span class="chip bg-color">dict</span>
+                        </a>
+                        
+                        <a href="/tags/set/" target="_blank">
+                            <span class="chip bg-color">set</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/30/python/容器/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="容器">
+                            
+                            <span class="card-title">容器</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">一、复习1.注释a.由字母数字下划线组成，python3中可以是中文。b.数字不能开头。c.大小写敏感3.行与缩进：python中对缩进有严</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/30/python/循环和分支/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="循环和分支">
+                            
+                            <span class="card-title">循环和分支</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">一、数据类型转换1.数据类型自动转换a = 10                    整型（in）
+b = 12.5           </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/循环/" target="_blank">
+                            <span class="chip bg-color">循环</span>
+                        </a>
+                        
+                        <a href="/tags/判断/" target="_blank">
+                            <span class="chip bg-color">判断</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/17/python/python-database/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="python_database">
+                            
+                            <span class="card-title">python_database</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">数据库的微操做进行数据的增加，修改，删除，查看
+在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。
+—– </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/python连接数据库/" target="_blank">
+                            <span class="chip bg-color">python连接数据库</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/16/python/基础语法/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="基础语法">
+                            
+                            <span class="card-title">基础语法</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">###（一）基础1.快捷键： control+/      注释/取消注释 control+s      保存（养成习惯） control+</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/python/" target="_blank">
+                            <span class="chip bg-color">python</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/10/15/Linux/CentOS安装Python3.7/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="安装Python">
+                            
+                            <span class="card-title">安装Python</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">认真学习也是有前提的：
+好的学习环境, 好的学习方法, 好的学习状态
+缺一不可哟！
+CentOS安装Python3.7
+1.下载Python</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Python安装/" target="_blank">
+                            <span class="chip bg-color">Python安装</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
 
 
