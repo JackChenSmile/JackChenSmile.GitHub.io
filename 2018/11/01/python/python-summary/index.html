@@ -230,10 +230,46 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <style>
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -902,9 +938,78 @@ Cha <span class="token operator">=</span> list4<span class="token punctuation">(
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2018-11-01T10-01-14',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Thu Nov 01 2018 10:01:14 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/11/01/python/python-summary/';
+        this.page.identifier = '/2018/11/01/python/python-summary/';
+        this.page.title = 'python-summary';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
     
 
     
@@ -994,6 +1099,26 @@ Cha <span class="token operator">=</span> list4<span class="token punctuation">(
     </div>
 </article>
 </div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数"><span class="post-toc-text">函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一、认识函数"><span class="post-toc-text">一、认识函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二、函数的声明和调用"><span class="post-toc-text">二、函数的声明和调用</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#调用函数sum2"><span class="post-toc-text">调用函数sum2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数可以多次调用"><span class="post-toc-text">函数可以多次调用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三、函数的参数"><span class="post-toc-text">三、函数的参数</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#def-class-info-class-name-ID-’ID’-scores"><span class="post-toc-text">def class_info(class_name,ID=’ID’,*scores):</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#六、匿名函数"><span class="post-toc-text">六、匿名函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#写一个匿名函数，计算两个数的和"><span class="post-toc-text">写一个匿名函数，计算两个数的和</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#下面这个函数和my-sum-lambda-x-y-x-y等价的"><span class="post-toc-text">下面这个函数和my_sum = lambda x,y: x + y等价的</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#练习：写一个匿名函数，获取指定数字列表指定下标的值的1-2"><span class="post-toc-text">练习：写一个匿名函数，获取指定数字列表指定下标的值的1/2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#匿名函数的参数可以设默认值"><span class="post-toc-text">匿名函数的参数可以设默认值</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#位置参数"><span class="post-toc-text">位置参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#获取一个列表的所有元素的和和平均值"><span class="post-toc-text">获取一个列表的所有元素的和和平均值</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#print-z-NameError-name-‘z’-is-not-defined"><span class="post-toc-text">print(z)          NameError: name ‘z’ is not defined</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#临界值"><span class="post-toc-text">临界值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#循环规律"><span class="post-toc-text">循环规律</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#九、模块和包的使用"><span class="post-toc-text">九、模块和包的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#my-list"><span class="post-toc-text">my_list</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#my-model"><span class="post-toc-text">my_model</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十、函数作为变量"><span class="post-toc-text">十、函数作为变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-在python中，函数就是一种特殊的类型，声明函数的时候，其实就是在声明类型是function的变量"><span class="post-toc-text">1.在python中，函数就是一种特殊的类型，声明函数的时候，其实就是在声明类型是function的变量</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-函数作为列表的元素"><span class="post-toc-text">2.函数作为列表的元素</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-将函数作为字典的值"><span class="post-toc-text">3.将函数作为字典的值</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-函数作为函数的参数（回调函数）"><span class="post-toc-text">4.函数作为函数的参数（回调函数）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十一、生成器和生成式"><span class="post-toc-text">十一、生成器和生成式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-生成式—–产生一个迭代器的表达方式"><span class="post-toc-text">1.生成式—–产生一个迭代器的表达方式</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-生成器和迭代器都是通过next来获取里面的数据"><span class="post-toc-text">2.生成器和迭代器都是通过next来获取里面的数据</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-将生成器转换成列表"><span class="post-toc-text">3.将生成器转换成列表</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-将生成器转换成字典"><span class="post-toc-text">4.将生成器转换成字典</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#十二、生成器"><span class="post-toc-text">十二、生成器</span></a></li></ol></li></ol></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function () {
+    let tocLinks = $('#toc-content a');
+    tocLinks.on('click', function () {
+        tocLinks.removeClass('active');
+        $(this).addClass('active');
+    });
+});
+</script>
     
 
 </main>

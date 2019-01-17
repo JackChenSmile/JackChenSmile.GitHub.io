@@ -230,10 +230,46 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <style>
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -569,9 +605,78 @@ print(oct(0b11011))
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2018-10-16T20-47-01',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Tue Oct 16 2018 20:47:01 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/10/16/python/基础语法/';
+        this.page.identifier = '/2018/10/16/python/基础语法/';
+        this.page.title = '基础语法';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
     
 
     
@@ -656,6 +761,26 @@ create database SRS default charset utf8 collate utf8_bin;
     </div>
 </article>
 </div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-基础语法"><span class="post-toc-text">(二)基础语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-标识符"><span class="post-toc-text">2.标识符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-关键字（保留字）"><span class="post-toc-text">3.关键字（保留字）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-行与缩进"><span class="post-toc-text">4.行与缩进</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#行的规范"><span class="post-toc-text">行的规范</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-多行显示-一句代码多行显示"><span class="post-toc-text">5.多行显示(一句代码多行显示)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-字面量-具体的值"><span class="post-toc-text">6.字面量(具体的值)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-变量"><span class="post-toc-text">(三)变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-声明一个变量class-name-保存’python1806’"><span class="post-toc-text">3.声明一个变量class_name,保存’python1806’</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-声明一个变量，可以存储不同类型的数据"><span class="post-toc-text">4.声明一个变量，可以存储不同类型的数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开"><span class="post-toc-text">5.python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-同时声明两个变量，并且赋值一样"><span class="post-toc-text">6.同时声明两个变量，并且赋值一样</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-id函数"><span class="post-toc-text">7.id函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#python-中的声明变量与JAVA中声明变量的区别："><span class="post-toc-text">python 中的声明变量与JAVA中声明变量的区别：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-数字和布尔"><span class="post-toc-text">(四)数字和布尔</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-int-整型"><span class="post-toc-text">1.int(整型)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-float-浮点型"><span class="post-toc-text">2.float(浮点型)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-布尔类型"><span class="post-toc-text">3.布尔类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五-运算符"><span class="post-toc-text">(五)运算符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#a-，-，-，-，-和数学中的加、减、乘、除、求余的功能是一样的。"><span class="post-toc-text">a.+，-，*，/，%和数学中的加、减、乘、除、求余的功能是一样的。</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-比较运算：-gt-（大于），-lt-（小于），-（等于），-（不等于），-gt-大于等于"><span class="post-toc-text">2.比较运算：&gt;（大于），&lt;（小于），==（等于），!=（不等于），&gt;=(大于等于)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-逻辑运算符：and（与），or-或-not-非"><span class="post-toc-text">3.逻辑运算符：and（与），or(或),not(非)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#什么时候使用-：要求两个或者多个条件同时满足"><span class="post-toc-text">什么时候使用 ：要求两个或者多个条件同时满足</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#b-or-或-–或者"><span class="post-toc-text">b.or(或)–或者</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#c-not-非"><span class="post-toc-text">c.not(非)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#a-变量-值"><span class="post-toc-text">a.变量 = 值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#b-变量-值"><span class="post-toc-text">b.变量 += 值</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-运算符的优先级"><span class="post-toc-text">5.运算符的优先级</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#二进制：0b"><span class="post-toc-text">二进制：0b</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#（七）字符"><span class="post-toc-text">（七）字符</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function () {
+    let tocLinks = $('#toc-content a');
+    tocLinks.on('click', function () {
+        tocLinks.removeClass('active');
+        $(this).addClass('active');
+    });
+});
+</script>
     
 
 </main>

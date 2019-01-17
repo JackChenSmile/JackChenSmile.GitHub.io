@@ -230,10 +230,46 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <style>
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -412,9 +448,78 @@ python manage<span class="token punctuation">.</span>py changepassword
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2018-10-22T09-42-39',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Mon Oct 22 2018 09:42:39 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/10/22/前端/web-the-firstone/';
+        this.page.identifier = '/2018/10/22/前端/web-the-firstone/';
+        this.page.title = 'Django—框架';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
     
 
     
@@ -525,6 +630,26 @@ def add_con(con):
     </div>
 </article>
 </div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#框架"><span class="post-toc-text">框架</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Django-Python-Web应用开发框架"><span class="post-toc-text">Django:Python Web应用开发框架</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Flask：一个用Python编写的轻量级Web应用框架"><span class="post-toc-text">Flask：一个用Python编写的轻量级Web应用框架</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Cubes：轻量级Python-OLAP框架"><span class="post-toc-text">Cubes：轻量级Python OLAP框架</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Pulsar：Python的事件驱动并发框架"><span class="post-toc-text">Pulsar：Python的事件驱动并发框架</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Web2py：全栈式Web框架"><span class="post-toc-text">Web2py：全栈式Web框架</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Scrapy：Python的爬虫框架"><span class="post-toc-text">Scrapy：Python的爬虫框架</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Django"><span class="post-toc-text">Django</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MVC："><span class="post-toc-text">MVC：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MVT："><span class="post-toc-text">MVT：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Django和创建Django的虚拟环境"><span class="post-toc-text">安装Django和创建Django的虚拟环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建虚拟环境（1）"><span class="post-toc-text">创建虚拟环境（1）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#操作命令"><span class="post-toc-text">操作命令</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#VIRTUALENV创建虚拟环境"><span class="post-toc-text">VIRTUALENV创建虚拟环境</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#window中安装使用"><span class="post-toc-text">window中安装使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建虚拟环境（2）"><span class="post-toc-text">创建虚拟环境（2）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在Django的虚拟环境中"><span class="post-toc-text">在Django的虚拟环境中</span></a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function () {
+    let tocLinks = $('#toc-content a');
+    tocLinks.on('click', function () {
+        tocLinks.removeClass('active');
+        $(this).addClass('active');
+    });
+});
+</script>
     
 
 </main>

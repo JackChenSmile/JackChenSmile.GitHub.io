@@ -230,10 +230,46 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <style>
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -418,9 +454,78 @@ start， *_ ， end = items（取列表的第一个数和最后一个数）
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2018-10-15T07-44-14',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Mon Oct 15 2018 07:44:14 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/10/15/Linux/vim/';
+        this.page.identifier = '/2018/10/15/Linux/vim/';
+        this.page.title = 'vim';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
     
 
     
@@ -517,6 +622,26 @@ JavaScript = ECMAScript + BOM(wi</div>
     </div>
 </article>
 </div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vimrc-——————-保存格式的文件"><span class="post-toc-text">vimrc ——————- 保存格式的文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vim"><span class="post-toc-text">vim</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#如果vim打开了多个文件，可以在末行模式中"><span class="post-toc-text">如果vim打开了多个文件，可以在末行模式中</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#vim-文件名-————-进入Linux编辑框"><span class="post-toc-text">vim 文件名 ———— 进入Linux编辑框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#刚进入是在命令模式下"><span class="post-toc-text">刚进入是在命令模式下</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#搜索"><span class="post-toc-text">搜索</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#检查工具"><span class="post-toc-text">检查工具</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改操作权限"><span class="post-toc-text">修改操作权限</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#编辑器操作："><span class="post-toc-text">编辑器操作：</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vim模式下的Python"><span class="post-toc-text">vim模式下的Python</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三元运算："><span class="post-toc-text">三元运算：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#占位"><span class="post-toc-text">占位</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字符居中"><span class="post-toc-text">字符居中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#取命令行参数："><span class="post-toc-text">取命令行参数：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#递归函数"><span class="post-toc-text">递归函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态规划：牺牲空间，减少时间"><span class="post-toc-text">动态规划：牺牲空间，减少时间</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#程序"><span class="post-toc-text">程序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#在Python中函数是一等公民"><span class="post-toc-text">在Python中函数是一等公民</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#函数可以赋值给变量，可以作为方法的参数和返回值"><span class="post-toc-text">函数可以赋值给变量，可以作为方法的参数和返回值</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类"><span class="post-toc-text">类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数的参数"><span class="post-toc-text">函数的参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#装饰器"><span class="post-toc-text">装饰器</span></a></li></ol></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function () {
+    let tocLinks = $('#toc-content a');
+    tocLinks.on('click', function () {
+        tocLinks.removeClass('active');
+        $(this).addClass('active');
+    });
+});
+</script>
     
 
 </main>
