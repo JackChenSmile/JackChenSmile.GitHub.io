@@ -1029,30 +1029,47 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/python/python-summary2/">
+                <a href="/2018/11/01/spider/爬电影/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="python-summary2">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="movie">
                         
-                        <span class="card-title">python-summary2</span>
+                        <span class="card-title">movie</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">文件操作一、文件的读和写
-1.程序中不管操作任何文件，不管怎么操作，过程都是一样的过程：打开文件–》操作（读/写）–》关闭文件
-2.做数据持久化、本地化，都要使用文件来保存数据（数据库文件、txt文档、json文件、plist、xml文件等</div>
+                    <div class="summary">爬电影获取的是电影的种子，将这个链接发给迅雷，可以直接下载
+import json
+import re
+import requests
+
+
+def parse_page(html):
+    patters = re.compile('va</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/spider/" class="post-category" target="_blank">
+                                    spider
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/movie/" target="_blank">
+                        <span class="chip bg-color">movie</span>
+                    </a>
+                    
                 </div>
                 
             </div>
