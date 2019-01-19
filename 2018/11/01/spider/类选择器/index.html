@@ -418,23 +418,24 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/爬取数据/">
+                <a href="/2018/11/01/spider/爬电影/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="shop_mo">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="movie">
                         
-                        <span class="card-title">shop_mo</span>
+                        <span class="card-title">movie</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">蘑菇街agent_list.py
-import random
+                    <div class="summary">爬电影获取的是电影的种子，将这个链接发给迅雷，可以直接下载
+import json
+import re
+import requests
 
-def get_random_agent():
 
-    agent_list = [
-    "Mozilla/4.0 (compatible; MSIE 6.0; Wind</div>
+def parse_page(html):
+    patters = re.compile('va</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -454,8 +455,8 @@ def get_random_agent():
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/agent/" target="_blank">
-                        <span class="chip bg-color">agent</span>
+                    <a href="/tags/movie/" target="_blank">
+                        <span class="chip bg-color">movie</span>
                     </a>
                     
                 </div>
@@ -467,30 +468,44 @@ def get_random_agent():
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/01/python/python-summary2/">
+                <a href="/2018/11/01/spider/爬小说/">
                     <div class="card-image">
                         
+                        <img src="/images/AKL.jpg" class="responsive-img" alt="music">
                         
-                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="python-summary2">
-                        
-                        <span class="card-title">python-summary2</span>
+                        <span class="card-title">music</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">文件操作一、文件的读和写
-1.程序中不管操作任何文件，不管怎么操作，过程都是一样的过程：打开文件–》操作（读/写）–》关闭文件
-2.做数据持久化、本地化，都要使用文件来保存数据（数据库文件、txt文档、json文件、plist、xml文件等</div>
+                    <div class="summary">获取音乐的url，访问的时候，能直接播放音乐的地址
+import urllib
+from urllib import parse
+
+def str2url(s):
+    #s = '9hFaF2FF%_Et%m4F4%538t2i%795</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/spider/" class="post-category" target="_blank">
+                                    spider
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/music/" target="_blank">
+                        <span class="chip bg-color">music</span>
+                    </a>
+                    
                 </div>
                 
             </div>
