@@ -522,39 +522,32 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/爬取网易云音乐/">
+                <a href="/2018/11/01/spider/爬视频/">
                     <div class="card-image">
                         
+                        <img src="/images/HuLi.jpg" class="responsive-img" alt="video">
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="music_wy">
-                        
-                        <span class="card-title">music_wy</span>
+                        <span class="card-title">video</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"># coding=utf-8
-'''
-爬取wy音乐榜单
-'''
-# 导入需要使用的模块
-import os
-import csv
-import time
-import random
+                    <div class="summary">方法一：
+import re
 import requests
-import thread</div>
+
+
+# 获取二进制资源
+def get_resource(url):
+    headers = {
+        "User-Agent": "Mozilla/4.0 (co</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/spider/" class="post-category" target="_blank">
-                                    spider
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            smile
                             
                         </span>
                     </div>
@@ -562,8 +555,8 @@ import thread</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/music/" target="_blank">
-                        <span class="chip bg-color">music</span>
+                    <a href="/tags/video/" target="_blank">
+                        <span class="chip bg-color">video</span>
                     </a>
                     
                 </div>
