@@ -214,13 +214,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/images/HuLi.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/images/06.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        video
+                        响应
                     </div>
                 </div>
             </div>
@@ -276,76 +276,61 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/video/" target="_blank">
-                    <span class="chip bg-color">video</span>
+                <a href="/tags/Flask-session/" target="_blank">
+                    <span class="chip bg-color">Flask_session</span>
                 </a>
                 
             </div>
             
             <div class="post-info">
                 
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/flask/" class="post-category" target="_blank">
+                        flask
+                    </a>
+                    
+                </span>
+                
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-01
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-17
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>方法一：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
-<span class="token keyword">import</span> requests
+                <h3 id="session会话"><a href="#session会话" class="headerlink" title="session会话"></a>session会话</h3><p>第一种方式：Flask自带的存储方式，数据存储在客户端<br>第二种方式：使用Flask-Session进行储存，将数据库保存在redis中</p>
+<h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><pre class=" language-python"><code class="language-python">接收HTTP请求方式：@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'POST'</span><span class="token punctuation">,</span> <span class="token string">'DELETE'</span><span class="token punctuation">,</span> <span class="token string">'PATCH'</span><span class="token punctuation">,</span> <span class="token string">'PUT'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
+判断当前请求的方式：request<span class="token punctuation">.</span>method
 
-<span class="token comment" spellcheck="true"># 获取二进制资源</span>
-<span class="token keyword">def</span> <span class="token function">get_resource</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)"</span>
-    <span class="token punctuation">}</span>
+获取GET请求传递的参数：request<span class="token punctuation">.</span>args
+    获取值：request<span class="token punctuation">.</span>args<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    获取多值：request<span class="token punctuation">.</span>args<span class="token punctuation">.</span>getlist<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
 
-    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> response<span class="token punctuation">.</span>content
-    <span class="token keyword">return</span> None
+获取POST请求传递的参数：request<span class="token punctuation">.</span>form
+    获取值：request<span class="token punctuation">.</span>form<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    获取多值：request<span class="token punctuation">.</span>form<span class="token punctuation">.</span>getlist<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true"># 获取页面</span>
-<span class="token keyword">def</span> <span class="token function">get_page</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    headers <span class="token operator">=</span>  <span class="token punctuation">{</span>
-        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)"</span>
-    <span class="token punctuation">}</span>
-    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
-        text <span class="token operator">=</span> response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> text
-    <span class="token keyword">return</span> None
+获取路径：request<span class="token punctuation">.</span>path
 
-<span class="token keyword">def</span> <span class="token function">parse_source</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 正则匹配路由</span>
-    video <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'data-mp4="(.*?)">'</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>
-    video <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>video<span class="token punctuation">,</span> html<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> video<span class="token punctuation">:</span>
-        save_video<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">'下载完成'</span><span class="token punctuation">)</span>
+获取文件：request<span class="token punctuation">.</span>files
+</code></pre>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><pre class=" language-python"><code class="language-python">生成响应对象：返回的页面
 
-    <span class="token keyword">return</span> video
+设置cookie：
+    响应对象res<span class="token punctuation">.</span>set_cookie<span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> max_age<span class="token punctuation">,</span> expires<span class="token punctuation">)</span>
+        key<span class="token punctuation">:</span>键值对中的键
+        value：键值对中的值
+        max_age：过期时间，单位为秒
+        expires<span class="token punctuation">:</span>过期时间，datetime为单位
 
-<span class="token keyword">def</span> <span class="token function">save_video</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    content <span class="token operator">=</span> get_resource<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-    filename <span class="token operator">=</span> url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./video/%s'</span> <span class="token operator">%</span> filename<span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> page <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        url <span class="token operator">=</span> <span class="token string">"http://www.budejie.com/video/"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>page<span class="token punctuation">)</span>
-        html <span class="token operator">=</span> get_page<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-        parse_source<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+删除cookie<span class="token punctuation">:</span>
+    delete_cookie：响应对象res<span class="token punctuation">.</span>selete_cookie<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    set_cookie<span class="token punctuation">:</span>响应对象res<span class="token punctuation">.</span>set_cookie<span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> max_age<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>
@@ -366,7 +351,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/11/01/spider/爬视频/" class="b-link-green">video</a>
+                    <a href="/2019/01/17/flask/请求与响应/" class="b-link-green">响应</a>
                 </p>
             </div>
         </div>
@@ -388,7 +373,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-11-01T15-15-06',
+        id: '2019-01-17T07-44-14',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -407,7 +392,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Thu Nov 01 2018 15:15:06 GMT+0800',
+    id: 'Thu Jan 17 2019 07:44:14 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -431,9 +416,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/11/01/spider/爬视频/';
-        this.page.identifier = '/2018/11/01/spider/爬视频/';
-        this.page.title = 'video';
+        this.page.url = 'http://yoursite.com/2019/01/17/flask/请求与响应/';
+        this.page.identifier = '/2019/01/17/flask/请求与响应/';
+        this.page.title = '响应';
     };
     let disqus_shortname = '';
 
@@ -455,21 +440,25 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/selenium/">
+                <a href="/2019/01/19/spider/类选择器/">
                     <div class="card-image">
                         
-                        <img src="/images/KDA5.jpg" class="responsive-img" alt="selenium">
                         
-                        <span class="card-title">selenium</span>
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="summary">
+                        
+                        <span class="card-title">summary</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by</div>
+                    <div class="summary">选择器
+一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示result = soup.select('.-live-layout-row.layout_sports_350_650')
+
+
+
+清除数据库清除自</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-19
                         </span>
                         <span class="publish-author">
                             
@@ -486,8 +475,8 @@ from selenium.webdriver.common.by</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/selenium/" target="_blank">
-                        <span class="chip bg-color">selenium</span>
+                    <a href="/tags/随机总结/" target="_blank">
+                        <span class="chip bg-color">随机总结</span>
                     </a>
                     
                 </div>
@@ -499,30 +488,24 @@ from selenium.webdriver.common.by</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/spider_databases/">
+                <a href="/2019/01/15/spider/kaisha解码程序/">
                     <div class="card-image">
                         
-                        <img src="/images/AKL.jpg" class="responsive-img" alt="展示数据">
+                        <img src="/images/KDA3.jpg" class="responsive-img" alt="kaisha密码">
                         
-                        <span class="card-title">展示数据</span>
+                        <span class="card-title">kaisha密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">创建一个有个youyaoqi项目
-项目自带文件
-scrapy.cfg
-youyaoqi
- init.py
-items.py
-middlewares.py
-pipelines.py
-settings.py
-spiders
- init .py
-</div>
+                    <div class="summary">用来破解一些加密文件
+import urllib
+from urllib import parse
+
+def str2url(s):
+    #s = '9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E85.%f</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-15
                             </span>
                         <span class="publish-author">
                             
@@ -539,8 +522,8 @@ spiders
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/databases/" target="_blank">
-                        <span class="chip bg-color">databases</span>
+                    <a href="/tags/urllib/" target="_blank">
+                        <span class="chip bg-color">urllib</span>
                     </a>
                     
                 </div>
@@ -556,7 +539,7 @@ spiders
         <div class="toc-widget">
             <h4>目录</h4>
             <div id="toc-content">
-                
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#session会话"><span class="post-toc-text">session会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#请求"><span class="post-toc-text">请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#响应"><span class="post-toc-text">响应</span></a></li></ol>
             </div>
         </div>
     </div>
