@@ -214,13 +214,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/images/KDA3.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        kaisha密码
+                        summary
                     </div>
                 </div>
             </div>
@@ -276,8 +276,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/urllib/" target="_blank">
-                    <span class="chip bg-color">urllib</span>
+                <a href="/tags/随机总结/" target="_blank">
+                    <span class="chip bg-color">随机总结</span>
                 </a>
                 
             </div>
@@ -295,45 +295,20 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-01
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-19
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>用来破解一些加密文件</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib
-<span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
-
-<span class="token keyword">def</span> <span class="token function">str2url</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">#s = '9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E85.%fnF9742Em33e162_36pA.t6661983%x%6%%74%2i2%22735'</span>
-    num_loc <span class="token operator">=</span> s<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">)</span>
-    rows <span class="token operator">=</span> int<span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span>num_loc<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    strlen <span class="token operator">=</span> len<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-</span> num_loc
-    cols <span class="token operator">=</span> int<span class="token punctuation">(</span>strlen<span class="token operator">/</span>rows<span class="token punctuation">)</span>
-    right_rows <span class="token operator">=</span> strlen <span class="token operator">%</span> rows
-    new_s <span class="token operator">=</span> list<span class="token punctuation">(</span>s<span class="token punctuation">[</span>num_loc<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    output <span class="token operator">=</span> <span class="token string">''</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>new_s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        x <span class="token operator">=</span> i <span class="token operator">%</span> rows
-        y <span class="token operator">=</span> i <span class="token operator">/</span> rows
-        p <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">if</span> x <span class="token operator">&lt;=</span> right_rows<span class="token punctuation">:</span>
-            p <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token punctuation">(</span>cols <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> y
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            p <span class="token operator">=</span> right_rows <span class="token operator">*</span> <span class="token punctuation">(</span>cols <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> right_rows<span class="token punctuation">)</span> <span class="token operator">*</span> cols <span class="token operator">+</span> y
-        output <span class="token operator">+=</span> new_s<span class="token punctuation">[</span>int<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">]</span>
-    <span class="token keyword">return</span> parse<span class="token punctuation">.</span>unquote<span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'^'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    s <span class="token operator">=</span> <span class="token string">"6hAFxn752E5F215234uy495-3741E8t%mie15F2E185E%6at%72E%7ba%13t21at27261734458%h3%%-5a885d5pF2m%%11799662E13_D55%E992E48%%8i222%4%59358.Fk1EE5-8bc%7632..FF%5%24_%9_mae58%E513e51"</span>
-    result_str <span class="token operator">=</span> str2url<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>result_str<span class="token punctuation">)</span>
-
-main<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
+                <h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
+<li>一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示<pre class=" language-python"><code class="language-python">result <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.-live-layout-row.layout_sports_350_650'</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="清除数据库"><a href="#清除数据库" class="headerlink" title="清除数据库"></a>清除数据库</h3><pre class=" language-python"><code class="language-python">清除自增字段，下次创建的时候，id为<span class="token number">1</span>
+truncate table 名
 </code></pre>
 
             </div>
@@ -354,7 +329,7 @@ main<span class="token punctuation">(</span><span class="token punctuation">)</s
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/11/01/spider/kaisha解码程序/" class="b-link-green">kaisha密码</a>
+                    <a href="/2019/01/19/spider/类选择器/" class="b-link-green">summary</a>
                 </p>
             </div>
         </div>
@@ -376,7 +351,7 @@ main<span class="token punctuation">(</span><span class="token punctuation">)</s
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-11-01T15-15-06',
+        id: '2019-01-19T15-15-06',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -395,7 +370,7 @@ main<span class="token punctuation">(</span><span class="token punctuation">)</s
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Thu Nov 01 2018 15:15:06 GMT+0800',
+    id: 'Sat Jan 19 2019 15:15:06 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -419,9 +394,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/11/01/spider/kaisha解码程序/';
-        this.page.identifier = '/2018/11/01/spider/kaisha解码程序/';
-        this.page.title = 'kaisha密码';
+        this.page.url = 'http://yoursite.com/2019/01/19/spider/类选择器/';
+        this.page.identifier = '/2019/01/19/spider/类选择器/';
+        this.page.title = 'summary';
     };
     let disqus_shortname = '';
 
@@ -440,25 +415,29 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/selenium/">
+                <a href="/2019/01/19/spider/类选择器/">
                     <div class="card-image">
                         
-                        <img src="/images/KDA5.jpg" class="responsive-img" alt="selenium">
                         
-                        <span class="card-title">selenium</span>
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="summary">
+                        
+                        <span class="card-title">summary</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by</div>
+                    <div class="summary">选择器
+一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示result = soup.select('.-live-layout-row.layout_sports_350_650')
+
+
+
+清除数据库清除自</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -471,11 +450,12 @@ from selenium.webdriver.common.by</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/selenium/" target="_blank">
-                        <span class="chip bg-color">selenium</span>
+                    <a href="/tags/随机总结/" target="_blank">
+                        <span class="chip bg-color">随机总结</span>
                     </a>
                     
                 </div>
@@ -487,30 +467,24 @@ from selenium.webdriver.common.by</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/spider_databases/">
+                <a href="/2019/01/15/spider/kaisha解码程序/">
                     <div class="card-image">
                         
-                        <img src="/images/AKL.jpg" class="responsive-img" alt="展示数据">
+                        <img src="/images/KDA3.jpg" class="responsive-img" alt="kaisha密码">
                         
-                        <span class="card-title">展示数据</span>
+                        <span class="card-title">kaisha密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">创建一个有个youyaoqi项目
-项目自带文件
-scrapy.cfg
-youyaoqi
- init.py
-items.py
-middlewares.py
-pipelines.py
-settings.py
-spiders
- init .py
-</div>
+                    <div class="summary">用来破解一些加密文件
+import urllib
+from urllib import parse
+
+def str2url(s):
+    #s = '9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E85.%f</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-15
                             </span>
                         <span class="publish-author">
                             
@@ -527,8 +501,8 @@ spiders
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/databases/" target="_blank">
-                        <span class="chip bg-color">databases</span>
+                    <a href="/tags/urllib/" target="_blank">
+                        <span class="chip bg-color">urllib</span>
                     </a>
                     
                 </div>
@@ -544,7 +518,7 @@ spiders
         <div class="toc-widget">
             <h4>目录</h4>
             <div id="toc-content">
-                
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择器"><span class="post-toc-text">选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#清除数据库"><span class="post-toc-text">清除数据库</span></a></li></ol>
             </div>
         </div>
     </div>

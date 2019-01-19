@@ -214,13 +214,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/images/KDA3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        summary
+                        kaisha密码
                     </div>
                 </div>
             </div>
@@ -276,8 +276,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/随机总结/" target="_blank">
-                    <span class="chip bg-color">随机总结</span>
+                <a href="/tags/urllib/" target="_blank">
+                    <span class="chip bg-color">urllib</span>
                 </a>
                 
             </div>
@@ -295,20 +295,45 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-01
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-15
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
-<li>一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示<pre class=" language-python"><code class="language-python">result <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.-live-layout-row.layout_sports_350_650'</span><span class="token punctuation">)</span>
-</code></pre>
-</li>
-</ul>
-<h3 id="清除数据库"><a href="#清除数据库" class="headerlink" title="清除数据库"></a>清除数据库</h3><pre class=" language-python"><code class="language-python">清除自增字段，下次创建的时候，id为<span class="token number">1</span>
-truncate table 名
+                <p>用来破解一些加密文件</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib
+<span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
+
+<span class="token keyword">def</span> <span class="token function">str2url</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#s = '9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E85.%fnF9742Em33e162_36pA.t6661983%x%6%%74%2i2%22735'</span>
+    num_loc <span class="token operator">=</span> s<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">)</span>
+    rows <span class="token operator">=</span> int<span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span>num_loc<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    strlen <span class="token operator">=</span> len<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-</span> num_loc
+    cols <span class="token operator">=</span> int<span class="token punctuation">(</span>strlen<span class="token operator">/</span>rows<span class="token punctuation">)</span>
+    right_rows <span class="token operator">=</span> strlen <span class="token operator">%</span> rows
+    new_s <span class="token operator">=</span> list<span class="token punctuation">(</span>s<span class="token punctuation">[</span>num_loc<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    output <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>new_s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> i <span class="token operator">%</span> rows
+        y <span class="token operator">=</span> i <span class="token operator">/</span> rows
+        p <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">if</span> x <span class="token operator">&lt;=</span> right_rows<span class="token punctuation">:</span>
+            p <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token punctuation">(</span>cols <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> y
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            p <span class="token operator">=</span> right_rows <span class="token operator">*</span> <span class="token punctuation">(</span>cols <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> right_rows<span class="token punctuation">)</span> <span class="token operator">*</span> cols <span class="token operator">+</span> y
+        output <span class="token operator">+=</span> new_s<span class="token punctuation">[</span>int<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> parse<span class="token punctuation">.</span>unquote<span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'^'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    s <span class="token operator">=</span> <span class="token string">"6hAFxn752E5F215234uy495-3741E8t%mie15F2E185E%6at%72E%7ba%13t21at27261734458%h3%%-5a885d5pF2m%%11799662E13_D55%E992E48%%8i222%4%59358.Fk1EE5-8bc%7632..FF%5%24_%9_mae58%E513e51"</span>
+    result_str <span class="token operator">=</span> str2url<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>result_str<span class="token punctuation">)</span>
+
+main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
 </code></pre>
 
             </div>
@@ -329,7 +354,7 @@ truncate table 名
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/11/01/spider/类选择器/" class="b-link-green">summary</a>
+                    <a href="/2019/01/15/spider/kaisha解码程序/" class="b-link-green">kaisha密码</a>
                 </p>
             </div>
         </div>
@@ -351,7 +376,7 @@ truncate table 名
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-11-01T15-15-06',
+        id: '2019-01-15T15-15-06',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -370,7 +395,7 @@ truncate table 名
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Thu Nov 01 2018 15:15:06 GMT+0800',
+    id: 'Tue Jan 15 2019 15:15:06 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -394,9 +419,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/11/01/spider/类选择器/';
-        this.page.identifier = '/2018/11/01/spider/类选择器/';
-        this.page.title = 'summary';
+        this.page.url = 'http://yoursite.com/2019/01/15/spider/kaisha解码程序/';
+        this.page.identifier = '/2019/01/15/spider/kaisha解码程序/';
+        this.page.title = 'kaisha密码';
     };
     let disqus_shortname = '';
 
@@ -418,73 +443,26 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/python/pygame相关/">
+                <a href="/2019/01/19/spider/类选择器/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="pygame相关">
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="summary">
                         
-                        <span class="card-title">pygame相关</span>
+                        <span class="card-title">summary</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">01-pygame操作模块的导入：
-import pygameif __name__ == '__main__':
-    # 1.初始化游戏模块
-    pygame.init()
-    # 2.创建游戏窗口
-    '''
-    d</div>
+                    <div class="summary">选择器
+一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示result = soup.select('.-live-layout-row.layout_sports_350_650')
+
+
+
+清除数据库清除自</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-19
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/game/" target="_blank">
-                        <span class="chip bg-color">game</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2018/11/01/spider/BeautifulSoup/">
-                    <div class="card-image">
-                        
-                        <img src="/images/KDA1.jpg" class="responsive-img" alt="BeautifulSoup相关">
-                        
-                        <span class="card-title">BeautifulSoup相关</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">#获取直接子节点：contents、children
-#获取父节点：parent
-#获取兄弟节点：next_siblings、next_sibling、previous_siblings、previous_sibling
-'''
-&lt;h</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -500,8 +478,60 @@ import pygameif __name__ == '__main__':
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/beautifulSoup/" target="_blank">
-                        <span class="chip bg-color">beautifulSoup</span>
+                    <a href="/tags/随机总结/" target="_blank">
+                        <span class="chip bg-color">随机总结</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2018/12/14/Django/Django/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="部署Django项目">
+                        
+                        <span class="card-title">部署Django项目</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">安装MariaDB安装命令
+yum -y install mariadb mariadb-server
+安装完成MariaDB，首先启动MariaDB
+systemctl start mariadb
+设置开机启动
+systemctl ena</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Django/" class="post-category" target="_blank">
+                                    Django
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django项目部署/" target="_blank">
+                        <span class="chip bg-color">Django项目部署</span>
+                    </a>
+                    
+                    <a href="/tags/MariaDB安装/" target="_blank">
+                        <span class="chip bg-color">MariaDB安装</span>
                     </a>
                     
                 </div>
@@ -517,7 +547,7 @@ import pygameif __name__ == '__main__':
         <div class="toc-widget">
             <h4>目录</h4>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择器"><span class="post-toc-text">选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#清除数据库"><span class="post-toc-text">清除数据库</span></a></li></ol>
+                
             </div>
         </div>
     </div>
