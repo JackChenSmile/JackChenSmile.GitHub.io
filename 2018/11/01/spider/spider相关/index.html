@@ -413,27 +413,24 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/spider_databases/">
+                <a href="/2018/11/01/spider/爬电影/">
                     <div class="card-image">
                         
-                        <img src="/images/AKL.jpg" class="responsive-img" alt="展示数据">
                         
-                        <span class="card-title">展示数据</span>
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="movie">
+                        
+                        <span class="card-title">movie</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">创建一个有个youyaoqi项目
-项目自带文件
-scrapy.cfg
-youyaoqi
- init.py
-items.py
-middlewares.py
-pipelines.py
-settings.py
-spiders
- init .py
-</div>
+                    <div class="summary">爬电影获取的是电影的种子，将这个链接发给迅雷，可以直接下载
+import json
+import re
+import requests
+
+
+def parse_page(html):
+    patters = re.compile('va</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -453,8 +450,8 @@ spiders
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/databases/" target="_blank">
-                        <span class="chip bg-color">databases</span>
+                    <a href="/tags/movie/" target="_blank">
+                        <span class="chip bg-color">movie</span>
                     </a>
                     
                 </div>
@@ -466,27 +463,18 @@ spiders
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/u17/">
+                <a href="/2018/11/01/spider/selenium/">
                     <div class="card-image">
                         
-                        <img src="/images/KDA2.jpg" class="responsive-img" alt="youyaoqi">
+                        <img src="/images/KDA5.jpg" class="responsive-img" alt="selenium">
                         
-                        <span class="card-title">youyaoqi</span>
+                        <span class="card-title">selenium</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">创建一个有个youyaoqi项目
-项目自带文件
-scrapy.cfg
-youyaoqi
- init.py
-items.py
-middlewares.py
-pipelines.py
-settings.py
-spiders
- init .py
-</div>
+                    <div class="summary">from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -506,8 +494,8 @@ spiders
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cartoon/" target="_blank">
-                        <span class="chip bg-color">cartoon</span>
+                    <a href="/tags/selenium/" target="_blank">
+                        <span class="chip bg-color">selenium</span>
                     </a>
                     
                 </div>

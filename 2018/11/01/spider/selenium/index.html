@@ -493,22 +493,21 @@ gitment.render('gitment-content');
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/jd/">
+                <a href="/2018/11/01/spider/spider相关/">
                     <div class="card-image">
                         
-                        <img src="/images/LoL.jpg" class="responsive-img" alt="practice——jd">
                         
-                        <span class="card-title">practice——jd</span>
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="spider相关">
+                        
+                        <span class="card-title">spider相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">数据库字段创建
-create database jddb default character set=utf8;
+                    <div class="summary">爬虫的结构爬虫大致分为三个部分
 
-use jddb;
-
-create table jd (
-    id integer auto_increment pri</div>
+控制器：主要负责根据系统传过来的URL链接，分配线程，然后启动线程调用爬虫爬取网页的过程
+解析器：负责爬虫的主要部分，作用：下载网页功能，对网页的文本进行处理，如过滤，抽取标签的功能，分析数据的功能
+资源库</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -526,14 +525,6 @@ create table jd (
                     </div>
                 </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/sqlalchemy/" target="_blank">
-                        <span class="chip bg-color">sqlalchemy</span>
-                    </a>
-                    
-                </div>
-                
             </div>
         </div>
         
@@ -541,32 +532,35 @@ create table jd (
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/01/spider/爬视频/">
+                <a href="/2018/11/01/python/pygame相关/">
                     <div class="card-image">
                         
-                        <img src="/images/HuLi.jpg" class="responsive-img" alt="video">
                         
-                        <span class="card-title">video</span>
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="pygame相关">
+                        
+                        <span class="card-title">pygame相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">方法一：
-import re
-import requests
-
-
-# 获取二进制资源
-def get_resource(url):
-    headers = {
-        "User-Agent": "Mozilla/4.0 (co</div>
+                    <div class="summary">01-pygame操作模块的导入：
+import pygameif __name__ == '__main__':
+    # 1.初始化游戏模块
+    pygame.init()
+    # 2.创建游戏窗口
+    '''
+    d</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -574,8 +568,8 @@ def get_resource(url):
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/video/" target="_blank">
-                        <span class="chip bg-color">video</span>
+                    <a href="/tags/game/" target="_blank">
+                        <span class="chip bg-color">game</span>
                     </a>
                     
                 </div>
