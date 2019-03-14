@@ -74,22 +74,51 @@ $(function () {
 
         $('#articleContent img').each(function () {
             let imgPath = $(this).attr('src');
-            $(this).wrap('<div class="img-item" data-src="' + imgPath + '"></div>');
+            $(this).wrap('<div class="img-item" data-src="' + imgPath + '" data-sub-html=".caption"></div>');
+            // 图片添加阴影
+            $(this).addClass("img-shadow img-margin");
+            // 图片添加字幕
+            let alt = $(this).attr('alt');
+            let title = $(this).attr('title');
+            let captionText = "";
+            // 如果alt为空，title来替
+            if (alt === undefined || alt === "") {
+                if (title !== undefined && title !== "") {
+                    captionText = title;
+                }
+            } else {
+                captionText = alt;
+            }
+            // 字幕不空，添加之
+            if (captionText !== "") {
+                let captionDiv = document.createElement('div');
+                captionDiv.className = 'caption';
+                let captionEle = document.createElement('b');
+                captionEle.className = 'center-caption';
+                captionEle.innerText = captionText;
+                captionDiv.appendChild(captionEle);
+                this.insertAdjacentElement('afterend', captionDiv)
+            }
         });
         $('#articleContent, #myGallery').lightGallery({
-            selector: '.img-item'
+            selector: '.img-item',
+            // 启用字幕
+            subHtmlSelectorRelative: true
         });
 
         // progress bar init
         const progressElement = window.document.querySelector('.progress-bar');
-        new ScrollProgress((x, y) => {
-            progressElement.style.width = y * 100 + '%';
-        });
+        if (progressElement) {
+            new ScrollProgress((x, y) => {
+                progressElement.style.width = y * 100 + '%';
+            });
+        }
     };
     articleInit();
 
     $('#toggleSearch').click(function () {
         $('#searchModal').openModal();
+        $('#searchInput').focus();
     });
 
     /*回到顶部*/
@@ -99,10 +128,10 @@ $(function () {
     });
 
     /*监听滚动条位置*/
+    let $nav = $('#headNav');
+    let $backTop = $('.top-scroll');
     $(window).scroll(function () {
-        /*回到顶部按钮根据滚动条的位置的显示和隐藏*/
-        let $nav = $('#headNav');
-        let $backTop = $('.top-scroll');
+        /* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/
         let scroll = $(window).scrollTop();
         if (scroll < 100) {
             $nav.addClass('nav-transparent');
@@ -110,18 +139,6 @@ $(function () {
         } else {
             $nav.removeClass('nav-transparent');
             $backTop.slideDown(300);
-        }
-
-        let $tocWidget = $('.toc-widget');
-        if ($tocWidget.length === 0) {
-            return;
-        }
-
-        /* add post toc fixed. */
-        if (scroll > 240) {
-            $tocWidget.addClass('toc-fixed');
-        } else {
-            $tocWidget.removeClass('toc-fixed');
         }
     });
 });
