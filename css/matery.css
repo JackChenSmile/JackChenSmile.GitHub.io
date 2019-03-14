@@ -19,6 +19,7 @@
         width: 85%;
         max-width: 1125px;
     }
+
     .post-container {
         width: 90%;
         margin: 0 auto;
@@ -102,6 +103,7 @@ pre {
 
 code {
     padding: 1px 5px;
+    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
     font-size: 0.91rem;
     color: #e96900;
     background-color: #f8f8f8;
@@ -122,6 +124,7 @@ pre[class*="language-"] {
 code[class*="language-"],
 pre[class*="language-"] {
     color: #e8eaf6;
+    white-space: pre-wrap !important;
 }
 
 b,
@@ -167,19 +170,8 @@ mark {
     color: #0f9d58 !important;
 }
 
-/*头部导航栏样式*/
-@media only screen and (max-width: 600px) {
-    header nav .brand-logo {
-        left: 80px;
-        width: 100px;
-        font-size: 1.6rem;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
-
-    header .brand-logo .logo-span {
-        font-size: 1.6rem !important;
-    }
+.white-color {
+    color: #fff;
 }
 
 .progress-bar {
@@ -191,7 +183,21 @@ mark {
     opacity: 0.8;
 }
 
-nav, .side-nav {
+.sidenav-overlay {
+    z-index: 500;
+}
+
+.pd-header {
+    margin-top: -64px;
+}
+
+header .side-nav {
+    width: 240px;
+    z-index: 999;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+nav {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -212,7 +218,7 @@ header .brand-logo .logo-img {
 }
 
 header .brand-logo .logo-span {
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 header .button-collapse i {
@@ -252,18 +258,17 @@ header .side-nav .menu-list li {
 header .side-nav .menu-list a {
     height: 50px;
     line-height: 50px;
-}
-
-header .side-nav .menu-list a i {
-    line-height: 16px;
+    color: #34495e !important;
 }
 
 .mobile-menu-list a i {
-    font-size: 1.1rem;
+    margin-left: 8px !important;
+    font-size: 1.16rem;
+    color: #34495e !important;
 }
 
 header .side-nav .fa-fw {
-    width: 5rem;
+    width: 3.3rem;
     text-align: left;
 }
 
@@ -301,7 +306,7 @@ header .side-nav .social-link {
 .cover-btns a:hover {
     border: 1px solid #f44336;
     background-color: #f44336;
-    box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2);
+    box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2);
 }
 
 .cover-btns a i {
@@ -343,12 +348,15 @@ header .go-back i {
     align-items: center;
     height: 60vh;
     padding: 0;
-    margin-top: -64px;
     border: 0;
     overflow: hidden;
     background-position: center center;
     background-size: cover;
     transform: translate3d(0px, 0px, 0px);
+}
+
+.index-cover {
+    height: 100vh;
 }
 
 .post-cover {
@@ -476,16 +484,50 @@ header .go-back i {
     }
 }
 
-.recommend {
+.carousel .indicators {
+    padding-bottom: 10px !important;
+}
+
+.index-card {
+    margin-top: -50px;
+    padding-top: 20px;
+}
+
+.carousel-post .title {
+    font-size: 2.6rem;
+}
+
+.carousel-post .cover-btns a {
+    margin-top: -30px;
+}
+
+.dream {
     margin-top: 20px;
+    margin-bottom: 40px;
 }
 
-.notice {
-    margin-top: -40px;
+.dream .title,
+.music-player .title,
+.video-player .title {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
-.notice .card {
-    border-radius: 5px;
+.dream .text {
+    opacity: .6;
+    font-size: 1.1rem;
+}
+
+.music-player,
+.video-player {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.music,
+.dplayer-video {
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,.2), 0 10px 20px -12px rgba(0,0,0,.5) !important;
 }
 
 #recommend-sections {
@@ -493,16 +535,11 @@ header .go-back i {
     padding-top: 30px;
 }
 
-.recommend .card .card-content {
+.index-card .card .card-content {
     padding: 20px 40px;
 }
 
 @media only screen and (min-width: 1418px) {
-    .notice {
-        margin-top: 30px;
-        padding: 0 0.75rem;
-    }
-
     .recommend {
         margin-top: 20px;
         padding: 0 0.75rem;
@@ -510,14 +547,14 @@ header .go-back i {
 }
 
 @media only screen and (max-width: 601px) {
-    .recommend .card .card-content {
+    .index-card .card .card-content {
         padding: 10px 10px;
     }
 }
 
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
-    .recommend .card .card-content {
+    .index-card .card .card-content {
         padding: 20px 20px;
     }
 }
@@ -598,7 +635,7 @@ header .go-back i {
     height: 65px;
     max-height: 65px;
     font-size: 14px;
-    color: hsla(0, 0%, 100%, .7) !important;
+    color: hsla(0, 0%, 100%, .78) !important;
 }
 
 .recommend .post-card .read-more {
@@ -655,12 +692,17 @@ article a:hover {
 }
 
 article .card {
-    border-radius: 10px;
+    border-radius: 8px;
+}
+
+article .card-image {
+    background-color: #222;
 }
 
 article .card-image img {
     height: 220px;
     border-radius: 0.3rem;
+    opacity: .7;
 }
 
 article .tag-image img {
@@ -675,6 +717,7 @@ article .article-content .summary {
     padding-bottom: 2px;
     padding-left: 0;
     margin-bottom: 6px;
+    word-break: break-all;
 }
 
 article .article-content .publish-author {
@@ -695,6 +738,7 @@ article .article-content .publish-author {
 
 article .card .card-action {
     padding: 10px 15px 10px 18px;
+    border-radius: 0 0 8px 8px !important;
 }
 
 article .article-tags .chip {
@@ -734,6 +778,10 @@ article .article-tags .chip {
     right: 10px;
 }
 
+.paging {
+    margin-bottom: 15px;
+}
+
 .paging .row {
     margin-left: 0;
     margin-right: 0;
@@ -762,6 +810,13 @@ article .article-tags .chip {
     margin-top: -60px;
 }
 
+/* 修改小屏幕下文章详情table样式. */
+@media only screen and (max-width: 550px) {
+    #articleContent table{
+        table-layout: fixed;
+    }
+}
+
 @media only screen and (min-width: 1418px) {
     #artDetail {
         margin-top: -60px;
@@ -775,22 +830,22 @@ article .article-tags .chip {
     0 2px 5px -5px rgba(0, 0, 0, .1) !important;
 }
 
+#artDetail .tag-cate {
+    padding-bottom: 15px;
+}
+
 #artDetail a {
     margin-right: 0 !important;
     text-transform: none !important;
 }
 
 #artDetail .article-info {
-    padding: 25px 48px 30px 50px;
-    margin-bottom: 20px;
+    padding: 20px 30px 1px 40px;
+    margin-bottom: -5px;
 }
 
 #artDetail .article-tag {
     float: left;
-}
-
-#artDetail .post-info {
-    float: right;
 }
 
 #artDetail .article-tag .chip {
@@ -804,8 +859,22 @@ article .article-tags .chip {
     margin-bottom: 2px;
 }
 
-#artDetail .post-info .post-cate {
-    margin-right: 15px;
+#artDetail .post-cate {
+    float: right;
+    color: #42b983;
+}
+
+#artDetail .post-cate a {
+    padding-right: 5px;
+    color: #42b983;
+    font-weight: 500;
+}
+
+#artDetail .post-cate a:hover {
+    text-decoration: underline;
+}
+
+#artDetail .post-info {
     color: #525f7f;
 }
 
@@ -824,14 +893,23 @@ article .article-tags .chip {
     color: #525f7f;
 }
 
+#artDetail .post-info .post-word-count {
+    margin-left: 15px;
+}
+
+#artDetail .post-info .post-read {
+    margin-left: 15px;
+    color: #525f7f;
+}
+
 #artDetail .article-card-content {
     padding: 0 15px 20px 18px;
 }
 
 @media only screen and (max-width: 601px) {
     #artDetail .article-info {
-        padding: 25px 15px 30px 18px;
-        margin-bottom: 20px;
+        padding: 15px 15px 1px 15px;
+        margin-bottom: -5px;
     }
 }
 
@@ -841,8 +919,8 @@ article .article-tags .chip {
     }
 
     #artDetail .article-info {
-        padding: 25px 30px 30px 32px;
-        margin-bottom: 20px;
+        padding: 15px 20px 0 28px;
+        margin-bottom: -5px;
     }
 }
 
@@ -883,6 +961,11 @@ article .article-tags .chip {
     color: #42b983;
     font-weight: 500;
     text-decoration: underline;
+    word-wrap:break-word;
+}
+
+#articleContent .img-item {
+    text-align: center;
 }
 
 #articleContent img {
@@ -891,15 +974,22 @@ article .article-tags .chip {
     cursor: pointer;
 }
 
-#articleContent ol,
-ul {
+#articleContent video {
     display: block;
-    padding-left: 2em;
+    margin: 30px auto;
+    box-shadow: 0 5px 35px 0 rgba(0,0,0,.2), 0 10px 35px -11px rgba(0,0,0,.6);
+    cursor: pointer;
+}
+
+#articleContent ol,
+#articleContent ul {
+    display: block;
+    padding-left: 2em !important;
     word-spacing: 0.05rem;
 }
 
 #articleContent ul li,
-ol li {
+#articleContent ol li {
     display: list-item;
     line-height: 1.8rem;
     font-size: 1rem;
@@ -985,7 +1075,7 @@ table tr:nth-child(2n), thead {
 
 .chip-container .chip {
     margin: 10px 10px;
-    padding: 0 16px;
+    padding: 0 14px;
     display: inline-block;
     height: 38px;
     min-width: 80px;
@@ -1307,11 +1397,12 @@ table tr:nth-child(2n), thead {
     display: inline-block;
     width: 2.3rem;
     height: 2.3rem;
-    line-height: 2.3rem;
+    line-height: 2.2rem;
     margin: 0 0.5rem;
     padding: 0;
     color: #fff;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    border: 1px solid #0f9d58;
+    background: radial-gradient(#4cbf30, #0f9d58);;
     font-size: 0.9rem;
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(50, 50, 93, .21), 0 2px 3px rgba(0, 0, 0, .1);
@@ -1513,17 +1604,22 @@ footer {
     padding-bottom: 1px;
 }
 
+footer .social-statis {
+    margin-top: 10px;
+    position: relative;
+}
+
 footer a {
     color: #fff;
 }
 
 footer .copy-right {
-    color: #d5d5d5;
+    color: #dbdbdb;
 }
 
 /*搜索层样式*/
 #searchIcon {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 #searchModal {
@@ -1571,7 +1667,7 @@ footer .copy-right {
     display: none;
     position: fixed;
     right: 20px;
-    bottom: 30px;
+    bottom: 15px;
     padding-top: 15px;
     margin-bottom: 0;
     z-index: 998;
@@ -1586,4 +1682,64 @@ footer .copy-right {
 .top-scroll .btn-floating i {
     line-height: 48px;
     font-size: 1.8rem;
+}
+
+@media screen and (min-width: 368px) and (max-width: 767px) {
+    .info-break-policy {
+        word-break: keep-all;
+        float: left;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .info-break-policy {
+        word-break: keep-all;
+        float: left;
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 367px) {
+    .info-break-policy {
+        word-break: keep-all;
+        float: left;
+        width: 100%;
+    }
+
+    .custom-card {
+        padding: 0 2px !important;
+    }
+}
+
+.info-break-policy {
+    margin-bottom: 8px;
+}
+
+.clearfix {
+    clear: left;
+}
+
+.img-shadow {
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,.2), 0 10px 30px -11px rgba(0,0,0,.6)
+}
+
+.img-margin {
+    margin: 25px auto 10px auto;
+}
+
+.caption {
+    text-align: center;
+    margin: 0 auto 15px auto;
+}
+
+.center-caption {
+    color: #525f7f;
+    padding: 5px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.lg-sub-html .center-caption {
+    color: #fff !important;
+    border-bottom: none;
 }

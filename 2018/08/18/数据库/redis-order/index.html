@@ -1,0 +1,1094 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="redis_order, 微笑看你">
+    <meta name="description" content="redis 命令
+Redis：REmote Dictionary Server
+Server(Redis)远程字典服务器，为网站提供高速缓存服务
+
+网站优化两大定律1.缓存 —– 用空间换时间（redis/Memcached）
+2.削峰 —">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>redis_order | 微笑看你</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">微笑看你</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">微笑看你</div>
+        <div class="logo-desc">
+            
+            To be or not to be,this is a question.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        redis_order
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/order/" target="_blank">
+                                <span class="chip bg-color">order</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                databases
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-08-18
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="redis-命令"><a href="#redis-命令" class="headerlink" title="redis 命令"></a>redis 命令</h2><ul>
+<li>Redis：REmote Dictionary Server</li>
+<li>Server(Redis)远程字典服务器，为网站提供高速缓存服务</li>
+</ul>
+<h4 id="网站优化两大定律"><a href="#网站优化两大定律" class="headerlink" title="网站优化两大定律"></a>网站优化两大定律</h4><p>1.缓存 —– 用空间换时间（redis/Memcached）</p>
+<p>2.削峰 —— 能推迟的事情都不要马上做(RabbitMQ/ RocketMQ)</p>
+<h4 id="信息隐藏"><a href="#信息隐藏" class="headerlink" title="信息隐藏:"></a>信息隐藏:</h4><p>&emsp;&emsp;信息隐藏是指在设计和确定模块时，使得一个模块内包含的特定信息（过程或数据），对于不需要这些信息的其他模块来说，是不可访问的</p>
+<h5 id="启动Redis服务器步骤-谨慎"><a href="#启动Redis服务器步骤-谨慎" class="headerlink" title="启动Redis服务器步骤(谨慎):"></a>启动Redis服务器步骤(谨慎):</h5><pre class=" language-mysql"><code class="language-mysql">1.修改Redis配置文件redis.conf(安装文件目录下)
+    cp redis-4.0.11/redis.conf redis.conf
+    # redis-server --post -- requirepass   ----- 也可以修改配置
+    vim redis.conf
+    bind 内网地址
+    requirepass 密码
+    appendonly yes
+2.启动服务器
+    redis-server redis.conf(配置文件) > redis.log &
+3.启动客户端
+    redis-cli -h ip地址(私用ip地址)
+4.验证身份
+    auth 密码
+5.停止服务器
+   1.kill 进程号
+   2.把进程放到前台，Ctrl c
+   3.客户端>shutdown
+6.测试连接输入ping 回应PONG表示连接成功
+</code></pre>
+<h5 id="操作命令-——-http-redisdoc-com"><a href="#操作命令-——-http-redisdoc-com" class="headerlink" title="操作命令  ——- http://redisdoc.com/"></a>操作命令  ——- <a href="http://redisdoc.com/" target="_blank" rel="noopener">http://redisdoc.com/</a></h5><pre class=" language-mysql"><code class="language-mysql">操作:
+    keys *  查看所有键
+    select 1切换到1号数据库
+    select 15切换到15号数据库
+    flushall 删掉所有数据库的所有数据
+    flushdb 删掉当前一个数据库的数据删掉
+    save 保存数据
+    bgsave 后台保存
+    set key value ex 存活时间 ：设置键值对并设置存活时间
+    ttl key:查看数据的存活时间（ttl time to live),如果看到-1说明这个数据永不超时，如果-2说明没这个数据
+    expire key 时间: 设置已有键的存活时间
+    ince key:增加值
+    decr key:减少值
+
+基准测试：
+    redis-benchmark -h ip -a 密码    测试redis性能
+
+
+    LBS：Location-Base Service
+字符串:
+    setnx:如果不存在才赋值
+    setex:在设置键值对的时候同时设置存活时间
+    mset:一次放很多键值对
+    mget:一次获取多个键值对
+
+哈希表(hash)
+    hset:设置hash类型
+    hget:获取值 hget key filed
+    hgetall:获取对应key的所有值（hgetall key）
+    hmget:一次性获取多个值
+    hmset:一次性赋值多个
+        hmset stu1 id 101 name baiyuan age 12 gender male
+    hdel:删除哈希数据
+        hdel stu1 age
+    hexists:判断对应键是否存在某字典
+        hexists stu1 mile
+    hlen:统计键有多少字段
+    hkey:取出对应键的所有字段
+    hvals:取出对应键的所有值
+    hscan:遍历键值对
+
+列表:(List)
+    lpush:向列表放原始(从左边开始放)
+        lpush list1 1 2 3 4 5
+
+    lpop:从左边开始取
+    rpop:从右边开始取
+    rpush:(从右边开始放)
+    lrange:指定范围取元素()
+        lrange list1 start end
+        lrange list1 0 -1
+    lset:修改列表指定下标的值
+        lset list 1 1000
+    blpop:如果列表没东西，且时间未超时就阻塞，有东西拿走，超时就结束（从左边取）
+        blpop list1 20
+    brpop：如果列表没东西，且时间未超时就阻塞，有东西拿走，超时就结束（从右边取）
+    brpoplpush:从右边取一个元素，并把这个元素放到另一个列表的左边（阻塞式）
+
+集合(Set):
+    sadd:向集合添加元素
+        sadd set1 10 20 10 20 30
+    smebers:查看集合中的元素    
+        smerbers set1
+    sinter:交集
+        sinter 集合1 集合2
+    sunion:并集
+        sunion 集合1 集合2
+    sdiff:差集
+        sdiff 集合1 集合2
+    sismenber:判断元素在不在集合中
+        sismenber 集合 元素
+    spop:从集合中取出一个元素
+    srandmenber:从集合中随机返回一个元素（实际没有拿走）
+    srem:移除集合中的一个或者多个元素，如果不存在就忽略
+
+浮点数表示法的问题
+    有序集合（SortedSet）
+    zadd:添加有序集合
+        zadd 集合名 值 元素
+    zrange:查看元素
+        zrange zs1 0 -1
+        zrange zs1 0 -1 withscores 显示元素的时候把分数值也显示出来
+    zrangebyscore:指定搜索范围来搜索数据
+        zrangebyscore zs1 10 20
+    zrank:查看元素的排名
+        zrank zs1 apple
+    zreverange:从大到小排序查询
+        zreverange zs1
+
+type(值)：查看对应值的类型
+
+事务:
+mult开始事务
+exec:执行
+discard：放弃执行
+
+
+服务器:
+bgsave：后台保存
+dbsize: 查看数据库有多少键
+slaveof:把redis设置成那个的奴隶（主从复制，读写分离）
+shutdown：关闭服务器
+info:查看服务器相关信息
+
+redis-check-aof -fix appendonly.aof    修复aof的文件
+</code></pre>
+<ul>
+<li>type —– 查看键的类型</li>
+<li>setnx —– 设置已存在键的值</li>
+<li>sentex —- 设置键值对的同时设置时间</li>
+</ul>
+<h4 id="Hash-——-保存对象"><a href="#Hash-——-保存对象" class="headerlink" title="Hash ——- 保存对象"></a>Hash ——- 保存对象</h4><ul>
+<li>hset —– 创建key</li>
+<li>hget —– 取出key</li>
+<li>hgetall —- 取出key的全部属性</li>
+<li>hmset ——- 创建key并设置多个属性</li>
+<li>hmget ——- 取出key的多个属性</li>
+<li>hdel —– 删除key的一个或多个属性</li>
+<li>hexists —– 查看key是否存在</li>
+<li>hlen —– 统计key对应多少个字段</li>
+<li>hkeys ——- 返回key中的所有的域</li>
+<li>hscan ——- 遍历key及域（遍历字典的键和值）</li>
+</ul>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p><strong><code>lset list1 0 name</code></strong></p>
+<ul>
+<li>lset —— 给列表1中的下标为0的元素赋值为name</li>
+<li>lpop —— 取出列表的头元素（左边第一个）元素</li>
+<li>rpop —— 取出列表的尾元素（右边第一个）元素</li>
+<li>lpush —— 在表头插入一个或多个值</li>
+<li>rpush —— 在表尾插入一个或多个值</li>
+<li>lrange —— 取出指定的元素</li>
+<li>lset —— 修改原有列表的特定元素值</li>
+<li>blpop —— 阻塞式从左边取出元素（有元素，不阻塞，没有元素，等待输入元素，然后取出）</li>
+<li>blpop —— 阻塞式从右边取出元素（有元素，不阻塞，没有元素，等待输入元素，然后取出）</li>
+<li>rpoplpush A B —— 从A中取出，从B中左边存入</li>
+</ul>
+<h4 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h4><ul>
+<li>sadd —– 添加一个或多个元素</li>
+<li>srem —– 删除一个或多个指定的元素</li>
+<li>scard —— 查看集合中有多少个元素</li>
+<li>smembers —– 查看集合的元素</li>
+<li>sinter —— 查看两个集合的交集</li>
+<li>sunion —– 查看两个集合的并集</li>
+<li>sdiff —— 查看两个集合的差集</li>
+<li>sismember —— 查看一个集合中是否存在一个给定的元素</li>
+<li>spop —– 取出一个随机元素（不同）</li>
+<li>srandmember —— 取出一个随机元素（可能相同）</li>
+</ul>
+<h4 id="Sortedset（有序集合）"><a href="#Sortedset（有序集合）" class="headerlink" title="Sortedset（有序集合）"></a>Sortedset（有序集合）</h4><ul>
+<li>zadd —– 添加元素</li>
+<li>zrange —– 查看元素（排好序的）</li>
+<li>zrangebyscore —- 指定范围查看</li>
+<li>zrank —– 排名（从0开始排的）</li>
+<li>zrem —– 删除</li>
+<li>zrevrange —— 倒序排列</li>
+</ul>
+<h3 id="复制："><a href="#复制：" class="headerlink" title="复制："></a>复制：</h3><h5 id="主从复制（读写分离）修改内容："><a href="#主从复制（读写分离）修改内容：" class="headerlink" title="主从复制（读写分离）修改内容："></a>主从复制（读写分离）修改内容：</h5><ul>
+<li>master不用修改配置</li>
+<li>slave修改两条配置<ul>
+<li>slaveof master的IP地址 master的端口</li>
+<li>masterrauth master的口令</li>
+</ul>
+</li>
+<li>info replication ——- 查看是否有奴隶</li>
+<li>info ——- 查看服务器信息 </li>
+<li>ps -ef | grep deris | grep -v grep | awk ‘{print $2}’ | xargs kill ——- 杀掉所有的奴隶</li>
+<li>slaveof no one ——— 拒绝当奴隶</li>
+</ul>
+<h6 id="故障处理"><a href="#故障处理" class="headerlink" title="故障处理"></a>故障处理</h6><p>配置哨兵（sentinel.conf）</p>
+<ul>
+<li>修改sentinel.conf配置文件<ul>
+<li>修改69行的监视窗口 跟上票数</li>
+<li>98行master的死亡时间设置<ul>
+<li>在规定的时间回来了，还是master，没回来就重选</li>
+</ul>
+</li>
+<li>131行的意思：master在3分钟内回来，也只能当奴隶，没回来，就直接杀死</li>
+</ul>
+</li>
+<li>redis-server sentinel.conf –sentinel ——– 启动哨兵文件</li>
+</ul>
+<h3 id="MySQL-MongoDB"><a href="#MySQL-MongoDB" class="headerlink" title="MySQL / MongoDB"></a>MySQL / MongoDB</h3><ul>
+<li><p>热（点）数据 —- 经常被访问的数据</p>
+</li>
+<li><p>redis放的应该是体量不大的热点数据</p>
+</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/08/18/数据库/redis-order/" class="b-link-green">redis_order</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/08/22/数据库/pymysql/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="pymysql">
+                        
+                        <span class="card-title">pymysql</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">learninsert/update/delete
+import pymysql
+
+
+def main():
+    no = int(input('部门编号：'))
+    name = input('部门名称：')
+    loc = </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                    databases
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/08/15/数据库/数据库/">
+                    <div class="card-image">
+                        
+                        <img src="/images/LoL1.jpg" class="responsive-img" alt="数据库">
+                        
+                        <span class="card-title">数据库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">​        数据库（Database）是按照数据结构来组织、存储和管理数据的仓库，
+每个数据库都有一个或多个不同的API用于创建，访问，管理，搜索和复制所保存的数据。
+—– 从删库，到跑路额！
+
+数据库 —– database - 数</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                    databases
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/数据库/" target="_blank">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/表格/" target="_blank">
+                        <span class="chip bg-color">表格</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
