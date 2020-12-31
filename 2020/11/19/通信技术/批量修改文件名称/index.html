@@ -4,17 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="EXCEL, 微笑看你">
-    <meta name="description" content="​#### 数据透视表有去重的作用
+    <meta name="keywords" content="file, 微笑看你">
+    <meta name="description" content="​#### 文件名称修改
+import os
+from re import split
+import shutil
 
-计数：
-count：计有数字的单元格
-counta：计单元格的个数
 
-
-表格判断：if（条件，true，false），三个判断的时候，用两个if函数
-四舍五入：round(float,number)
-f">
+# 提取文件名称
+ym = &#39;C:/Users/Administrator/Desktop/源文件&#39;
+path = &#39;C">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +21,7 @@ f">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>EXCEL | 微笑看你</title>
+    <title>file | 微笑看你</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -269,13 +268,13 @@ f">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/LoL1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/LoL2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        EXCEL
+                        file
                     </div>
                 </div>
             </div>
@@ -386,12 +385,12 @@ f">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/EXCEL/" target="_blank">
-                                <span class="chip bg-color">EXCEL</span>
+                            <a href="/tags/file/" target="_blank">
+                                <span class="chip bg-color">file</span>
                             </a>
                         
-                            <a href="/tags/公式/" target="_blank">
-                                <span class="chip bg-color">公式</span>
+                            <a href="/tags/文件名称修改/" target="_blank">
+                                <span class="chip bg-color">文件名称修改</span>
                             </a>
                         
                     </div>
@@ -430,58 +429,46 @@ f">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>​#### <font color="red">数据透视表有去重的作用</font></p>
-<ul>
-<li>计数：<ul>
-<li>count：计有数字的单元格</li>
-<li>counta：计单元格的个数</li>
-</ul>
-</li>
-<li>表格判断：if（条件，true，false），三个判断的时候，用两个if函数</li>
-<li>四舍五入：round(float,number)<ul>
-<li>float：代表原始的数据</li>
-<li>number：代表保留的有效数字</li>
-</ul>
-</li>
-<li>计算某个区域中满足条件的单元格个数：countif（计数区域，条件）</li>
-<li>对满足条件的单元格求和：sumif（范围，区间，求和区域）</li>
-<li>计算单元格中所有数值的和：sum（单元格1,2,3,4,5）</li>
-<li><p>批量查找：vlookup（查找值，数据表，列序数，0精确匹配）<strong>只能从左往右查</strong></p>
-<ul>
-<li>快V工具中的字段对应公式中的数据<ul>
-<li>V关键字：查找值    </li>
-<li>源关键字：数据表中的字段</li>
-<li>源需求字段：数据表中的字段</li>
-<li>V关键字:查找值</li>
-<li>V需求字段结果:查找结果</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>截取函数的使用</p>
-<ul>
-<li>left(text,num_chars)<ul>
-<li>text：用来截取的单元格内容</li>
-<li>num_chars：从左开始截取的字符数</li>
-</ul>
-</li>
-<li>right(text,num_chars)<ul>
-<li>text：用来截取的单元格内容</li>
-<li>num_chars：从左开始截取的字符数</li>
-</ul>
-</li>
-<li>mid(text，start，num_chars)<ul>
-<li>text：用来截取的单元格内容</li>
-<li>start：从那个字符开始截取</li>
-<li>num_chars：截取的字符数，可以用len函数取字符串的长度</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>替换：substitute(字符串，原字符，替换字符)</li>
-<li>筛选的快捷键：ctrl+shift+l</li>
-<li>分列问题可以先替换，再分列</li>
-</ul>
+                <p>​#### <font color="red">文件名称修改</font></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">from</span> re <span class="token keyword">import</span> split
+<span class="token keyword">import</span> shutil
+
+
+<span class="token comment" spellcheck="true"># 提取文件名称</span>
+ym <span class="token operator">=</span> <span class="token string">'C:/Users/Administrator/Desktop/源文件'</span>
+path <span class="token operator">=</span> <span class="token string">'C:/Users/Administrator/Desktop/20201225'</span>
+
+<span class="token comment" spellcheck="true"># 获取该目录下所有文件，存入列表中</span>
+fileList_ym <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>ym<span class="token punctuation">)</span>
+fileList_path <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+
+
+
+<span class="token comment" spellcheck="true"># # 创建新文件</span>
+<span class="token comment" spellcheck="true"># for index in range(3):</span>
+<span class="token comment" spellcheck="true">#     f4 = open('C:/Users/Administrator/Desktop/新建文件夹/' + str(index) + '.xlsx','w',encoding = 'utf-8')</span>
+<span class="token comment" spellcheck="true">#     f4.close()</span>
+
+
+
+n <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> fileList_path<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 设置旧文件名（就是路径+文件名）</span>
+    <span class="token comment" spellcheck="true"># ENBID = i.split('[', 2)[1].split(']',2)[0]</span>
+    oldname <span class="token operator">=</span> path <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span> fileList_path<span class="token punctuation">[</span>n<span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># os.sep添加系统分隔符</span>
+
+
+
+    <span class="token comment" spellcheck="true"># # 设置新文件名</span>
+    <span class="token comment" spellcheck="true"># file = fileList[n].split('-', 2)</span>
+    newname <span class="token operator">=</span> path <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span> fileList_ym<span class="token punctuation">[</span>n<span class="token punctuation">]</span>
+
+
+    os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>oldname<span class="token punctuation">,</span> newname<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 用os模块中的rename方法对文件改名</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>oldname<span class="token punctuation">,</span> <span class="token string">'======>'</span><span class="token punctuation">,</span> newname<span class="token punctuation">)</span>
+    n <span class="token operator">+=</span> <span class="token number">1</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -629,7 +616,7 @@ f">
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/11/19/通信技术/EXCEL操作/" class="b-link-green">EXCEL</a>
+                    <a href="/2020/11/19/通信技术/批量修改文件名称/" class="b-link-green">file</a>
                 </p>
             </div>
         </div>
@@ -650,9 +637,10 @@ f">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/11/19/通信技术/批量修改文件名称/">
                     <div class="card-image">
@@ -673,9 +661,9 @@ import shutil
 ym = 'C:/Users/Administrator/Desktop/源文件'
 path = 'C</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -688,6 +676,7 @@ path = 'C</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -710,29 +699,35 @@ path = 'C</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/15/Odoo/Odoo1/">
+                <a href="/2020/11/19/通信技术/EXCEL操作/">
                     <div class="card-image">
                         
-                        <img src="/images/09.jpg" class="responsive-img" alt="Odoo">
+                        <img src="/images/LoL1.jpg" class="responsive-img" alt="EXCEL">
                         
-                        <span class="card-title">Odoo</span>
+                        <span class="card-title">EXCEL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">    ### Odoo结构
-    - 数据层、逻辑层、展示层
-        - 数据层：是最底端一层，负责数据持久化存储，Odoo借助PostgreSQL来实现。
-        - 逻辑层：负责与数据层的所有交互，并由Odoo服务完</div>
+                    <div class="summary">​#### 数据透视表有去重的作用
+
+计数：
+count：计有数字的单元格
+counta：计单元格的个数
+
+
+表格判断：if（条件，true，false），三个判断的时候，用两个if函数
+四舍五入：round(float,number)
+f</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Odoo/" class="post-category" target="_blank">
-                                    Odoo
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                    databases
                                 </a>
                             
                             
@@ -742,16 +737,12 @@ path = 'C</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/模型层/" target="_blank">
-                        <span class="chip bg-color">模型层</span>
+                    <a href="/tags/EXCEL/" target="_blank">
+                        <span class="chip bg-color">EXCEL</span>
                     </a>
                     
-                    <a href="/tags/视图层/" target="_blank">
-                        <span class="chip bg-color">视图层</span>
-                    </a>
-                    
-                    <a href="/tags/逻辑层/" target="_blank">
-                        <span class="chip bg-color">逻辑层</span>
+                    <a href="/tags/公式/" target="_blank">
+                        <span class="chip bg-color">公式</span>
                     </a>
                     
                 </div>
