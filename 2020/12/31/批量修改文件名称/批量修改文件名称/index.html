@@ -4,12 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="novel, 微笑看你">
-    <meta name="description" content="novel爬取到小说的具体内容，要进行滤除处理，完整的代码# -*- coding:UTF-8 -*-
-    from bs4 import BeautifulSoup
-    import requests
+    <meta name="keywords" content="批量修改文件名称, 微笑看你">
+    <meta name="description" content="​#### 文件名称修改
+import os
+from re import split
+import shutil
 
-    if __name">
+
+# 提取文件名称
+ym = &#39;C:/Users/Administrator/Desktop/源文件&#39;
+path = &#39;C">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>novel | 微笑看你</title>
+    <title>批量修改文件名称 | 微笑看你</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +268,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/AKL.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/LoL2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        novel
+                        批量修改文件名称
                     </div>
                 </div>
             </div>
@@ -381,8 +385,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/novel/" target="_blank">
-                                <span class="chip bg-color">novel</span>
+                            <a href="/tags/file/" target="_blank">
+                                <span class="chip bg-color">file</span>
+                            </a>
+                        
+                            <a href="/tags/文件名称修改/" target="_blank">
+                                <span class="chip bg-color">文件名称修改</span>
                             </a>
                         
                     </div>
@@ -393,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/spider/" class="post-category" target="_blank">
-                                spider
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                databases
                             </a>
                         
                     </div>
@@ -405,7 +413,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-05-11
+                    2020-12-31
                 </div>
 
                 
@@ -421,86 +429,45 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="novel"><a href="#novel" class="headerlink" title="novel"></a>novel</h3><h5 id="爬取到小说的具体内容，要进行滤除处理，完整的代码"><a href="#爬取到小说的具体内容，要进行滤除处理，完整的代码" class="headerlink" title="爬取到小说的具体内容，要进行滤除处理，完整的代码"></a>爬取到小说的具体内容，要进行滤除处理，完整的代码</h5><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:UTF-8 -*-</span>
-    <span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
-    <span class="token keyword">import</span> requests
-
-    <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-        target <span class="token operator">=</span> <span class="token string">'http://www.biqukan.com/1_1094/5403177.html'</span>
-        req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url <span class="token operator">=</span> target<span class="token punctuation">)</span>
-        html <span class="token operator">=</span> req<span class="token punctuation">.</span>text
-        bf <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
-        texts <span class="token operator">=</span> bf<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> class_ <span class="token operator">=</span> <span class="token string">'showtxt'</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>texts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>text<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\xa0'</span><span class="token operator">*</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">'\n\n'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<p>正文</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
-<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
-<span class="token keyword">import</span> requests
+                <p>​#### 文件名称修改</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">from</span> re <span class="token keyword">import</span> split
+<span class="token keyword">import</span> shutil
 
 
-<span class="token keyword">def</span> <span class="token function">strips</span><span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    result_list <span class="token operator">=</span>  <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    matter <span class="token operator">=</span> contents<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> item <span class="token keyword">in</span> matter<span class="token punctuation">:</span>
-        result_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> result_list<span class="token punctuation">:</span>
-        list1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> list1
+<span class="token comment" spellcheck="true"># 提取文件名称</span>
+ym <span class="token operator">=</span> <span class="token string">'C:/Users/Administrator/Desktop/源文件'</span>
+path <span class="token operator">=</span> <span class="token string">'C:/Users/Administrator/Desktop/20201225'</span>
 
-<span class="token comment" spellcheck="true"># 保存json数据</span>
-<span class="token keyword">def</span> <span class="token function">save_json</span><span class="token punctuation">(</span>article<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    fiction_json_str <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>article<span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span>str<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'.json'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>fiction_json_str<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 获取该目录下所有文件，存入列表中</span>
+fileList_ym <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>ym<span class="token punctuation">)</span>
+fileList_path <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true"># 取页面HTML</span>
-<span class="token keyword">def</span> <span class="token function">get_one_page</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    headers <span class="token operator">=</span>  <span class="token punctuation">{</span>
-        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b13pre) Gecko/20110307 Firefox/4.0b13pre"</span>
-    <span class="token punctuation">}</span>
-    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
-        text <span class="token operator">=</span> response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> text
-    <span class="token keyword">return</span> None
 
-<span class="token keyword">def</span> <span class="token function">parse_with_bs4</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    all_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    all_dic <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
-    title <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.content_read .box_con .bookname h1'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>string
-    contents <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.content_read .box_con #content'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>contents
-    content <span class="token operator">=</span> strips<span class="token punctuation">(</span>contents<span class="token punctuation">)</span>
-    all_dic<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span> <span class="token operator">=</span> title
-    all_dic<span class="token punctuation">[</span><span class="token string">'content'</span><span class="token punctuation">]</span> <span class="token operator">=</span> content
-    all_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>all_dic<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> all_list
+<span class="token comment" spellcheck="true"># # 创建新文件</span>
+<span class="token comment" spellcheck="true"># for index in range(3):</span>
+<span class="token comment" spellcheck="true">#     f4 = open('C:/Users/Administrator/Desktop/新建文件夹/' + str(index) + '.xlsx','w',encoding = 'utf-8')</span>
+<span class="token comment" spellcheck="true">#     f4.close()</span>
 
-<span class="token keyword">def</span> <span class="token function">next_url</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 下一章的后缀路由</span>
-    next_url <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.content_read .box_con .bookname .bottem1 a'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span>
-    nexts_url <span class="token operator">=</span> <span class="token string">'http://www.xbiquge.la'</span> <span class="token operator">+</span> next_url
-    <span class="token keyword">return</span> nexts_url
 
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    num <span class="token operator">=</span> <span class="token number">1</span>
-    url <span class="token operator">=</span> <span class="token string">"http://www.xbiquge.la/2/2823/1790661.html"</span>
-    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-        html <span class="token operator">=</span> get_one_page<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-        article <span class="token operator">=</span> parse_with_bs4<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
-        save_json<span class="token punctuation">(</span>article<span class="token punctuation">,</span> num<span class="token punctuation">)</span>
-        url <span class="token operator">=</span> next_url<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> url <span class="token operator">==</span> <span class="token string">'http://www.xbiquge.la/2/2823/'</span><span class="token punctuation">:</span>
-            <span class="token keyword">break</span>
-        num <span class="token operator">+=</span> <span class="token number">1</span>
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+n <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> fileList_path<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 设置旧文件名（就是路径+文件名）</span>
+    <span class="token comment" spellcheck="true"># ENBID = i.split('[', 2)[1].split(']',2)[0]</span>
+    oldname <span class="token operator">=</span> path <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span> fileList_path<span class="token punctuation">[</span>n<span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># os.sep添加系统分隔符</span>
 
+
+
+    <span class="token comment" spellcheck="true"># # 设置新文件名</span>
+    <span class="token comment" spellcheck="true"># file = fileList[n].split('-', 2)</span>
+    newname <span class="token operator">=</span> path <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span> fileList_ym<span class="token punctuation">[</span>n<span class="token punctuation">]</span>
+
+
+    os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>oldname<span class="token punctuation">,</span> newname<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 用os模块中的rename方法对文件改名</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>oldname<span class="token punctuation">,</span> <span class="token string">'======>'</span><span class="token punctuation">,</span> newname<span class="token punctuation">)</span>
+    n <span class="token operator">+=</span> <span class="token number">1</span>
 </code></pre>
 
             </div>
@@ -649,7 +616,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/05/11/spider/爬短视频/" class="b-link-green">novel</a>
+                    <a href="/2020/12/31/批量修改文件名称/批量修改文件名称/" class="b-link-green">批量修改文件名称</a>
                 </p>
             </div>
         </div>
@@ -670,47 +637,55 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/05/11/spider/jd/">
+                <a href="/2020/12/31/批量修改文件名称/批量修改文件名称/">
                     <div class="card-image">
                         
-                        <img src="/images/LoL.jpg" class="responsive-img" alt="practice——jd">
+                        <img src="/images/LoL2.jpg" class="responsive-img" alt="批量修改文件名称">
                         
-                        <span class="card-title">practice——jd</span>
+                        <span class="card-title">批量修改文件名称</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">数据库字段创建
-create database jddb default character set=utf8;
+                    <div class="summary">​#### 文件名称修改
+import os
+from re import split
+import shutil
 
-use jddb;
 
-create table jd (
-    id integer auto_increment pri</div>
+# 提取文件名称
+ym = 'C:/Users/Administrator/Desktop/源文件'
+path = 'C</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/spider/" class="post-category" target="_blank">
-                                    spider
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                    databases
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/sqlalchemy/" target="_blank">
-                        <span class="chip bg-color">sqlalchemy</span>
+                    <a href="/tags/file/" target="_blank">
+                        <span class="chip bg-color">file</span>
+                    </a>
+                    
+                    <a href="/tags/文件名称修改/" target="_blank">
+                        <span class="chip bg-color">文件名称修改</span>
                     </a>
                     
                 </div>
@@ -724,33 +699,35 @@ create table jd (
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/05/09/spider/爬取数据/">
+                <a href="/2020/11/19/通信技术/EXCEL操作/">
                     <div class="card-image">
                         
+                        <img src="/images/LoL1.jpg" class="responsive-img" alt="EXCEL">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="shop_mo">
-                        
-                        <span class="card-title">shop_mo</span>
+                        <span class="card-title">EXCEL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">蘑菇街agent_list.py
-import random
+                    <div class="summary">​#### 数据透视表有去重的作用
 
-def get_random_agent():
+计数：
+count：计有数字的单元格
+counta：计单元格的个数
 
-    agent_list = [
-    "Mozilla/4.0 (compatible; MSIE 6.0; Wind</div>
+
+表格判断：if（条件，true，false），三个判断的时候，用两个if函数
+四舍五入：round(float,number)
+f</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/spider/" class="post-category" target="_blank">
-                                    spider
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                    databases
                                 </a>
                             
                             
@@ -760,8 +737,12 @@ def get_random_agent():
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/agent/" target="_blank">
-                        <span class="chip bg-color">agent</span>
+                    <a href="/tags/EXCEL/" target="_blank">
+                        <span class="chip bg-color">EXCEL</span>
+                    </a>
+                    
+                    <a href="/tags/公式/" target="_blank">
+                        <span class="chip bg-color">公式</span>
                     </a>
                     
                 </div>
