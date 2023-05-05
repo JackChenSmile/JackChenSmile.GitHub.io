@@ -483,15 +483,12 @@
 - 动态属性
 ```html
     &lt;div&gt;
-        &lt;t t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, 3)&quot;
-        t-as=&quot;rec&quot;&gt;
-          &lt;img t-att-src=&quot;kanban_image(
-          &#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot;
-           class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
+        &lt;t t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, 3)&quot; t-as=&quot;rec&quot;&gt;
+        &lt;img t-att-src=&quot;kanban_image(&#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot; class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
         &lt;/t&gt;
     &lt;/div
 ```
-    - t-att- prefixed 如 &lt;img&gt;的src  就可以 t-att-src=&quot;...&quot;
+</code></pre><pre><code>- t-att- prefixed 如 &lt;img&gt;的src  就可以 t-att-src=&quot;...&quot;
 </code></pre><ul>
 <li>属性的字符替换<pre><code class="html">  &lt;span t-attf-class=&quot;oe_kanban_text{{
         record.date_deadline.raw_value and
