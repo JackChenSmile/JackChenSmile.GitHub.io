@@ -7,13 +7,17 @@
     <meta name="keywords" content="template, 微笑看你">
     <meta name="description" content="#### 父模板
 base.html
+
 #### 初始化
 base_main.html(每个模板中的相同部分)
+
+
 #### 继承
-```html
+
 {% extends &#39;base_main.html&#39; %}
-```
-#### 获取base_ma">
+
+
+#### 获取base_main模板坑里">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,27 +431,33 @@ base_main.html(每个模板中的相同部分)
             <div id="articleContent">
                 <pre><code>#### 父模板
 base.html
+
 #### 初始化
 base_main.html(每个模板中的相同部分)
+
+
 #### 继承
-```html
+
 {% extends 'base_main.html' %}
-```
+
+
 #### 获取base_main模板坑里填充的内容
-```html
+
 {{ super() }}
-```
+
+
 #### 解析静态文件
-```html
+
 第一种：&lt;link href=&quot;/static/css/style.css&quot; rel=&quot;stylesheet&quot;&gt; 
 第二种：&lt;link href=&quot;{{ url_for('static', filename='css/style.css') }}&quot; rel=&quot;stylesheet&quot;&gt;
-```
+
 #### 解析路由地址
-```html
+
 无参情况: {{ url_for('蓝图的第一个参数.跳转的函数名') }}
 有参情况: {{ url_for('蓝图的第一个参数.跳转的函数名', id=stu.id) }}
-```
-#### 解析变量`{{ var }}`
+
+
+#### 解析变量{{ var }}
 for循环中的loop
 - 生成编号从1开始：loop.index
 - 从0开始：loop.index0
@@ -456,21 +466,22 @@ for循环中的loop
 - 判断当前第一次循环：loop.first
 - 判断当前最后一次循环: loop.last
 
-#### 解析标签`{% 标签 %}`
-```html
+
+#### 解析标签{% 标签 %}
 标签for：{% for i in c %} {% else %} {% endfor %}
 
 标签if：{% if xx==1 %} {% else %} {% endif %}
-```
+
 - 没有ifequal标签
 
+
 #### macro宏定义
-```html
+
 定义无参: {% macro say() %} {%endmacro%}
 定义有参: {% macro say(name) %} {{ name }} {% endmacro %}
 使用: {{ say() }}或者 {{ say('小明') }}
 导入: {% from 'functions.html' import say %}
-```
+
 
 #### 过滤器
 - 使用管道符&quot;|&quot;, 可以链式调用
