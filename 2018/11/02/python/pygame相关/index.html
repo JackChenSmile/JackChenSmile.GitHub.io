@@ -1,0 +1,1055 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="pygame相关, 微笑看你">
+    <meta name="description" content="01-pygame操作模块的导入：
+import pygameif __name__ == &amp;#39;__main__&amp;#39;:
+    # 1.初始化游戏模块
+    pygame.init()
+    # 2.创建游戏窗口
+    &amp;">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>pygame相关 | 微笑看你</title>
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">微笑看你</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">微笑看你</div>
+        <div class="logo-desc">
+            
+            To be or not to be,this is a question.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/JackChenSmile/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/JackChenSmile/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        pygame相关
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/game/" target="_blank">
+                                <span class="chip bg-color">game</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-11-02
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h4 id="01-pygame操作"><a href="#01-pygame操作" class="headerlink" title="01-pygame操作"></a>01-pygame操作</h4><p>模块的导入：</p>
+<h5 id="import-pygame"><a href="#import-pygame" class="headerlink" title="import pygame"></a>import pygame</h5><pre><code class="python">if __name__ == &#39;__main__&#39;:
+    # 1.初始化游戏模块
+    pygame.init()
+    # 2.创建游戏窗口
+    &#39;&#39;&#39;
+    display.set_mode(窗口大小）:创建一个窗口并且返回
+    窗口大小：是一个元组，并且表示宽度和高度(单位是像素）
+    &#39;&#39;&#39;
+    window = pygame.display.set_mode((500,600))
+
+    # 3.让游戏一直运行，直到点关闭按钮结束
+    flag = True
+    while flag:
+        window.fill((255,255,255))
+        # 获取游戏过程中产生的所有事件
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                # exit()   # 退出程序
+                flag = False
+</code></pre>
+<h4 id="02-显示图片"><a href="#02-显示图片" class="headerlink" title="02-显示图片"></a>02-显示图片</h4><ul>
+<li>给窗口填充颜色<br>颜色：计算机的三原色（红，绿，蓝），颜色对应的范围分别是0-255，可以通过改变三原色的值，调配出不同的颜色<br>颜色值：是一个元组，元组中有三个元素，分别是红绿蓝（rgb)<br>  红色（255，0，0），绿色（0，255，0），蓝色（0，0，255）<br>  黑色（0，0，0），白色（255，255，255）<br><code>window.fill((255,255,255))</code></li>
+<li>显示图片<br>image.load(图片路径）：获取本地的一张图片，返回图片对象<ul>
+<li>a.获取图片，创建图片对象<br><code>image = pygame.image.load(&#39;./files/gjl.jpg&#39;)</code><br>get_size():获取大小，返回值是一个元组，分别是宽和高<br><code>image_width,image_height =image.get_size()</code></li>
+</ul>
+</li>
+<li>b.渲染图片（将图片画在纸上）<br>blit(渲染对象，位置）<br>  位置：坐标（x,y），值的类型是元组，元组有两个对应的元素，分别是x,y的坐标<pre><code class="python"># window.blit(image,(600-int(image_width),400-int(image_height)))将图片放到右下角
+  window.blit(image,(0,0))
+  # c.展示内容(将纸贴在画框上）
+  pygame.display.flip()
+</code></pre>
+<h4 id="03-形变"><a href="#03-形变" class="headerlink" title="03-形变"></a>03-形变</h4>a.缩放<br>transform.scale(缩放对象，目标大小）：将指定的对象缩放到指定的大小，会返回缩放后的对象<br><code>new_image = pygame.transform.scale(image())</code><br>b.旋转缩放（指定缩放比例）<br>rotozoom(Surface,angle,scale)<br>Surface:旋转对象<br>angle:旋转角度<br>scale:缩放比例<br><code>new_image = pygame.transform.rotozoom(image,90,0.8)</code><br>c.旋转<br>rotate(Surface,angle)<br>Surface:旋转对象<br>angle:旋转角度<br><code>new_image = pygame.transform.rotate(image, 270)</code><h4 id="04-显示文字"><a href="#04-显示文字" class="headerlink" title="04-显示文字"></a>04-显示文字</h4></li>
+<li><p>1.创建字体对象<br>a.创建系统的字体对象<br> SysFont(name,size,bold = False,italic = False)<br>name:字体名（系统支持的字体名）<br>size:字体大小<br>bold:是否加粗<br>italic:是否倾斜<br>b.创建自定义的字体对象<br>Font（字体文件路径，字体大小）<br>字体文件路径：ttf文件</p>
+<pre><code class="python"># a.创建系统字体
+  # font = pygame.font.SysFont(&#39;Times&#39;,30)
+
+  # b.创建自定义字体
+  font = pygame.font.Font(&#39;./files/aa.ttf&#39;,50)
+</code></pre>
+</li>
+<li><p>2.根据字体去创建文字对象<br>render(text,antialias,color,background = None)<br>text:需要显示的文字（字符串）<br>antialias:是否平滑（布尔）<br>color:颜色<br>background:背景颜色</p>
+<pre><code>text = font.render(&#39;Hello,高渐离 ！&#39;,True,(255,80,200))
+  print(text.get_size())
+</code></pre><h4 id="05-显示图形"><a href="#05-显示图形" class="headerlink" title="05-显示图形"></a>05-显示图形</h4><p>1.画直线<br>​    def line(Surface,color,star_pos,end_pos,width=1)<br>​    Surface:画在哪<br>​    color：颜色<br>​    star_pos：起点<br>​    end_pos：终点<br>​    width:线宽</p>
+<pre><code># 画一条水平线
+  # pygame.draw.line(window,(255,0,0),(50,100),(200,100))
+  # pygame.draw.line(window, (255, 100, 200), (0, 0), (100, 100),10)
+</code></pre><p>2.画线段（折线）<br>​    def lines(Surface,color,close,pointlist,width=1)<br>​    Surface:画在那<br>​    color：颜色<br>​    close：是否闭合（是否连接起点和终点）<br>​    pointlist：点对应的列表<br>​    width：线的宽度<br><code>pygame.draw.lines(window,(255,100,200),True,[(0,0),(100,0),(100,100),(200,100),(200,200)],10)</code><br>3.画圆<br>​    def circle(Surface,color,pos,radius,width=1)<br>​    Surface:画在那<br>​    color：颜色<br>​    pos:圆心坐标<br>​    radius:半径<br>​    width:0–&gt;填充<br><code>pygame.draw.circle(window,(255,255,0),(200,300),100,0)</code><br>4.画矩形<br>​    def rect(Surface,color,Rect,width=0)<br>​    Surface:画在那<br>​    color：颜色<br>​    Rect:范围（元组，元组中有4个元素，分别是x,y,width,height)<br><code>pygame.draw.rect(window,(200, 150, 200), (200, 200, 250, 300),20)</code><br>5.画多边形<br>​    polygon(Surface,color,pointlist,width=0)<br>​    pointlist:多边形各点坐标，组成一个元组<br>6.画椭圆<br>​    def ellipse(Surface,color,Rect,width=0)<br><code>pygame.draw.ellipse(window, (200, 150, 200), (200, 200, 250, 300), 20)</code><br>7.画弧线<br>​    def arc(Surface,color,Rect,start_angle,stop_angle,width=1)<br><code>import math
+​    pygame.draw.arc(window,(255,0,0),(100, 100, 100, 100),math.pi,math.pi/2,10)</code></p>
+<h4 id="06-事件"><a href="#06-事件" class="headerlink" title="06-事件"></a>06-事件</h4><p>所有的事件处理的入口就是这个for循环</p>
+<ul>
+<li><p>for循环中的代码只有游戏事件发生后才会执行<br>   a.事件的type:<br>   QUIT：关闭按钮被点击事件<br>   鼠标事件：<br>   MOUSEBUTTONDOWN：鼠标按下事件<br>   MOUSEBUTTONUP：鼠标弹起<br>   MOUSEMOTION:鼠标移动<br>   键盘事件：<br>   KEYDOWN:键盘按下<br>   KEYUP:键盘弹起</p>
+<p>   b.事件的pos–鼠标事件发生的位置（坐标）</p>
+<p>   c.事件的key–键盘事件被按的键对应的编码值</p>
+<pre><code class="python">    for event in pygame.event.get():
+        # 不同的事件发生后，对应的type值不一样
+        if event.type == pygame.QUIT:
+            print(&#39;点击关闭&#39;)
+            exit()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # 鼠标按下要做的事情
+            print(event.pos)
+            print(&#39;鼠标按下&#39;)
+            # 鼠标按下一次画一个球
+            pygame.draw.circle(window,(random.randint(0,255),random.randint(0,255),random.randint(0,255)),event.pos,20)
+            pygame.display.flip()
+        elif event.type == pygame.MOUSEBUTTONUP:
+            print(&#39;鼠标弹起&#39;)
+        elif event.type == pygame.MOUSEMOTION:
+            print(&#39;鼠标正在移动&#39;,event.pos)
+        elif event.type == pygame.KEYDOWN:
+            print(&#39;键盘按下&#39;,event.key,chr(event.key))
+        elif event.type == pygame.KEYUP:
+            print(&#39;键盘弹起&#39;)
+</code></pre>
+<h4 id="07-动画效果"><a href="#07-动画效果" class="headerlink" title="07-动画效果"></a>07-动画效果</h4><pre><code class="python"># c.展示内容(将纸贴在画框上）
+pygame.display.flip()
+
+# 圆心坐标
+x = 100
+y = 100
+r = 50
+add = 4
+m = 2
+n = 1
+# 游戏循环
+while True:
+
+    pygame.time.delay(5)
+    # 将之前window上的内容覆盖了
+    window.fill((255,255,255))
+
+    # 不断的画圆
+    pygame.draw.circle(window,(randint(0,255),randint(0,255),randint(0,255)),(x,y),r)
+    pygame.display.update()
+
+    # 改变y值让圆在垂直方向移动
+    y += m
+    x += n
+    # r += add
+    # if r &gt;=600 or r &lt;= 20 :
+    #     add *= -1
+    if y &gt;= 600 - r or y &lt;= 50:
+        m *= -1
+    elif x &gt;= 400-r or x &lt;= 50:
+        n *= -1
+    # 事件检测
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+</code></pre>
+<h4 id="08-按住不放原理"><a href="#08-按住不放原理" class="headerlink" title="08-按住不放原理"></a>08-按住不放原理</h4><pre><code class="python">import pygame
+if __name__ == &#39;__main__&#39;:
+# 初始化，创建窗口
+pygame.init()
+window = pygame.display.set_mode((400,600))
+window.fill((255,255,255))
+
+image = pygame.image.load(&#39;./files/gjl.jpg&#39;)
+# 缩放
+image = pygame.transform.rotozoom(image,0,0.5)
+window.blit(image,(100,100))
+# 获取图片的宽度、高度
+image_w,image_h = image.get_size()
+
+# c.展示内容(将纸贴在画框上）
+pygame.display.flip()
+
+# 用来存储图片是否移动
+flag = False
+
+# 保存图片的坐标
+image_x,image_y = 100,100
+</code></pre>
+<pre><code class="python"># 游戏循环
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+
+        # 鼠标按下
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            # 判断鼠标的范围是否在图片上
+            m_x,m_y = event.pos
+            if image_x&lt;=m_x&lt;=image_x+image_w and image_y&lt;=m_y&lt;=image_y+image_h:
+                flag = True
+        elif event.type == pygame.MOUSEBUTTONUP:
+            flag = False
+        # 鼠标移动事件
+        # 鼠标在移动，并且flag为True
+        if event.type == pygame.MOUSEMOTION and flag:
+            # 填充背景色
+            window.fill((255,255,255))
+
+            # 在鼠标移动的位置渲染图片
+            # window.blit(image,event.pos
+            center_x,center_y = event.pos
+            image_x, image_y = center_x - image_w/2,center_y - image_h/2
+            window.blit(image,(image_x, image_y))
+            # 更新屏幕显示
+            pygame.display.update()
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/11/02/python/pygame相关/" class="b-link-green">pygame相关</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/12/14/Django/Django/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="部署Django项目">
+                        
+                        <span class="card-title">部署Django项目</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">安装MariaDB安装命令
+yum -y install mariadb mariadb-server
+安装完成MariaDB，首先启动MariaDB
+systemctl start mariadb
+设置开机启动
+systemctl ena</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Django/" class="post-category" target="_blank">
+                                    Django
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django项目部署/" target="_blank">
+                        <span class="chip bg-color">Django项目部署</span>
+                    </a>
+                    
+                    <a href="/tags/MariaDB安装/" target="_blank">
+                        <span class="chip bg-color">MariaDB安装</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/11/01/python/python-summary2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="python-summary2">
+                        
+                        <span class="card-title">python-summary2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">文件操作一、文件的读和写
+1.程序中不管操作任何文件，不管怎么操作，过程都是一样的过程：打开文件–》操作（读/写）–》关闭文件
+2.做数据持久化、本地化，都要使用文件来保存数据（数据库文件、txt文档、json文件、plist、xml文件等</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/文件操作/" target="_blank">
+                        <span class="chip bg-color">文件操作</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://JackChenSmile.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/JackChenSmile/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="ICP"><p>蜀ICP备18037612号</p></a>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
