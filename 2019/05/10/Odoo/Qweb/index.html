@@ -479,28 +479,23 @@
     rec_all  表示循环结束的标识
     rec_value 循环一个字典时，的键的值
 ```
-
-- 动态属性
-```html
-    &lt;div&gt;
-        &lt;t t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, 3)&quot; t-as=&quot;rec&quot;&gt;
-        &lt;img t-att-src=&quot;kanban_image(&#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot; class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
-        &lt;/t&gt;
-    &lt;/div
-```
-</code></pre><pre><code>- t-att- prefixed 如 &lt;img&gt;的src  就可以 t-att-src=&quot;...&quot;
 </code></pre><ul>
-<li>属性的字符替换<pre><code class="html">  &lt;span t-attf-class=&quot;oe_kanban_text{{
+<li>动态属性<br><code>`</code>html<br>  <div><br>  <t t-foreach="record.message_follower_ids.raw_value.slice(0, 3)" t-as="rec"><pre><code>&lt;img t-att-src=&quot;kanban_image(
+&#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot;
+ class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
+</code></pre>  </t><br>&lt;/div</div></li>
+</ul>
+<pre><code>    - t-att-prefixed 如 &lt;img&gt;的src  就可以 t-att-src=&quot;...&quot;
+- 属性的字符替换
+```html
+    &lt;span t-attf-class=&quot;oe_kanban_text{{
         record.date_deadline.raw_value and
         !(record.date_deadline.raw_value > (new Date()))
         ? '_red' : '_black' }}&quot;&gt;
-      &lt;field name=&quot;date_deadline&quot;/&gt;
-  &lt;/span&gt;
-</code></pre>
-<ul>
-<li>t-attf-prefixed  取代内容，上面的就是动态类</li>
-</ul>
-</li>
+        &lt;field name=&quot;date_deadline&quot;/&gt;
+    &lt;/span&gt;
+</code></pre><pre><code>- t-attf-prefixed  取代内容，上面的就是动态类
+</code></pre><ul>
 <li><p>变量设置</p>
 <pre><code class="html">  #设置变量 t-set t-value
   &lt;t t-set=&quot;new_variable&quot; t-value=&quot;True&quot; /&gt;
