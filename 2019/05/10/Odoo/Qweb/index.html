@@ -443,7 +443,7 @@
 <pre><code>#### 一般用法
 - 条件表达式
     ```html
-      &lt;t t-if=&quot;record.effort_estimate.raw_value &gt; 0&quot;&gt;
+      &lt;t t-if=&quot;record.effort_estimate.raw_value &gt; 0&quot; /&gt;
             &lt;li&gt;Estimate &lt;field name=&quot;effort_estimate&quot;/&gt;&lt;/li&gt;
       &lt;/t&gt;
     ```
@@ -452,6 +452,7 @@
       lt(&lt;)    lte(&lt;=)   gt(&gt;)   gte(&gt;=)
       注 &lt; &lt;= 不能用在表达式中，只能用字母代替
     ```
+
 - 输出值t-esc和t-raw
     ```html
        &lt;t t-esc=&quot;record.message_follower_ids.raw_value&quot; /&gt;
@@ -501,21 +502,21 @@
     &lt;/span&gt;
 ```
     - t-attf-prefixed  取代内容，上面的就是动态类
-- 变量设置
-```html
-    #设置变量 t-set t-value
-    &lt;t t-set=&quot;new_variable&quot; t-value=&quot;True&quot; /&gt;
-    设置了变量 new_variable 的值 为 True
-    t-value 也可以是表达
-     &lt;t t-set=&quot;foo&quot; t-value=&quot;2+1&quot; &gt;
-    设置了变量foo值为3
-    t-value可以是一段html
-    &lt;t t-set=&quot;foo&quot;&gt;
-        &lt;li&gt;ok&lt;/li&gt;
-    &lt;/t&gt;
-    设置了变量foo 为 &lt;li&gt;ok&lt;/li&gt;
-```
 </code></pre><ul>
+<li><p>变量设置</p>
+<pre><code class="html">  #设置变量 t-set t-value
+  &lt;t t-set=&quot;new_variable&quot; t-value=&quot;True&quot; /&gt;
+  设置了变量 new_variable 的值 为 True
+  t-value 也可以是表达
+   &lt;t t-set=&quot;foo&quot; t-value=&quot;2+1&quot; &gt;
+  设置了变量foo值为3
+  t-value可以是一段html
+  &lt;t t-set=&quot;foo&quot;&gt;
+      &lt;li&gt;ok&lt;/li&gt;
+  &lt;/t&gt;
+  设置了变量foo 为 &lt;li&gt;ok&lt;/li&gt;
+</code></pre>
+</li>
 <li><p>设置属性</p>
 <pre><code class="html">  * t-att-$name
   $name 是属性名
