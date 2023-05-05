@@ -492,17 +492,18 @@
     &lt;/div
 ```
     - t-att- prefixed 如 &lt;img&gt;的src  就可以 t-att-src=&quot;...&quot;
-- 属性的字符替换
-```html
-    &lt;span t-attf-class=&quot;oe_kanban_text{{
+</code></pre><ul>
+<li>属性的字符替换<pre><code class="html">  &lt;span t-attf-class=&quot;oe_kanban_text{{
         record.date_deadline.raw_value and
         !(record.date_deadline.raw_value > (new Date()))
         ? '_red' : '_black' }}&quot;&gt;
-        &lt;field name=&quot;date_deadline&quot;/&gt;
-    &lt;/span&gt;
-```
-    - t-attf-prefixed  取代内容，上面的就是动态类
-</code></pre><ul>
+      &lt;field name=&quot;date_deadline&quot;/&gt;
+  &lt;/span&gt;
+</code></pre>
+<ul>
+<li>t-attf-prefixed  取代内容，上面的就是动态类</li>
+</ul>
+</li>
 <li><p>变量设置</p>
 <pre><code class="html">  #设置变量 t-set t-value
   &lt;t t-set=&quot;new_variable&quot; t-value=&quot;True&quot; /&gt;
