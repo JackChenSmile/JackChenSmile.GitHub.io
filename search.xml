@@ -489,31 +489,6 @@
     
     
     <entry>
-      <title>template</title>
-      <link href="/2018/10/15/flask/%E6%A8%A1%E6%9D%BF/"/>
-      <url>/2018/10/15/flask/%E6%A8%A1%E6%9D%BF/</url>
-      
-        <content type="html"><![CDATA[<pre><code>#### 父模板base.html#### 初始化base_main.html(每个模板中的相同部分)#### 继承{% extends 'base_main.html' %}#### 获取base_main模板坑里填充的内容{{ super() }}#### 解析静态文件第一种：&lt;link href=&quot;/static/css/style.css&quot; rel=&quot;stylesheet&quot;&gt; 第二种：&lt;link href=&quot;{{ url_for('static', filename='css/style.css') }}&quot; rel=&quot;stylesheet&quot;&gt;#### 解析路由地址无参情况: {{ url_for('蓝图的第一个参数.跳转的函数名') }}有参情况: {{ url_for('蓝图的第一个参数.跳转的函数名', id=stu.id) }}#### 解析变量{{ var }}for循环中的loop- 生成编号从1开始：loop.index- 从0开始：loop.index0- 倒序1结束：loop.revindex- 倒序0结束：loop.revindex0- 判断当前第一次循环：loop.first- 判断当前最后一次循环: loop.last#### 解析标签{% 标签 %}标签for：{% for i in c %} {% else %} {% endfor %}标签if：{% if xx==1 %} {% else %} {% endif %}- 没有ifequal标签#### macro宏定义定义无参: {% macro say() %} {%endmacro%}定义有参: {% macro say(name) %} {{ name }} {% endmacro %}使用: {{ say() }}或者 {{ say('小明') }}导入: {% from 'functions.html' import say %}#### 过滤器- 使用管道符&quot;|&quot;, 可以链式调用- safe: 解析文本中的样式- striptags: 删除文本中的样式- trim: 删除文本前后的空格- length: 计算长度- upper: 全部大写- lower: 全部小写</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> flask </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> template </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>模型</title>
       <link href="/2018/10/15/flask/models1/"/>
       <url>/2018/10/15/flask/models1/</url>
@@ -531,6 +506,31 @@
         <tags>
             
             <tag> models </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>template</title>
+      <link href="/2018/10/15/flask/%E6%A8%A1%E6%9D%BF/"/>
+      <url>/2018/10/15/flask/%E6%A8%A1%E6%9D%BF/</url>
+      
+        <content type="html"><![CDATA[<pre><code>#### 父模板base.html#### 初始化base_main.html(每个模板中的相同部分)#### 继承{% extends 'base_main.html' %}#### 获取base_main模板坑里填充的内容{{ super() }}#### 解析静态文件第一种：&lt;link href=&quot;/static/css/style.css&quot; rel=&quot;stylesheet&quot;&gt; 第二种：&lt;link href=&quot;{{ url_for('static', filename='css/style.css') }}&quot; rel=&quot;stylesheet&quot;&gt;#### 解析路由地址无参情况: {{ url_for('蓝图的第一个参数.跳转的函数名') }}有参情况: {{ url_for('蓝图的第一个参数.跳转的函数名', id=stu.id) }}#### 解析变量{{ var }}for循环中的loop- 生成编号从1开始：loop.index- 从0开始：loop.index0- 倒序1结束：loop.revindex- 倒序0结束：loop.revindex0- 判断当前第一次循环：loop.first- 判断当前最后一次循环: loop.last#### 解析标签{% 标签 %}标签for：{% for i in c %} {% else %} {% endfor %}标签if：{% if xx==1 %} {% else %} {% endif %}- 没有ifequal标签#### macro宏定义定义无参: {% macro say() %} {%endmacro%}定义有参: {% macro say(name) %} {{ name }} {% endmacro %}使用: {{ say() }}或者 {{ say('小明') }}导入: {% from 'functions.html' import say %}#### 过滤器- 使用管道符&quot;|&quot;, 可以链式调用- safe: 解析文本中的样式- striptags: 删除文本中的样式- trim: 删除文本前后的空格- length: 计算长度- upper: 全部大写- lower: 全部小写</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> flask </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> template </tag>
             
         </tags>
       
