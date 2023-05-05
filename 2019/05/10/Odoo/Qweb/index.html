@@ -440,20 +440,21 @@
           t-att-attName：对象属性设置，如对input输入控件设置value：
           &lt;inputtype=&quot;text&quot;  t-att-value=&quot;order.buyer_memo&quot;/&gt;
 </code></pre>
-<pre><code>#### 一般用法
-- 条件表达式
-    ```html
-      &lt;t t-if=&quot;record.effort_estimate.raw_value &gt; 0&quot; /&gt;
-            &lt;li&gt;Estimate &lt;field name=&quot;effort_estimate&quot;/&gt;&lt;/li&gt;
-      &lt;/t&gt;
-    ```
-    - 比较符号
-    ```html
-      lt(&lt;)    lte(&lt;=)   gt(&gt;)   gte(&gt;=)
-      注 &lt; &lt;= 不能用在表达式中，只能用字母代替
-    ```
-</code></pre><ul>
-<li>输出值t-esc和t-raw<pre><code class="html">     &lt;t t-esc=&quot;record.message_follower_ids.raw_value&quot; /&gt;
+<h4 id="一般用法"><a href="#一般用法" class="headerlink" title="一般用法"></a>一般用法</h4><ul>
+<li><p>条件表达式</p>
+<pre><code class="html">    &lt;t t-if=&quot;record.effort_estimate.raw_value &gt; 0&quot; /&gt;
+          &lt;li&gt;Estimate &lt;field name=&quot;effort_estimate&quot;/&gt;&lt;/li&gt;
+    &lt;/t&gt;
+</code></pre>
+<ul>
+<li>比较符号<pre><code class="html">lt(&lt;)    lte(&lt;=)   gt(&gt;)   gte(&gt;=)
+注 &lt; &lt;= 不能用在表达式中，只能用字母代替
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>输出值t-esc和t-raw</p>
+<pre><code class="html">     &lt;t t-esc=&quot;record.message_follower_ids.raw_value&quot; /&gt;
      &lt;t t-raw=&quot;record.message_follower_ids.raw_value&quot; /&gt;
      t-esc  过滤安全值，像html元素
      t-raw  数据库中的原始数据
