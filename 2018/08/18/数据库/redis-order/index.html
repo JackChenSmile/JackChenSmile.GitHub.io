@@ -4,13 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="部署Django项目, 微笑看你">
-    <meta name="description" content="安装MariaDB安装命令
-yum -y install mariadb mariadb-server
-安装完成MariaDB，首先启动MariaDB
-systemctl start mariadb
-设置开机启动
-systemctl ena">
+    <meta name="keywords" content="redis_order, 微笑看你">
+    <meta name="description" content="redis 命令
+Redis：REmote Dictionary Server
+Server(Redis)远程字典服务器，为网站提供高速缓存服务
+
+网站优化两大定律1.缓存 —– 用空间换时间（redis/Memcached）
+2.削峰 —">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@ systemctl ena">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>部署Django项目 | 微笑看你</title>
+    <title>redis_order | 微笑看你</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -265,13 +265,13 @@ systemctl ena">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        部署Django项目
+                        redis_order
                     </div>
                 </div>
             </div>
@@ -382,12 +382,8 @@ systemctl ena">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Django项目部署/" target="_blank">
-                                <span class="chip bg-color">Django项目部署</span>
-                            </a>
-                        
-                            <a href="/tags/MariaDB安装/" target="_blank">
-                                <span class="chip bg-color">MariaDB安装</span>
+                            <a href="/tags/order/" target="_blank">
+                                <span class="chip bg-color">order</span>
                             </a>
                         
                     </div>
@@ -398,8 +394,8 @@ systemctl ena">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Django/" class="post-category" target="_blank">
-                                Django
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                databases
                             </a>
                         
                     </div>
@@ -410,7 +406,7 @@ systemctl ena">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-12-14
+                    2018-08-18
                 </div>
 
                 
@@ -426,209 +422,219 @@ systemctl ena">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="安装MariaDB"><a href="#安装MariaDB" class="headerlink" title="安装MariaDB"></a>安装MariaDB</h3><p>安装命令</p>
-<pre><code>yum -y install mariadb mariadb-server
-</code></pre><p>安装完成MariaDB，首先启动MariaDB</p>
-<pre><code>systemctl start mariadb
-</code></pre><p>设置开机启动</p>
-<pre><code>systemctl enable mariadb
-</code></pre><h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><p>命令: mysql_secure_installation</p>
-<pre><code class="python">Enter current password for root:&lt;–初次运行直接回车
-
-设置密码
-
-Set root password? [Y/n] &lt;– 是否设置root用户密码，输入y并回车或直接回车
-
-New password: &lt;– 设置root用户的密码
-Re-enter new password: &lt;– 再输入一次你设置的密码
-
-其他配置
-
-Remove anonymous users? [Y/n] &lt;– 是否删除匿名用户，回车
-
-Disallow root login remotely? [Y/n] &lt;–是否禁止root远程登录,回车,
-
-Remove test database and access to it? [Y/n] &lt;– 是否删除test数据库，回车
-
-Reload privilege tables now? [Y/n] &lt;– 是否重新加载权限表，回车
-
-初始化MariaDB完成，接下来测试登录
-
-mysql -u root -p
+                <h2 id="redis-命令"><a href="#redis-命令" class="headerlink" title="redis 命令"></a>redis 命令</h2><ul>
+<li>Redis：REmote Dictionary Server</li>
+<li>Server(Redis)远程字典服务器，为网站提供高速缓存服务</li>
+</ul>
+<h4 id="网站优化两大定律"><a href="#网站优化两大定律" class="headerlink" title="网站优化两大定律"></a>网站优化两大定律</h4><p>1.缓存 —– 用空间换时间（redis/Memcached）</p>
+<p>2.削峰 —— 能推迟的事情都不要马上做(RabbitMQ/ RocketMQ)</p>
+<h4 id="信息隐藏"><a href="#信息隐藏" class="headerlink" title="信息隐藏:"></a>信息隐藏:</h4><p>&emsp;&emsp;信息隐藏是指在设计和确定模块时，使得一个模块内包含的特定信息（过程或数据），对于不需要这些信息的其他模块来说，是不可访问的</p>
+<h5 id="启动Redis服务器步骤-谨慎"><a href="#启动Redis服务器步骤-谨慎" class="headerlink" title="启动Redis服务器步骤(谨慎):"></a>启动Redis服务器步骤(谨慎):</h5><pre><code class="mysql">1.修改Redis配置文件redis.conf(安装文件目录下)
+    cp redis-4.0.11/redis.conf redis.conf
+    # redis-server --post -- requirepass   ----- 也可以修改配置
+    vim redis.conf
+    bind 内网地址
+    requirepass 密码
+    appendonly yes
+2.启动服务器
+    redis-server redis.conf(配置文件) &gt; redis.log &amp;
+3.启动客户端
+    redis-cli -h ip地址(私用ip地址)
+4.验证身份
+    auth 密码
+5.停止服务器
+   1.kill 进程号
+   2.把进程放到前台，Ctrl c
+   3.客户端&gt;shutdown
+6.测试连接输入ping 回应PONG表示连接成功
 </code></pre>
-<h3 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h3><p>在mysql数据库中的user表中可以看到默认是只能本地连接的，所有可以添加一个新的用户，该用户可以远程访问</p>
-<h4 id="1-创建用户"><a href="#1-创建用户" class="headerlink" title="1. 创建用户"></a>1. 创建用户</h4><pre><code class="python"># 先使用数据库
-use mysql;
+<h5 id="操作命令-——-http-redisdoc-com"><a href="#操作命令-——-http-redisdoc-com" class="headerlink" title="操作命令  ——- http://redisdoc.com/"></a>操作命令  ——- <a href="http://redisdoc.com/" target="_blank" rel="noopener">http://redisdoc.com/</a></h5><pre><code class="mysql">操作:
+    keys *  查看所有键
+    select 1切换到1号数据库
+    select 15切换到15号数据库
+    flushall 删掉所有数据库的所有数据
+    flushdb 删掉当前一个数据库的数据删掉
+    save 保存数据
+    bgsave 后台保存
+    set key value ex 存活时间 ：设置键值对并设置存活时间
+    ttl key:查看数据的存活时间（ttl time to live),如果看到-1说明这个数据永不超时，如果-2说明没这个数据
+    expire key 时间: 设置已有键的存活时间
+    ince key:增加值
+    decr key:减少值
 
-# 针对ip
-create user &#39;root&#39;@&#39;192.168.10.10&#39; identified by &#39;password&#39;;
+基准测试：
+    redis-benchmark -h ip -a 密码    测试redis性能
 
-#全部
- create user &#39;root&#39;@&#39;%&#39; identified by &#39;password&#39;;
+
+    LBS：Location-Base Service
+字符串:
+    setnx:如果不存在才赋值
+    setex:在设置键值对的时候同时设置存活时间
+    mset:一次放很多键值对
+    mget:一次获取多个键值对
+
+哈希表(hash)
+    hset:设置hash类型
+    hget:获取值 hget key filed
+    hgetall:获取对应key的所有值（hgetall key）
+    hmget:一次性获取多个值
+    hmset:一次性赋值多个
+        hmset stu1 id 101 name baiyuan age 12 gender male
+    hdel:删除哈希数据
+        hdel stu1 age
+    hexists:判断对应键是否存在某字典
+        hexists stu1 mile
+    hlen:统计键有多少字段
+    hkey:取出对应键的所有字段
+    hvals:取出对应键的所有值
+    hscan:遍历键值对
+
+列表:(List)
+    lpush:向列表放原始(从左边开始放)
+        lpush list1 1 2 3 4 5
+
+    lpop:从左边开始取
+    rpop:从右边开始取
+    rpush:(从右边开始放)
+    lrange:指定范围取元素()
+        lrange list1 start end
+        lrange list1 0 -1
+    lset:修改列表指定下标的值
+        lset list 1 1000
+    blpop:如果列表没东西，且时间未超时就阻塞，有东西拿走，超时就结束（从左边取）
+        blpop list1 20
+    brpop：如果列表没东西，且时间未超时就阻塞，有东西拿走，超时就结束（从右边取）
+    brpoplpush:从右边取一个元素，并把这个元素放到另一个列表的左边（阻塞式）
+
+集合(Set):
+    sadd:向集合添加元素
+        sadd set1 10 20 10 20 30
+    smebers:查看集合中的元素    
+        smerbers set1
+    sinter:交集
+        sinter 集合1 集合2
+    sunion:并集
+        sunion 集合1 集合2
+    sdiff:差集
+        sdiff 集合1 集合2
+    sismenber:判断元素在不在集合中
+        sismenber 集合 元素
+    spop:从集合中取出一个元素
+    srandmenber:从集合中随机返回一个元素（实际没有拿走）
+    srem:移除集合中的一个或者多个元素，如果不存在就忽略
+
+浮点数表示法的问题
+    有序集合（SortedSet）
+    zadd:添加有序集合
+        zadd 集合名 值 元素
+    zrange:查看元素
+        zrange zs1 0 -1
+        zrange zs1 0 -1 withscores 显示元素的时候把分数值也显示出来
+    zrangebyscore:指定搜索范围来搜索数据
+        zrangebyscore zs1 10 20
+    zrank:查看元素的排名
+        zrank zs1 apple
+    zreverange:从大到小排序查询
+        zreverange zs1
+
+type(值)：查看对应值的类型
+
+事务:
+mult开始事务
+exec:执行
+discard：放弃执行
+
+
+服务器:
+bgsave：后台保存
+dbsize: 查看数据库有多少键
+slaveof:把redis设置成那个的奴隶（主从复制，读写分离）
+shutdown：关闭服务器
+info:查看服务器相关信息
+
+redis-check-aof -fix appendonly.aof    修复aof的文件
 </code></pre>
-<h4 id="2-授权"><a href="#2-授权" class="headerlink" title="2. 授权"></a>2. 授权</h4><pre><code class="python"># 给用户最大权限
-grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;password&#39;;
-
-# 给部分权限(test 数据库)
-
-grant all privileges on test.* to &#39;root&#39;@&#39;%&#39; identified by &#39;password&#39; with grant option;
-
-# 刷新权限表
-</code></pre>
-<pre><code> flush privileges;
-
-# 查看
-show grants for &#39;root&#39;@&#39;localhost&#39;;
-</code></pre><p>接下来就可以在远程的数据库可视化工具中直接访问该服务器中的mysql了。</p>
-<pre><code># 访问数据库
-mysql -u root -p
-</code></pre><h3 id="安装python3-6"><a href="#安装python3-6" class="headerlink" title="安装python3.6"></a>安装python3.6</h3><p>在centos中，系统默认只提供python2.7的版本，但是项目我们使用的python3.6的版本。所有我们自己安装python3</p>
-<h4 id="安装Python3的方法"><a href="#安装Python3的方法" class="headerlink" title="安装Python3的方法"></a>安装Python3的方法</h4><p>首先安装依赖包</p>
-<p>安装Python3.6所需要的依赖包：</p>
-<pre><code>yum -y groupinstall &quot;Development tools&quot;
-
-yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
-</code></pre><p>安装Python3.7还需额外安装依赖包：</p>
-<pre><code>yum install libffi-devel -y
-</code></pre><p>然后根据自己需求下载不同版本的Python3，我下载的是Python3.6.2</p>
-<pre><code class="python">wget https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tar.xz
-
-然后解压压缩包，进入该目录，安装Python3
-
-tar -xvJf  Python-3.6.2.tar.xz
-cd Python-3.6.2
-./configure --prefix=/usr/local/python3
-make &amp;&amp; make install
-</code></pre>
-<p>最后创建软链接</p>
-<pre><code>ln -s /usr/local/python3/bin/python3 /usr/bin/python3
-
-ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
-</code></pre><h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><h4 id="1-安装virtualenv"><a href="#1-安装virtualenv" class="headerlink" title="1. 安装virtualenv"></a>1. 安装virtualenv</h4><pre><code>yum install python-virtualenv
-</code></pre><h4 id="2-创建虚拟环境"><a href="#2-创建虚拟环境" class="headerlink" title="2. 创建虚拟环境"></a>2. 创建虚拟环境</h4><pre><code>virtualenv --no-site-packages env
-
-cd env
-
-# 激活虚拟环境
-source bin/activate
-</code></pre><h4 id="3-安装环境需要的包"><a href="#3-安装环境需要的包" class="headerlink" title="3. 安装环境需要的包"></a>3. 安装环境需要的包</h4><pre><code>pip3 install -r re_install.txt
-
-其中re_install.txt文件中记录的是需要安装包的名称以及对应的版本
-</code></pre><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>该部署采用的是cenots7系统来部署</p>
-<p>Django的项目中，在工程目录下settings.py文件中有一个DEBUG=True参数，如果DEBUG=False则会出现js,css，img无法加载的情况出现。</p>
-<p>原因如下：</p>
-<p>Django框架仅在开发模式下提供静态文件服务。当我开启DEBUG模式时，Django内置的服务器是提供静态文件的服务的，所以css等文件访问都没有问题，但是关闭DEBUG模式后，Django便不提供静态文件服务了。想一想这是符合Django的哲学的：这部分事情标准服务器都很擅长，就让服务器去做吧！</p>
-<h4 id="1-测试环境中部署方式"><a href="#1-测试环境中部署方式" class="headerlink" title="1. 测试环境中部署方式"></a>1. 测试环境中部署方式</h4><h5 id="urls-py中的修改"><a href="#urls-py中的修改" class="headerlink" title="urls.py中的修改"></a>urls.py中的修改</h5><p>在测试环境中一般都直接使用python manage.py runserver的方式去运行项目。其中就涉及到DEBUG=False的修改，静态目录的修改等，具体修改如下：</p>
-<pre><code class="python">a) 修改settings.py配置文件中的DEBUG=False模式，修改ALLOEWD_HOST=[&#39;*&#39;]
-
-b) 修改工程目录下的urls.py
-
-from django.views.static import serve
-
-urlpatterns = [
-    url(r&#39;^admin/&#39;, admin.site.urls),
-    url(r&#39;^axf/&#39;, include(&#39;axf.urls&#39;, namespace=&#39;axf&#39;)),
-
-    # 增加以下的url路由
-    url(r&#39;^static/(?P&lt;path&gt;.*)$&#39;, serve, {&quot;document_root&quot;: settings.STATICFILES_DIRS[0]}),
-
-    url(r&#39;^media/(?P&lt;path&gt;.*)$&#39;, serve, {&quot;document_root&quot;: settings.MEDIA_ROOT}),
-</code></pre>
-<pre><code>    url(r&#39;^$&#39;, views.home)
-]
-</code></pre><h5 id="中间件的修改"><a href="#中间件的修改" class="headerlink" title="中间件的修改"></a>中间件的修改</h5><p>如果中间件是过滤哪些地址不需要登录验证的话，可以设置如下的static和media过滤地址的参数：</p>
-<pre><code class="python"># 验证用户的登录状态
-paths = [&#39;/user/login/&#39;, &#39;/user/register/&#39;,
-         &#39;/axf/market/&#39;, &#39;/axf/marketparams/(\d+)/(\d+)/(\d+)/&#39;,
-        &#39;/static/[0-9a-zA-Z/\.]&#39;, &#39;/media/[0-9a-zA-Z/\.]&#39;]
-
-for path in paths:
-    if re.match(path, request.path):
-        return None
-</code></pre>
-<h4 id="2-正式环境中部署方式"><a href="#2-正式环境中部署方式" class="headerlink" title="2. 正式环境中部署方式"></a>2. 正式环境中部署方式</h4><p>正式环境中部署为nginx+uwsgi来部署django项目</p>
-<h5 id="2-1-安装nginx"><a href="#2-1-安装nginx" class="headerlink" title="2.1 安装nginx"></a>2.1 安装nginx</h5><p>a）添加nginx存储库<br>​<br>​    yum install epel-release</p>
-<p>b) 安装nginx</p>
-<pre><code>yum install nginx
-</code></pre><p>c) 运行nginx</p>
-<p>Nginx不会自行启动。要运行Nginx<br>​<br>​    systemctl start nginx</p>
-<p>nginx的运行命令：</p>
-<pre><code class="python"> systemctl status nginx 查看nginx的状态
- systemctl start/stop/enable/disable nginx 启动/关闭/设置开机启动/禁止开机启动
-</code></pre>
-<p>d）系统启动时启用Nginx<br>​<br>​    systemctl enable nginx</p>
-<p>e）如果您正在运行防火墙，请运行以下命令以允许HTTP和HTTPS通信：<br>​    </p>
-<pre><code class="python">sudo firewall-cmd --permanent --zone=public --add-service=http 
-
-sudo firewall-cmd --permanent --zone=public --add-service=https
-
-sudo firewall-cmd --reload
-</code></pre>
-<h4 id="3-配置uwsgi"><a href="#3-配置uwsgi" class="headerlink" title="3.配置uwsgi"></a>3.配置uwsgi</h4><h5 id="3-1-安装uwsgi"><a href="#3-1-安装uwsgi" class="headerlink" title="3.1 安装uwsgi"></a>3.1 安装uwsgi</h5><p>在虚拟环境中安装uwsgi，假设虚拟环境安装在/home/env/axfenv中</p>
-<pre><code>/home/env/axfeng/bin/python3/pip3 install uwsgi
-</code></pre><h4 id="4-配置项目代码，配置项目nginx，配置uwsgi-ini等"><a href="#4-配置项目代码，配置项目nginx，配置uwsgi-ini等" class="headerlink" title="4. 配置项目代码，配置项目nginx，配置uwsgi.ini等"></a>4. 配置项目代码，配置项目nginx，配置uwsgi.ini等</h4><p><strong>在home文件中创建如下四个文件夹</strong></p>
-<p>conf是配置文件，用于存放项目的nginx.conf文件，uwsgi.ini文件</p>
-<p>logs是日志文件，用于存放nginx的启动成功和失败文件，以及uwsgi的运行日志文件</p>
-<p>env是用于存放虚拟环境</p>
-<p>src是项目文件，该目录下上传的是目录代码</p>
-<h4 id="4-1-配置nginx-conf文件"><a href="#4-1-配置nginx-conf文件" class="headerlink" title="4.1 配置nginx.conf文件"></a>4.1 配置nginx.conf文件</h4><p><b>首先</b>：编写自己项目的nginx.conf文件如下：</p>
-<p>每一个项目对应有一个自己定义的nginx的配置文件，比如爱鲜蜂项目，我定义为axfnginx.conf文件</p>
-<pre><code class="python">server {
-     listen       80;
-     server_name 39.104.176.9 localhost;
-
-     access_log /home/logs/access.log;
-     error_log /home/logs/error.log;
-
-     location / {
-         include uwsgi_params;
-         uwsgi_pass 127.0.0.1:8890;
-     }
-     location /static/ {
-         alias /home/src/axf/static/;
-         expires 30d;
-     }
-
- }
-</code></pre>
-<p><b>其次</b>：修改总的nginx的配置文件，让总的nginx文件包含我们自定义的项目的axfnginx.conf文件</p>
-<p>总的nginx配置文件在：/etc/nginx/nginx.conf中</p>
-<p><img src="/2018/12/14/Django/Django/django_centos_nginx_peizhi.png" alt="django_centos_nginx_peizhi"></p>
-<p>以上步骤操作完成以后，需要重启nginx：</p>
-<pre><code class="python">systemctl restart nginx
-</code></pre>
-<h4 id="4-2-配置uwsgi文件"><a href="#4-2-配置uwsgi文件" class="headerlink" title="4.2 配置uwsgi文件"></a>4.2 配置uwsgi文件</h4><p>在conf文件夹下除了包含自定义的axfnginx.conf文件，还有我们定义的uwsgi.ini文件</p>
-<pre><code class="python">[uwsgi]
-projectname = axf
-base = /home/src
-
-# 守护进程
-master = true
-
-# 进程个数
-processes = 4
-
-# 虚拟环境
-pythonhome = /home/env/axfenv
-
-# 项目地址
-chdir = %(base)/%(projectname)
-
-# 指定python版本
-pythonpath = /usr/local/python3/bin/python3
-
-# 指定uwsgi文件
-module = %(projectname).wsgi
-
-# 和nginx通信地址:端口
-socket = 127.0.0.1:8890
-
-# 日志文件地址
-logto = /home/logs/uwsgi.log
-</code></pre>
-<p>​<br>运行项目:</p>
-<pre><code class="python">/home/env/axfeng/bin/python3/uwsgi --ini uwsgi.ini
-</code></pre>
+<ul>
+<li>type —– 查看键的类型</li>
+<li>setnx —– 设置已存在键的值</li>
+<li>sentex —- 设置键值对的同时设置时间</li>
+</ul>
+<h4 id="Hash-——-保存对象"><a href="#Hash-——-保存对象" class="headerlink" title="Hash ——- 保存对象"></a>Hash ——- 保存对象</h4><ul>
+<li>hset —– 创建key</li>
+<li>hget —– 取出key</li>
+<li>hgetall —- 取出key的全部属性</li>
+<li>hmset ——- 创建key并设置多个属性</li>
+<li>hmget ——- 取出key的多个属性</li>
+<li>hdel —– 删除key的一个或多个属性</li>
+<li>hexists —– 查看key是否存在</li>
+<li>hlen —– 统计key对应多少个字段</li>
+<li>hkeys ——- 返回key中的所有的域</li>
+<li>hscan ——- 遍历key及域（遍历字典的键和值）</li>
+</ul>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p><strong><code>lset list1 0 name</code></strong></p>
+<ul>
+<li>lset —— 给列表1中的下标为0的元素赋值为name</li>
+<li>lpop —— 取出列表的头元素（左边第一个）元素</li>
+<li>rpop —— 取出列表的尾元素（右边第一个）元素</li>
+<li>lpush —— 在表头插入一个或多个值</li>
+<li>rpush —— 在表尾插入一个或多个值</li>
+<li>lrange —— 取出指定的元素</li>
+<li>lset —— 修改原有列表的特定元素值</li>
+<li>blpop —— 阻塞式从左边取出元素（有元素，不阻塞，没有元素，等待输入元素，然后取出）</li>
+<li>blpop —— 阻塞式从右边取出元素（有元素，不阻塞，没有元素，等待输入元素，然后取出）</li>
+<li>rpoplpush A B —— 从A中取出，从B中左边存入</li>
+</ul>
+<h4 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h4><ul>
+<li>sadd —– 添加一个或多个元素</li>
+<li>srem —– 删除一个或多个指定的元素</li>
+<li>scard —— 查看集合中有多少个元素</li>
+<li>smembers —– 查看集合的元素</li>
+<li>sinter —— 查看两个集合的交集</li>
+<li>sunion —– 查看两个集合的并集</li>
+<li>sdiff —— 查看两个集合的差集</li>
+<li>sismember —— 查看一个集合中是否存在一个给定的元素</li>
+<li>spop —– 取出一个随机元素（不同）</li>
+<li>srandmember —— 取出一个随机元素（可能相同）</li>
+</ul>
+<h4 id="Sortedset（有序集合）"><a href="#Sortedset（有序集合）" class="headerlink" title="Sortedset（有序集合）"></a>Sortedset（有序集合）</h4><ul>
+<li>zadd —– 添加元素</li>
+<li>zrange —– 查看元素（排好序的）</li>
+<li>zrangebyscore —- 指定范围查看</li>
+<li>zrank —– 排名（从0开始排的）</li>
+<li>zrem —– 删除</li>
+<li>zrevrange —— 倒序排列</li>
+</ul>
+<h3 id="复制："><a href="#复制：" class="headerlink" title="复制："></a>复制：</h3><h5 id="主从复制（读写分离）修改内容："><a href="#主从复制（读写分离）修改内容：" class="headerlink" title="主从复制（读写分离）修改内容："></a>主从复制（读写分离）修改内容：</h5><ul>
+<li>master不用修改配置</li>
+<li>slave修改两条配置<ul>
+<li>slaveof master的IP地址 master的端口</li>
+<li>masterrauth master的口令</li>
+</ul>
+</li>
+<li>info replication ——- 查看是否有奴隶</li>
+<li>info ——- 查看服务器信息 </li>
+<li>ps -ef | grep deris | grep -v grep | awk ‘{print $2}’ | xargs kill ——- 杀掉所有的奴隶</li>
+<li>slaveof no one ——— 拒绝当奴隶</li>
+</ul>
+<h6 id="故障处理"><a href="#故障处理" class="headerlink" title="故障处理"></a>故障处理</h6><p>配置哨兵（sentinel.conf）</p>
+<ul>
+<li>修改sentinel.conf配置文件<ul>
+<li>修改69行的监视窗口 跟上票数</li>
+<li>98行master的死亡时间设置<ul>
+<li>在规定的时间回来了，还是master，没回来就重选</li>
+</ul>
+</li>
+<li>131行的意思：master在3分钟内回来，也只能当奴隶，没回来，就直接杀死</li>
+</ul>
+</li>
+<li>redis-server sentinel.conf –sentinel ——– 启动哨兵文件</li>
+</ul>
+<h3 id="MySQL-MongoDB"><a href="#MySQL-MongoDB" class="headerlink" title="MySQL / MongoDB"></a>MySQL / MongoDB</h3><ul>
+<li><p>热（点）数据 —- 经常被访问的数据</p>
+</li>
+<li><p>redis放的应该是体量不大的热点数据</p>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -776,7 +782,7 @@ logto = /home/logs/uwsgi.log
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/14/Django/Django/" class="b-link-green">部署Django项目</a>
+                    <a href="/2018/08/18/数据库/redis-order/" class="b-link-green">redis_order</a>
                 </p>
             </div>
         </div>
@@ -797,55 +803,42 @@ logto = /home/logs/uwsgi.log
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/12/14/Django/Django/">
+                <a href="/2018/08/22/数据库/pymysql/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="部署Django项目">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="pymysql">
                         
-                        <span class="card-title">部署Django项目</span>
+                        <span class="card-title">pymysql</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">安装MariaDB安装命令
-yum -y install mariadb mariadb-server
-安装完成MariaDB，首先启动MariaDB
-systemctl start mariadb
-设置开机启动
-systemctl ena</div>
+                    <div class="summary">learninsert/update/delete
+import pymysql
+
+
+def main():
+    no = int(input(&#39;部门编号：&#39;))
+    name = input(&#39;部门名称：&</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Django/" class="post-category" target="_blank">
-                                    Django
+                            <a href="/categories/databases/" class="post-category" target="_blank">
+                                    databases
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Django项目部署/" target="_blank">
-                        <span class="chip bg-color">Django项目部署</span>
-                    </a>
-                    
-                    <a href="/tags/MariaDB安装/" target="_blank">
-                        <span class="chip bg-color">MariaDB安装</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -857,26 +850,23 @@ systemctl ena</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/10/20/数据库/practice-linkman/">
+                <a href="/2018/08/15/数据库/数据库/">
                     <div class="card-image">
                         
+                        <img src="/images/LoL1.jpg" class="responsive-img" alt="数据库">
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="practice linkman">
-                        
-                        <span class="card-title">practice linkman</span>
+                        <span class="card-title">数据库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">MY简单的联系人练习import pymysql
+                    <div class="summary">​        数据库（Database）是按照数据结构来组织、存储和管理数据的仓库，
+每个数据库都有一个或多个不同的API用于创建，访问，管理，搜索和复制所保存的数据。
+—– 从删库，到跑路额！
 
-
-def add_con(con):
-    while True:
-        telname = input(&#39;联系人姓名：&#39;)
-        relation </div>
+数据库 —– database - 数</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-20
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-15
                             </span>
                         <span class="publish-author">
                             
@@ -893,8 +883,12 @@ def add_con(con):
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linkman/" target="_blank">
-                        <span class="chip bg-color">linkman</span>
+                    <a href="/tags/数据库/" target="_blank">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/表格/" target="_blank">
+                        <span class="chip bg-color">表格</span>
                     </a>
                     
                 </div>
