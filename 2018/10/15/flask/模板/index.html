@@ -4,15 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux操作命令, 微笑看你">
-    <meta name="description" content="查看自己使用的Shall
-Shall -ps 查看自己使用的Shell
-Shell ——– 人机对话的交互式环境
-bash ——– bourne again shell
-
-用命令
-clear —— 清屏
-ps —— processes  查">
+    <meta name="keywords" content="template, 微笑看你">
+    <meta name="description" content="#### 父模板
+base.html
+#### 初始化
+base_main.html(每个模板中的相同部分)
+#### 继承
+```html
+{% extends &#39;base_main.html&#39; %}
+```
+#### 获取base_ma">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@ ps —— processes  查">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Linux操作命令 | 微笑看你</title>
+    <title>template | 微笑看你</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -267,13 +268,13 @@ ps —— processes  查">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/04.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Linux操作命令
+                        template
                     </div>
                 </div>
             </div>
@@ -384,8 +385,8 @@ ps —— processes  查">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/order/" target="_blank">
-                                <span class="chip bg-color">order</span>
+                            <a href="/tags/template/" target="_blank">
+                                <span class="chip bg-color">template</span>
                             </a>
                         
                     </div>
@@ -396,8 +397,8 @@ ps —— processes  查">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category" target="_blank">
-                                Linux
+                            <a href="/categories/flask/" class="post-category" target="_blank">
+                                flask
                             </a>
                         
                     </div>
@@ -408,7 +409,7 @@ ps —— processes  查">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-09-18
+                    2018-10-15
                 </div>
 
                 
@@ -424,89 +425,62 @@ ps —— processes  查">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="查看自己使用的Shall"><a href="#查看自己使用的Shall" class="headerlink" title="查看自己使用的Shall"></a>查看自己使用的Shall</h3><ul>
-<li>Shall -ps 查看自己使用的Shell</li>
-<li>Shell ——– 人机对话的交互式环境</li>
-<li>bash ——– bourne again shell</li>
-</ul>
-<h3 id="用命令"><a href="#用命令" class="headerlink" title="用命令"></a>用命令</h3><ul>
-<li>clear —— 清屏</li>
-<li>ps —— processes  查看正在运行的进程</li>
-<li>ps -ef —————– 查看运行的进程</li>
-<li>kill PID —— 杀掉进程</li>
-<li>kill -9 ———— 强制杀死进程</li>
-<li>adduser 用户名 ——- 添加用户</li>
-<li>passwd ———- 设置密码</li>
-<li>userdel ———– 删除用户</li>
-<li>su 用户名 ——— 切换用户（switch user）</li>
-<li>sudo ———- 以超级管理员身份操作（super user do）</li>
-<li>chown 拥有者 文件名 ————– 改变文件的拥有者</li>
-<li>‘#’——- 超级管理员</li>
-<li>$ ——– 普通用户</li>
-<li>~ ———- 主目录<h6 id="两个不同的用户"><a href="#两个不同的用户" class="headerlink" title="两个不同的用户"></a>两个不同的用户</h6></li>
-<li>write 用户名 ————— 连接相同的系统的不同用户之间发送消息</li>
-<li>Ctrl d ————— 消息内容结束符</li>
-<li>mesg n / y —————- 不接收消息/接收消息</li>
-<li>wall ————- 给所有用户发消息</li>
-</ul>
-<h4 id="查看命令、帮助文档"><a href="#查看命令、帮助文档" class="headerlink" title="查看命令、帮助文档"></a>查看命令、帮助文档</h4><ul>
-<li>Tab ——– 补全命令，查看命令</li>
-<li>q  ——  结束查看</li>
-<li>man 命令 ——— 查看手册</li>
-<li>命令 –help ———– 查看命令用法</li>
-<li>cd ———– 改变所在目录</li>
-<li>cd /目录名 ——- 去到某个目录</li>
-<li>pwd ——– 查看目录</li>
-<li>ls ——— 查看文件或者文件名（list directory contents）<ul>
-<li>-l 长格式查看</li>
-<li>-a 查看所有（包括以点开头的隐藏文件和文件夹）</li>
-<li>-R 递归查看</li>
-</ul>
-</li>
-<li>| ———- 管道（左边的输出作为右边的输入）</li>
-<li>wget 网址 ——– 通过网络下载文件</li>
-<li>cat ———- concatenate  连接多个文件并显示到标准输出</li>
-<li>cat 文件名 ——— 查看文件</li>
-<li>cat -n 网址 ——– 查看行号</li>
-<li>history ———- 查看所有的历史命令</li>
-<li>！ 历史命令编号 ———- 执行历史命令</li>
-<li>history -c ———— 清除历史命令</li>
-<li>Ctrl c ——— 强行终止命令</li>
-<li>mkdir ——— 创建目录<ul>
-<li>-r 递归删除</li>
-<li>-f 强制删除</li>
-</ul>
-</li>
-<li>rmdir ——— 删除空目录</li>
-<li>cp ———– 复制文件和目录</li>
-<li>cp -r /文件名————- 复制文件夹并修改文件名</li>
-<li>mv —————— 剪切文件</li>
-<li>rm ———- 删除文件和目录</li>
-<li>touch —————- 创建空文件或者修改文件时间</li>
-<li>echo ————— 回声（输入什么，就输出什么）</li>
-<li><strong>&gt;</strong> 件 ———– 输出重定向（输出到指定的文件夹）</li>
-<li>alias / unalies 重新取别名/取消别名</li>
-<li><strong>&gt;&gt;</strong> ———— 追加输出重定向</li>
-<li><strong>2&gt;</strong> ———— 错误输出重定向</li>
-<li>&lt;输入重定向</li>
-<li>grep 搜索字符串</li>
-<li>date ————— 查看时间</li>
-<li>cal —————- 查看日历（calendar）</li>
-<li>head -数字 —————- 查看指定头行数</li>
-<li>tail -数字 —————– 查看指定尾行数</li>
-<li>less/more —————– 分屏查看文件</li>
-<li>wc ——————- world count 统计</li>
-<li>uniq 文件夹 ————- 去掉文件夹中相邻的重复项</li>
-<li>sort 文件夹 ————– 排序</li>
-<li>diff —————比较文件夹的区别</li>
-</ul>
-<h3 id="重启、关机"><a href="#重启、关机" class="headerlink" title="重启、关机"></a>重启、关机</h3><ul>
-<li>重启和关机 - reboot / init 6 / shutdown / init 0</li>
-<li>shutdown ——- 关机</li>
-<li>shutdown -c（cancle） ————– 取消关机</li>
-<li>init 0(关机)/6(重启)</li>
-</ul>
+                <pre><code>#### 父模板
+base.html
+#### 初始化
+base_main.html(每个模板中的相同部分)
+#### 继承
+```html
+{% extends 'base_main.html' %}
+```
+#### 获取base_main模板坑里填充的内容
+```html
+{{ super() }}
+```
+#### 解析静态文件
+```html
+第一种：&lt;link href=&quot;/static/css/style.css&quot; rel=&quot;stylesheet&quot;&gt; 
+第二种：&lt;link href=&quot;{{ url_for('static', filename='css/style.css') }}&quot; rel=&quot;stylesheet&quot;&gt;
+```
+#### 解析路由地址
+```html
+无参情况: {{ url_for('蓝图的第一个参数.跳转的函数名') }}
+有参情况: {{ url_for('蓝图的第一个参数.跳转的函数名', id=stu.id) }}
+```
+#### 解析变量`{{ var }}`
+for循环中的loop
+- 生成编号从1开始：loop.index
+- 从0开始：loop.index0
+- 倒序1结束：loop.revindex
+- 倒序0结束：loop.revindex0
+- 判断当前第一次循环：loop.first
+- 判断当前最后一次循环: loop.last
 
+#### 解析标签`{% 标签 %}`
+```html
+标签for：{% for i in c %} {% else %} {% endfor %}
+
+标签if：{% if xx==1 %} {% else %} {% endif %}
+```
+- 没有ifequal标签
+
+#### macro宏定义
+```html
+定义无参: {% macro say() %} {%endmacro%}
+定义有参: {% macro say(name) %} {{ name }} {% endmacro %}
+使用: {{ say() }}或者 {{ say('小明') }}
+导入: {% from 'functions.html' import say %}
+```
+
+#### 过滤器
+- 使用管道符&quot;|&quot;, 可以链式调用
+- safe: 解析文本中的样式
+- striptags: 删除文本中的样式
+- trim: 删除文本前后的空格
+- length: 计算长度
+- upper: 全部大写
+- lower: 全部小写
+</code></pre>
             </div>
             <hr/>
 
@@ -653,7 +627,7 @@ ps —— processes  查">
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">微笑看你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/09/18/Linux/操作命令/" class="b-link-green">Linux操作命令</a>
+                    <a href="/2018/10/15/flask/模板/" class="b-link-green">template</a>
                 </p>
             </div>
         </div>
@@ -678,24 +652,20 @@ ps —— processes  查">
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/15/flask/模板/">
+                <a href="/2018/10/15/flask/路由定义/">
                     <div class="card-image">
                         
-                        <img src="/images/04.jpg" class="responsive-img" alt="template">
+                        <img src="/images/03.jpg" class="responsive-img" alt="flask_url">
                         
-                        <span class="card-title">template</span>
+                        <span class="card-title">flask_url</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">#### 父模板
-base.html
-#### 初始化
-base_main.html(每个模板中的相同部分)
-#### 继承
-```html
-{% extends 'base_main.html' %}
-```
-#### 获取base_ma</div>
+                    <div class="summary">虚拟环境创建: virtualenv --no-site-packages -p D:\python3\python.exe flaskenv7
+
+安装flask: pip install flask
+
+最简单web框架结构from fla</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
@@ -715,8 +685,8 @@ base_main.html(每个模板中的相同部分)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/template/" target="_blank">
-                        <span class="chip bg-color">template</span>
+                    <a href="/tags/url/" target="_blank">
+                        <span class="chip bg-color">url</span>
                     </a>
                     
                 </div>
@@ -730,31 +700,36 @@ base_main.html(每个模板中的相同部分)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/09/16/Linux/意外的操作/">
+                <a href="/2018/09/18/Linux/操作命令/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="总结-意外的操作">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Linux操作命令">
                         
-                        <span class="card-title">总结-意外的操作</span>
+                        <span class="card-title">Linux操作命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">hexo中，将图片上传到hexo中First
+                    <div class="summary">查看自己使用的Shall
+Shall -ps 查看自己使用的Shell
+Shell ——– 人机对话的交互式环境
+bash ——– bourne again shell
 
-把主页配置文件_config.yml里的post_asset_folder:这个选项设置为true
-
-
-
-在你的hexo目录下执行这样一句话npm install hexo-asset-ima</div>
+用命令
+clear —— 清屏
+ps —— processes  查</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            smile
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -762,12 +737,8 @@ base_main.html(每个模板中的相同部分)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo上传图片/" target="_blank">
-                        <span class="chip bg-color">hexo上传图片</span>
-                    </a>
-                    
-                    <a href="/tags/github上传图片/" target="_blank">
-                        <span class="chip bg-color">github上传图片</span>
+                    <a href="/tags/order/" target="_blank">
+                        <span class="chip bg-color">order</span>
                     </a>
                     
                 </div>
