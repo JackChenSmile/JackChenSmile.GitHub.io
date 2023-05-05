@@ -452,38 +452,37 @@
       lt(&lt;)    lte(&lt;=)   gt(&gt;)   gte(&gt;=)
       注 &lt; &lt;= 不能用在表达式中，只能用字母代替
     ```
-
-- 输出值t-esc和t-raw
-    ```html
-       &lt;t t-esc=&quot;record.message_follower_ids.raw_value&quot; /&gt;
-       &lt;t t-raw=&quot;record.message_follower_ids.raw_value&quot; /&gt;
-       t-esc  过滤安全值，像html元素
-       t-raw  数据库中的原始数据
-    ```
-- 循环
-```html
-    &lt;t t-foreach=&quot;record.message_follower_ids.raw_value&quot; t-as=&quot;rec&quot; /&gt;
-        &lt;t t-esc=&quot;rec&quot; /&gt;;
-    &lt;/t&gt;
-```
-```html
-    t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, 3)&quot; 还可以切片
-    还有一些变量
-    rec_index 从0开始循环索引
-    rec_size  要循环的记录集大小
-    rec_first  第一个元素
-    rec_last   最后一个元素
-    rec_even   index为偶数时为真
-    rec_odd    index为奇数时为真
-    rec_parity  是偶数和奇数
-    rec_all  表示循环结束的标识
-    rec_value 循环一个字典时，的键的值
-```
 </code></pre><ul>
-<li>动态属性<br><code>`</code>html<br>  <div><br>  <t t-foreach="record.message_follower_ids.raw_value.slice(0, 3)" t-as="rec"><pre><code>&lt;img t-att-src=&quot;kanban_image(
+<li>输出值t-esc和t-raw<pre><code class="html">     &lt;t t-esc=&quot;record.message_follower_ids.raw_value&quot; /&gt;
+     &lt;t t-raw=&quot;record.message_follower_ids.raw_value&quot; /&gt;
+     t-esc  过滤安全值，像html元素
+     t-raw  数据库中的原始数据
+</code></pre>
+</li>
+<li><p>循环</p>
+<pre><code class="html">  &lt;t t-foreach=&quot;record.message_follower_ids.raw_value&quot; t-as=&quot;rec&quot; /&gt;
+      &lt;t t-esc=&quot;rec&quot; /&gt;;
+  &lt;/t&gt;
+</code></pre>
+<pre><code class="html">  t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, 3)&quot; 还可以切片
+  还有一些变量
+  rec_index 从0开始循环索引
+  rec_size  要循环的记录集大小
+  rec_first  第一个元素
+  rec_last   最后一个元素
+  rec_even   index为偶数时为真
+  rec_odd    index为奇数时为真
+  rec_parity  是偶数和奇数
+  rec_all  表示循环结束的标识
+  rec_value 循环一个字典时，的键的值
+</code></pre>
+</li>
+<li><p>动态属性<br><code>`</code>html<br>  <div><br>  <t t-foreach="record.message_follower_ids.raw_value.slice(0, 3)" t-as="rec"></t></div></p>
+<pre><code>&lt;img t-att-src=&quot;kanban_image(
 &#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot;
  class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
-</code></pre>  </t><br>&lt;/div</div></li>
+</code></pre><p>  <br>&lt;/div</p>
+</li>
 </ul>
 <pre><code>    - t-att-prefixed 如 &lt;img&gt;的src  就可以 t-att-src=&quot;...&quot;
 - 属性的字符替换
