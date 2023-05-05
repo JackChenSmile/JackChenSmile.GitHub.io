@@ -41,7 +41,7 @@ socket又叫套接字，就是进行数据通信两端。分为服务端套接�
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -435,10 +435,10 @@ socket又叫套接字，就是进行数据通信两端。分为服务端套接�
 <p><img src="https://upload-images.jianshu.io/upload_images/13692239-e8b1d32861e5ad6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ截图20180912164737.png"></p>
 <h4 id="01-socket编程"><a href="#01-socket编程" class="headerlink" title="01-socket编程"></a>01-socket编程</h4><h5 id="import-socket"><a href="#import-socket" class="headerlink" title="import socket"></a>import socket</h5><ul>
 <li><p>socket又叫套接字，就是进行数据通信两端。分为服务端套接字和客户端套接字<br>套接字编程：自己写服务器或者客户端，进行数据传输<br>Python对socket编程的支持：提供一个socket的库（内置）</p>
-<pre><code class="python">def creat_server():
-  &#39;&#39;&#39;写一个服务器&#39;&#39;&#39;
-  1.创建套接字对象
-  &#39;&#39;&#39;
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">creat_server</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token triple-quoted-string string">'''写一个服务器'''</span>
+  <span class="token number">1</span><span class="token punctuation">.</span>创建套接字对象
+  <span class="token triple-quoted-string string">'''
   socket(family,type)
   a.family:  确定IP协议类型
   AF_INET:  ipv4
@@ -446,57 +446,57 @@ socket又叫套接字，就是进行数据通信两端。分为服务端套接�
   b.type:  传输协议类型
   SOCK_STREAM:  TCP协议
   SOCK_DGRAM:  UDP协议
-  &#39;&#39;&#39;
-  server = socket.socket()
+  '''</span>
+  server <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-  2.绑定IP地址和端口
-  &#39;&#39;&#39;
+  <span class="token number">2</span><span class="token punctuation">.</span>绑定IP地址和端口
+  <span class="token triple-quoted-string string">'''
   bind((ip地址，端口))
   端口：一台电脑上一个端口标记一个唯一的服务。
   范围0-65535,0-1024是著名端口，专门用来标记一些特殊的服务，一般不用
   但是，同一个端口同一时间只能绑定一个服务
-  &#39;&#39;&#39;
-  server.bind((&#39;10.7.153.190&#39;, 2000))
+  '''</span>
+  server<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'10.7.153.190'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-  3.开始监听（监听客户端的请求）
-  &#39;&#39;&#39;
+  <span class="token number">3</span><span class="token punctuation">.</span>开始监听（监听客户端的请求）
+  <span class="token triple-quoted-string string">'''
   listen(最大监听个数)
   同一时间能够连接的客户端的个数
-  &#39;&#39;&#39;
-  server.listen(10)
-  connect, addr = server.accept()
+  '''</span>
+  server<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+  connect<span class="token punctuation">,</span> addr <span class="token operator">=</span> server<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-  4.让服务器处于运行状态
-  while True:
-      print(&#39;================&#39;)
+  <span class="token number">4</span><span class="token punctuation">.</span>让服务器处于运行状态
+  <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'================'</span><span class="token punctuation">)</span>
 
-      5.连接客户端（建立连接）,返回连接对象和客户端地址
+      <span class="token number">5</span><span class="token punctuation">.</span>连接客户端（建立连接）<span class="token punctuation">,</span>返回连接对象和客户端地址
       这句代码会阻塞线程。直到有客户端来请求当前服务器为止
-      print(&#39;监听状态&#39;)
-      print(addr)
-      print(&#39;================&#39;)
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'监听状态'</span><span class="token punctuation">)</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span>addr<span class="token punctuation">)</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'================'</span><span class="token punctuation">)</span>
 
-      6.服务器给客户端发送消息
-      &#39;&#39;&#39;
+      <span class="token number">6</span><span class="token punctuation">.</span>服务器给客户端发送消息
+      <span class="token triple-quoted-string string">'''
       send(data)
       data:python3中要求类型是bytes，Python2可以是字符串
       1.字符串(str)转换成二进制（bytes）
-      字符串.encode（编码方式） ----》 编码方式默认值是&#39;utf-8&#39;
+      字符串.encode（编码方式） ----》 编码方式默认值是'utf-8'
       bytes(字符串，编码方式)
-      &#39;&#39;&#39;
-      message = input(&#39;客户端：&#39;)
-      connect.send(message.encode())
-      connect.send(bytes(message,&#39;utf-8&#39;))
+      '''</span>
+      message <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'客户端：'</span><span class="token punctuation">)</span>
+      connect<span class="token punctuation">.</span>send<span class="token punctuation">(</span>message<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      connect<span class="token punctuation">.</span>send<span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>message<span class="token punctuation">,</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-      if message == &#39;拜拜&#39;:
-          server.listen(10)
-          connect, addr = server.accept()
-          continue
-      print(&#39;=================&#39;)
+      <span class="token keyword">if</span> message <span class="token operator">==</span> <span class="token string">'拜拜'</span><span class="token punctuation">:</span>
+          server<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+          connect<span class="token punctuation">,</span> addr <span class="token operator">=</span> server<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token keyword">continue</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'================='</span><span class="token punctuation">)</span>
 
-      7.接收从客户端发送过来的消息
+      <span class="token number">7</span><span class="token punctuation">.</span>接收从客户端发送过来的消息
       注意：recv方法也会阻塞线程
-      &#39;&#39;&#39;
+      <span class="token triple-quoted-string string">'''
       recv(bufsize)
       bufsize:每次能够接收的最大的字节数
       返回值：接收的数据，类型是bytes
@@ -504,13 +504,13 @@ socket又叫套接字，就是进行数据通信两端。分为服务端套接�
       2.二进制转换字符串：
       二进制.decode()
       str(二进制，编码方式)
-      &#39;&#39;&#39;
-      recv_datd = connect.recv(1024)
-      print(recv_datd.decode())
-      # print(str(recv_datd,&#39;utf-8&#39;))
+      '''</span>
+      recv_datd <span class="token operator">=</span> connect<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span>recv_datd<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true"># print(str(recv_datd,'utf-8'))</span>
 
-  8.断开连接
-  connect.close()
+  <span class="token number">8</span><span class="token punctuation">.</span>断开连接
+  connect<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="02-客户端"><a href="#02-客户端" class="headerlink" title="02-客户端"></a>02-客户端</h4><p><code>`</code>python<br>import socket</p>
 </li>
@@ -567,57 +567,57 @@ if __name__ == &#39;__main__&#39;:
 
         7.关闭连接（挂电话）
         connect.close()
-</code></pre><h4 id="04-图片客户端"><a href="#04-图片客户端" class="headerlink" title="04-图片客户端"></a>04-图片客户端</h4><pre><code class="python">import socket
-if __name__ == &#39;__main__&#39;:
-    client = socket.socket()
-    client.connect((&#39;10.7.153.190&#39;, 2000))
+</code></pre><h4 id="04-图片客户端"><a href="#04-图片客户端" class="headerlink" title="04-图片客户端"></a>04-图片客户端</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> socket
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    client <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    client<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'10.7.153.190'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
     创建一个空的二进制数据
-    all_data = bytes()
+    all_data <span class="token operator">=</span> bytes<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     接收从服务器传回来的数据
-    data = client.recv(1024)
-    while data:
-        print(&#39;接收到数据&#39;)
-        all_data += data
-        data = client.recv(1024)
+    data <span class="token operator">=</span> client<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> data<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'接收到数据'</span><span class="token punctuation">)</span>
+        all_data <span class="token operator">+=</span> data
+        data <span class="token operator">=</span> client<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
 
-    with open(&#39;./files/new.jpg&#39;,&#39;wb&#39;) as f:
-        f.write(all_data)
-    # print(all_data)
-    client.close()
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./files/new.jpg'</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>all_data<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(all_data)</span>
+    client<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="05-http请求"><a href="#05-http请求" class="headerlink" title="05-http请求"></a>05-http请求</h4><pre><code class="python">import requests
+<h4 id="05-http请求"><a href="#05-http请求" class="headerlink" title="05-http请求"></a>05-http请求</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
-if __name__ == &#39;__main__&#39;:
-    1.准备url()
-    url = &#39;https://www.apiopen.top/satinApi?type=1&amp;page=1&#39;
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token number">1</span><span class="token punctuation">.</span>准备url<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> <span class="token string">'https://www.apiopen.top/satinApi?type=1&amp;page=1'</span>
 
-    2.发送请求
-    &#39;&#39;&#39;
+    <span class="token number">2</span><span class="token punctuation">.</span>发送请求
+    <span class="token triple-quoted-string string">'''
     get(url,参数对应的字典)
     post(url,参数对应的字典)
     返回值是服务器返回的响应
-    &#39;&#39;&#39;
-    response = requests.get(url)
-    # requests.get(&#39;https://www.apiopen.top/satinApi&#39;,{&#39;type&#39;:1,&#39;page&#39;:1})
-    print(response)
+    '''</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># requests.get('https://www.apiopen.top/satinApi',{'type':1,'page':1})</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
 
-    3.通过响应获取服务器返回的数据
-    a.获取字符串类型的数据
-    print(response.text)
+    <span class="token number">3</span><span class="token punctuation">.</span>通过响应获取服务器返回的数据
+    a<span class="token punctuation">.</span>获取字符串类型的数据
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
 
-    b.获取json格式的数据
-    print(response.json())
-    print(response.json()[&#39;msg&#39;])
+    b<span class="token punctuation">.</span>获取json格式的数据
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'msg'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-    c.获取二进制格式的数据
-    print(response.content)
+    c<span class="token punctuation">.</span>获取二进制格式的数据
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
 
-    4.获取响应头（了解）
-    print(response.headers)
+    <span class="token number">4</span><span class="token punctuation">.</span>获取响应头（了解）
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
 
-![QQ截图20180912091833.png](https://upload-images.jianshu.io/upload_images/13692239-087f21275d20c02a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+!<span class="token punctuation">[</span>QQ截图<span class="token number">20180912091833.</span>png<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>upload<span class="token operator">-</span>images<span class="token punctuation">.</span>jianshu<span class="token punctuation">.</span>io<span class="token operator">/</span>upload_images<span class="token operator">/</span><span class="token number">13692239</span><span class="token operator">-</span><span class="token number">087f21275d20c02a.</span>png?imageMogr2<span class="token operator">/</span>auto<span class="token operator">-</span>orient<span class="token operator">/</span>strip<span class="token operator">%</span>7CimageView2<span class="token operator">/</span><span class="token number">2</span><span class="token operator">/</span>w<span class="token operator">/</span><span class="token number">1240</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>

@@ -11,8 +11,8 @@ import shutil
 
 
 # 提取文件名称
-ym = &amp;#39;C:/Users/Administrator/Desktop/源文件&amp;#39;
-path = &amp;">
+ym = &#39;C:/Users/Administrator/Desktop/源文件&#39;
+path = &#39;C:/Users">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -35,7 +35,7 @@ path = &amp;">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -411,44 +411,44 @@ path = &amp;">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="文件名称修改"><a href="#文件名称修改" class="headerlink" title="文件名称修改"></a>文件名称修改</h4><pre><code class="python">import os
-from re import split
-import shutil
+                <h4 id="文件名称修改"><a href="#文件名称修改" class="headerlink" title="文件名称修改"></a>文件名称修改</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">from</span> re <span class="token keyword">import</span> split
+<span class="token keyword">import</span> shutil
 
 
-# 提取文件名称
-ym = &#39;C:/Users/Administrator/Desktop/源文件&#39;
-path = &#39;C:/Users/Administrator/Desktop/20201225&#39;
+<span class="token comment" spellcheck="true"># 提取文件名称</span>
+ym <span class="token operator">=</span> <span class="token string">'C:/Users/Administrator/Desktop/源文件'</span>
+path <span class="token operator">=</span> <span class="token string">'C:/Users/Administrator/Desktop/20201225'</span>
 
-# 获取该目录下所有文件，存入列表中
-fileList_ym = os.listdir(ym)
-fileList_path = os.listdir(path)
-
-
-
-# # 创建新文件
-# for index in range(3):
-#     f4 = open(&#39;C:/Users/Administrator/Desktop/新建文件夹/&#39; + str(index) + &#39;.xlsx&#39;,&#39;w&#39;,encoding = &#39;utf-8&#39;)
-#     f4.close()
+<span class="token comment" spellcheck="true"># 获取该目录下所有文件，存入列表中</span>
+fileList_ym <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>ym<span class="token punctuation">)</span>
+fileList_path <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
 
 
 
-n = 0
-for i in fileList_path:
-    # 设置旧文件名（就是路径+文件名）
-    # ENBID = i.split(&#39;[&#39;, 2)[1].split(&#39;]&#39;,2)[0]
-    oldname = path + os.sep + fileList_path[n]  # os.sep添加系统分隔符
+<span class="token comment" spellcheck="true"># # 创建新文件</span>
+<span class="token comment" spellcheck="true"># for index in range(3):</span>
+<span class="token comment" spellcheck="true">#     f4 = open('C:/Users/Administrator/Desktop/新建文件夹/' + str(index) + '.xlsx','w',encoding = 'utf-8')</span>
+<span class="token comment" spellcheck="true">#     f4.close()</span>
 
 
 
-    # # 设置新文件名
-    # file = fileList[n].split(&#39;-&#39;, 2)
-    newname = path + os.sep + fileList_ym[n]
+n <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> fileList_path<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 设置旧文件名（就是路径+文件名）</span>
+    <span class="token comment" spellcheck="true"># ENBID = i.split('[', 2)[1].split(']',2)[0]</span>
+    oldname <span class="token operator">=</span> path <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span> fileList_path<span class="token punctuation">[</span>n<span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># os.sep添加系统分隔符</span>
 
 
-    os.rename(oldname, newname)  # 用os模块中的rename方法对文件改名
-    print(oldname, &#39;======&gt;&#39;, newname)
-    n += 1
+
+    <span class="token comment" spellcheck="true"># # 设置新文件名</span>
+    <span class="token comment" spellcheck="true"># file = fileList[n].split('-', 2)</span>
+    newname <span class="token operator">=</span> path <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span> fileList_ym<span class="token punctuation">[</span>n<span class="token punctuation">]</span>
+
+
+    os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>oldname<span class="token punctuation">,</span> newname<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 用os模块中的rename方法对文件改名</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>oldname<span class="token punctuation">,</span> <span class="token string">'======>'</span><span class="token punctuation">,</span> newname<span class="token punctuation">)</span>
+    n <span class="token operator">+=</span> <span class="token number">1</span>
 </code></pre>
 
             </div>

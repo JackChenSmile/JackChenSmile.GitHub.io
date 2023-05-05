@@ -31,7 +31,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -423,360 +423,360 @@
 <ul>
 <li>匹配任意字符<br>匹配一个字符串，只有一个字符并且是任意字符</li>
 </ul>
-<pre><code class="python">re_str = r&#39;.&#39;
-result = fullmatch(re_str,&#39;a&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'.'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>匹配一个字符串，有两个任意字符</li>
 </ul>
-<pre><code class="python">re_str = r&#39;..&#39;
-result = fullmatch(re_str,&#39;an&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'..'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'an'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>匹配一个字符串，前三位分别是abc，最后一位是任意字符</li>
 </ul>
-<pre><code class="python">re_str = r&#39;abc.&#39;
-result = fullmatch(re_str,&#39;abc@&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'abc.'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'abc@'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>\w匹配字母数字下划线<br>匹配一个前三分别是abc，最后一位是字母数字，下划线其中的一种的字符串</li>
 </ul>
-<pre><code class="python">re_str = r&#39;abc\w&#39;
-result = fullmatch(re_str,&#39;abc_&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'abc\w'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'abc_'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>\W匹配非字母数字下划线<br>匹配一个前三分别是abc，最后一位非字母数字，下划线的字符串</li>
 </ul>
-<pre><code class="python">re_str = r&#39;abc\W&#39;
-result = fullmatch(re_str,&#39;abc_&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'abc\W'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'abc_'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>\s匹配空白字符（空白指空格、回车、制表符等所有你能产生空白的字符）<br>匹配一个字符串，前三个是字母数字下划线中的任意一种，最后一位是一个空白字符</li>
 </ul>
-<pre><code class="python">re_str = r&#39;\w\w\w\s&#39;
-result = fullmatch(re_str,&#39;a1_\t&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'\w\w\w\s'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'a1_\t'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>\S匹配非空白字符（空白指空格、回车、制表符等所有你能产生空白的字符）<br>匹配一个字符串，前三个是字母数字下划线中的任意一种，最后一位非空白字符</li>
 </ul>
-<pre><code class="python">re_str = r&#39;\w\w\w\S&#39;
-result = fullmatch(re_str,&#39;a1_9&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'\w\w\w\S'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'a1_9'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>\d匹配一个数字字符<br>匹配一个字符串，前三位是数字字符，最后一位是任意字符</li>
 </ul>
-<pre><code class="python">re_str = r&#39;\d\d\d.&#39;
-result = fullmatch(re_str,&#39;151h&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'\d\d\d.'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'151h'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>\D匹配一个非数字字符<br>匹配一个字符串，前三位是非数字字符，最后一位是任意字符</li>
 </ul>
-<pre><code class="python">re_str = r&#39;\d\d\d.&#39;
-result = fullmatch(re_str,&#39;acd1&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'\d\d\d.'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'acd1'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>\b检测是否是单词边界（单词的开头 ，单词的结尾、单词和单词之间的标点，空格ect<br>注意：正则中遇到\b，匹配的时候先不管他，匹配成功后再回头看\b的位置是不是边界。<br>匹配一个字符串，前四位是when第五位是空白，空白后边是where，并且第四位n后面是单词边界</li>
 </ul>
-<pre><code class="python">re_str = r&#39;when\b\swhere&#39;
-result = fullmatch(re_str,&#39;when where&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'when\b\swhere'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'when where'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>^检测字符串是否是以给定的正则表达式,匹配字符串的开头</li>
 </ul>
-<pre><code class="python">re_str = r&#39;\d\d\d.&#39;
-result = fullmatch(re_str,&#39;151h&#39;)
-print(result)
-re_str = r&#39;^m\d\d&#39;
-result = fullmatch(re_str,&#39;m14&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'\d\d\d.'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'151h'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+re_str <span class="token operator">=</span> r<span class="token string">'^m\d\d'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'m14'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>$检测字符串是否以给定的正则表达式结束<br>匹配一个字符串a数字，并且a数字是字符串的结尾</li>
 </ul>
-<pre><code class="python">re_str = r&#39;a\d$&#39;
-result = fullmatch(re_str,&#39;a2&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'a\d$'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'a2'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 
-result = search(re_str,&#39;a9aaa8&#39;)
-print(result)
+result <span class="token operator">=</span> search<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'a9aaa8'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>\B检测非单词边界</li>
 </ul>
-<pre><code class="python">re_str = r&#39;any\Bwhere&#39;
-result = fullmatch(re_str,&#39;anywhere&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'any\Bwhere'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'anywhere'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>[]匹配中括号出现的任意字符<br>注意：一个中括号只匹配一个字符<br>匹配一个三位的字符串，第一位是a或者b或者或者+，后面两位是数字</li>
 </ul>
-<pre><code class="python">re_str = r&#39;[abc+]\d\d&#39;
-result = fullmatch(re_str,&#39;+12&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'[abc+]\d\d'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'+12'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>-在正则表达式中的中括号中的应用：如果将减号放到两个字符的中间代表的是谁到谁。如果想要表示’-‘符号本身，就放到开头或者末尾<br>[1-8]代表的是：12345678<br>[-18]或者[18-]代表的是’1’,’-‘,’8’<br>要求一个字符串中的第一位是1-8中的一个，后面两位是小写字母</li>
 </ul>
-<pre><code class="python">re_str = r&#39;[1-8][a-z][a-z]&#39;
-result = fullmatch(re_str,&#39;1bg&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'[1-8][a-z][a-z]'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'1bg'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 
-re_str = r&#39;[+!-][A-Z]&#39;
-result = fullmatch(re_str,&#39;+A&#39;,)
-result = fullmatch(re_str,&#39;-B&#39;,)
-result = fullmatch(re_str,&#39;!C&#39;,)
-print(result)
+re_str <span class="token operator">=</span> r<span class="token string">'[+!-][A-Z]'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'+A'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'-B'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'!C'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>[^字符集]匹配不在[]字符集中的任意一个字符<br>匹配一个四位的字符串，第一位不是大写字母也不是数字，后三位是abc</li>
 </ul>
-<pre><code class="python">re_str = r&#39;[^A-Z\d]abc&#39;
-result = fullmatch(re_str,&#39;+abc&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'[^A-Z\d]abc'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'+abc'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>*匹配0次或者多次</li>
 </ul>
-<pre><code class="python">re_str = r&#39;a*b&#39;   # &#39;b&#39;,&#39;ab&#39;,&#39;aab&#39;,.....以此类推
-result = fullmatch(re_str,&#39;aaaaaaaaaaab&#39;)
-re_str = r&#39;\d*&#39;
-re_str = r&#39;[abc]*&#39;   # &#39;a&#39;,&#39;abbccbaababa&#39;,&#39;&#39;
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'a*b'</span>   <span class="token comment" spellcheck="true"># 'b','ab','aab',.....以此类推</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'aaaaaaaaaaab'</span><span class="token punctuation">)</span>
+re_str <span class="token operator">=</span> r<span class="token string">'\d*'</span>
+re_str <span class="token operator">=</span> r<span class="token string">'[abc]*'</span>   <span class="token comment" spellcheck="true"># 'a','abbccbaababa',''</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>+匹配一次或者多次，与* 类似<br>判断一个字符串是否是无符号的正整数</li>
 </ul>
-<pre><code class="python">re_str = r&#39;[1-9]+\d*&#39;
-result = fullmatch(re_str,&#39;110&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'[1-9]+\d*'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'110'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>？ 匹配0次或者一次</li>
 </ul>
-<pre><code class="python">re_str = r&#39;@?\d+&#39;
-result = fullmatch(re_str,&#39;@16723&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'@?\d+'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'@16723'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>判断一个字符串是否是整数</li>
 </ul>
-<pre><code class="python">re_str = r&#39;[+-]?[0-9]\d*&#39;
-result = fullmatch(re_str,&#39;0&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'[+-]?[0-9]\d*'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'0'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>{N}匹配N次,就只有N位字符</li>
 </ul>
-<pre><code class="python">re_str = r&#39;\d{3}&#39;
-result = fullmatch(re_str,&#39;123&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'\d{3}'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'123'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>{N,} 至少匹配N次</li>
 </ul>
-<pre><code class="python">re_str = r&#39;\w{3,}&#39;
-result = fullmatch(re_str,&#39;1234sda__&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'\w{3,}'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'1234sda__'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>{,N} 最多匹配N次</li>
 </ul>
-<pre><code class="python">re_str = r&#39;a{,2}b&#39;
-result = fullmatch(re_str,&#39;b&#39;)
-result = fullmatch(re_str,&#39;ab&#39;)
-result = fullmatch(re_str,&#39;aab&#39;)
-result = fullmatch(re_str,&#39;aaab&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'a{,2}b'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'ab'</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'aab'</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'aaab'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>{M,N} 匹配至少M次，最多N次（M&lt;N）</li>
 </ul>
-<pre><code class="python">re_str = r&#39;a{1,2}b&#39;
-result = fullmatch(re_str,&#39;ab&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'a{1,2}b'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'ab'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <p>注意：次数相关的操作，都是约束的次数符号前的一个字符</p>
 <ul>
 <li>| 分支（相当于逻辑运算中的or）<br>匹配一个字符串是三个字母，或者是三个数字</li>
 </ul>
-<pre><code class="python">re_str = r&#39;[A-Za-z]{3}|\d{3}&#39;
-re_str1 = r&#39;\d{3}[A-Za-z]{3}|\d{3}&#39;
-# \d{3}[A-Za-z]当做分支的一个整体的条件，|分支的左边部分是一个整体，右边是一个整体
-result = fullmatch(re_str,&#39;abg&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'[A-Za-z]{3}|\d{3}'</span>
+re_str1 <span class="token operator">=</span> r<span class="token string">'\d{3}[A-Za-z]{3}|\d{3}'</span>
+<span class="token comment" spellcheck="true"># \d{3}[A-Za-z]当做分支的一个整体的条件，|分支的左边部分是一个整体，右边是一个整体</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'abg'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <p> 正则中分支有短路操作：如果使用|去连接多个条件，前面的条件已经符合，就不会使用后面的条件再去匹配了</p>
-<h5 id="练习：写一个正则表达式，能够匹配出字符串中所有的数字（包括整数和小数）"><a href="#练习：写一个正则表达式，能够匹配出字符串中所有的数字（包括整数和小数）" class="headerlink" title="练习：写一个正则表达式，能够匹配出字符串中所有的数字（包括整数和小数）"></a>练习：写一个正则表达式，能够匹配出字符串中所有的数字（包括整数和小数）</h5><pre><code class="python"># re_str = r&#39;[1-9]\d*[.]?\d*|0[.]\d+&#39;
-# result = fullmatch(re_str,&#39;0.12&#39;)
-# print(result)
-str1 = &#39;absx12.2ss2.03s40,60aas50,asd6.23,952asd&#39;
-re_str = r&#39;[\d.]+&#39;
-# &#39;\d+[.]\d+&#39; 与&#39;[1-9]\d*&#39;的位置不同，输出的结果也有可能不一样
-result = findall(re_str,str1)
-print(&#39;======================&#39;)
-print(result)
+<h5 id="练习：写一个正则表达式，能够匹配出字符串中所有的数字（包括整数和小数）"><a href="#练习：写一个正则表达式，能够匹配出字符串中所有的数字（包括整数和小数）" class="headerlink" title="练习：写一个正则表达式，能够匹配出字符串中所有的数字（包括整数和小数）"></a>练习：写一个正则表达式，能够匹配出字符串中所有的数字（包括整数和小数）</h5><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># re_str = r'[1-9]\d*[.]?\d*|0[.]\d+'</span>
+<span class="token comment" spellcheck="true"># result = fullmatch(re_str,'0.12')</span>
+<span class="token comment" spellcheck="true"># print(result)</span>
+str1 <span class="token operator">=</span> <span class="token string">'absx12.2ss2.03s40,60aas50,asd6.23,952asd'</span>
+re_str <span class="token operator">=</span> r<span class="token string">'[\d.]+'</span>
+<span class="token comment" spellcheck="true"># '\d+[.]\d+' 与'[1-9]\d*'的位置不同，输出的结果也有可能不一样</span>
+result <span class="token operator">=</span> findall<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span>str1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'======================'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>分组<br>通过加（）来对正则条件进行分组<br>两位数字两位字母出现三次</li>
 </ul>
-<pre><code class="python">re_str = r&#39;([a-z]{2}\d{2}){3}&#39;
-result = fullmatch(re_str,&#39;as12df52er63&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'([a-z]{2}\d{2}){3}'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'as12df52er63'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>重复<br>可以通过\数字来重复匹配前面的括号中匹配的结果.数字的值代表前面的第几个分组</li>
 </ul>
-<pre><code class="python">re_str = r&#39;(\d{2}[A-Z])=%\1\1&#39;
-result = fullmatch(re_str,&#39;23B=%23B23B&#39;)
-print(result)
-re_str = r&#39;(\d{2})\+(\w)\1{2}\2&#39;
-result = fullmatch(re_str,&#39;12+a1212a&#39;)
-print(&#39;++++++++++++++++++++&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'(\d{2}[A-Z])=%\1\1'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'23B=%23B23B'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+re_str <span class="token operator">=</span> r<span class="token string">'(\d{2})\+(\w)\1{2}\2'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'12+a1212a'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'++++++++++++++++++++'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>捕获<br>按照完整的正则表达式去匹配，只捕获（）中的内容，只有在findall中有效</li>
 </ul>
-<pre><code class="python">re_str = r&#39;a(\d{3})b&#39;
-result = fullmatch(re_str,&#39;a786b&#39;)
-print(result)
-print(findall(re_str,&#39;a786b&#39;))
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'a(\d{3})b'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'a786b'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>findall<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'a786b'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
-<pre><code class="python"># 用户名由字母数字下划线组成的6-20位
-user= input(&#39;用户名：&#39;)
-QQ = input(&#39;qq:&#39;)
-re_str = r&#39;\w{6,20}&#39;
-result = fullmatch(re_str,user)
-if result == None:
-    print(&#39;用户名不合格，请重新输入&#39;)
-else:
-    print(&#39;用户名：%s 合格&#39;% user)
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 用户名由字母数字下划线组成的6-20位</span>
+user<span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'用户名：'</span><span class="token punctuation">)</span>
+QQ <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'qq:'</span><span class="token punctuation">)</span>
+re_str <span class="token operator">=</span> r<span class="token string">'\w{6,20}'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span>user<span class="token punctuation">)</span>
+<span class="token keyword">if</span> result <span class="token operator">==</span> None<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'用户名不合格，请重新输入'</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'用户名：%s 合格'</span><span class="token operator">%</span> user<span class="token punctuation">)</span>
 
-# QQ由数字组成并且第一位不能是0
-re_str = r&#39;[1,9]+\d{4,11}&#39;
-result = fullmatch(re_str,QQ)
-if result == None:
-    print(&#39;用户名不合格，请重新输入&#39;)
-else:
-    print(&#39;用户名：%s 合格&#39;% QQ)
+<span class="token comment" spellcheck="true"># QQ由数字组成并且第一位不能是0</span>
+re_str <span class="token operator">=</span> r<span class="token string">'[1,9]+\d{4,11}'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span>QQ<span class="token punctuation">)</span>
+<span class="token keyword">if</span> result <span class="token operator">==</span> None<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'用户名不合格，请重新输入'</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'用户名：%s 合格'</span><span class="token operator">%</span> QQ<span class="token punctuation">)</span>
 </code></pre>
 <h4 id="正则中的转义"><a href="#正则中的转义" class="headerlink" title="正则中的转义"></a>正则中的转义</h4><p>1.正则表达式中的转义和字符串中的转义字符没有任何关系，<br>在Python中的字符串前加r阻止的是字符串的转义，不能阻止正则表达式的转义<br>2.在正则表达式中，可以通过在特殊意义的符号前加\来表示符号本身<br>+  .  *  \?   \  ( )   [ ]  \^  \$  |<br>注意：<br>a. - 号只有在中括号中的两个字符之间才有特殊的意义<br>b.如果特殊符号放到[]中，作为字符集的内容，那么除了- 号在两个字符之间以外，其他的都不需要转义<br>c.\ 不管在哪都需要转义，^放到 中括号的最前需要转义</p>
-<pre><code class="python">re_str = r&#39;a\+}&#39;
-result = fullmatch(re_str,&#39;a\+&#39;)
-print(result)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'a\+}'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'a\+'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 
-re_str = r&#39;\+a&#39;
-result = fullmatch(re_str,&#39;+a&#39;)
-print(result)
+re_str <span class="token operator">=</span> r<span class="token string">'\+a'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'+a'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 
-re_str = r&#39;\\w-a&#39;
-result = fullmatch(re_str,&#39;\w-a&#39;)
-print(result)
+re_str <span class="token operator">=</span> r<span class="token string">'\\w-a'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'\w-a'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 
-re_str = r&#39;\(\d{3}&#39;
-result = fullmatch(re_str,&#39;(234&#39;)
-print(result)
+re_str <span class="token operator">=</span> r<span class="token string">'\(\d{3}'</span>
+result <span class="token operator">=</span> fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'(234'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <h4 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h4><p>1.compile(正则表达式)：将正则表达式转换成正则表达式对象</p>
-<pre><code class="python">re_str = r&#39;\d+&#39;
-re_object = re.compile(re_str)
-print(re_object)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'\d+'</span>
+re_object <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>re_str<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re_object<span class="token punctuation">)</span>
 </code></pre>
-<pre><code class="python"># 不转成对象，调用相应的函数
-re.match(re_str,&#39;78hj&#39;)
-# 转换成对象，调用相应的方法
-re_object.fullmatch(&#39;78hj&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 不转成对象，调用相应的函数</span>
+re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'78hj'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 转换成对象，调用相应的方法</span>
+re_object<span class="token punctuation">.</span>fullmatch<span class="token punctuation">(</span><span class="token string">'78hj'</span><span class="token punctuation">)</span>
 </code></pre>
 <p>2.match(正则表达式，字符串)和fullmatch<br>判断字符串的开头是否能够和正则表达式匹配<br>fullmatch：判断整个字符串是否能够和正则表达式匹配</p>
-<pre><code class="python">re_str = r&#39;abc\d{3}&#39;
-result1 = re.match(re_str,&#39;abc234dafdad&#39;)
-result2 = re.fullmatch(re_str,&#39;abc234&#39;)
-print(result1)
-print(result2)
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'abc\d{3}'</span>
+result1 <span class="token operator">=</span> re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'abc234dafdad'</span><span class="token punctuation">)</span>
+result2 <span class="token operator">=</span> re<span class="token punctuation">.</span>fullmatch<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'abc234'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span>
 </code></pre>
-<pre><code class="python"># a.匹配范围,匹配结果字符的下标范围:（起始下标，结束下标）---- 结束下标取不到
-print(result2.span())
-# 获取起点
-print(result1.start())
-# 获取终点
-print(result1.end())
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># a.匹配范围,匹配结果字符的下标范围:（起始下标，结束下标）---- 结束下标取不到</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 获取起点</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 获取终点</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">.</span>end<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>注意：group参数，用来指定分组对应的相应的结果</p>
-<pre><code class="python">re_str = r&#39;(\d{3})\+([A-z]{3})&#39;
-match1 = re.match(re_str,&#39;123+abcgg&#39;)
-print(match1)
-print(match1.span())
-# 在匹配中，获取第一个分组的范围
-print(match1.span(1))
-# 在匹配中，获取第二个分组的范围
-print(match1.span(2))
+<pre class=" language-python"><code class="language-python">re_str <span class="token operator">=</span> r<span class="token string">'(\d{3})\+([A-z]{3})'</span>
+match1 <span class="token operator">=</span> re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span><span class="token string">'123+abcgg'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match1<span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 在匹配中，获取第一个分组的范围</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match1<span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 在匹配中，获取第二个分组的范围</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match1<span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-# 在匹配结果中，获取第二个分组的起始下标
-print(match1.start(2))
+<span class="token comment" spellcheck="true"># 在匹配结果中，获取第二个分组的起始下标</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-# b.获取匹配结果对应的字符串
-print(match1.group())
-print(match1.group(1))
+<span class="token comment" spellcheck="true"># b.获取匹配结果对应的字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match1<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match1<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-# c.获取被匹配的原字符串
-print(match1.string)
+<span class="token comment" spellcheck="true"># c.获取被匹配的原字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match1<span class="token punctuation">.</span>string<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>search（正则表达式，字符串）<br>在字符串中去查找第一个满足正则表达式的子串，如果找到就返回匹配对象，找不到返回None</li>
 </ul>
-<pre><code class="python">search1 = re.search(r&#39;\d+aa&#39;,&#39;he9aasda 78aadvsf world&#39;)
-print(search1)
-if search1:
-    print(search1.span())
+<pre class=" language-python"><code class="language-python">search1 <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>r<span class="token string">'\d+aa'</span><span class="token punctuation">,</span><span class="token string">'he9aasda 78aadvsf world'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>search1<span class="token punctuation">)</span>
+<span class="token keyword">if</span> search1<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>search1<span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>练习：使用search将一个字符串所有的数字字符串全部找到<br> ’工资10000元，年龄18岁，身高180，颜值100‘</p>
-<pre><code class="python">str1 = &#39;工资10000元，年龄18岁，身高180，颜值100&#39;
-re_str = r&#39;[1-9]\d*&#39;
-search1 = re.search(re_str,str1)
-while search1:
-    print(search1.group())
-    end = search1.end()
-    str1 = str1[end:]
-    search1 = re.search(re_str,str1)
+<pre class=" language-python"><code class="language-python">str1 <span class="token operator">=</span> <span class="token string">'工资10000元，年龄18岁，身高180，颜值100'</span>
+re_str <span class="token operator">=</span> r<span class="token string">'[1-9]\d*'</span>
+search1 <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span>str1<span class="token punctuation">)</span>
+<span class="token keyword">while</span> search1<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>search1<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    end <span class="token operator">=</span> search1<span class="token punctuation">.</span>end<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    str1 <span class="token operator">=</span> str1<span class="token punctuation">[</span>end<span class="token punctuation">:</span><span class="token punctuation">]</span>
+    search1 <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>re_str<span class="token punctuation">,</span>str1<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>split（正则表达式，字符串）<br>按满足正则表达式的子串去切割字符串</li>
 </ul>
-<pre><code class="python">str1 = &#39;床前明月光，疑是地上霜。举头望明月，低头思故乡！&#39;
-result = re.split(r&#39;[,。，！]&#39;,str1)
-result = re.split(r&#39;\W&#39;,str1)
-print(result)
+<pre class=" language-python"><code class="language-python">str1 <span class="token operator">=</span> <span class="token string">'床前明月光，疑是地上霜。举头望明月，低头思故乡！'</span>
+result <span class="token operator">=</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span>r<span class="token string">'[,。，！]'</span><span class="token punctuation">,</span>str1<span class="token punctuation">)</span>
+result <span class="token operator">=</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span>r<span class="token string">'\W'</span><span class="token punctuation">,</span>str1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <p>中文也在\w的范围内</p>
 <ul>
 <li>sub（正则表达式，替换字符串，被替换的字符串）</li>
 </ul>
-<pre><code class="python">word = &#39;你丫是傻叉吗？我草拟大爷的，Fuck you&#39;
-result2 = re.sub(r&#39;傻叉|草|大爷|Fuck|傻逼&#39;,&#39;*&#39;,word)
-print(result2)
+<pre class=" language-python"><code class="language-python">word <span class="token operator">=</span> <span class="token string">'你丫是傻叉吗？我草拟大爷的，Fuck you'</span>
+result2 <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>r<span class="token string">'傻叉|草|大爷|Fuck|傻逼'</span><span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">,</span>word<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>findall（正则表达式，字符串）</li>
 </ul>
-<pre><code class="python"># 获取字符串中所有满足正则表达式的子串
-# 返回值是列表
-# 注意：分组中的捕获效果在这儿有效
-result = re.findall(r&#39;\d([a-z])+&#39;,&#39;数据的恐怖残5and,125name按贷款&#39;)
-# 取的字符串是正则表达式最后一个字符
-result1 = re.findall(r&#39;\d([a-z]+)&#39;,&#39;数据的恐怖残5and,125name按贷款&#39;)
-# 取的字符串是正则表达式中的后一个分组
-print(result)
-print(result1)
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 获取字符串中所有满足正则表达式的子串</span>
+<span class="token comment" spellcheck="true"># 返回值是列表</span>
+<span class="token comment" spellcheck="true"># 注意：分组中的捕获效果在这儿有效</span>
+result <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'\d([a-z])+'</span><span class="token punctuation">,</span><span class="token string">'数据的恐怖残5and,125name按贷款'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 取的字符串是正则表达式最后一个字符</span>
+result1 <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'\d([a-z]+)'</span><span class="token punctuation">,</span><span class="token string">'数据的恐怖残5and,125name按贷款'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 取的字符串是正则表达式中的后一个分组</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
 </code></pre>
 
             </div>

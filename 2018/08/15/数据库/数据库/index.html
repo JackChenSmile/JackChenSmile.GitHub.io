@@ -32,7 +32,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -471,7 +471,7 @@
 <li>非空约束 —- not null</li>
 <li>默认值约束 —– default</li>
 <li>主键 ——- 表中能够唯一标识一条记录的列</li>
-<li>主键约束 —— primary key<pre><code class="mysql">create table tb_student
+<li>主键约束 —— primary key<pre class=" language-mysql"><code class="language-mysql">create table tb_student
 (
 stuid int not null,
 stuname varchar(4) not null,
@@ -482,126 +482,126 @@ primary key (stuid)
 );
 </code></pre>
 </li>
-<li>修改表<pre><code class="mysql">alter table tb_student add column tel char(11) not null;
+<li>修改表<pre class=" language-mysql"><code class="language-mysql">alter table tb_student add column tel char(11) not null;
 alter table tb_student drop column brith;
 alter table tb_student add score int not null;
 </code></pre>
 </li>
-<li>插入数据<br>– DMl (Data Manipulation Language)<pre><code class="mysql">insert into tb_student values 
-(1001, &#39;天明&#39;, 0, &#39;四川&#39;, &#39;17640141329&#39;, 90);
+<li>插入数据<br>– DMl (Data Manipulation Language)<pre class=" language-mysql"><code class="language-mysql">insert into tb_student values 
+(1001, '天明', 0, '四川', '17640141329', 90);
 insert into tb_student values 
-(1002, &#39;王大锤&#39;, 1, &#39;四川&#39;, &#39;17640141329&#39;,80);
+(1002, '王大锤', 1, '四川', '17640141329',80);
 insert into tb_student (stuid, tel, stuname, score, addr) values
-(1003, &#39;17640141329&#39;, &#39;盖聂&#39;, 100, &#39;四川成都&#39;);
+(1003, '17640141329', '盖聂', 100, '四川成都');
 insert into tb_student (stuid, tel, stuname, score) values
-(1004, &#39;17640141329&#39;, &#39;张三&#39;, 60),
-(1005, &#39;17640141329&#39;, &#39;豆丁&#39;, 85),
-(1006, &#39;17640141329&#39;, &#39;小明&#39;, 55);
+(1004, '17640141329', '张三', 60),
+(1005, '17640141329', '豆丁', 85),
+(1006, '17640141329', '小明', 55);
 </code></pre>
 </li>
-<li>删除数据<pre><code class="mysql">delete from tb_student where stuid=1006;
-delete from tb_student where stuname=&#39;天明&#39;;
+<li>删除数据<pre class=" language-mysql"><code class="language-mysql">delete from tb_student where stuid=1006;
+delete from tb_student where stuname='天明';
 delete from tb_student where stuid in (1004, 1006, 2000);
 </code></pre>
 </li>
 <li>截断数据（删除全表）<br><code>truncate table tb_student;</code></li>
-<li>更新数据<pre><code class="mysql">update tb_student set addr=&#39;四川绵阳&#39;, gender=0 
+<li>更新数据<pre class=" language-mysql"><code class="language-mysql">update tb_student set addr='四川绵阳', gender=0 
 where stuid in (1003, 1004);
 </code></pre>
 </li>
-<li>查询数据<pre><code class="mysql">select * from tb_student;
+<li>查询数据<pre class=" language-mysql"><code class="language-mysql">select * from tb_student;
 -- 投影
 select stuname, gender from tb_student;
 -- 别名（alias --- as）
 select stuname as 姓名,gender 性别 from tb_student;
-select stuname as 姓名,if(gender, &#39;男&#39;, &#39;女&#39;) as 性别 from tb_student;
-select stuname as 姓名,case gender when 1 then &#39;男&#39; else &#39;女&#39; end as 性别 from tb_student;
+select stuname as 姓名,if(gender, '男', '女') as 性别 from tb_student;
+select stuname as 姓名,case gender when 1 then '男' else '女' end as 性别 from tb_student;
 </code></pre>
 </li>
 <li>对列做运算<br>select concat(stuname, ‘: ‘, tel) as 信息 from tb_student;</li>
 <li>筛选<br>select * from tb_student where stuid=1001;</li>
 <li>不等号用&lt;&gt;表示<br><code>`</code>mysql<br>select <em> from tb_student where stuid&lt;&gt;1001;<br>select </em> from tb_student where stuid in (1001, 1003, 1005);<br>select stuid, stuname, gender from tb_student where stuid&gt;1002;<br>select stuid, stuname, gender from tb_student where stuid&lt;=1002;<br>select stuid, stuname, gender from tb_student where gender=0;<br>select <em> from tb_student where stuid between 1002 and 1004;<br>select </em> from tb_student where stuid&gt;1004 and gender=0;<br>select * from tb_student where stuid&gt;1004 or gender=0;</li>
 <li>注意：判断一个字段是否为null不能用=和&lt;&gt;<br>select <em> from tb_student where addr is null;<br>select </em> from tb_student where addr is not null;<br><code>`</code></li>
-<li>%是一个通配符表示零个或任意多个字符<pre><code class="mysql">select * from tb_student where stuname like &#39;张%&#39;;
-select * from tb_student where stuname like &#39;%三%&#39;;
+<li>%是一个通配符表示零个或任意多个字符<pre class=" language-mysql"><code class="language-mysql">select * from tb_student where stuname like '张%';
+select * from tb_student where stuname like '%三%';
 </code></pre>
 </li>
-<li>_也是一个通配符，它表示一个字符<pre><code class="mysql">select * from tb_student where stuname like &#39;张_&#39;;
-select * from tb_student where stuname like &#39;张__&#39;;
+<li>_也是一个通配符，它表示一个字符<pre class=" language-mysql"><code class="language-mysql">select * from tb_student where stuname like '张_';
+select * from tb_student where stuname like '张__';
 </code></pre>
 </li>
 <li>排序——order by </li>
-<li>默认升序（ascending）可以不写，降序descending必须写<pre><code class="mysql">select * from tb_student order by stuid desc;
+<li>默认升序（ascending）可以不写，降序descending必须写<pre class=" language-mysql"><code class="language-mysql">select * from tb_student order by stuid desc;
 select * from tb_student order by tel asc;
 select * from tb_student order by gender asc, stuid desc;
 select * from tb_student where gender=0 order by stuid desc;
 </code></pre>
 </li>
-<li>分页（限制）<pre><code class="mysql">select * from tb_student limit 3;
+<li>分页（限制）<pre class=" language-mysql"><code class="language-mysql">select * from tb_student limit 3;
 select * from tb_student limit 3 offset 3;
 </code></pre>
 </li>
 <li><p>跳过6条信息，查3条信息<br><code>select * from tb_student limit 3 offset 6;</code></p>
 </li>
 <li><p>跳过2条信息，查4条信息</p>
-<pre><code class="mysql">select * from tb_student limit 2,4;
+<pre class=" language-mysql"><code class="language-mysql">select * from tb_student limit 2,4;
 select * from tb_student where gender=1 order by stuid desc limit 0, 3;
 </code></pre>
 </li>
 </ul>
 <h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2><ul>
 <li><p>创建hellokitty用户并设置口令</p>
-<pre><code class="mysql">create user &#39;hellokitty&#39;@&#39;%&#39;identified by &#39;123123&#39;;
+<pre class=" language-mysql"><code class="language-mysql">create user 'hellokitty'@'%'identified by '123123';
 </code></pre>
 </li>
 <li><p>给hellokitty授权</p>
-<pre><code class="mysql">grant select on srs.* to &#39;hellokitty&#39;@&#39;%&#39;;
-grant insert, delete, update on srs.* to &#39;hellokitty&#39;@&#39;%&#39;;
-grant create, drop, alter on srs.* to &#39;hellokitty&#39;@&#39;%&#39;;
+<pre class=" language-mysql"><code class="language-mysql">grant select on srs.* to 'hellokitty'@'%';
+grant insert, delete, update on srs.* to 'hellokitty'@'%';
+grant create, drop, alter on srs.* to 'hellokitty'@'%';
 </code></pre>
 </li>
 <li><p>获得srs的所有权限，但不能授权给别人</p>
-<pre><code class="mysql">grant all privileges on srs.* to &#39;hellokitty&#39;@&#39;%&#39;;
-grant all privileges on *.* to &#39;hellokitty&#39;@&#39;%&#39;;
+<pre class=" language-mysql"><code class="language-mysql">grant all privileges on srs.* to 'hellokitty'@'%';
+grant all privileges on *.* to 'hellokitty'@'%';
 </code></pre>
 </li>
 <li><p>将hellokitty自己得到的权限再授权给别人</p>
-<pre><code class="mysql">grant all privileges on srs.* to &#39;hellokitty&#39;@&#39;%&#39; with grant option;
+<pre class=" language-mysql"><code class="language-mysql">grant all privileges on srs.* to 'hellokitty'@'%' with grant option;
 </code></pre>
 </li>
 <li><p>召回权限</p>
-<pre><code class="mysql">revoke all privileges on srs.* from &#39;hellokitty&#39;@&#39;%&#39;;
+<pre class=" language-mysql"><code class="language-mysql">revoke all privileges on srs.* from 'hellokitty'@'%';
 </code></pre>
 </li>
 </ul>
 <h5 id="事务控制"><a href="#事务控制" class="headerlink" title="事务控制"></a>事务控制</h5><ul>
 <li><p>创建hellokitty用户并设置口令</p>
-<pre><code class="mysql">create user &#39;hellokitty&#39;@&#39;%&#39;identified by &#39;123123&#39;;
+<pre class=" language-mysql"><code class="language-mysql">create user 'hellokitty'@'%'identified by '123123';
 </code></pre>
 </li>
 <li><p>给hellokitty授权</p>
-<pre><code class="mysql">grant select on srs.* to &#39;hellokitty&#39;@&#39;%&#39;;
-grant insert, delete, update on srs.* to &#39;hellokitty&#39;@&#39;%&#39;;
-grant create, drop, alter on srs.* to &#39;hellokitty&#39;@&#39;%&#39;;
+<pre class=" language-mysql"><code class="language-mysql">grant select on srs.* to 'hellokitty'@'%';
+grant insert, delete, update on srs.* to 'hellokitty'@'%';
+grant create, drop, alter on srs.* to 'hellokitty'@'%';
 </code></pre>
 </li>
 <li><p>获得srs的所有权限，但不能授权给别人</p>
-<pre><code class="mysql">grant all privileges on srs.* to &#39;hellokitty&#39;@&#39;%&#39;;
-grant all privileges on *.* to &#39;hellokitty&#39;@&#39;%&#39;;
+<pre class=" language-mysql"><code class="language-mysql">grant all privileges on srs.* to 'hellokitty'@'%';
+grant all privileges on *.* to 'hellokitty'@'%';
 </code></pre>
 </li>
 <li><p>将hellokitty自己得到的权限再授权给别人</p>
-<pre><code class="mysql">grant all privileges on srs.* to &#39;hellokitty&#39;@&#39;%&#39; with grant option;
+<pre class=" language-mysql"><code class="language-mysql">grant all privileges on srs.* to 'hellokitty'@'%' with grant option;
 </code></pre>
 </li>
 <li><p>召回权限</p>
-<pre><code class="mysql">revoke all privileges on srs.* from &#39;hellokitty&#39;@&#39;%&#39;;
+<pre class=" language-mysql"><code class="language-mysql">revoke all privileges on srs.* from 'hellokitty'@'%';
 </code></pre>
 </li>
 </ul>
 <h6 id="事务控制-1"><a href="#事务控制-1" class="headerlink" title="事务控制"></a>事务控制</h6><ul>
 <li><p>开启事务环境</p>
-<pre><code class="mysql">begin
+<pre class=" language-mysql"><code class="language-mysql">begin
 -- start transaction
 update tb_score set mark=mark-2 where sid=1001 and mark is not null;
 update tb_score set mark=mark+2 where sid=1002 and mark is not null;

@@ -31,7 +31,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -428,7 +428,7 @@
 <li><p>2.函数的分类：内置函数和自定义函数<br>内置函数：系统写好，可以直接使用的函数。例如：print函数、input函数、sum函数、len函数ect.<br>自定义函数：程序员自己去创建的函数</p>
 </li>
 <li><p>3.函数的声明（定义）<br>a.固定格式</p>
-<pre><code class="python">def 函数名（参数列表）：
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> 函数名（参数列表）：
     函数的说明文档
     函数体
 </code></pre>
@@ -524,87 +524,87 @@ def download(ID):
 </code></pre><ul>
 <li>1.返回值：函数的返回值就是return关键字后面的表达式的值。就是函数调用表达式的结果</li>
 <li><p>2.Python中所有的函数都有返回值，默认是None(没有return)<br>说明：<br>a.如果函数体中没有return，函数的返回值就是None<br>b.调用函数的语句就是函数调用表达式</p>
-<pre><code class="python">1.没有renturn
-——写一个函数，打印&#39;hello&#39;
-def say_hello():
-  print(&#39;hello&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token number">1</span><span class="token punctuation">.</span>没有renturn
+——写一个函数，打印<span class="token string">'hello'</span>
+<span class="token keyword">def</span> <span class="token function">say_hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
 
 声明一个变量re，来保存函数调用后的结果
 say_hello
-re = say_hello()
-print(re)
+re <span class="token operator">=</span> say_hello<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">)</span>
 </code></pre>
 <p>2.return关键字（return只能写在函数体中）<br>a.确定返回值<br>b.结束函数（函数中只要遇到return，函数就直接结束）<br>c.单独的return相当于return None</p>
 </li>
 </ul>
-<pre><code class="python">def func1(n):
-    print(n)
-    return  100      # return后面的函数体不执行了
-    print(&#39;=====&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">func1</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    <span class="token keyword">return</span>  <span class="token number">100</span>      <span class="token comment" spellcheck="true"># return后面的函数体不执行了</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'====='</span><span class="token punctuation">)</span>
 
-re = func1(10)
-print(re)
+re <span class="token operator">=</span> func1<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">)</span>
 
 —— 练习：下面的函数的返回值是多少
-def func2():
-    if False:
-        return 200
-print(func2())     # None
+<span class="token keyword">def</span> <span class="token function">func2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">200</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>func2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># None</span>
 </code></pre>
 <ul>
-<li>注意：看一个函数的返回值是多少，不是看函数中有没有return,而是看函数执行的过程中遇没遇到return。<br>遇到了return，就是return后面的结果，没遇到就是None<pre><code class="python">练习：写一个函数判断一个数是否是偶数，如果是返回True，否则返回False
-def number(x):
-  if x % 2 ==0:
-      return True
-  else:
-      return False
-  #   return bool(number %2 == 0)
-even = number(10)
-print(number(10))
-print(even)
+<li>注意：看一个函数的返回值是多少，不是看函数中有没有return,而是看函数执行的过程中遇没遇到return。<br>遇到了return，就是return后面的结果，没遇到就是None<pre class=" language-python"><code class="language-python">练习：写一个函数判断一个数是否是偶数，如果是返回<span class="token boolean">True</span>，否则返回<span class="token boolean">False</span>
+<span class="token keyword">def</span> <span class="token function">number</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">if</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token boolean">True</span>
+  <span class="token keyword">else</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token boolean">False</span>
+  <span class="token comment" spellcheck="true">#   return bool(number %2 == 0)</span>
+even <span class="token operator">=</span> number<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>number<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>even<span class="token punctuation">)</span>
 </code></pre>
 什么时候函数需要返回值？<br>——只要实现函数功能会产生新的数据，就通过返回值将新的数据返回，进行其他操作，而不是打印<br>——练习：写一个函数，统计一个列表中浮点数的个数</li>
 </ul>
-<pre><code class="python">def count_of_float(list1:list):
-    #  统计个数
-    count = 0
-    for item in list1:
-        #  判断每个元素是否是浮点数
-        if isinstance(item,float):
-            count += 1
-    return count
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">count_of_float</span><span class="token punctuation">(</span>list1<span class="token punctuation">:</span>list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#  统计个数</span>
+    count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> list1<span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#  判断每个元素是否是浮点数</span>
+        <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>item<span class="token punctuation">,</span>float<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            count <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> count
 
-count = count_of_float([10.0,1,2,0.5,0.1,])
-print(count)
-print(&#39;这个列表中浮点数的个数是%d&#39;% (count))
+count <span class="token operator">=</span> count_of_float<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">10.0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'这个列表中浮点数的个数是%d'</span><span class="token operator">%</span> <span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>——练习：将一个数字列表中所有的元素的值都变成原来的2倍</p>
-<pre><code class="python">def two_list(list2:list):
-    for index in range(len(list2)):
-        list2[index] *= 2
-    return list2
-list2 = [1,2,3,4,5]
-two_list(list2)
-print(list2)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">two_list</span><span class="token punctuation">(</span>list2<span class="token punctuation">:</span>list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> index <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>list2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        list2<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">*=</span> <span class="token number">2</span>
+    <span class="token keyword">return</span> list2
+list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
+two_list<span class="token punctuation">(</span>list2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list2<span class="token punctuation">)</span>
 
-result = two_list([11,22,33])
-print(result)
+result <span class="token operator">=</span> two_list<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
 <p>——练习：写一个函数，获取指定元素对应的下标</p>
-<pre><code class="python">def indexs(list3:list,item):
-    index_list = []
-    for index in range(len(list3)):
-        if list3[index] == item:
-            index_list.append(index)
-    return index_list
-indexs([1,1,2,3,4,5,6,1],1)
-all_index = indexs([1,1,2,3,4,5,6,1],1)
-print(all_index)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">indexs</span><span class="token punctuation">(</span>list3<span class="token punctuation">:</span>list<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    index_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> index <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>list3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> list3<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">==</span> item<span class="token punctuation">:</span>
+            index_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> index_list
+indexs<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+all_index <span class="token operator">=</span> indexs<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>all_index<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li><p>补充：判断一个值是否是指定类型</p>
-<pre><code class="python">isinstance（值，类型）
-print（isinstance(10,int)）
+<pre class=" language-python"><code class="language-python">isinstance（值，类型）
+<span class="token keyword">print</span>（isinstance<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span>int<span class="token punctuation">)</span>）
 </code></pre>
 </li>
 </ul>
@@ -616,27 +616,27 @@ print（isinstance(10,int)）
 <li>返回值：表达式，表达式的值就是返回值</li>
 </ul>
 <p>&emsp;3.调用<br>匿名函数的调用和普通函数一样<br>函数名（实参列表）</p>
-<h5 id="写一个匿名函数，计算两个数的和"><a href="#写一个匿名函数，计算两个数的和" class="headerlink" title="写一个匿名函数，计算两个数的和"></a>写一个匿名函数，计算两个数的和</h5><pre><code class="python"># 声明一个匿名函数
-my_sum = lambda x,y: x + y
-# 匿名函数
-result = my_sum(10,20)
-print(result)
+<h5 id="写一个匿名函数，计算两个数的和"><a href="#写一个匿名函数，计算两个数的和" class="headerlink" title="写一个匿名函数，计算两个数的和"></a>写一个匿名函数，计算两个数的和</h5><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 声明一个匿名函数</span>
+my_sum <span class="token operator">=</span> <span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span> x <span class="token operator">+</span> y
+<span class="token comment" spellcheck="true"># 匿名函数</span>
+result <span class="token operator">=</span> my_sum<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
-<h5 id="下面这个函数和my-sum-lambda-x-y-x-y等价的"><a href="#下面这个函数和my-sum-lambda-x-y-x-y等价的" class="headerlink" title="下面这个函数和my_sum = lambda x,y: x + y等价的"></a>下面这个函数和my_sum = lambda x,y: x + y等价的</h5><pre><code class="python">def my_sum(x,y):
-    result = x+ y
-print(result)
+<h5 id="下面这个函数和my-sum-lambda-x-y-x-y等价的"><a href="#下面这个函数和my-sum-lambda-x-y-x-y等价的" class="headerlink" title="下面这个函数和my_sum = lambda x,y: x + y等价的"></a>下面这个函数和my_sum = lambda x,y: x + y等价的</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">my_sum</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    result <span class="token operator">=</span> x<span class="token operator">+</span> y
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
-<h5 id="练习：写一个匿名函数，获取指定数字列表指定下标的值的1-2"><a href="#练习：写一个匿名函数，获取指定数字列表指定下标的值的1-2" class="headerlink" title="练习：写一个匿名函数，获取指定数字列表指定下标的值的1/2"></a>练习：写一个匿名函数，获取指定数字列表指定下标的值的1/2</h5><h6 id="匿名函数的参数可以设默认值"><a href="#匿名函数的参数可以设默认值" class="headerlink" title="匿名函数的参数可以设默认值"></a>匿名函数的参数可以设默认值</h6><pre><code class="python">figure = lambda list1,index1=0:list1[index1]/2
+<h5 id="练习：写一个匿名函数，获取指定数字列表指定下标的值的1-2"><a href="#练习：写一个匿名函数，获取指定数字列表指定下标的值的1-2" class="headerlink" title="练习：写一个匿名函数，获取指定数字列表指定下标的值的1/2"></a>练习：写一个匿名函数，获取指定数字列表指定下标的值的1/2</h5><h6 id="匿名函数的参数可以设默认值"><a href="#匿名函数的参数可以设默认值" class="headerlink" title="匿名函数的参数可以设默认值"></a>匿名函数的参数可以设默认值</h6><pre class=" language-python"><code class="language-python">figure <span class="token operator">=</span> <span class="token keyword">lambda</span> list1<span class="token punctuation">,</span>index1<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">:</span>list1<span class="token punctuation">[</span>index1<span class="token punctuation">]</span><span class="token operator">/</span><span class="token number">2</span>
 </code></pre>
-<h5 id="位置参数"><a href="#位置参数" class="headerlink" title="位置参数"></a>位置参数</h5><pre><code class="python">print(figure([1,2,3,4,5,6],3))
-print(figure([1,2,3,4,5,6]))
-print(figure(list1 = [1,2,3,4,5,6],index1=1))
-# result = list1[index]
+<h5 id="位置参数"><a href="#位置参数" class="headerlink" title="位置参数"></a>位置参数</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>figure<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>figure<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>figure<span class="token punctuation">(</span>list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index1<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># result = list1[index]</span>
 </code></pre>
-<h6 id="获取一个列表的所有元素的和和平均值"><a href="#获取一个列表的所有元素的和和平均值" class="headerlink" title="获取一个列表的所有元素的和和平均值"></a>获取一个列表的所有元素的和和平均值</h6><pre><code class="python">list_operation = lambda list2:(sum(list2),sum(list2)/len(list2))
+<h6 id="获取一个列表的所有元素的和和平均值"><a href="#获取一个列表的所有元素的和和平均值" class="headerlink" title="获取一个列表的所有元素的和和平均值"></a>获取一个列表的所有元素的和和平均值</h6><pre class=" language-python"><code class="language-python">list_operation <span class="token operator">=</span> <span class="token keyword">lambda</span> list2<span class="token punctuation">:</span><span class="token punctuation">(</span>sum<span class="token punctuation">(</span>list2<span class="token punctuation">)</span><span class="token punctuation">,</span>sum<span class="token punctuation">(</span>list2<span class="token punctuation">)</span><span class="token operator">/</span>len<span class="token punctuation">(</span>list2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-sum1,average = list_operation([1,2,3,4,5,6])
-print(sum1,average)
+sum1<span class="token punctuation">,</span>average <span class="token operator">=</span> list_operation<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sum1<span class="token punctuation">,</span>average<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>补充：Python中的函数可以有多个返回值，就是在return返回多个值，多个值之间用逗号隔开<br><code>`</code>python<br>def list_operation2(list2):<br>  return sum(list2),sum(list2)/len(list2)          # 最终是多个返回值放到一个元组中返回<br>print(list_operation([1,2,3,4,5,6]))</li>
@@ -667,12 +667,12 @@ func1(20,30)
 <li><p>3.全局变量和局部变量<br>a.全局变量：声明在函数和类的外面的变量都是全局变量<br>全局变量的作用域：从声明开始到文件结束（任何地方都可以使用）</p>
 </li>
 </ul>
-<pre><code class="python">a = 100       # 全局变量
-if a &gt; 10:
-    b = 20   #  全局变量
-# x 也是全局变量
-for x in range(10):
-    print(x)
+<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">100</span>       <span class="token comment" spellcheck="true"># 全局变量</span>
+<span class="token keyword">if</span> a <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">:</span>
+    b <span class="token operator">=</span> <span class="token number">20</span>   <span class="token comment" spellcheck="true">#  全局变量</span>
+<span class="token comment" spellcheck="true"># x 也是全局变量</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 </code></pre>
 <p>&emsp;b.局部变量：声明在函数中或者类中的变量就是局部变量<br>局部变量的作用域：从声明开始到函数结束或者是从声明开始到类结束</p>
 <ul>
@@ -722,22 +722,22 @@ def func1():
 </code></pre><ul>
 <li>3.怎么写递归函数<br>第一步：找临界值（找到让循环结束的值/找到能够确定函数结果的值）<br>第二步：假设函数的功能已经实现的前提下，找关系（找f(n)和f(n-1)/当次循环和上次循环的关系）<br>第三步：根据f(n)和f(n-1）的关系，来f(n-1)实现f(n)的效果</li>
 </ul>
-<pre><code class="python"># 1+2+3+4+...+100
-sum1 = 0
-for x in range(101):
-    sum1 += x
-print(sum1)
-# 用递归实现1+2+3+。。。+n
-def sum2(n):
-    # 1.找临界值（在临界值的位置一定要让函数结束）
-    if n == 1:
-        return 1
-    # 找关系f(n)和f(n-1)
-    # sum2(n):sum2(n-1)+n
-    # 3.使用f(n-1)实现f(n)的效果
-    return sum2(n-1) + n
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 1+2+3+4+...+100</span>
+sum1 <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">101</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sum1 <span class="token operator">+=</span> x
+<span class="token keyword">print</span><span class="token punctuation">(</span>sum1<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 用递归实现1+2+3+。。。+n</span>
+<span class="token keyword">def</span> <span class="token function">sum2</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 1.找临界值（在临界值的位置一定要让函数结束）</span>
+    <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">1</span>
+    <span class="token comment" spellcheck="true"># 找关系f(n)和f(n-1)</span>
+    <span class="token comment" spellcheck="true"># sum2(n):sum2(n-1)+n</span>
+    <span class="token comment" spellcheck="true"># 3.使用f(n-1)实现f(n)的效果</span>
+    <span class="token keyword">return</span> sum2<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token operator">+</span> n
 
-print(sum2(5))
+<span class="token keyword">print</span><span class="token punctuation">(</span>sum2<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>过程：</p>
 <pre><code>sum2(5) n = 5   return  sum2(4) + 5       0+1+2+3+4+5
@@ -778,264 +778,264 @@ star(5)
 <li>4.实际开发中，递归是能不用就不要用，递归消耗大量资源是循环的n倍<br>递归需要不断调用函数，开辟空间，消耗内存</li>
 </ul>
 <h4 id="九、模块和包的使用"><a href="#九、模块和包的使用" class="headerlink" title="九、模块和包的使用"></a>九、模块和包的使用</h4><p>封装：<br>1.函数：对实现某一特定功能的代码段的封装<br>2.模块：将多个变量、函数和类进行封装<br>模块：一个py文件就是一个模块</p>
-<pre><code class="python">def multiply(*numbers):
-    sum1 = 1
-    # 取出numbers中的每一个元素
-    for item in numbers:
-        sum1 *= item
-    return sum1
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token operator">*</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sum1 <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token comment" spellcheck="true"># 取出numbers中的每一个元素</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> numbers<span class="token punctuation">:</span>
+        sum1 <span class="token operator">*=</span> item
+    <span class="token keyword">return</span> sum1
 
-print(multiply(1,2,5))
+<span class="token keyword">print</span><span class="token punctuation">(</span>multiply<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>1.怎么使用其他模块中的内容<br>a.import 模块<br>b.from 模块 import 模块中的内容<br>可以直接使用模块中的内容<br>c.from 模块 import * —-&gt;将模块中的所有的内容都导入</p>
-<h5 id="my-list"><a href="#my-list" class="headerlink" title="my_list"></a>my_list</h5><pre><code class="python">empty = []
+<h5 id="my-list"><a href="#my-list" class="headerlink" title="my_list"></a>my_list</h5><pre class=" language-python"><code class="language-python">empty <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 
-def count(list1,item):
-    &#39;&#39;&#39;
+<span class="token keyword">def</span> <span class="token function">count</span><span class="token punctuation">(</span>list1<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
     统计指定列表中指定元素的个数
     :param list1: 指定的列表
     :param item: 指定元素
     :return: 个数
-    &#39;&#39;&#39;
-    count = 0
-    for x in list1:
-        if x == item:
-            count += 1
-    return count
+    '''</span>
+    count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> list1<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> x <span class="token operator">==</span> item<span class="token punctuation">:</span>
+            count <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> count
 </code></pre>
-<h5 id="my-model"><a href="#my-model" class="headerlink" title="my_model"></a>my_model</h5><pre><code class="python">a = 10
+<h5 id="my-model"><a href="#my-model" class="headerlink" title="my_model"></a>my_model</h5><pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">10</span>
 
-def func1():
-    print(&#39;good!&#39;)
+<span class="token keyword">def</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'good!'</span><span class="token punctuation">)</span>
 
-for x in range(10):
-    print(&#39;!!&#39;,a)
-# 将不希望被别的模块导入（执行）的代码放到模块的这个if语句中
-if __name__==&#39;__main__&#39;:
-    print(&#39;!!&#39;,a)
-    for x in range(10):
-        print(&#39;!!&#39;,x)
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'!!'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 将不希望被别的模块导入（执行）的代码放到模块的这个if语句中</span>
+<span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'!!'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'!!'</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span>
 
 </code></pre>
-<pre><code class="python">a.
-# # 导入系统模块
-# import math
-# print(math.pi)
-# #导入自定模块my_list
-# import my_list
-# print(my_list.empty)
-# number = my_list.count([1, 2, 3, 4, 1, 1, 5],1)
-# print(number)
-# b.
-from my_list import count
-print(count([23,12,42,52,1,5,2,1,12,12,12],12))
+<pre class=" language-python"><code class="language-python">a<span class="token punctuation">.</span>
+<span class="token comment" spellcheck="true"># # 导入系统模块</span>
+<span class="token comment" spellcheck="true"># import math</span>
+<span class="token comment" spellcheck="true"># print(math.pi)</span>
+<span class="token comment" spellcheck="true"># #导入自定模块my_list</span>
+<span class="token comment" spellcheck="true"># import my_list</span>
+<span class="token comment" spellcheck="true"># print(my_list.empty)</span>
+<span class="token comment" spellcheck="true"># number = my_list.count([1, 2, 3, 4, 1, 1, 5],1)</span>
+<span class="token comment" spellcheck="true"># print(number)</span>
+<span class="token comment" spellcheck="true"># b.</span>
+<span class="token keyword">from</span> my_list <span class="token keyword">import</span> count
+<span class="token keyword">print</span><span class="token punctuation">(</span>count<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">42</span><span class="token punctuation">,</span><span class="token number">52</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-# c.
-from math import *
-print(pi)
-print(sqrt(4))
+<span class="token comment" spellcheck="true"># c.</span>
+<span class="token keyword">from</span> math <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>pi<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sqrt<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 </code></pre>
 <p>2.重命名<br>import 模块 as 新名字<br>from 模块 import 内容 as 新名字</p>
-<pre><code class="python">import random as RAN
-print(RAN.randint(1,10))
-from datetime import date as Date,datetime as TIME
-print(Date.today())
-print(TIME.now())
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> random <span class="token keyword">as</span> RAN
+<span class="token keyword">print</span><span class="token punctuation">(</span>RAN<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> date <span class="token keyword">as</span> Date<span class="token punctuation">,</span>datetime <span class="token keyword">as</span> TIME
+<span class="token keyword">print</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span>today<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>TIME<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>&emsp;&emsp;每一个模块都有一个<strong>name</strong>属性，这个属性的默认就是当前模块的文件名。<br>&emsp;&emsp;当前模块正在被执行（直接在当前这个模块中点了run）的时候，<strong>name</strong>属性的值就是’<strong>main</strong>‘</p>
 <p>&emsp;&emsp;在一个模块中，将不希望被其他模块导入的代码写在if <strong>name</strong> ‘<strong>main</strong>‘中，希望被导入的放到这个if外面</p>
 <p>建议：函数的声明，类的声明一般写在if的外面，其他的写在if里面。（想要被外部使用的全局变量也可以写在外面）</p>
-<pre><code class="python">import my_model
-# from my_model import func1
-# print(func1())
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> my_model
+<span class="token comment" spellcheck="true"># from my_model import func1</span>
+<span class="token comment" spellcheck="true"># print(func1())</span>
 
 </code></pre>
 <h4 id="十、函数作为变量"><a href="#十、函数作为变量" class="headerlink" title="十、函数作为变量"></a>十、函数作为变量</h4><h6 id="1-在python中，函数就是一种特殊的类型，声明函数的时候，其实就是在声明类型是function的变量"><a href="#1-在python中，函数就是一种特殊的类型，声明函数的时候，其实就是在声明类型是function的变量" class="headerlink" title="1.在python中，函数就是一种特殊的类型，声明函数的时候，其实就是在声明类型是function的变量"></a>1.在python中，函数就是一种特殊的类型，声明函数的时候，其实就是在声明类型是function的变量</h6><p>变量能做的事情，函数都可以做</p>
-<pre><code class="python">if __name__ == &#39;__main__&#39;:
-    # 1.使用一个变量给另一个变量赋值
-    a = 10
-    b = a
-    # 声明一个函数func1(声明了一个变量func1，func1就是一个变量）
-    def func1():
-        print(&#39;hello python&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 1.使用一个变量给另一个变量赋值</span>
+    a <span class="token operator">=</span> <span class="token number">10</span>
+    b <span class="token operator">=</span> a
+    <span class="token comment" spellcheck="true"># 声明一个函数func1(声明了一个变量func1，func1就是一个变量）</span>
+    <span class="token keyword">def</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello python'</span><span class="token punctuation">)</span>
 
-    # c也是一个函数
-    c = func1
-    func1()
-    c()
+    <span class="token comment" spellcheck="true"># c也是一个函数</span>
+    c <span class="token operator">=</span> func1
+    func1<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    c<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h6 id="2-函数作为列表的元素"><a href="#2-函数作为列表的元素" class="headerlink" title="2.函数作为列表的元素"></a>2.函数作为列表的元素</h6><pre><code class="python">    list2 = []
-    list3 = []
-    for x in range (10):
-        def func2(y):
-            print(x + y)
-        list2.append(func2)
-        list3.append(func2(x))
+<h6 id="2-函数作为列表的元素"><a href="#2-函数作为列表的元素" class="headerlink" title="2.函数作为列表的元素"></a>2.函数作为列表的元素</h6><pre class=" language-python"><code class="language-python">    list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    list3 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">func2</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>x <span class="token operator">+</span> y<span class="token punctuation">)</span>
+        list2<span class="token punctuation">.</span>append<span class="token punctuation">(</span>func2<span class="token punctuation">)</span>
+        list3<span class="token punctuation">.</span>append<span class="token punctuation">(</span>func2<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    # list2中每个元素的值都是函数
-    print(list2)
-    print(list3)
-    # list2[0]就是一个函数
-    list2[0]
-    func = list2[0]
-    print(func(100))
+    <span class="token comment" spellcheck="true"># list2中每个元素的值都是函数</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>list2<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>list3<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># list2[0]就是一个函数</span>
+    list2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    func <span class="token operator">=</span> list2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>func<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    list2[1](10)
+    list2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
 
-    # 直接将函数作为列表的元素
-    funcs = [func1]
-    funcs[0]()
+    <span class="token comment" spellcheck="true"># 直接将函数作为列表的元素</span>
+    funcs <span class="token operator">=</span> <span class="token punctuation">[</span>func1<span class="token punctuation">]</span>
+    funcs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h6 id="3-将函数作为字典的值"><a href="#3-将函数作为字典的值" class="headerlink" title="3.将函数作为字典的值"></a>3.将函数作为字典的值</h6><pre><code class="python">    def sub(*nums):
-        &#39;&#39;&#39;
+<h6 id="3-将函数作为字典的值"><a href="#3-将函数作为字典的值" class="headerlink" title="3.将函数作为字典的值"></a>3.将函数作为字典的值</h6><pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">sub</span><span class="token punctuation">(</span><span class="token operator">*</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
         累计求差
         :param nums: 求差的数
         :return: 差
-        &#39;&#39;&#39;
-        if not nums:
-            return 0
-        # 默认是第一个数
-        sum1 = nums[0]
-        for item in nums[1:]:
-            sum1 -= item
-        return sum1
-    operation ={&#39;+&#39;:lambda x,y:x+y,&#39;-&#39;:lambda x,y:x-y,&#39;*&#39;:lambda x,y:x*y}
-    result = operation[&#39;*&#39;](10,20)
-    print(result)
+        '''</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> nums<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token number">0</span>
+        <span class="token comment" spellcheck="true"># 默认是第一个数</span>
+        sum1 <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> nums<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            sum1 <span class="token operator">-=</span> item
+        <span class="token keyword">return</span> sum1
+    operation <span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'+'</span><span class="token punctuation">:</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">+</span>y<span class="token punctuation">,</span><span class="token string">'-'</span><span class="token punctuation">:</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">-</span>y<span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">:</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">*</span>y<span class="token punctuation">}</span>
+    result <span class="token operator">=</span> operation<span class="token punctuation">[</span><span class="token string">'*'</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
 </code></pre>
-<h6 id="4-函数作为函数的参数（回调函数）"><a href="#4-函数作为函数的参数（回调函数）" class="headerlink" title="4.函数作为函数的参数（回调函数）"></a>4.函数作为函数的参数（回调函数）</h6><pre><code class="python">    def clean_kitchen(time):
-        print(&#39;在%s,打扫厨房&#39; % time)
-        print(&#39;收费200元&#39;)
-    def clean_floor(time):
-        print(&#39;在%s,清洁地板&#39; % time)
-        print(&#39;收费100元&#39;)
-    # 在指定的时间，叫指定的服务
-    def call_service(time,service):
-        service(time)
-    # 将函数作为参数，传给其他函数使用
-    call_service(&#39;上午10点&#39;,clean_kitchen)
-    print(&#39;===============&#39;)
-    # 函数作为函数的返回值
-    def operation(operator:str):
-        if operator == &#39;+&#39;:
-            def my_sum (*nums):
-                sum1 = 0
-                for num in nums:
-                    sum += num
-            # 将求和的函数返回
-            return my_sum()
-        elif operator == &#39;*&#39;:
-            def my_sum(*nums):
-                sum1 = 1
-                for num in nums:
-                    sum1 *= num
-                print(sum1)
-            # 将求乘的函数返回
-            return my_sum
-    # operation(&#39;*&#39;)的结果是函数
-    operation(&#39;*&#39;)(1,2,3)
+<h6 id="4-函数作为函数的参数（回调函数）"><a href="#4-函数作为函数的参数（回调函数）" class="headerlink" title="4.函数作为函数的参数（回调函数）"></a>4.函数作为函数的参数（回调函数）</h6><pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">clean_kitchen</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'在%s,打扫厨房'</span> <span class="token operator">%</span> time<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'收费200元'</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">clean_floor</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'在%s,清洁地板'</span> <span class="token operator">%</span> time<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'收费100元'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 在指定的时间，叫指定的服务</span>
+    <span class="token keyword">def</span> <span class="token function">call_service</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span>service<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        service<span class="token punctuation">(</span>time<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 将函数作为参数，传给其他函数使用</span>
+    call_service<span class="token punctuation">(</span><span class="token string">'上午10点'</span><span class="token punctuation">,</span>clean_kitchen<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'==============='</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 函数作为函数的返回值</span>
+    <span class="token keyword">def</span> <span class="token function">operation</span><span class="token punctuation">(</span>operator<span class="token punctuation">:</span>str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> operator <span class="token operator">==</span> <span class="token string">'+'</span><span class="token punctuation">:</span>
+            <span class="token keyword">def</span> my_sum <span class="token punctuation">(</span><span class="token operator">*</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                sum1 <span class="token operator">=</span> <span class="token number">0</span>
+                <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+                    sum <span class="token operator">+=</span> num
+            <span class="token comment" spellcheck="true"># 将求和的函数返回</span>
+            <span class="token keyword">return</span> my_sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> operator <span class="token operator">==</span> <span class="token string">'*'</span><span class="token punctuation">:</span>
+            <span class="token keyword">def</span> <span class="token function">my_sum</span><span class="token punctuation">(</span><span class="token operator">*</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                sum1 <span class="token operator">=</span> <span class="token number">1</span>
+                <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+                    sum1 <span class="token operator">*=</span> num
+                <span class="token keyword">print</span><span class="token punctuation">(</span>sum1<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 将求乘的函数返回</span>
+            <span class="token keyword">return</span> my_sum
+    <span class="token comment" spellcheck="true"># operation('*')的结果是函数</span>
+    operation<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="十一、生成器和生成式"><a href="#十一、生成器和生成式" class="headerlink" title="十一、生成器和生成式"></a>十一、生成器和生成式</h4><p>可以把迭代器看成一种容器，类似列表。生成器就是来生成迭代器</p>
 <h6 id="1-生成式—–产生一个迭代器的表达方式"><a href="#1-生成式—–产生一个迭代器的表达方式" class="headerlink" title="1.生成式—–产生一个迭代器的表达方式"></a>1.生成式—–产生一个迭代器的表达方式</h6><p>a.是生成器，能够保存生成0-9中所有数字的算法</p>
-<pre><code class="python">a = (x for x in range (10))
-    print(a,type(a))
-    a = (x*2 for x in range(10))
-    a = (char for char in &#39;a1b0cd1&#39; if &#39;0&#39; &lt;= char &lt;= &#39;9&#39;)
+<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token punctuation">(</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>type<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    a <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">*</span><span class="token number">2</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    a <span class="token operator">=</span> <span class="token punctuation">(</span>char <span class="token keyword">for</span> char <span class="token keyword">in</span> <span class="token string">'a1b0cd1'</span> <span class="token keyword">if</span> <span class="token string">'0'</span> <span class="token operator">&lt;=</span> char <span class="token operator">&lt;=</span> <span class="token string">'9'</span><span class="token punctuation">)</span>
 </code></pre>
-<h6 id="2-生成器和迭代器都是通过next来获取里面的数据"><a href="#2-生成器和迭代器都是通过next来获取里面的数据" class="headerlink" title="2.生成器和迭代器都是通过next来获取里面的数据"></a>2.生成器和迭代器都是通过next来获取里面的数据</h6><pre><code class="python">    print(next(a))
-    print(next(a))
-    print(next(a))
+<h6 id="2-生成器和迭代器都是通过next来获取里面的数据"><a href="#2-生成器和迭代器都是通过next来获取里面的数据" class="headerlink" title="2.生成器和迭代器都是通过next来获取里面的数据"></a>2.生成器和迭代器都是通过next来获取里面的数据</h6><pre class=" language-python"><code class="language-python">    <span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h6 id="3-将生成器转换成列表"><a href="#3-将生成器转换成列表" class="headerlink" title="3.将生成器转换成列表"></a>3.将生成器转换成列表</h6><p>通过将生成式产生的迭代器转换成了一个列表</p>
-<pre><code class="python">list1 = [x for x in range(10)]
-    print(list1)
+<pre class=" language-python"><code class="language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span>
 </code></pre>
 <h6 id="4-将生成器转换成字典"><a href="#4-将生成器转换成字典" class="headerlink" title="4.将生成器转换成字典"></a>4.将生成器转换成字典</h6><p>注意：容器类型的元素是元组，并且元素中有且只有2个元素，才能转换成字典</p>
-<pre><code class="python">dict1 =dict((x,x*2) for x in range(10))
-    print(dict1)
+<pre class=" language-python"><code class="language-python">dict1 <span class="token operator">=</span>dict<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>x<span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>dict1<span class="token punctuation">)</span>
 </code></pre>
 <ul>
-<li>用一句代码转换一个字典中的key和value的值.{‘a’;1,’b’;2}<pre><code class="python">方法一：
-  dict2 = dict((value,key) for key,value in {&#39;a&#39;:1,&#39;b&#39;:2}.items())
-  print(dict2)
+<li>用一句代码转换一个字典中的key和value的值.{‘a’;1,’b’;2}<pre class=" language-python"><code class="language-python">方法一：
+  dict2 <span class="token operator">=</span> dict<span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span>key<span class="token punctuation">)</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span>value <span class="token keyword">in</span> <span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>dict2<span class="token punctuation">)</span>
 方法二：
-  old = {&#39;a&#39;:1,&#39;b&#39;:2}
-  dict3 = dict((old[key],key) for key in old )
-  print(dict3)
+  old <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">}</span>
+  dict3 <span class="token operator">=</span> dict<span class="token punctuation">(</span><span class="token punctuation">(</span>old<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span> <span class="token keyword">for</span> key <span class="token keyword">in</span> old <span class="token punctuation">)</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>dict3<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="十二、生成器"><a href="#十二、生成器" class="headerlink" title="十二、生成器"></a>十二、生成器</h4><pre><code class="python">def func1():
-      for x in range(10):
-          return x
+<h4 id="十二、生成器"><a href="#十二、生成器" class="headerlink" title="十二、生成器"></a>十二、生成器</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+      <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+          <span class="token keyword">return</span> x
 </code></pre>
-<pre><code class="python">结果：
-0 &lt;class &#39;int&#39;&gt; &lt; class &#39;function&#39; &gt;
-  # print(func1(),type(func1()),type(func1))
+<pre class=" language-python"><code class="language-python">结果：
+<span class="token number">0</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">></span> <span class="token operator">&lt;</span> <span class="token keyword">class</span> <span class="token string">'function'</span> <span class="token operator">></span>
+  <span class="token comment" spellcheck="true"># print(func1(),type(func1()),type(func1))</span>
 </code></pre>
 </li>
 <li><p>1.yield<br>只要函数中有yield关键字，那么这个函数就会变成一个生成器</p>
 <ul>
 <li>a.有yield的函数，在调用函数的时候不再是获取返回值，<br> 而是产生一个生成器对象，生成器对象中保留的是函数体</li>
 <li><p>b.当通过next获取生成器中数据的时候，才会去执行函数体，执行到yield为止，并且将yield后面的结果作为生成的数据返回。同事记录结束的 位置，下次再调用next的时候，从上次结束的位置，继续往后执行</p>
-<pre><code class="python">def func2():
-  for x in range(10):
-      print(&#39;asd&#39;)
-      yield x
-      print(&#39;aa&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">func2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'asd'</span><span class="token punctuation">)</span>
+      <span class="token keyword">yield</span> x
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'aa'</span><span class="token punctuation">)</span>
 
-# print(func2(), type(func2()), type(func2))
-# 注意：函数中只要有yield，不管yield会不会执行到，函数的结果都是一个生成器
-# 这儿的func2（）是一个生成器
-# gen = func2()
-# print(next(gen))
-# print(next(gen))
-# print(next(gen))
+<span class="token comment" spellcheck="true"># print(func2(), type(func2()), type(func2))</span>
+<span class="token comment" spellcheck="true"># 注意：函数中只要有yield，不管yield会不会执行到，函数的结果都是一个生成器</span>
+<span class="token comment" spellcheck="true"># 这儿的func2（）是一个生成器</span>
+<span class="token comment" spellcheck="true"># gen = func2()</span>
+<span class="token comment" spellcheck="true"># print(next(gen))</span>
+<span class="token comment" spellcheck="true"># print(next(gen))</span>
+<span class="token comment" spellcheck="true"># print(next(gen))</span>
 </code></pre>
 <p>写一个生成器，可以无限产生斐波那契数列</p>
-<pre><code class="python">def list3():
-  yield 1
-  yield 1
-  x = 1
-  y = 1
-  while True:
-      yield x + y
-      x,y = y , x +y
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">list3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">yield</span> <span class="token number">1</span>
+  <span class="token keyword">yield</span> <span class="token number">1</span>
+  x <span class="token operator">=</span> <span class="token number">1</span>
+  y <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+      <span class="token keyword">yield</span> x <span class="token operator">+</span> y
+      x<span class="token punctuation">,</span>y <span class="token operator">=</span> y <span class="token punctuation">,</span> x <span class="token operator">+</span>y
 
-gen = list3()
-print(next(gen))
-print(next(gen))
-print(next(gen))
-print(next(gen))
-print(next(gen))
-print(next(gen))
-print(&#39;===============&#39;)
+gen <span class="token operator">=</span> list3<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>gen<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>gen<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>gen<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>gen<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>gen<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>gen<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'==============='</span><span class="token punctuation">)</span>
 </code></pre>
 <p>写一个生成器，可以产生一个等差数列</p>
-<pre><code class="python">def list4():
-  yield 1
-  x = 1
-  y = 2
-  while True:
-      yield x + y
-      x,y = x + y,y
-Cha = list4()
-print(next(Cha))
-print(next(Cha))
-print(next(Cha))
-print(next(Cha))
-print(next(Cha))
-print(next(Cha))
-print(next(Cha))
-print(&#39;===============&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">list4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">yield</span> <span class="token number">1</span>
+  x <span class="token operator">=</span> <span class="token number">1</span>
+  y <span class="token operator">=</span> <span class="token number">2</span>
+  <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+      <span class="token keyword">yield</span> x <span class="token operator">+</span> y
+      x<span class="token punctuation">,</span>y <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">,</span>y
+Cha <span class="token operator">=</span> list4<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>Cha<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>Cha<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>Cha<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>Cha<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>Cha<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>Cha<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>Cha<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'==============='</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
 </ul>
 </li>
-<li>2.生成器和生成式产生的对象就是迭代器<br>将列表转换成迭代器（iter）<pre><code class="python">iter1 = iter([1,2,3,4])
-  print(iter1)
-  print(next(iter1))
-  for item in iter1:
-      print(item)
+<li>2.生成器和生成式产生的对象就是迭代器<br>将列表转换成迭代器（iter）<pre class=" language-python"><code class="language-python">iter1 <span class="token operator">=</span> iter<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>iter1<span class="token punctuation">)</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>next<span class="token punctuation">(</span>iter1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token keyword">for</span> item <span class="token keyword">in</span> iter1<span class="token punctuation">:</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
 </code></pre>
 </li>
 </ul>

@@ -30,7 +30,7 @@ from selenium.webdriver.common.by">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -419,88 +419,88 @@ from selenium.webdriver.common.by">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code class="python">from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver import ActionChains
+                <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>common<span class="token punctuation">.</span>exceptions <span class="token keyword">import</span> TimeoutException
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support<span class="token punctuation">.</span>ui <span class="token keyword">import</span> WebDriverWait
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support <span class="token keyword">import</span> expected_conditions <span class="token keyword">as</span> EC
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver <span class="token keyword">import</span> ActionChains
 
-def f1(browser):
-    # 访问页面
-    browser.get(&#39;https://www.mkv99.com/vod-detail-id-9462.html&#39;)
-    # # 获取渲染后的页面内容
-    # print(browser.page_source)
-    # # 获取当前网址
-    # print(browser.current_url)
-    # # 获取浏览器cookie
-    # print(browser.get_cookies())
+<span class="token keyword">def</span> <span class="token function">f1</span><span class="token punctuation">(</span>browser<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 访问页面</span>
+    browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.mkv99.com/vod-detail-id-9462.html'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># # 获取渲染后的页面内容</span>
+    <span class="token comment" spellcheck="true"># print(browser.page_source)</span>
+    <span class="token comment" spellcheck="true"># # 获取当前网址</span>
+    <span class="token comment" spellcheck="true"># print(browser.current_url)</span>
+    <span class="token comment" spellcheck="true"># # 获取浏览器cookie</span>
+    <span class="token comment" spellcheck="true"># print(browser.get_cookies())</span>
 
-    # # 根据id获取单个节点
-    input1 = browser.find_element_by_id(&#39;1thUrlid第01集&#39;)
-    print(input1)
-    # # # 获取节点属性
-    # print(input1.get_attribute(&#39;href&#39;))
+    <span class="token comment" spellcheck="true"># # 根据id获取单个节点</span>
+    input1 <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'1thUrlid第01集'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>input1<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># # # 获取节点属性</span>
+    <span class="token comment" spellcheck="true"># print(input1.get_attribute('href'))</span>
 
-    # # 用css选择器获取单个节点
-    # input_list = browser.find_elements_by_css_selector(&#39;.dwon2&#39;)
-    # for item in input_list:
-    #     print(item.get_attribute(&#39;href&#39;))
-    # print(input2.get_attribute(&#39;href&#39;))
-    # # # 获取节点的坐标
-    print(input1.location)
-    # # # 获取节点的宽高
-    print(input1.size)
+    <span class="token comment" spellcheck="true"># # 用css选择器获取单个节点</span>
+    <span class="token comment" spellcheck="true"># input_list = browser.find_elements_by_css_selector('.dwon2')</span>
+    <span class="token comment" spellcheck="true"># for item in input_list:</span>
+    <span class="token comment" spellcheck="true">#     print(item.get_attribute('href'))</span>
+    <span class="token comment" spellcheck="true"># print(input2.get_attribute('href'))</span>
+    <span class="token comment" spellcheck="true"># # # 获取节点的坐标</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>input1<span class="token punctuation">.</span>location<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># # # 获取节点的宽高</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>input1<span class="token punctuation">.</span>size<span class="token punctuation">)</span>
 
-    # # 用xpath方法获取单个节点
-    # input3 = browser.find_element_by_xpath(&#39;//*[@class=&quot;dwon2&quot;]&#39;)
-    # print(input3.get_attribute(&#39;id&#39;))
+    <span class="token comment" spellcheck="true"># # 用xpath方法获取单个节点</span>
+    <span class="token comment" spellcheck="true"># input3 = browser.find_element_by_xpath('//*[@class="dwon2"]')</span>
+    <span class="token comment" spellcheck="true"># print(input3.get_attribute('id'))</span>
 
-    # # 根据name获取单个节点
-    # input4 = browser.find_element_by_name(&#39;CopyAddr1&#39;)
-    # print(input4.tag_name)
+    <span class="token comment" spellcheck="true"># # 根据name获取单个节点</span>
+    <span class="token comment" spellcheck="true"># input4 = browser.find_element_by_name('CopyAddr1')</span>
+    <span class="token comment" spellcheck="true"># print(input4.tag_name)</span>
 
-    # # 根据链接文字获取单个节点
-    # input5 = browser.find_element_by_link_text(&#39;今日更新&#39;)
-    # input6 = browser.find_element_by_partial_link_text(&#39;教程&#39;)
-    # # 获取节点文本值
-    # print(input5.text)
-    # print(input6.text)
+    <span class="token comment" spellcheck="true"># # 根据链接文字获取单个节点</span>
+    <span class="token comment" spellcheck="true"># input5 = browser.find_element_by_link_text('今日更新')</span>
+    <span class="token comment" spellcheck="true"># input6 = browser.find_element_by_partial_link_text('教程')</span>
+    <span class="token comment" spellcheck="true"># # 获取节点文本值</span>
+    <span class="token comment" spellcheck="true"># print(input5.text)</span>
+    <span class="token comment" spellcheck="true"># print(input6.text)</span>
 
-def f2(browser):
-    browser.get(&#39;http://www.runoob.com/try/try.php?filename=jqueryui-api-droppable&#39;)
-    # 切换爬虫到指定iframe（里面是嵌套的一个新网页）
-    browser.switch_to.frame(&#39;iframeResult&#39;)    
-    source = browser.find_element_by_css_selector(&#39;#draggable&#39;)
-    target = browser.find_element_by_css_selector(&#39;#droppable&#39;)
-    # 动作链
-    actions = ActionChains(browser)
-    # 将选定的源移动到目标的位置
-    actions.drag_and_drop(source, target)
-    actions.perform()
+<span class="token keyword">def</span> <span class="token function">f2</span><span class="token punctuation">(</span>browser<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.runoob.com/try/try.php?filename=jqueryui-api-droppable'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 切换爬虫到指定iframe（里面是嵌套的一个新网页）</span>
+    browser<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span><span class="token string">'iframeResult'</span><span class="token punctuation">)</span>    
+    source <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">'#draggable'</span><span class="token punctuation">)</span>
+    target <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">'#droppable'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 动作链</span>
+    actions <span class="token operator">=</span> ActionChains<span class="token punctuation">(</span>browser<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 将选定的源移动到目标的位置</span>
+    actions<span class="token punctuation">.</span>drag_and_drop<span class="token punctuation">(</span>source<span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+    actions<span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-def main():
-    # 使用chrome浏览器
-    browser = webdriver.Chrome()
-    # 使用Firefox浏览器
-    # browser = webdriver.Firefox()
-    # 使用Edge浏览器
-    # browser = webdriver.Edge()
-    # 使用Phantom浏览器
-    # PhatomJS无头浏览器
-    # browser = webdriver.PhatomJS()
-    # 使用Safari浏览器
-    # browser = webdriver.Safari()
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 使用chrome浏览器</span>
+    browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 使用Firefox浏览器</span>
+    <span class="token comment" spellcheck="true"># browser = webdriver.Firefox()</span>
+    <span class="token comment" spellcheck="true"># 使用Edge浏览器</span>
+    <span class="token comment" spellcheck="true"># browser = webdriver.Edge()</span>
+    <span class="token comment" spellcheck="true"># 使用Phantom浏览器</span>
+    <span class="token comment" spellcheck="true"># PhatomJS无头浏览器</span>
+    <span class="token comment" spellcheck="true"># browser = webdriver.PhatomJS()</span>
+    <span class="token comment" spellcheck="true"># 使用Safari浏览器</span>
+    <span class="token comment" spellcheck="true"># browser = webdriver.Safari()</span>
 
-    try:
-        f1(browser)
-    finally:
-        # 关闭浏览器
-        browser.close()
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        f1<span class="token punctuation">(</span>browser<span class="token punctuation">)</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 关闭浏览器</span>
+        browser<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    main()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>

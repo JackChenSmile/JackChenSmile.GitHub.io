@@ -32,7 +32,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -499,21 +499,21 @@
 <li>背景图片：background-image（url（）no-repeat（是否平铺）x 方向的坐标 y 方向的坐标 背景颜色）</li>
 <li>设置圆角：border-radius</li>
 </ul>
-<h2 id="CSS动画效果"><a href="#CSS动画效果" class="headerlink" title="CSS动画效果"></a>CSS动画效果</h2><h4 id="产生动画效果的参考网址"><a href="#产生动画效果的参考网址" class="headerlink" title="产生动画效果的参考网址"></a><a href="http://www.runoob.com/cssref/css-animatable.html" target="_blank" rel="noopener">产生动画效果的参考网址</a></h4><pre><code class="python"># 动画的效果，写在内部（head）样式中，通过装饰器来实现效果
-# 设置颜色渐变：
-控制器（用来定位的）{
-    # 定位部分的样式表内容
-    animation: 控制器 5s infinite;
-    -webkit-animation: 控制器 5s infinite;
-}
-@keyframes 控制器{
-    from{background-color: 初始颜色;}
-    to{background-color: 渐变之后的颜色;}
-}
-@-webkit-keyframes 控制器{
-    from{background-color: 初始颜色;}
-    to{background-color: 渐变之后的颜色;}
-}
+<h2 id="CSS动画效果"><a href="#CSS动画效果" class="headerlink" title="CSS动画效果"></a>CSS动画效果</h2><h4 id="产生动画效果的参考网址"><a href="#产生动画效果的参考网址" class="headerlink" title="产生动画效果的参考网址"></a><a href="http://www.runoob.com/cssref/css-animatable.html" target="_blank" rel="noopener">产生动画效果的参考网址</a></h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 动画的效果，写在内部（head）样式中，通过装饰器来实现效果</span>
+<span class="token comment" spellcheck="true"># 设置颜色渐变：</span>
+控制器（用来定位的）<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true"># 定位部分的样式表内容</span>
+    animation<span class="token punctuation">:</span> 控制器 5s infinite<span class="token punctuation">;</span>
+    <span class="token operator">-</span>webkit<span class="token operator">-</span>animation<span class="token punctuation">:</span> 控制器 5s infinite<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+@keyframes 控制器<span class="token punctuation">{</span>
+    <span class="token keyword">from</span><span class="token punctuation">{</span>background<span class="token operator">-</span>color<span class="token punctuation">:</span> 初始颜色<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    to<span class="token punctuation">{</span>background<span class="token operator">-</span>color<span class="token punctuation">:</span> 渐变之后的颜色<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+@<span class="token operator">-</span>webkit<span class="token operator">-</span>keyframes 控制器<span class="token punctuation">{</span>
+    <span class="token keyword">from</span><span class="token punctuation">{</span>background<span class="token operator">-</span>color<span class="token punctuation">:</span> 初始颜色<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    to<span class="token punctuation">{</span>background<span class="token operator">-</span>color<span class="token punctuation">:</span> 渐变之后的颜色<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>

@@ -6,15 +6,16 @@
     <meta charset="utf-8">
     <meta name="keywords" content="music_wy, 微笑看你">
     <meta name="description" content="# coding=utf-8
-&amp;#39;&amp;#39;&amp;#39;
+&#39;&#39;&#39;
 爬取wy音乐榜单
-&amp;#39;&amp;#39;&amp;#39;
+&#39;&#39;&#39;
 # 导入需要使用的模块
 import os
 import csv
 import time
 import random
-impor">
+import requests
+import thread">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -37,7 +38,7 @@ impor">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -426,217 +427,217 @@ impor">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code class="python"># coding=utf-8
-&#39;&#39;&#39;
+                <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># coding=utf-8</span>
+<span class="token triple-quoted-string string">'''
 爬取wy音乐榜单
-&#39;&#39;&#39;
-# 导入需要使用的模块
-import os
-import csv
-import time
-import random
-import requests
-import threading
-from lxml import etree
-from selenium import webdriver
+'''</span>
+<span class="token comment" spellcheck="true"># 导入需要使用的模块</span>
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> csv
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> threading
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> etree
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
 
-agents = [
-    &quot;Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; InfoPath.3; rv:11.0) like Gecko&quot;,
-    &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0&quot;,
-    &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)&quot;,
-    &quot;Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)&quot;,
-    &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&quot;,
-    &quot;Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&quot;,
-    &quot;Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) Presto/2.8.131 Version/11.11&quot;,
-]
-
-
-class WangyiMusc(object):
-
-    # id表示你要获取排行榜
-    # mating是榜单名称
-    # url为排行榜页面
-    # music_url为歌曲下载页面
-    def __init__(self, mating, id):
-        self.browser = webdriver.Chrome()
-        self.id = id
-        self.url = &quot;https://music.163.com/#/discover/toplist?id={0}&quot;.format(self.id)
-        self.music_url = &quot;http://music.163.com/song/media/outer/url?id={0}.mp3&quot;
-        self.mat = mating
-
-    # 由于页面的歌曲信息都存放在页面的ifram里面，所以使用Selenium进入子页面获得代码然后返回
-    def get_html(self):
-        self.browser.get(self.url)
-        self.browser.switch_to_frame(&#39;contentFrame&#39;)
-        iframe = self.browser.page_source
-        time.sleep(5)
-        return iframe
-
-    # 使用xpath解析页面的信息进行返回
-    def parse_html(self):
-        iframe = self.get_html()
-        html = etree.HTML(iframe)
-        contents = html.xpath(&#39;//tbody/tr&#39;)
-        try:
-            for content in contents:
-                name = content.xpath(&#39;./td/div/div/div/span/a/b/@title&#39;)[0].replace(&#39; &#39;, &#39;&#39;)
-                music_id = content.xpath(&#39;./td/div/div/span/@data-res-id&#39;)[0].strip()
-                print(name)
-                print(music_id)
-                # 将歌曲的名称与id传给write_music方法进行下载
-                self.write_music(name, music_id)
-                # num = content.xpath(&#39;./td/div/span[@class=&quot;num&quot;]/text()&#39;)[0].strip()
-                # date = content.xpath(&#39;./td[@class=&quot; s-fc3&quot;]/span/text()&#39;)[0].strip()
-                # singer = content.xpath(&#39;./td/div[@class=&quot;text&quot;]/@title&#39;)[0].strip()
-                # # 将歌曲的信息构建成个元组类型
-                # items = num, name, date, singer
-                #
-                # # 每获得一次歌曲信息后返回一次
-                # yield list(items)
-
-        except Exception as e:
-            print(&#39;解析失败！&#39;, e.args)
-
-    # 获取到目前的日期
-    def get_date(self):
-        t = time.localtime()
-        tt = time.strftime(&#39;%Y年%m月%d日&#39;, t)
-        return tt
-
-    # 得到歌曲的名称与id,这里进行下载
-    def write_music(self, name, music_id):
-        url = self.music_url.format(music_id)
-        # agent = random.choice(agents)
-        try:
-            # headers = {
-            #     &#39;User-Agent&#39;: agent
-            # }
-            # music = requests.get(url, headers=headers)
-            headers = {
-                &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b13pre) Gecko/20110307 Firefox/4.0b13pre&quot;
-            }
-            music = requests.get(url, headers=headers)
-            if music.status_code == 200:
-                # 把歌曲保存到目前日期下的榜单名称下面,方便查看
-                # path = self.get_date() + os.sep + self.mat + os.sep
-                # 查询是否有这个地址,如果没有递归创建
-                # if not os.path.exists(path):
-                #     os.makedirs(path)
-                with open(&#39;./wangyiyun/&#39; + name + &#39;.mp3&#39;, &#39;wb&#39;) as f:
-                    f.write(music.content)
-                    print(&#39;下载 &#39; + name + &quot; 成功...&quot;)
-
-        except Exception as e:
-            print(&quot;下载 {0} 失败!!!&quot;.format(name), e.args)
-
-    # 保存榜单的信息
-    def write_items(self):
-        # 将信息保存至目前日期的下面,方便查找
-        path = self.get_date() + os.sep + self.mat
-        try:
-            # 判断是否有这个文件，如果没有者创建
-            if not os.path.exists(path):
-                os.makedirs(path)
-            with open(path + &#39;榜单信息.csv&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as file:
-                # 使用cvs格式进行保存
-                csvfile = csv.writer(file)
-                csvfile.writerow([&#39;排名&#39;, &#39;歌名&#39;, &#39;时长&#39;, &#39;歌手&#39;])
-                for parse in self.parse_html():
-                    csvfile.writerow(parse)
-                print(&quot;存储信息成功.&quot;)
-        except Exception as e:
-            print(&quot;存储信息失败!&quot;, e.args)
+agents <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">"Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; InfoPath.3; rv:11.0) like Gecko"</span><span class="token punctuation">,</span>
+    <span class="token string">"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)"</span><span class="token punctuation">,</span>
+    <span class="token string">"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)"</span><span class="token punctuation">,</span>
+    <span class="token string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0.1) Gecko/20100101 Firefox/4.0.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) Presto/2.8.131 Version/11.11"</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
 
 
-def operation(mating, id):
-    try:
-        # 实例化对象
-        music = WangyiMusc(mating, id)
-        # 获取要爬取的页面的HTML文件
-        music.get_html()
-        # 解析页面，将需要的信息进行返回,并开始下载歌曲
-        music.parse_html()
-        # 获取目前的日期
-        # music.get_date()
-        # 保存需要的信息
-        # music.write_items()
-        # print(&quot;下载完成...&quot;)
-        # 关闭browser
-        music.browser.close()
-    except Exception as e:
-        print(&quot;下载失败!&quot;, e.args)
+<span class="token keyword">class</span> <span class="token class-name">WangyiMusc</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token comment" spellcheck="true"># id表示你要获取排行榜</span>
+    <span class="token comment" spellcheck="true"># mating是榜单名称</span>
+    <span class="token comment" spellcheck="true"># url为排行榜页面</span>
+    <span class="token comment" spellcheck="true"># music_url为歌曲下载页面</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mating<span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>id <span class="token operator">=</span> id
+        self<span class="token punctuation">.</span>url <span class="token operator">=</span> <span class="token string">"https://music.163.com/#/discover/toplist?id={0}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>self<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>music_url <span class="token operator">=</span> <span class="token string">"http://music.163.com/song/media/outer/url?id={0}.mp3"</span>
+        self<span class="token punctuation">.</span>mat <span class="token operator">=</span> mating
+
+    <span class="token comment" spellcheck="true"># 由于页面的歌曲信息都存放在页面的ifram里面，所以使用Selenium进入子页面获得代码然后返回</span>
+    <span class="token keyword">def</span> <span class="token function">get_html</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>self<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>switch_to_frame<span class="token punctuation">(</span><span class="token string">'contentFrame'</span><span class="token punctuation">)</span>
+        iframe <span class="token operator">=</span> self<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>page_source
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> iframe
+
+    <span class="token comment" spellcheck="true"># 使用xpath解析页面的信息进行返回</span>
+    <span class="token keyword">def</span> <span class="token function">parse_html</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        iframe <span class="token operator">=</span> self<span class="token punctuation">.</span>get_html<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        html <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>iframe<span class="token punctuation">)</span>
+        contents <span class="token operator">=</span> html<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//tbody/tr'</span><span class="token punctuation">)</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> content <span class="token keyword">in</span> contents<span class="token punctuation">:</span>
+                name <span class="token operator">=</span> content<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./td/div/div/div/span/a/b/@title'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+                music_id <span class="token operator">=</span> content<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./td/div/div/span/@data-res-id'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>music_id<span class="token punctuation">)</span>
+                <span class="token comment" spellcheck="true"># 将歌曲的名称与id传给write_music方法进行下载</span>
+                self<span class="token punctuation">.</span>write_music<span class="token punctuation">(</span>name<span class="token punctuation">,</span> music_id<span class="token punctuation">)</span>
+                <span class="token comment" spellcheck="true"># num = content.xpath('./td/div/span[@class="num"]/text()')[0].strip()</span>
+                <span class="token comment" spellcheck="true"># date = content.xpath('./td[@class=" s-fc3"]/span/text()')[0].strip()</span>
+                <span class="token comment" spellcheck="true"># singer = content.xpath('./td/div[@class="text"]/@title')[0].strip()</span>
+                <span class="token comment" spellcheck="true"># # 将歌曲的信息构建成个元组类型</span>
+                <span class="token comment" spellcheck="true"># items = num, name, date, singer</span>
+                <span class="token comment" spellcheck="true">#</span>
+                <span class="token comment" spellcheck="true"># # 每获得一次歌曲信息后返回一次</span>
+                <span class="token comment" spellcheck="true"># yield list(items)</span>
+
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'解析失败！'</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>args<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 获取到目前的日期</span>
+    <span class="token keyword">def</span> <span class="token function">get_date</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        t <span class="token operator">=</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        tt <span class="token operator">=</span> time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">'%Y年%m月%d日'</span><span class="token punctuation">,</span> t<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> tt
+
+    <span class="token comment" spellcheck="true"># 得到歌曲的名称与id,这里进行下载</span>
+    <span class="token keyword">def</span> <span class="token function">write_music</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> music_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        url <span class="token operator">=</span> self<span class="token punctuation">.</span>music_url<span class="token punctuation">.</span>format<span class="token punctuation">(</span>music_id<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># agent = random.choice(agents)</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># headers = {</span>
+            <span class="token comment" spellcheck="true">#     'User-Agent': agent</span>
+            <span class="token comment" spellcheck="true"># }</span>
+            <span class="token comment" spellcheck="true"># music = requests.get(url, headers=headers)</span>
+            headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b13pre) Gecko/20110307 Firefox/4.0b13pre"</span>
+            <span class="token punctuation">}</span>
+            music <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> music<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true"># 把歌曲保存到目前日期下的榜单名称下面,方便查看</span>
+                <span class="token comment" spellcheck="true"># path = self.get_date() + os.sep + self.mat + os.sep</span>
+                <span class="token comment" spellcheck="true"># 查询是否有这个地址,如果没有递归创建</span>
+                <span class="token comment" spellcheck="true"># if not os.path.exists(path):</span>
+                <span class="token comment" spellcheck="true">#     os.makedirs(path)</span>
+                <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./wangyiyun/'</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">'.mp3'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>music<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'下载 '</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">" 成功..."</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"下载 {0} 失败!!!"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>args<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 保存榜单的信息</span>
+    <span class="token keyword">def</span> <span class="token function">write_items</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 将信息保存至目前日期的下面,方便查找</span>
+        path <span class="token operator">=</span> self<span class="token punctuation">.</span>get_date<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> os<span class="token punctuation">.</span>sep <span class="token operator">+</span> self<span class="token punctuation">.</span>mat
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 判断是否有这个文件，如果没有者创建</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+            <span class="token keyword">with</span> open<span class="token punctuation">(</span>path <span class="token operator">+</span> <span class="token string">'榜单信息.csv'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true"># 使用cvs格式进行保存</span>
+                csvfile <span class="token operator">=</span> csv<span class="token punctuation">.</span>writer<span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+                csvfile<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'排名'</span><span class="token punctuation">,</span> <span class="token string">'歌名'</span><span class="token punctuation">,</span> <span class="token string">'时长'</span><span class="token punctuation">,</span> <span class="token string">'歌手'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">for</span> parse <span class="token keyword">in</span> self<span class="token punctuation">.</span>parse_html<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    csvfile<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span>parse<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"存储信息成功."</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"存储信息失败!"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>args<span class="token punctuation">)</span>
 
 
-# 选择的界面
-def user_select():
-    # 每个榜单的id
-    ids = [&#39;19723756&#39;, &#39;3779629&#39;, &#39;2884035&#39;, &#39;3778678&#39;, &#39;991319590&#39;,
-           &#39;2408901803&#39;, &#39;1978921795&#39;, &#39;71385702&#39;, &#39;2462790889&#39;,
-           &#39;10520166&#39;, &#39;3812895&#39;, &#39;60131&#39;, &#39;71384707&#39;, &#39;180106&#39;, &#39;60198&#39;,
-           &#39;27135204&#39;, &#39;11641012&#39;, &#39;120001&#39;, &#39;2323534945&#39;, &#39;745956260&#39;,
-           &#39;2023401535&#39;, &#39;2006508653&#39;, &#39;21845217&#39;, &#39;112463&#39;,
-           &#39;112504&#39;, &#39;64016&#39;, &#39;10169002&#39;, &#39;1899724&#39;]
-
-    # 每个榜单的名称
-    names = [&#39;云音乐飙升榜&#39;, &#39;云音乐新歌榜&#39;, &#39;网易原创歌曲榜&#39;,
-             &#39;云音乐热歌榜&#39;, &#39;江小白YOLO云音乐说唱榜&#39;, &#39;公告牌音乐榜&#39;, &#39;云音乐电音榜&#39;,
-             &#39;云音乐电音榜&#39;, &#39;云音乐ACG音乐榜&#39;, &#39;YY音乐榜&#39;, &#39;云音乐国电榜&#39;, &#39;云音乐国电榜&#39;,
-             &#39;云音乐国电榜&#39;, &#39;云音乐古典音乐榜&#39;, &#39;UK排行榜周榜&#39;, &#39;美国Billboard周榜&#39;,
-             &#39;法国 NRJVos Hits 周榜&#39;, &#39;iTunes榜&#39;, &#39;Hit FMTop榜&#39;, &#39;说唱TOP榜&#39;, &#39;云音乐韩语榜&#39;,
-             &#39;英国Q杂志中文版周榜&#39;, &#39;电竞音乐榜&#39;, &#39;KTV唛榜&#39;, &#39;台湾Hito排行榜&#39;, &#39;中国TOP排行榜（港台榜）&#39;,
-             &#39;中国TOP排行榜（内地榜）&#39;, &#39;香港r台中文歌曲龙虎榜&#39;, &#39;中国嘻哈榜&#39;]
-    musics = {}
-    nums = {}
-
-    # 将名称与id存放在musics字典当中
-    for mat in range(len(ids)):
-        musics[names[mat]] = ids[mat]
-
-    # 给每一个榜单设置一个编号
-    for num in range(1, len(names) + 1):
-        nums[num] = names[num - 1]
-
-    # 输入编号与榜单名称,便于查看
-    for k, v in nums.items():
-        print(k, &quot;:&quot;, v)
-
-    # 将榜单与id打包以元组的方式放入列表当中
-    music_list = list(musics.items())
-
-    # 因为使用4个线程，所以构建一个列表
-    list1 = [i for i in range(len(music_list)) if i % 4 == 0]
-
-    # 选择要下载的榜单
-    n = int(input(&#39;请输入你要下载的榜单(请输入数字,输入0全部提取):&#39;))
-
-    # 如果需要全部下载,使用多线程
-    if n == 0:
-        for t in list1:
-            t1 = threading.Thread(target=operation, args=music_list[t])
-            t2 = threading.Thread(target=operation, args=music_list[t + 1])
-            t3 = threading.Thread(target=operation, args=music_list[t + 2])
-            t4 = threading.Thread(target=operation, args=music_list[t + 3])
-
-            t1.start()
-            t2.start()
-            t3.start()
-            t4.start()
-
-            t1.join()
-            t2.join()
-            t3.join()
-            t4.join()
-
-    # 如果只是下载某个榜单,者传入榜单名称与id
-    id = musics[nums[n]]
-    mating = nums[n]
-
-    operation(mating, id)
+<span class="token keyword">def</span> <span class="token function">operation</span><span class="token punctuation">(</span>mating<span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 实例化对象</span>
+        music <span class="token operator">=</span> WangyiMusc<span class="token punctuation">(</span>mating<span class="token punctuation">,</span> id<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取要爬取的页面的HTML文件</span>
+        music<span class="token punctuation">.</span>get_html<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 解析页面，将需要的信息进行返回,并开始下载歌曲</span>
+        music<span class="token punctuation">.</span>parse_html<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取目前的日期</span>
+        <span class="token comment" spellcheck="true"># music.get_date()</span>
+        <span class="token comment" spellcheck="true"># 保存需要的信息</span>
+        <span class="token comment" spellcheck="true"># music.write_items()</span>
+        <span class="token comment" spellcheck="true"># print("下载完成...")</span>
+        <span class="token comment" spellcheck="true"># 关闭browser</span>
+        music<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"下载失败!"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>args<span class="token punctuation">)</span>
 
 
-if __name__ == &#39;__main__&#39;:
-    # 程序开始
-    user_select()
+<span class="token comment" spellcheck="true"># 选择的界面</span>
+<span class="token keyword">def</span> <span class="token function">user_select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 每个榜单的id</span>
+    ids <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'19723756'</span><span class="token punctuation">,</span> <span class="token string">'3779629'</span><span class="token punctuation">,</span> <span class="token string">'2884035'</span><span class="token punctuation">,</span> <span class="token string">'3778678'</span><span class="token punctuation">,</span> <span class="token string">'991319590'</span><span class="token punctuation">,</span>
+           <span class="token string">'2408901803'</span><span class="token punctuation">,</span> <span class="token string">'1978921795'</span><span class="token punctuation">,</span> <span class="token string">'71385702'</span><span class="token punctuation">,</span> <span class="token string">'2462790889'</span><span class="token punctuation">,</span>
+           <span class="token string">'10520166'</span><span class="token punctuation">,</span> <span class="token string">'3812895'</span><span class="token punctuation">,</span> <span class="token string">'60131'</span><span class="token punctuation">,</span> <span class="token string">'71384707'</span><span class="token punctuation">,</span> <span class="token string">'180106'</span><span class="token punctuation">,</span> <span class="token string">'60198'</span><span class="token punctuation">,</span>
+           <span class="token string">'27135204'</span><span class="token punctuation">,</span> <span class="token string">'11641012'</span><span class="token punctuation">,</span> <span class="token string">'120001'</span><span class="token punctuation">,</span> <span class="token string">'2323534945'</span><span class="token punctuation">,</span> <span class="token string">'745956260'</span><span class="token punctuation">,</span>
+           <span class="token string">'2023401535'</span><span class="token punctuation">,</span> <span class="token string">'2006508653'</span><span class="token punctuation">,</span> <span class="token string">'21845217'</span><span class="token punctuation">,</span> <span class="token string">'112463'</span><span class="token punctuation">,</span>
+           <span class="token string">'112504'</span><span class="token punctuation">,</span> <span class="token string">'64016'</span><span class="token punctuation">,</span> <span class="token string">'10169002'</span><span class="token punctuation">,</span> <span class="token string">'1899724'</span><span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true"># 每个榜单的名称</span>
+    names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'云音乐飙升榜'</span><span class="token punctuation">,</span> <span class="token string">'云音乐新歌榜'</span><span class="token punctuation">,</span> <span class="token string">'网易原创歌曲榜'</span><span class="token punctuation">,</span>
+             <span class="token string">'云音乐热歌榜'</span><span class="token punctuation">,</span> <span class="token string">'江小白YOLO云音乐说唱榜'</span><span class="token punctuation">,</span> <span class="token string">'公告牌音乐榜'</span><span class="token punctuation">,</span> <span class="token string">'云音乐电音榜'</span><span class="token punctuation">,</span>
+             <span class="token string">'云音乐电音榜'</span><span class="token punctuation">,</span> <span class="token string">'云音乐ACG音乐榜'</span><span class="token punctuation">,</span> <span class="token string">'YY音乐榜'</span><span class="token punctuation">,</span> <span class="token string">'云音乐国电榜'</span><span class="token punctuation">,</span> <span class="token string">'云音乐国电榜'</span><span class="token punctuation">,</span>
+             <span class="token string">'云音乐国电榜'</span><span class="token punctuation">,</span> <span class="token string">'云音乐古典音乐榜'</span><span class="token punctuation">,</span> <span class="token string">'UK排行榜周榜'</span><span class="token punctuation">,</span> <span class="token string">'美国Billboard周榜'</span><span class="token punctuation">,</span>
+             <span class="token string">'法国 NRJVos Hits 周榜'</span><span class="token punctuation">,</span> <span class="token string">'iTunes榜'</span><span class="token punctuation">,</span> <span class="token string">'Hit FMTop榜'</span><span class="token punctuation">,</span> <span class="token string">'说唱TOP榜'</span><span class="token punctuation">,</span> <span class="token string">'云音乐韩语榜'</span><span class="token punctuation">,</span>
+             <span class="token string">'英国Q杂志中文版周榜'</span><span class="token punctuation">,</span> <span class="token string">'电竞音乐榜'</span><span class="token punctuation">,</span> <span class="token string">'KTV唛榜'</span><span class="token punctuation">,</span> <span class="token string">'台湾Hito排行榜'</span><span class="token punctuation">,</span> <span class="token string">'中国TOP排行榜（港台榜）'</span><span class="token punctuation">,</span>
+             <span class="token string">'中国TOP排行榜（内地榜）'</span><span class="token punctuation">,</span> <span class="token string">'香港r台中文歌曲龙虎榜'</span><span class="token punctuation">,</span> <span class="token string">'中国嘻哈榜'</span><span class="token punctuation">]</span>
+    musics <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    nums <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true"># 将名称与id存放在musics字典当中</span>
+    <span class="token keyword">for</span> mat <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>ids<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        musics<span class="token punctuation">[</span>names<span class="token punctuation">[</span>mat<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> ids<span class="token punctuation">[</span>mat<span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true"># 给每一个榜单设置一个编号</span>
+    <span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>names<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        nums<span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> names<span class="token punctuation">[</span>num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true"># 输入编号与榜单名称,便于查看</span>
+    <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> nums<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> <span class="token string">":"</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 将榜单与id打包以元组的方式放入列表当中</span>
+    music_list <span class="token operator">=</span> list<span class="token punctuation">(</span>musics<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 因为使用4个线程，所以构建一个列表</span>
+    list1 <span class="token operator">=</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>music_list<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">if</span> i <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true"># 选择要下载的榜单</span>
+    n <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入你要下载的榜单(请输入数字,输入0全部提取):'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 如果需要全部下载,使用多线程</span>
+    <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> t <span class="token keyword">in</span> list1<span class="token punctuation">:</span>
+            t1 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>operation<span class="token punctuation">,</span> args<span class="token operator">=</span>music_list<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            t2 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>operation<span class="token punctuation">,</span> args<span class="token operator">=</span>music_list<span class="token punctuation">[</span>t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            t3 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>operation<span class="token punctuation">,</span> args<span class="token operator">=</span>music_list<span class="token punctuation">[</span>t <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            t4 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>operation<span class="token punctuation">,</span> args<span class="token operator">=</span>music_list<span class="token punctuation">[</span>t <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+            t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            t3<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            t4<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+            t1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            t3<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            t4<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 如果只是下载某个榜单,者传入榜单名称与id</span>
+    id <span class="token operator">=</span> musics<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">]</span>
+    mating <span class="token operator">=</span> nums<span class="token punctuation">[</span>n<span class="token punctuation">]</span>
+
+    operation<span class="token punctuation">(</span>mating<span class="token punctuation">,</span> id<span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 程序开始</span>
+    user_select<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>
@@ -826,7 +827,7 @@ import random
 def get_random_agent():
 
     agent_list = [
-    &quot;Mozilla/4.0 (compatible; MSIE 6.0;</div>
+    "Mozilla/4.0 (compatible; MSIE 6.0; Wind</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-09
@@ -878,7 +879,7 @@ import requests
 # 获取二进制资源
 def get_resource(url):
     headers = {
-        &quot;User-Agent&quot;: &quot;</div>
+        "User-Agent": "Mozilla/4.0 (co</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-03

@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -420,71 +420,71 @@
                 <p>###（一）基础<br>1.快捷键：<br> control+/      注释/取消注释<br> control+s      保存（养成习惯）<br> control+c      复制、拷贝<br> control+v      粘贴<br> control+x      剪切<br> control+b      编译（编译执行——sublime）<br> control+r      编译执行（暂时不用）<br> control+a      全选<br> control+z      撤销<br> control+y（control+shift+z）      反撤销<br> control+f      查找<br> control+n      新建（文件）<br> control+shift+n       新建（工程）<br> 按住shift点鼠标，可以选中部分内容</p>
 <p> 2.注意</p>
 <ul>
-<li>###写代码的时候，一定是在英文输入的状态下<pre><code class="python">print就是python中的打印函数，功能是在控制台将括号中的内容输出
-print(&#39;hello world !&#39;)
+<li>###写代码的时候，一定是在英文输入的状态下<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span>就是python中的打印函数，功能是在控制台将括号中的内容输出
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello world !'</span><span class="token punctuation">)</span>
 </code></pre>
-<h3 id="二-基础语法"><a href="#二-基础语法" class="headerlink" title="(二)基础语法"></a>(二)基础语法</h3>####1.注释<br>注释是不会参与代码的编译和执行的，只是对代码进行解释和说明的文字。（写注释养成习惯）<br>单行注释就是在注释文字前加#<br>多行注释如下<pre><code class="python">&#39;&#39;&#39;
+<h3 id="二-基础语法"><a href="#二-基础语法" class="headerlink" title="(二)基础语法"></a>(二)基础语法</h3>####1.注释<br>注释是不会参与代码的编译和执行的，只是对代码进行解释和说明的文字。（写注释养成习惯）<br>单行注释就是在注释文字前加#<br>多行注释如下<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
 这是多行注释
 这是多行注释
 这是多行注释
-&#39;&#39;&#39;
-&quot;&quot;&quot;
+'''</span>
+<span class="token triple-quoted-string string">"""
 这是多行注释
 这是多行注释
 这是多行注释
-&quot;&quot;&quot;
+"""</span>
 </code></pre>
 或者再多行前加#<h4 id="2-标识符"><a href="#2-标识符" class="headerlink" title="2.标识符"></a>2.标识符</h4>a.是由字母数字下划线组成（只能少不能多）<br>b.数字不能开头<br>c.大小写敏感（大小写的表示不一样，例如：abc、ABC不一样）<ul>
 <li>python3以后，标识中可以包含非ASCII码（可以包含中文）,但是在实际开发中不建议使用</li>
 </ul>
 </li>
-<li>版本A.B.C    A-大版本，重大修改    B-增加功能     C-修复BUG<pre><code class="python">nb = 90
-a1 = 10
-a1_ = 10
-姓名 = 900
-_hs = 100
+<li>版本A.B.C    A-大版本，重大修改    B-增加功能     C-修复BUG<pre class=" language-python"><code class="language-python">nb <span class="token operator">=</span> <span class="token number">90</span>
+a1 <span class="token operator">=</span> <span class="token number">10</span>
+a1_ <span class="token operator">=</span> <span class="token number">10</span>
+姓名 <span class="token operator">=</span> <span class="token number">900</span>
+_hs <span class="token operator">=</span> <span class="token number">100</span>
 </code></pre>
 </li>
 </ul>
-<pre><code class="python">错误表示：
+<pre class=" language-python"><code class="language-python">错误表示：
 
- a&#39;sh = 100
- h%10 = 100
- 9 = 100
- 1abc = 100
+ a'sh <span class="token operator">=</span> <span class="token number">100</span>
+ h<span class="token operator">%</span><span class="token number">10</span> <span class="token operator">=</span> <span class="token number">100</span>
+ <span class="token number">9</span> <span class="token operator">=</span> <span class="token number">100</span>
+ <span class="token number">1abc</span> <span class="token operator">=</span> <span class="token number">100</span>
 </code></pre>
 <h4 id="3-关键字（保留字）"><a href="#3-关键字（保留字）" class="headerlink" title="3.关键字（保留字）"></a>3.关键字（保留字）</h4><p> python中保留用来作为特殊语法和拥有特殊功能的一些单词</p>
-<pre><code class="python">&#39;False&#39;, &#39;None&#39;, &#39;True&#39;, &#39;and&#39;, &#39;as&#39;, &#39;assert&#39;, &#39;break&#39;, 
-&#39;class&#39;, &#39;continue&#39;, &#39;def&#39;, &#39;del&#39;, &#39;elif&#39;, &#39;else&#39;, &#39;except&#39;, 
-&#39;finally&#39;, &#39;for&#39;, &#39;from&#39;, &#39;global&#39;, &#39;if&#39;, &#39;import&#39;, &#39;in&#39;, &#39;is&#39;, &#39;lambda&#39;,
- &#39;nonlocal&#39;, &#39;not&#39;, &#39;or&#39;, &#39;pass&#39;, &#39;raise&#39;, &#39;return&#39;, &#39;try&#39;, &#39;while&#39;, &#39;with&#39;, &#39;yield&#39;
+<pre class=" language-python"><code class="language-python"><span class="token string">'False'</span><span class="token punctuation">,</span> <span class="token string">'None'</span><span class="token punctuation">,</span> <span class="token string">'True'</span><span class="token punctuation">,</span> <span class="token string">'and'</span><span class="token punctuation">,</span> <span class="token string">'as'</span><span class="token punctuation">,</span> <span class="token string">'assert'</span><span class="token punctuation">,</span> <span class="token string">'break'</span><span class="token punctuation">,</span> 
+<span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'continue'</span><span class="token punctuation">,</span> <span class="token string">'def'</span><span class="token punctuation">,</span> <span class="token string">'del'</span><span class="token punctuation">,</span> <span class="token string">'elif'</span><span class="token punctuation">,</span> <span class="token string">'else'</span><span class="token punctuation">,</span> <span class="token string">'except'</span><span class="token punctuation">,</span> 
+<span class="token string">'finally'</span><span class="token punctuation">,</span> <span class="token string">'for'</span><span class="token punctuation">,</span> <span class="token string">'from'</span><span class="token punctuation">,</span> <span class="token string">'global'</span><span class="token punctuation">,</span> <span class="token string">'if'</span><span class="token punctuation">,</span> <span class="token string">'import'</span><span class="token punctuation">,</span> <span class="token string">'in'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token string">'lambda'</span><span class="token punctuation">,</span>
+ <span class="token string">'nonlocal'</span><span class="token punctuation">,</span> <span class="token string">'not'</span><span class="token punctuation">,</span> <span class="token string">'or'</span><span class="token punctuation">,</span> <span class="token string">'pass'</span><span class="token punctuation">,</span> <span class="token string">'raise'</span><span class="token punctuation">,</span> <span class="token string">'return'</span><span class="token punctuation">,</span> <span class="token string">'try'</span><span class="token punctuation">,</span> <span class="token string">'while'</span><span class="token punctuation">,</span> <span class="token string">'with'</span><span class="token punctuation">,</span> <span class="token string">'yield'</span>
 </code></pre>
-<pre><code class="python">import keyword
-print(keyword.kwlist)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> keyword
+<span class="token keyword">print</span><span class="token punctuation">(</span>keyword<span class="token punctuation">.</span>kwlist<span class="token punctuation">)</span>
 </code></pre>
 <h4 id="4-行与缩进"><a href="#4-行与缩进" class="headerlink" title="4.行与缩进"></a>4.行与缩进</h4><p> #####缩进要求：<br>‘’’<br>a.同一级的代码必须保持同一缩进。(统一使用tab来产生缩进)<br>b.通过缩进来产生代码块（类似于其他语言中的{}）<br>‘’’</p>
 <h5 id="行的规范"><a href="#行的规范" class="headerlink" title="行的规范"></a>行的规范</h5><p>a.声明函数的前后必须有两个换行<br>b.声明类的前后也需要两个换行<br>c.多个功能模块间用换行隔开</p>
-<pre><code class="python">a = 10
-b = 20
-if a &gt; 10:
-   print(&#39;abc&#39;)
-   print(&#39;123&#39;)
+<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">10</span>
+b <span class="token operator">=</span> <span class="token number">20</span>
+<span class="token keyword">if</span> a <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">:</span>
+   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'abc'</span><span class="token punctuation">)</span>
+   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="5-多行显示-一句代码多行显示"><a href="#5-多行显示-一句代码多行显示" class="headerlink" title="5.多行显示(一句代码多行显示)"></a>5.多行显示(一句代码多行显示)</h4><p> a.在需要换行的地方加入\，然后在后面换行。换行后缩进不受限制</p>
-<pre><code class="python">a = 10000 + 10000 - 1000\
- * 1000 + 10000 /1000\
-  *2000 - 10000
-print (a)
+<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">10000</span> <span class="token operator">+</span> <span class="token number">10000</span> <span class="token operator">-</span> <span class="token number">1000</span>\
+ <span class="token operator">*</span> <span class="token number">1000</span> <span class="token operator">+</span> <span class="token number">10000</span> <span class="token operator">/</span><span class="token number">1000</span>\
+  <span class="token operator">*</span><span class="token number">2000</span> <span class="token operator">-</span> <span class="token number">10000</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span>
 </code></pre>
 <p> b.列表、字典、元祖和集合的字面量换行不用加\</p>
-<pre><code class="python">[
-      120,
-      23,
-      &#39;asd&#39;,
-      278,
-      &#39;skda&#39;,
-      8444
-]
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">[</span>
+      <span class="token number">120</span><span class="token punctuation">,</span>
+      <span class="token number">23</span><span class="token punctuation">,</span>
+      <span class="token string">'asd'</span><span class="token punctuation">,</span>
+      <span class="token number">278</span><span class="token punctuation">,</span>
+      <span class="token string">'skda'</span><span class="token punctuation">,</span>
+      <span class="token number">8444</span>
+<span class="token punctuation">]</span>
 </code></pre>
 <h4 id="6-字面量-具体的值"><a href="#6-字面量-具体的值" class="headerlink" title="6.字面量(具体的值)"></a>6.字面量(具体的值)</h4><p> a.数字字面量：10,12.5,-10,+12,2e2(e表示10，e2表示10的平方),10j<br> b.布尔值：True(真),False（假）<br> c.字符串：’(all),asdj121’或者”hhea11120”<br> d.列表：[10,20,’python’,’java’]<br> e.字典:{‘a’:10,’name’:’XXX’}<br> 7.python中的基本数据类型<br> a.数字相关的:int(整型)，float(浮点型)，complex(复数)<br> b.布尔（bool）：只有True和False两个值<br> c.str(字符串)<br> d.list(列表)<br> e.dict(字典)<br> f.tuple(元祖)<br> g.set(集合)<br> h.function(函数)<br> i.bytes(字节)</p>
 <h3 id="三-变量"><a href="#三-变量" class="headerlink" title="(三)变量"></a>(三)变量</h3><p>声明变量就是在内存中开辟 空间存储数据。（变量就是用来存储数据的）</p>
@@ -496,18 +496,18 @@ print (a)
 <li>类型:<br>python声明变量的时候不需要确定类型</li>
 <li>变量名：<br>标识符，不能是关键字；见名知义，PEP8命名规范（所有的字母都是小写，多个单词之间用_隔开）</li>
 <li>=：<br>赋值符号，将右边的值赋值给左边的变量</li>
-<li>值：<br>表达式（就是有结果的，例如：字面量，运算表达式（20+1），其他变量）<br>####2.声明一个变量name,赋值为‘路飞’。使用name的时候，就相当于在使用‘路飞’<pre><code class="python">name = &#39;路飞&#39;
-print（name）
+<li>值：<br>表达式（就是有结果的，例如：字面量，运算表达式（20+1），其他变量）<br>####2.声明一个变量name,赋值为‘路飞’。使用name的时候，就相当于在使用‘路飞’<pre class=" language-python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'路飞'</span>
+<span class="token keyword">print</span>（name）
 </code></pre>
-<h4 id="3-声明一个变量class-name-保存’python1806’"><a href="#3-声明一个变量class-name-保存’python1806’" class="headerlink" title="3.声明一个变量class_name,保存’python1806’"></a>3.声明一个变量class_name,保存’python1806’</h4><pre><code class="python">class_name = &#39;python1806&#39;   (驼峰式：className)
-number = 100
+<h4 id="3-声明一个变量class-name-保存’python1806’"><a href="#3-声明一个变量class-name-保存’python1806’" class="headerlink" title="3.声明一个变量class_name,保存’python1806’"></a>3.声明一个变量class_name,保存’python1806’</h4><pre class=" language-python"><code class="language-python">class_name <span class="token operator">=</span> <span class="token string">'python1806'</span>   <span class="token punctuation">(</span>驼峰式：className<span class="token punctuation">)</span>
+number <span class="token operator">=</span> <span class="token number">100</span>
 </code></pre>
-<h4 id="4-声明一个变量，可以存储不同类型的数据"><a href="#4-声明一个变量，可以存储不同类型的数据" class="headerlink" title="4.声明一个变量，可以存储不同类型的数据"></a>4.声明一个变量，可以存储不同类型的数据</h4><pre><code class="python">number = &#39;娜美&#39;
-print(number)
+<h4 id="4-声明一个变量，可以存储不同类型的数据"><a href="#4-声明一个变量，可以存储不同类型的数据" class="headerlink" title="4.声明一个变量，可以存储不同类型的数据"></a>4.声明一个变量，可以存储不同类型的数据</h4><pre class=" language-python"><code class="language-python">number <span class="token operator">=</span> <span class="token string">'娜美'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="5-python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开"><a href="#5-python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开" class="headerlink" title="5.python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开"></a>5.python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开</h4><pre><code class="python">number = 10;number = 10e2
+<h4 id="5-python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开"><a href="#5-python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开" class="headerlink" title="5.python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开"></a>5.python中每条语句结束可以不用加分号。但是如果一行要写多条语句，就用分号隔开</h4><pre class=" language-python"><code class="language-python">number <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>number <span class="token operator">=</span> <span class="token number">10e2</span>
 </code></pre>
-<h4 id="6-同时声明两个变量，并且赋值一样"><a href="#6-同时声明两个变量，并且赋值一样" class="headerlink" title="6.同时声明两个变量，并且赋值一样"></a>6.同时声明两个变量，并且赋值一样</h4><pre><code class="python">str1 = str2 = str3 = &#39;abc&#39;
+<h4 id="6-同时声明两个变量，并且赋值一样"><a href="#6-同时声明两个变量，并且赋值一样" class="headerlink" title="6.同时声明两个变量，并且赋值一样"></a>6.同时声明两个变量，并且赋值一样</h4><pre class=" language-python"><code class="language-python">str1 <span class="token operator">=</span> str2 <span class="token operator">=</span> str3 <span class="token operator">=</span> <span class="token string">'abc'</span>
 </code></pre>
 <h4 id="7-id函数"><a href="#7-id函数" class="headerlink" title="7.id函数"></a>7.id函数</h4>####id（变量）————查看变量地址<br>####python声明变量，和给变量赋值的原理：先在内存中开辟空间存储数据，然后再将变量名作为数据存储空间的名字<br><code>`</code>python<br>a = 10<br>print(id(a))<br>a = 100<br>print(id(a))</li>
 </ul>
@@ -521,112 +521,112 @@ print(number)
 1835101808
 </code></pre><h4 id="python-中的声明变量与JAVA中声明变量的区别："><a href="#python-中的声明变量与JAVA中声明变量的区别：" class="headerlink" title="python 中的声明变量与JAVA中声明变量的区别："></a>python 中的声明变量与JAVA中声明变量的区别：</h4><p>python是先存储数据，然后再给这个存储空间命名。（数据决定空间位置）<br> JAVA是先给空间命名，然后再存储数据。（变量决定空间位置）</p>
 <h3 id="四-数字和布尔"><a href="#四-数字和布尔" class="headerlink" title="(四)数字和布尔"></a>(四)数字和布尔</h3><h4 id="1-int-整型"><a href="#1-int-整型" class="headerlink" title="1.int(整型)"></a>1.int(整型)</h4><p> 所有的整数都是整型，python3中的整型只有int,python2中有int和long</p>
-<pre><code class="python">num1 = 10
-num2 = -100
+<pre class=" language-python"><code class="language-python">num1 <span class="token operator">=</span> <span class="token number">10</span>
+num2 <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">100</span>
 </code></pre>
 <p> #####内置函数：type（）–获取括号中数据的类型</p>
-<pre><code class="python">print(type(num1),type(num2))
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>num1<span class="token punctuation">)</span><span class="token punctuation">,</span>type<span class="token punctuation">(</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="2-float-浮点型"><a href="#2-float-浮点型" class="headerlink" title="2.float(浮点型)"></a>2.float(浮点型)</h4><p> 所有带小数点的数，都是浮点型。python中的浮点型只有float</p>
-<pre><code class="python">num3 = 0.12
-num4 = +100.0
-num5 = 2e2
-num6 = -3.145
-print(type(num3),\
-    type(num4),\
-    type(num5),\
-    type(num6))
+<pre class=" language-python"><code class="language-python">num3 <span class="token operator">=</span> <span class="token number">0.12</span>
+num4 <span class="token operator">=</span> <span class="token operator">+</span><span class="token number">100.0</span>
+num5 <span class="token operator">=</span> <span class="token number">2e2</span>
+num6 <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">3.145</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>num3<span class="token punctuation">)</span><span class="token punctuation">,</span>\
+    type<span class="token punctuation">(</span>num4<span class="token punctuation">)</span><span class="token punctuation">,</span>\
+    type<span class="token punctuation">(</span>num5<span class="token punctuation">)</span><span class="token punctuation">,</span>\
+    type<span class="token punctuation">(</span>num6<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="3-布尔类型"><a href="#3-布尔类型" class="headerlink" title="3.布尔类型"></a>3.布尔类型</h4><p>布尔只有True和false</p>
-<pre><code class="python">bool1 = True 
-bool2 = False
-print(type(bool2),type(bool1))
+<pre class=" language-python"><code class="language-python">bool1 <span class="token operator">=</span> <span class="token boolean">True</span> 
+bool2 <span class="token operator">=</span> <span class="token boolean">False</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>bool2<span class="token punctuation">)</span><span class="token punctuation">,</span>type<span class="token punctuation">(</span>bool1<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="五-运算符"><a href="#五-运算符" class="headerlink" title="(五)运算符"></a>(五)运算符</h3><p>####1.数学运算符：+(加)，-（减），*（乘），/（除），//(整除)，%（取余），**（幂运算）</p>
-<h5 id="a-，-，-，-，-和数学中的加、减、乘、除、求余的功能是一样的。"><a href="#a-，-，-，-，-和数学中的加、减、乘、除、求余的功能是一样的。" class="headerlink" title="a.+，-，*，/，%和数学中的加、减、乘、除、求余的功能是一样的。"></a>a.+，-，*，/，%和数学中的加、减、乘、除、求余的功能是一样的。</h5><pre><code class="python">a = 10 + 10
-print(10+20)
-print(100-20)
-print(2*3.5)
-print(5/2)
-print(3%2)
+<h5 id="a-，-，-，-，-和数学中的加、减、乘、除、求余的功能是一样的。"><a href="#a-，-，-，-，-和数学中的加、减、乘、除、求余的功能是一样的。" class="headerlink" title="a.+，-，*，/，%和数学中的加、减、乘、除、求余的功能是一样的。"></a>a.+，-，*，/，%和数学中的加、减、乘、除、求余的功能是一样的。</h5><pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">10</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">+</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span><span class="token number">3.5</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">)</span>
 </code></pre>
 <p>结果</p>
-<pre><code class="python">30
-80
-7
-2.5
-1
+<pre class=" language-python"><code class="language-python"><span class="token number">30</span>
+<span class="token number">80</span>
+<span class="token number">7</span>
+<span class="token number">2.5</span>
+<span class="token number">1</span>
 </code></pre>
 <p> #####b.//(整除)<br>求商，商只取整数部分</p>
-<pre><code class="python">print(5//2)
-print(6.3//2)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">6.3</span><span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">)</span>
 </code></pre>
 <p>结果</p>
-<pre><code class="python">2
-3
+<pre class=" language-python"><code class="language-python"><span class="token number">2</span>
+<span class="token number">3</span>
 </code></pre>
 <p> #####c.<strong>(幂运算)<br> x</strong>y–x的y次方</p>
-<pre><code class="python">print(2**3)
-print(9**0.5)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">**</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token operator">**</span><span class="token number">0.5</span><span class="token punctuation">)</span>
 </code></pre>
 <p>结果</p>
-<pre><code class="python">8
-3
+<pre class=" language-python"><code class="language-python"><span class="token number">8</span>
+<span class="token number">3</span>
 </code></pre>
 <p> 取出一个4位整数的百位上的数。例如，取出3512中的5</p>
-<pre><code class="python">number = 3512
-print((number%1000)//100)
+<pre class=" language-python"><code class="language-python">number <span class="token operator">=</span> <span class="token number">3512</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">(</span>number<span class="token operator">%</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">100</span><span class="token punctuation">)</span>
 </code></pre>
 <p><code>5</code></p>
 <h4 id="2-比较运算：-gt-（大于），-lt-（小于），-（等于），-（不等于），-gt-大于等于"><a href="#2-比较运算：-gt-（大于），-lt-（小于），-（等于），-（不等于），-gt-大于等于" class="headerlink" title="2.比较运算：&gt;（大于），&lt;（小于），==（等于），!=（不等于），&gt;=(大于等于)"></a>2.比较运算：&gt;（大于），&lt;（小于），==（等于），!=（不等于），&gt;=(大于等于)</h4><p> 所有的比较运算的结果都是布尔值</p>
-<pre><code class="python">print(10&gt;20)
-print(10&lt;20)
-print(10==20)
-print(10!=20)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">></span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">&lt;</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">==</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">!=</span><span class="token number">20</span><span class="token punctuation">)</span>
 </code></pre>
 <p>结果</p>
-<pre><code class="python">false
+<pre class=" language-python"><code class="language-python">false
 true
 false
 true
 </code></pre>
 <h4 id="3-逻辑运算符：and（与），or-或-not-非"><a href="#3-逻辑运算符：and（与），or-或-not-非" class="headerlink" title="3.逻辑运算符：and（与），or(或),not(非)"></a>3.逻辑运算符：and（与），or(或),not(非)</h4><p> 逻辑运算符操作的数据是布尔值，输出的结果也是布尔值</p>
 <p> #####a.and(与)–和、并且</p>
-<pre><code class="python">  两个都是Ture结果才是True，只要有一个False，结果就是False
-print(True and True)      True
-print(True and False)     False
-print(False and False)    False
+<pre class=" language-python"><code class="language-python">  两个都是Ture结果才是<span class="token boolean">True</span>，只要有一个<span class="token boolean">False</span>，结果就是<span class="token boolean">False</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token boolean">True</span> <span class="token operator">and</span> <span class="token boolean">True</span><span class="token punctuation">)</span>      <span class="token boolean">True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token boolean">True</span> <span class="token operator">and</span> <span class="token boolean">False</span><span class="token punctuation">)</span>     <span class="token boolean">False</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token boolean">False</span> <span class="token operator">and</span> <span class="token boolean">False</span><span class="token punctuation">)</span>    <span class="token boolean">False</span>
 </code></pre>
-<pre><code class="python">  要求学习成绩在3.5以上，并且操评分不低于90
-score1 = 4.0
-score2 = 80
-print(score1&gt;3.5 and score2&gt;90)   False
+<pre class=" language-python"><code class="language-python">  要求学习成绩在<span class="token number">3.5</span>以上，并且操评分不低于<span class="token number">90</span>
+score1 <span class="token operator">=</span> <span class="token number">4.0</span>
+score2 <span class="token operator">=</span> <span class="token number">80</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>score1<span class="token operator">></span><span class="token number">3.5</span> <span class="token operator">and</span> score2<span class="token operator">></span><span class="token number">90</span><span class="token punctuation">)</span>   <span class="token boolean">False</span>
 </code></pre>
-<h6 id="什么时候使用-：要求两个或者多个条件同时满足"><a href="#什么时候使用-：要求两个或者多个条件同时满足" class="headerlink" title="什么时候使用 ：要求两个或者多个条件同时满足"></a>什么时候使用 ：要求两个或者多个条件同时满足</h6><h5 id="b-or-或-–或者"><a href="#b-or-或-–或者" class="headerlink" title="b.or(或)–或者"></a>b.or(或)–或者</h5><pre><code class="python">只要有一个True结果就是True。两个都是False结果才是False
-print(score1&gt;3.5 or score2&gt;=90)   True
+<h6 id="什么时候使用-：要求两个或者多个条件同时满足"><a href="#什么时候使用-：要求两个或者多个条件同时满足" class="headerlink" title="什么时候使用 ：要求两个或者多个条件同时满足"></a>什么时候使用 ：要求两个或者多个条件同时满足</h6><h5 id="b-or-或-–或者"><a href="#b-or-或-–或者" class="headerlink" title="b.or(或)–或者"></a>b.or(或)–或者</h5><pre class=" language-python"><code class="language-python">只要有一个<span class="token boolean">True</span>结果就是<span class="token boolean">True</span>。两个都是<span class="token boolean">False</span>结果才是<span class="token boolean">False</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>score1<span class="token operator">></span><span class="token number">3.5</span> <span class="token operator">or</span> score2<span class="token operator">>=</span><span class="token number">90</span><span class="token punctuation">)</span>   <span class="token boolean">True</span>
 </code></pre>
 <p> ######什么时候使用：要求有两个或者两个以上，满足一个就行</p>
-<h5 id="c-not-非"><a href="#c-not-非" class="headerlink" title="c.not(非)"></a>c.not(非)</h5><pre><code class="python">True变成False,False就变成True
-age = 20
-年龄不小于18
-print(not age&lt;18)
-print(age&gt;=18)
+<h5 id="c-not-非"><a href="#c-not-非" class="headerlink" title="c.not(非)"></a>c.not(非)</h5><pre class=" language-python"><code class="language-python"><span class="token boolean">True</span>变成<span class="token boolean">False</span><span class="token punctuation">,</span><span class="token boolean">False</span>就变成<span class="token boolean">True</span>
+age <span class="token operator">=</span> <span class="token number">20</span>
+年龄不小于<span class="token number">18</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token operator">not</span> age<span class="token operator">&lt;</span><span class="token number">18</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>age<span class="token operator">>=</span><span class="token number">18</span><span class="token punctuation">)</span>
 </code></pre>
 <p> ####4.赋值运算符：=（赋值），+=，-=，*=，/=，%=，//=，**=<br> 赋值符号的左边必须是变量；运算顺序是（先算赋值符号右边的值，然后再将右边的值赋给左边）</p>
-<h5 id="a-变量-值"><a href="#a-变量-值" class="headerlink" title="a.变量 = 值"></a>a.变量 = 值</h5><pre><code class="python">a = 10
-b = 10 + 10
-c = a + b
-d = a &gt; 10
-print(d)
+<h5 id="a-变量-值"><a href="#a-变量-值" class="headerlink" title="a.变量 = 值"></a>a.变量 = 值</h5><pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">10</span>
+b <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">10</span>
+c <span class="token operator">=</span> a <span class="token operator">+</span> b
+d <span class="token operator">=</span> a <span class="token operator">></span> <span class="token number">10</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
 </code></pre>
 <h5 id="b-变量-值"><a href="#b-变量-值" class="headerlink" title="b.变量 += 值"></a>b.变量 += 值</h5><ul>
-<li>这儿的变量必须是已经声明过的变量<pre><code class="python">a += 2   相当于 a = a + 2
-print(a)
-b -= 2   相当于 b = b - 2
+<li>这儿的变量必须是已经声明过的变量<pre class=" language-python"><code class="language-python">a <span class="token operator">+=</span> <span class="token number">2</span>   相当于 a <span class="token operator">=</span> a <span class="token operator">+</span> <span class="token number">2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+b <span class="token operator">-=</span> <span class="token number">2</span>   相当于 b <span class="token operator">=</span> b <span class="token operator">-</span> <span class="token number">2</span>
 </code></pre>
 </li>
-<li>补充：变量必须先声明，再使用<pre><code class="python">num1(错误表示，没有先定义)
-num1 = 10;num2 = 20
+<li>补充：变量必须先声明，再使用<pre class=" language-python"><code class="language-python">num1<span class="token punctuation">(</span>错误表示，没有先定义<span class="token punctuation">)</span>
+num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>num2 <span class="token operator">=</span> <span class="token number">20</span>
 num1
 </code></pre>
 <h4 id="5-运算符的优先级"><a href="#5-运算符的优先级" class="headerlink" title="5.运算符的优先级"></a>5.运算符的优先级</h4>数学运算符 &gt; 比较运算符 &gt; 逻辑运算符 &gt; 赋值运算符<br>数学运算符：*<em> &gt; (</em>,/,//,%) &gt; (+,-)<br>先计算优先级高的，优先级一样，从左往右依次计算。可以通过加括号改变优先级<br><code>`</code>python<br>print(10 * 20 + (30 &lt; 40) / 2 - 100)</li>
@@ -666,7 +666,7 @@ num1
  123（16）--&gt;0001 0010 0011 --&gt;000100100011(2)
  10(16)--&gt;0001 0000--&gt;00010000
 </code></pre><p> 3.二进制—&gt;八进制、十六进制<br> 将三位的二进制转换成一位的八进制，将四位的二进制转换成一位的十六进制</p>
-<pre><code class="python"> 001 010 011(2)--&gt;123(8)
+<pre class=" language-python"><code class="language-python"> <span class="token number">001</span> <span class="token number">010</span> <span class="token number">011</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span><span class="token number">123</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
 </code></pre>
 <p> 4.十进制—&gt;二进制 ： 相除取余</p>
 <p> python进制的支持<br> python支持整数的二进制、八进制、十六进制</p>
@@ -681,8 +681,8 @@ num1
 print(oct(20))        将其他的数据转换成八进制   oct()
 print(oct(0b11011))
 </code></pre><ul>
-<li>#####十六进制：0x<pre><code class="python">print(0xaf)
-print(hex(20))        将其他的数据转换成十六进制 hex()
+<li>#####十六进制：0x<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">0xaf</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>hex<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>        将其他的数据转换成十六进制 hex<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
 </ul>

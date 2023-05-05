@@ -7,11 +7,14 @@
     <meta name="keywords" content="Linux-vim-practice, 微笑看你">
     <meta name="description" content="practice1_fish#!/usr/bin/python3
 
-&amp;quot;&amp;quot;&amp;quot;
+&#34;&#34;&#34;
 穷举法:穷尽所有可能直到找到正确答案
-&amp;quot;&amp;quot;&amp;quot;
+&#34;&#34;&#34;
 def main():
-   &amp;quot;&amp;quot;&amp;q">
+   &#34;&#34;&#34;分鱼&#34;&#34;&#34;
+   fish = 1
+   while True:
+        ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -34,7 +37,7 @@ def main():
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -423,69 +426,69 @@ def main():
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="practice1-fish"><a href="#practice1-fish" class="headerlink" title="practice1_fish"></a>practice1_fish</h4><pre><code class="python">#!/usr/bin/python3
+                <h4 id="practice1-fish"><a href="#practice1-fish" class="headerlink" title="practice1_fish"></a>practice1_fish</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
 
-&quot;&quot;&quot;
+<span class="token triple-quoted-string string">"""
 穷举法:穷尽所有可能直到找到正确答案
-&quot;&quot;&quot;
-def main():
-   &quot;&quot;&quot;分鱼&quot;&quot;&quot;
-   fish = 1
-   while True:
-         enough = True
-         total = fish
-         for _ in range(5):
-             if (total - 1) % 5 == 0:
-                 total = (total - 1) // 5 *4
-             else:
-                 enough = False
-                 break
-         if enough:
-             print(fish)
-             break
-         fish += 1
+"""</span>
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token triple-quoted-string string">"""分鱼"""</span>
+   fish <span class="token operator">=</span> <span class="token number">1</span>
+   <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+         enough <span class="token operator">=</span> <span class="token boolean">True</span>
+         total <span class="token operator">=</span> fish
+         <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>total <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">5</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                 total <span class="token operator">=</span> <span class="token punctuation">(</span>total <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">5</span> <span class="token operator">*</span><span class="token number">4</span>
+             <span class="token keyword">else</span><span class="token punctuation">:</span>
+                 enough <span class="token operator">=</span> <span class="token boolean">False</span>
+                 <span class="token keyword">break</span>
+         <span class="token keyword">if</span> enough<span class="token punctuation">:</span>
+             <span class="token keyword">print</span><span class="token punctuation">(</span>fish<span class="token punctuation">)</span>
+             <span class="token keyword">break</span>
+         fish <span class="token operator">+=</span> <span class="token number">1</span>
 
 
- if __name__ == &quot;__main__&quot;:
-     main()
+ <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="practice2-joseph"><a href="#practice2-joseph" class="headerlink" title="practice2_joseph"></a>practice2_joseph</h4><pre><code class="python">#!/usr/bin/python3
+<h4 id="practice2-joseph"><a href="#practice2-joseph" class="headerlink" title="practice2_joseph"></a>practice2_joseph</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
 
-&quot;&quot;&quot;约瑟夫环&quot;&quot;&quot;
-def main():
-   &quot;&quot;&quot;主函数&quot;&quot;&quot;
-   persons = [True] * 30
-   # 设置变量，计数，下标，报数
-   counter, index, number = 0, 0, 0
-   #  循环选出15个人
-     while counter &lt; 15:
-         if persons[index]:
-             # 每次数数加一
-             number += 1
-             # 数到9的人，弄死
-             if number == 9:
-                 # 把它的值变为False
-                 persons[index] = False
-                 # 每选出一个人，counter数量加一
-                 counter += 1
-                 # 弄死的人，后面人又从0开始数数
-                 number = 0
-         # 移动下标
-         index += 1
-         # 保证有效的下标
-         index %= len(persons)
-     for person in persons:
-         print(&quot;基&quot; if person else &quot;非&quot;, end = &quot;&quot;)
-     print()
+<span class="token triple-quoted-string string">"""约瑟夫环"""</span>
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token triple-quoted-string string">"""主函数"""</span>
+   persons <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">True</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">30</span>
+   <span class="token comment" spellcheck="true"># 设置变量，计数，下标，报数</span>
+   counter<span class="token punctuation">,</span> index<span class="token punctuation">,</span> number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+   <span class="token comment" spellcheck="true">#  循环选出15个人</span>
+     <span class="token keyword">while</span> counter <span class="token operator">&lt;</span> <span class="token number">15</span><span class="token punctuation">:</span>
+         <span class="token keyword">if</span> persons<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">:</span>
+             <span class="token comment" spellcheck="true"># 每次数数加一</span>
+             number <span class="token operator">+=</span> <span class="token number">1</span>
+             <span class="token comment" spellcheck="true"># 数到9的人，弄死</span>
+             <span class="token keyword">if</span> number <span class="token operator">==</span> <span class="token number">9</span><span class="token punctuation">:</span>
+                 <span class="token comment" spellcheck="true"># 把它的值变为False</span>
+                 persons<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+                 <span class="token comment" spellcheck="true"># 每选出一个人，counter数量加一</span>
+                 counter <span class="token operator">+=</span> <span class="token number">1</span>
+                 <span class="token comment" spellcheck="true"># 弄死的人，后面人又从0开始数数</span>
+                 number <span class="token operator">=</span> <span class="token number">0</span>
+         <span class="token comment" spellcheck="true"># 移动下标</span>
+         index <span class="token operator">+=</span> <span class="token number">1</span>
+         <span class="token comment" spellcheck="true"># 保证有效的下标</span>
+         index <span class="token operator">%=</span> len<span class="token punctuation">(</span>persons<span class="token punctuation">)</span>
+     <span class="token keyword">for</span> person <span class="token keyword">in</span> persons<span class="token punctuation">:</span>
+         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"基"</span> <span class="token keyword">if</span> person <span class="token keyword">else</span> <span class="token string">"非"</span><span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span>
+     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
- if __name__ == &quot;__main__&quot;:
-     main()
+ <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>####practice3_salary</p>
-<pre><code class="python">#!/usr/bin/python3
-from abc import ABCMeta, abstractmethod
-&quot;&quot;&quot;
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+<span class="token keyword">from</span> abc <span class="token keyword">import</span> ABCMeta<span class="token punctuation">,</span> abstractmethod
+<span class="token triple-quoted-string string">"""
 面向对象的程序设计基本步骤：
 1. 定义类
    - 数据抽象: 找到对象的静态特征-属性(名词)
@@ -502,250 +505,250 @@ from abc import ABCMeta, abstractmethod
  多态：调用相同的方法做了不同的事情
      - 同样的方法在运行时表现出不同行为
      - 子类重写父类的方法，不同的子类给出不同的实现版本
- &quot;&quot;&quot;
- class Employee(metaclass=ABCMeta):
-     # metaclass=ABCMeta 原类，让子类不能再创建这个抽象对象，给别人继承
+ """</span>
+ <span class="token keyword">class</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span>metaclass<span class="token operator">=</span>ABCMeta<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token comment" spellcheck="true"># metaclass=ABCMeta 原类，让子类不能再创建这个抽象对象，给别人继承</span>
 
-     def __init__(self, name):
-         self.name = name
+     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
 
-     # 装饰器
+     <span class="token comment" spellcheck="true"># 装饰器</span>
      @abstractmethod
-     def salary(self):
-         pass
+     <span class="token keyword">def</span> <span class="token function">salary</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token keyword">pass</span>
 
 
- class Manager(Employee):
-     &quot;&quot;&quot;经理&quot;&quot;&quot;
-
-     @property
-     def salary(self):
-         return 15000
-
-
- class Programmer(Employee):
-     &quot;&quot;&quot;程序员&quot;&quot;&quot;
-
-     def __init__(self, name):
-         super().__init__(name)
-         # self.name = name
-         self.working_hour = 0
+ <span class="token keyword">class</span> <span class="token class-name">Manager</span><span class="token punctuation">(</span>Employee<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token triple-quoted-string string">"""经理"""</span>
 
      @property
-     def salary(self):
-         return 200 * self.working_hour
+     <span class="token keyword">def</span> <span class="token function">salary</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token keyword">return</span> <span class="token number">15000</span>
 
 
- class Salesman(Employee):
-     &quot;&quot;&quot;销售员&quot;&quot;&quot;
+ <span class="token keyword">class</span> <span class="token class-name">Programmer</span><span class="token punctuation">(</span>Employee<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token triple-quoted-string string">"""程序员"""</span>
 
-     def __init__(self, name):
-         self.name = name
-         self.sales = 0
+     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+         <span class="token comment" spellcheck="true"># self.name = name</span>
+         self<span class="token punctuation">.</span>working_hour <span class="token operator">=</span> <span class="token number">0</span>
 
      @property
-     def salary(self):
-         return 1800 + self.sales * 0.05
+     <span class="token keyword">def</span> <span class="token function">salary</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token keyword">return</span> <span class="token number">200</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>working_hour
 
 
- &quot;&quot;&quot;工资结算&quot;&quot;&quot;
- def main():
-     &quot;&quot;&quot;主函数&quot;&quot;&quot;
-     emps = [
-         Manager(&quot;刘备&quot;), Manager(&quot;曹操&quot;),
-         Programmer(&quot;诸葛亮&quot;), Programmer(&quot;荀彧&quot;),
-         Salesman(&quot;貂蝉&quot;)
-     ]
-     for emp in emps:
-         # isinstance函数可以进行运行时类型识别，判断函数类型
-         if isinstance(emp, Programmer):
-             emp.working_hour = int(input(f&#39;请输入{emp.name}本月工作时间: &#39;))
-         elif isinstance(emp, Salesman):
-             emp.sales = float(input(f&#39;请输入{emp.name}本月销售额: &#39;))
-        #print(&#39;%s: %.2f元&#39; % (emp.name, emp.salary))
-         print(f&quot;{emp.name}本月的工资为: {emp.salary}元&quot;)
+ <span class="token keyword">class</span> <span class="token class-name">Salesman</span><span class="token punctuation">(</span>Employee<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token triple-quoted-string string">"""销售员"""</span>
+
+     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+         self<span class="token punctuation">.</span>sales <span class="token operator">=</span> <span class="token number">0</span>
+
+     @property
+     <span class="token keyword">def</span> <span class="token function">salary</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token keyword">return</span> <span class="token number">1800</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>sales <span class="token operator">*</span> <span class="token number">0.05</span>
 
 
- if __name__ == &quot;__main__&quot;:
-     main()
+ <span class="token triple-quoted-string string">"""工资结算"""</span>
+ <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token triple-quoted-string string">"""主函数"""</span>
+     emps <span class="token operator">=</span> <span class="token punctuation">[</span>
+         Manager<span class="token punctuation">(</span><span class="token string">"刘备"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Manager<span class="token punctuation">(</span><span class="token string">"曹操"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         Programmer<span class="token punctuation">(</span><span class="token string">"诸葛亮"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Programmer<span class="token punctuation">(</span><span class="token string">"荀彧"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         Salesman<span class="token punctuation">(</span><span class="token string">"貂蝉"</span><span class="token punctuation">)</span>
+     <span class="token punctuation">]</span>
+     <span class="token keyword">for</span> emp <span class="token keyword">in</span> emps<span class="token punctuation">:</span>
+         <span class="token comment" spellcheck="true"># isinstance函数可以进行运行时类型识别，判断函数类型</span>
+         <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>emp<span class="token punctuation">,</span> Programmer<span class="token punctuation">)</span><span class="token punctuation">:</span>
+             emp<span class="token punctuation">.</span>working_hour <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span>f<span class="token string">'请输入{emp.name}本月工作时间: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+         <span class="token keyword">elif</span> isinstance<span class="token punctuation">(</span>emp<span class="token punctuation">,</span> Salesman<span class="token punctuation">)</span><span class="token punctuation">:</span>
+             emp<span class="token punctuation">.</span>sales <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span>f<span class="token string">'请输入{emp.name}本月销售额: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#print('%s: %.2f元' % (emp.name, emp.salary))</span>
+         <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{emp.name}本月的工资为: {emp.salary}元"</span><span class="token punctuation">)</span>
+
+
+ <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="practice-poker"><a href="#practice-poker" class="headerlink" title="practice_poker"></a>practice_poker</h4><pre><code class="python">#!/usr/bin/python3
+<h4 id="practice-poker"><a href="#practice-poker" class="headerlink" title="practice_poker"></a>practice_poker</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
 
-from enum import Enum, unique
-import random
+<span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum<span class="token punctuation">,</span> unique
+<span class="token keyword">import</span> random
 
 
-# 定义花色的常量(尽量用符号常量代替字面常量)
-# 枚举类型是定义符号常量的最佳选择
-# @unique 类的装饰器，类里面的变量不能重复，独一无二的
+<span class="token comment" spellcheck="true"># 定义花色的常量(尽量用符号常量代替字面常量)</span>
+<span class="token comment" spellcheck="true"># 枚举类型是定义符号常量的最佳选择</span>
+<span class="token comment" spellcheck="true"># @unique 类的装饰器，类里面的变量不能重复，独一无二的</span>
 
- &quot;&quot;&quot;花色枚举类，用来定义黑桃、红心、梅花、方块常量&quot;&quot;&quot;
+ <span class="token triple-quoted-string string">"""花色枚举类，用来定义黑桃、红心、梅花、方块常量"""</span>
  @unique
- class Suite(Enum):
-     SPADE = 0
-     HEART = 1
-     CLUB = 2
-     DIAMOND = 3
+ <span class="token keyword">class</span> <span class="token class-name">Suite</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     SPADE <span class="token operator">=</span> <span class="token number">0</span>
+     HEART <span class="token operator">=</span> <span class="token number">1</span>
+     CLUB <span class="token operator">=</span> <span class="token number">2</span>
+     DIAMOND <span class="token operator">=</span> <span class="token number">3</span>
 
 
- &quot;&quot;&quot;定义扑克类&quot;&quot;&quot;
- class Card(object):
+ <span class="token triple-quoted-string string">"""定义扑克类"""</span>
+ <span class="token keyword">class</span> <span class="token class-name">Card</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-     def __init__(self, suite, face):
-         self.suite = suite
-         self.face = face
+     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> suite<span class="token punctuation">,</span> face<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         self<span class="token punctuation">.</span>suite <span class="token operator">=</span> suite
+         self<span class="token punctuation">.</span>face <span class="token operator">=</span> face
 
-     def show(self):
-         suites = [&quot;黑&quot;, &quot;红&quot;, &quot;梅&quot;, &quot;方&quot;]
-         faces = [
-             &quot;&quot;, &quot;A&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;,
-             &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;, &quot;J&quot;, &quot;Q&quot;, &quot;K&quot;
-         ]
-         return f&quot;{suites[self.suite.value]}{faces[self.face]}&quot;
-     &quot;&quot;&quot;
+     <span class="token keyword">def</span> <span class="token function">show</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         suites <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"黑"</span><span class="token punctuation">,</span> <span class="token string">"红"</span><span class="token punctuation">,</span> <span class="token string">"梅"</span><span class="token punctuation">,</span> <span class="token string">"方"</span><span class="token punctuation">]</span>
+         faces <span class="token operator">=</span> <span class="token punctuation">[</span>
+             <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"3"</span><span class="token punctuation">,</span> <span class="token string">"4"</span><span class="token punctuation">,</span> <span class="token string">"5"</span><span class="token punctuation">,</span> <span class="token string">"6"</span><span class="token punctuation">,</span>
+             <span class="token string">"7"</span><span class="token punctuation">,</span> <span class="token string">"8"</span><span class="token punctuation">,</span> <span class="token string">"9"</span><span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token string">"J"</span><span class="token punctuation">,</span> <span class="token string">"Q"</span><span class="token punctuation">,</span> <span class="token string">"K"</span>
+         <span class="token punctuation">]</span>
+         <span class="token keyword">return</span> f<span class="token string">"{suites[self.suite.value]}{faces[self.face]}"</span>
+     <span class="token triple-quoted-string string">"""
      # 比较大小
      def __lt__(self, other):
          if self.suite == other.suite:
              return self.face &lt; other.face
          return self.suite.value &lt; other.suite.value
-     &quot;&quot;&quot;
+     """</span>
 
-     # 把对象变成字符串（魔术方法）
-     def __str__(self):
-         return self.show()
+     <span class="token comment" spellcheck="true"># 把对象变成字符串（魔术方法）</span>
+     <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token keyword">return</span> self<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-     # 把对象变成字符串（魔术方法）
-     def __repr__(self):
-         return self.show()
+     <span class="token comment" spellcheck="true"># 把对象变成字符串（魔术方法）</span>
+     <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token keyword">return</span> self<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
- &quot;&quot;&quot;牌类&quot;&quot;&quot;
- class Poker(object):
+ <span class="token triple-quoted-string string">"""牌类"""</span>
+ <span class="token keyword">class</span> <span class="token class-name">Poker</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-     def __init__(self):
-         self.index = 0
-         # 生成一副牌，生成式
-         self.cards = [Card(suite, face)
-                       for suite in Suite
-                       for face in range(1, 14)
-         ]
+     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         self<span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token number">0</span>
+         <span class="token comment" spellcheck="true"># 生成一副牌，生成式</span>
+         self<span class="token punctuation">.</span>cards <span class="token operator">=</span> <span class="token punctuation">[</span>Card<span class="token punctuation">(</span>suite<span class="token punctuation">,</span> face<span class="token punctuation">)</span>
+                       <span class="token keyword">for</span> suite <span class="token keyword">in</span> Suite
+                       <span class="token keyword">for</span> face <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">)</span>
+         <span class="token punctuation">]</span>
 
-     def shuffle(self):
-         &quot;&quot;&quot;洗牌，调用随机乱序的函数&quot;&quot;&quot;
-         random.shuffle(self.cards)
+     <span class="token keyword">def</span> <span class="token function">shuffle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token triple-quoted-string string">"""洗牌，调用随机乱序的函数"""</span>
+         random<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>self<span class="token punctuation">.</span>cards<span class="token punctuation">)</span>
 
-     def deal(self):
-         &quot;&quot;&quot;发牌&quot;&quot;&quot;
-         card = self.cards[self.index]
-         self.index += 1
-         return card
+     <span class="token keyword">def</span> <span class="token function">deal</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token triple-quoted-string string">"""发牌"""</span>
+         card <span class="token operator">=</span> self<span class="token punctuation">.</span>cards<span class="token punctuation">[</span>self<span class="token punctuation">.</span>index<span class="token punctuation">]</span>
+         self<span class="token punctuation">.</span>index <span class="token operator">+=</span> <span class="token number">1</span>
+         <span class="token keyword">return</span> card
 
      @property
-     def has_more(self):
-         &quot;&quot;&quot;判断是否有牌发&quot;&quot;&quot;
-         return self.index &lt; len(self.cards)
+     <span class="token keyword">def</span> <span class="token function">has_more</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token triple-quoted-string string">"""判断是否有牌发"""</span>
+         <span class="token keyword">return</span> self<span class="token punctuation">.</span>index <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>cards<span class="token punctuation">)</span>
 
 
- class Player(object):
-     &quot;&quot;&quot;玩家&quot;&quot;&quot;
+ <span class="token keyword">class</span> <span class="token class-name">Player</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token triple-quoted-string string">"""玩家"""</span>
 
-     def __init__(self, name):
-         self.name = name
-         self.cards = []
+     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+         self<span class="token punctuation">.</span>cards <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 
-     def get_one(self, card):
-         &quot;&quot;&quot;摸一张牌&quot;&quot;&quot;
-         self.cards.append(card)
+     <span class="token keyword">def</span> <span class="token function">get_one</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> card<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token triple-quoted-string string">"""摸一张牌"""</span>
+         self<span class="token punctuation">.</span>cards<span class="token punctuation">.</span>append<span class="token punctuation">(</span>card<span class="token punctuation">)</span>
 
-     # *后面的是命名关键字参数，必须写参数名key
-     def sort_cards(self, *, key=lambda card:
-                       (card.suite.value, card.face)):
-         &quot;&quot;&quot; 整理手上的牌&quot;&quot;&quot;
-         self.cards.sort(key=key)
-
-
- def main():
-     poker = Poker()
-     poker.shuffle()
-     players = [
-                Player(&quot;东邪&quot;), Player(&quot;西毒&quot;), Player(&quot;南帝&quot;),
-                Player(&quot;北丐&quot;)
-     ]
-     for _ in range(13):
-         for player in players:
-             player.get_one(poker.deal())
-     for player in players:
-         player.sort_cards(key=lambda card: card.face)
-         print(player.name, end=&quot;: &quot;)
-         print(player.cards)
+     <span class="token comment" spellcheck="true"># *后面的是命名关键字参数，必须写参数名key</span>
+     <span class="token keyword">def</span> <span class="token function">sort_cards</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> card<span class="token punctuation">:</span>
+                       <span class="token punctuation">(</span>card<span class="token punctuation">.</span>suite<span class="token punctuation">.</span>value<span class="token punctuation">,</span> card<span class="token punctuation">.</span>face<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token triple-quoted-string string">""" 整理手上的牌"""</span>
+         self<span class="token punctuation">.</span>cards<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span>key<span class="token punctuation">)</span>
 
 
- if __name__ == &quot;__main__&quot;:
-     main()
+ <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+     poker <span class="token operator">=</span> Poker<span class="token punctuation">(</span><span class="token punctuation">)</span>
+     poker<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span><span class="token punctuation">)</span>
+     players <span class="token operator">=</span> <span class="token punctuation">[</span>
+                Player<span class="token punctuation">(</span><span class="token string">"东邪"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Player<span class="token punctuation">(</span><span class="token string">"西毒"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Player<span class="token punctuation">(</span><span class="token string">"南帝"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                Player<span class="token punctuation">(</span><span class="token string">"北丐"</span><span class="token punctuation">)</span>
+     <span class="token punctuation">]</span>
+     <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token keyword">for</span> player <span class="token keyword">in</span> players<span class="token punctuation">:</span>
+             player<span class="token punctuation">.</span>get_one<span class="token punctuation">(</span>poker<span class="token punctuation">.</span>deal<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+     <span class="token keyword">for</span> player <span class="token keyword">in</span> players<span class="token punctuation">:</span>
+         player<span class="token punctuation">.</span>sort_cards<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> card<span class="token punctuation">:</span> card<span class="token punctuation">.</span>face<span class="token punctuation">)</span>
+         <span class="token keyword">print</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span>name<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">": "</span><span class="token punctuation">)</span>
+         <span class="token keyword">print</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span>cards<span class="token punctuation">)</span>
+
+
+ <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="practice-mycal"><a href="#practice-mycal" class="headerlink" title="practice_mycal"></a>practice_mycal</h4><pre><code class="python">#!/usr/bin/python3
-&quot;&quot;&quot;
+<h4 id="practice-mycal"><a href="#practice-mycal" class="headerlink" title="practice_mycal"></a>practice_mycal</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+<span class="token triple-quoted-string string">"""
 万年历
-&quot;&quot;&quot;
-from datetime import datetime
-import sys
+"""</span>
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+<span class="token keyword">import</span> sys
 
 
-def is_leap(year):
-     &quot;&quot;&quot;判断指定年份是否是闰年&quot;&quot;&quot;
-     return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
+<span class="token keyword">def</span> <span class="token function">is_leap</span><span class="token punctuation">(</span>year<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token triple-quoted-string string">"""判断指定年份是否是闰年"""</span>
+     <span class="token keyword">return</span> year <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">and</span> year <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">or</span> year <span class="token operator">%</span> <span class="token number">400</span> <span class="token operator">==</span> <span class="token number">0</span>
 
 
-def get_month_days(year, month):
-     &quot;&quot;&quot;获得指定的月份的天数&quot;&quot;&quot;
-     days = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-     # 修改2月份的天数
-     if month == 2 and is_leap(year):
-         days[2] = 29
-     return days[month]
+<span class="token keyword">def</span> <span class="token function">get_month_days</span><span class="token punctuation">(</span>year<span class="token punctuation">,</span> month<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token triple-quoted-string string">"""获得指定的月份的天数"""</span>
+     days <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">]</span>
+     <span class="token comment" spellcheck="true"># 修改2月份的天数</span>
+     <span class="token keyword">if</span> month <span class="token operator">==</span> <span class="token number">2</span> <span class="token operator">and</span> is_leap<span class="token punctuation">(</span>year<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         days<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">29</span>
+     <span class="token keyword">return</span> days<span class="token punctuation">[</span>month<span class="token punctuation">]</span>
 
 
-def main():
-     # 通过sys模块的argv可以获取命令行参数
-     if len(sys.argv) == 3:
-         year = int(sys.argv[2])
-         month = int(sys.argv[1])
-     else:
-         # 拿到现在系统的时间和日期
-         now = datetime.now()
-         year = now.year
-         month = now.month
-     # 拿到年，月小于2，算到上一年
-     y = year if month &gt; 2 else year - 1
-     # 拿到月，月小于2，算到13月或者14月
-     m = month if month &gt; 2 else month + 12
-     # 取到世纪，年份的前两位数
-     c = y // 100
-     # 取到年的后两位
-     y = y % 100
-     # 计算每个月1号是星期几
-     w = y + y // 4 + c // 4 - 2 * c + 26 * (m + 1) // 10
-     # 对7求余数，0对应星期日
-     w %= 7
-     months = [
-         &quot;&quot;, &quot;January&quot;, &quot; February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot; June&quot;,
-         &quot; July&quot;, &quot; August&quot;, &quot;September&quot;, &quot;October&quot;, &quot; November&quot;, &quot; December&quot;
-     ]
-     print(f&quot;{months[month]} {year}&quot;.center(20))
-     print(&quot;Su Mo Tu We Th Fr Sa&quot;)
-     print (&quot; &quot; * 3 * w,end=&quot;&quot;)
-     days = get_month_days(year, month)
-  # 遍历月份的天数，进行排版
-     for day in range(1, days + 1):
-         print(f&quot;{day}&quot;.rjust(2), end=&quot; &quot;)
-         w += 1
-         if w % 7 == 0:
-             print()
-     print()
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token comment" spellcheck="true"># 通过sys模块的argv可以获取命令行参数</span>
+     <span class="token keyword">if</span> len<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
+         year <span class="token operator">=</span> int<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+         month <span class="token operator">=</span> int<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+     <span class="token keyword">else</span><span class="token punctuation">:</span>
+         <span class="token comment" spellcheck="true"># 拿到现在系统的时间和日期</span>
+         now <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span>
+         year <span class="token operator">=</span> now<span class="token punctuation">.</span>year
+         month <span class="token operator">=</span> now<span class="token punctuation">.</span>month
+     <span class="token comment" spellcheck="true"># 拿到年，月小于2，算到上一年</span>
+     y <span class="token operator">=</span> year <span class="token keyword">if</span> month <span class="token operator">></span> <span class="token number">2</span> <span class="token keyword">else</span> year <span class="token operator">-</span> <span class="token number">1</span>
+     <span class="token comment" spellcheck="true"># 拿到月，月小于2，算到13月或者14月</span>
+     m <span class="token operator">=</span> month <span class="token keyword">if</span> month <span class="token operator">></span> <span class="token number">2</span> <span class="token keyword">else</span> month <span class="token operator">+</span> <span class="token number">12</span>
+     <span class="token comment" spellcheck="true"># 取到世纪，年份的前两位数</span>
+     c <span class="token operator">=</span> y <span class="token operator">//</span> <span class="token number">100</span>
+     <span class="token comment" spellcheck="true"># 取到年的后两位</span>
+     y <span class="token operator">=</span> y <span class="token operator">%</span> <span class="token number">100</span>
+     <span class="token comment" spellcheck="true"># 计算每个月1号是星期几</span>
+     w <span class="token operator">=</span> y <span class="token operator">+</span> y <span class="token operator">//</span> <span class="token number">4</span> <span class="token operator">+</span> c <span class="token operator">//</span> <span class="token number">4</span> <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">*</span> c <span class="token operator">+</span> <span class="token number">26</span> <span class="token operator">*</span> <span class="token punctuation">(</span>m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">10</span>
+     <span class="token comment" spellcheck="true"># 对7求余数，0对应星期日</span>
+     w <span class="token operator">%=</span> <span class="token number">7</span>
+     months <span class="token operator">=</span> <span class="token punctuation">[</span>
+         <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"January"</span><span class="token punctuation">,</span> <span class="token string">" February"</span><span class="token punctuation">,</span> <span class="token string">"March"</span><span class="token punctuation">,</span> <span class="token string">"April"</span><span class="token punctuation">,</span> <span class="token string">"May"</span><span class="token punctuation">,</span> <span class="token string">" June"</span><span class="token punctuation">,</span>
+         <span class="token string">" July"</span><span class="token punctuation">,</span> <span class="token string">" August"</span><span class="token punctuation">,</span> <span class="token string">"September"</span><span class="token punctuation">,</span> <span class="token string">"October"</span><span class="token punctuation">,</span> <span class="token string">" November"</span><span class="token punctuation">,</span> <span class="token string">" December"</span>
+     <span class="token punctuation">]</span>
+     <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{months[month]} {year}"</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Su Mo Tu We Th Fr Sa"</span><span class="token punctuation">)</span>
+     <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">" "</span> <span class="token operator">*</span> <span class="token number">3</span> <span class="token operator">*</span> w<span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+     days <span class="token operator">=</span> get_month_days<span class="token punctuation">(</span>year<span class="token punctuation">,</span> month<span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true"># 遍历月份的天数，进行排版</span>
+     <span class="token keyword">for</span> day <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> days <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{day}"</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span>
+         w <span class="token operator">+=</span> <span class="token number">1</span>
+         <span class="token keyword">if</span> w <span class="token operator">%</span> <span class="token number">7</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+             <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
- if __name__ == &quot;__main__&quot;:
-     main()
+ <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>
@@ -933,7 +936,7 @@ import urllib
 from urllib import parse
 
 def str2url(s):
-    #s = &#39;9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E8</div>
+    #s = '9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E85.%f</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-15
@@ -985,7 +988,7 @@ import requests
 
 
 def parse_page(html):
-    patters = re.compile(&#3</div>
+    patters = re.compile('va</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-12

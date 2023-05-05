@@ -30,7 +30,7 @@ CSS代码的位置1.内联样式
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -426,10 +426,10 @@ CSS代码的位置1.内联样式
 <p>&emsp;&emsp;将样式表也在 head 中的 style 中的标签中，只可用于当前的 html 文件</p>
 <p><strong>3.外部样式</strong></p>
 <p>&emsp;&emsp;在外面新建一个 css 后缀的样式文件，并通过 link 引入到 html 文件中，可用于所有的 html 文件中</p>
-<pre><code class="html">link标签：
+<pre class=" language-html"><code class="language-html">link标签：
 作用：导入外部文件
 用法：
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;theme.css&quot;&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>theme.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     rel：说明属性的功能
     type：设置导入文件的类型
     href：导入的 css 文件的位置
@@ -446,7 +446,7 @@ CSS代码的位置1.内联样式
 <li>常用的属性</li>
 </ul>
 <p><img src="/2018/01/22/前端/CSS样式表/常用的属性.png" alt="常用的属性"></p>
-<h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><pre><code class="html">作用：选中需要添加样式的标签
+<h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><pre class=" language-html"><code class="language-html">作用：选中需要添加样式的标签
 内联样式优先级最高
 
 优先级1：1.就近原则；2.具体性原则；3.重要性原则（!important）
@@ -513,7 +513,7 @@ CSS代码的位置1.内联样式
 </ul>
 </li>
 </ul>
-<pre><code class="html">attr=val {margin-right: 10px}
+<pre class=" language-html"><code class="language-html">attr=val {margin-right: 10px}
   //选择属性 title 的值等于 this 的所有元素
   attr^=val {margin-left: 15px}
   //选择属性title的值以this开头的所有元素

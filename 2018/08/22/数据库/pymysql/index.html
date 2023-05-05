@@ -10,8 +10,9 @@ import pymysql
 
 
 def main():
-    no = int(input(&amp;#39;部门编号：&amp;#39;))
-    name = input(&amp;#39;部门名称：&amp;">
+    no = int(input(&#39;部门编号：&#39;))
+    name = input(&#39;部门名称：&#39;)
+    loc = ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -34,7 +35,7 @@ def main():
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -420,108 +421,108 @@ def main():
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="learn"><a href="#learn" class="headerlink" title="learn"></a>learn</h3><p>insert/update/delete</p>
-<pre><code class="python">import pymysql
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
 
 
-def main():
-    no = int(input(&#39;部门编号：&#39;))
-    name = input(&#39;部门名称：&#39;)
-    loc = input(&#39;部门所在地：&#39;)
-    # 创建连接(主机、端口、用户、密码、数据库名)
-    con = pymysql.connect(host=&#39;localhost&#39;, port=3306,
-                          user=&#39;root&#39;, password=&#39;123456&#39;,
-                          database=&#39;hrs&#39;, charset=&#39;utf8&#39;, autocommit=True)
-    try:
-        # 通过连接对象的cursor方法获取游标
-        &#39;&#39;&#39;
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    no <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'部门编号：'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    name <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'部门名称：'</span><span class="token punctuation">)</span>
+    loc <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'部门所在地：'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 创建连接(主机、端口、用户、密码、数据库名)</span>
+    con <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+                          user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span> password<span class="token operator">=</span><span class="token string">'123456'</span><span class="token punctuation">,</span>
+                          database<span class="token operator">=</span><span class="token string">'hrs'</span><span class="token punctuation">,</span> charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">,</span> autocommit<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 通过连接对象的cursor方法获取游标</span>
+        <span class="token triple-quoted-string string">'''
         # 添加操作
         with con.cursor() as cursor:
             # 通过游标对象的execute方法向数据库服务器发出SQL
             # executemany方法可以一次性执行多个SQL操作，相当于是以批处理的方式执行SQL，效率高
             result = cursor.execute(
-                &#39;insert into tbdept values (%s, %s, %s)&#39;,
+                'insert into tbdept values (%s, %s, %s)',
                 (no, name, loc)
             )
             # 处理服务器返回的信息
             if result == 1:
-                print(&#39;添加成功&#39;)
+                print('添加成功')
                 # con.commit()
 
         # 更新操作
         with con.cursor() as cursor:
             result1 = cursor.execute(
-                &#39;update tbdept set dname=%s,dloc=%s where dno=%s&#39;,
+                'update tbdept set dname=%s,dloc=%s where dno=%s',
                 (name, loc, no)
             )
             if result1 == 1:
-                print(&#39;更新成功&#39;)
-        &#39;&#39;&#39;
+                print('更新成功')
+        '''</span>
 
-        # 删除操作
-        with con.cursor() as cursor:
-            result1 = cursor.execute(
-                &#39;delete from tbdept where dno=%s&#39;,
-                (no,)
-            )
-            if result1 == 1:
-                print(&#39;删除成功&#39;)
-    except pymysql.MySQLError as e:
-        print(e)
-        # con.rollback()
-    finally:
-        # 关闭连接，释放资源
-        con.close()
+        <span class="token comment" spellcheck="true"># 删除操作</span>
+        <span class="token keyword">with</span> con<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cursor<span class="token punctuation">:</span>
+            result1 <span class="token operator">=</span> cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>
+                <span class="token string">'delete from tbdept where dno=%s'</span><span class="token punctuation">,</span>
+                <span class="token punctuation">(</span>no<span class="token punctuation">,</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span>
+            <span class="token keyword">if</span> result1 <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'删除成功'</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> pymysql<span class="token punctuation">.</span>MySQLError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># con.rollback()</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 关闭连接，释放资源</span>
+        con<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-if __name__ == &#39;__main__&#39;:
-    main()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 <p>select</p>
-<pre><code class="python">import pymysql
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
 
 
-class Dept(object):
+<span class="token keyword">class</span> <span class="token class-name">Dept</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def __init__(self, no, name, loc):
-        self.no = no
-        self.name = name
-        self.loc = loc
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> no<span class="token punctuation">,</span> name<span class="token punctuation">,</span> loc<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>no <span class="token operator">=</span> no
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>loc <span class="token operator">=</span> loc
 
-    def __str__(self):
-        return f&#39;{self.no}\t{self.name}\t{self.loc}&#39;
-
-
-def main():
-    con = pymysql.connect(host=&#39;localhost&#39;,
-                          port=3306,
-                          user=&#39;root&#39;,
-                          password=&#39;123456&#39;,
-                          database=&#39;hrs&#39;,
-                          charset=&#39;utf8&#39;,
-                          cursorclass=pymysql.cursors.DictCursor)
-    try:
-        with con.cursor() as cursor:
-            # cursor.execute(&#39;select * from tbdept&#39;)
-            # depts = cursor.fetchall()
-            # for dept in depts:
-            #     print(f&#39;{dept[0]} | {dept[1]} | {dept[2]}&#39;)
-            #     print(&#39;-&#39; * 18)
-
-            cursor.execute(&#39;select dno no, dname name, dloc loc from tbdept&#39;)
-            depts = cursor.fetchall()
-            for dept_dict in depts:
-                # print(dept[&#39;no&#39;], dept[&#39;name&#39;], dept[&#39;loc&#39;])
-                dept = Dept(**dept_dict)
-                print(dept)
-    except pymysql.MySQLError as e:
-        print(e)
-    finally:
-        con.close()
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> f<span class="token string">'{self.no}\t{self.name}\t{self.loc}'</span>
 
 
-if __name__ == &#39;__main__&#39;:
-    main()
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    con <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span>
+                          port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+                          user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>
+                          password<span class="token operator">=</span><span class="token string">'123456'</span><span class="token punctuation">,</span>
+                          database<span class="token operator">=</span><span class="token string">'hrs'</span><span class="token punctuation">,</span>
+                          charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">,</span>
+                          cursorclass<span class="token operator">=</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> con<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cursor<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># cursor.execute('select * from tbdept')</span>
+            <span class="token comment" spellcheck="true"># depts = cursor.fetchall()</span>
+            <span class="token comment" spellcheck="true"># for dept in depts:</span>
+            <span class="token comment" spellcheck="true">#     print(f'{dept[0]} | {dept[1]} | {dept[2]}')</span>
+            <span class="token comment" spellcheck="true">#     print('-' * 18)</span>
+
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">'select dno no, dname name, dloc loc from tbdept'</span><span class="token punctuation">)</span>
+            depts <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> dept_dict <span class="token keyword">in</span> depts<span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true"># print(dept['no'], dept['name'], dept['loc'])</span>
+                dept <span class="token operator">=</span> Dept<span class="token punctuation">(</span><span class="token operator">**</span>dept_dict<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>dept<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> pymysql<span class="token punctuation">.</span>MySQLError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        con<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 

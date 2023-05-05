@@ -33,7 +33,7 @@ Server(Redis)远程字典服务器，为网站提供高速缓存服务
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -429,7 +429,7 @@ Server(Redis)远程字典服务器，为网站提供高速缓存服务
 <h4 id="网站优化两大定律"><a href="#网站优化两大定律" class="headerlink" title="网站优化两大定律"></a>网站优化两大定律</h4><p>1.缓存 —– 用空间换时间（redis/Memcached）</p>
 <p>2.削峰 —— 能推迟的事情都不要马上做(RabbitMQ/ RocketMQ)</p>
 <h4 id="信息隐藏"><a href="#信息隐藏" class="headerlink" title="信息隐藏:"></a>信息隐藏:</h4><p>&emsp;&emsp;信息隐藏是指在设计和确定模块时，使得一个模块内包含的特定信息（过程或数据），对于不需要这些信息的其他模块来说，是不可访问的</p>
-<h5 id="启动Redis服务器步骤-谨慎"><a href="#启动Redis服务器步骤-谨慎" class="headerlink" title="启动Redis服务器步骤(谨慎):"></a>启动Redis服务器步骤(谨慎):</h5><pre><code class="mysql">1.修改Redis配置文件redis.conf(安装文件目录下)
+<h5 id="启动Redis服务器步骤-谨慎"><a href="#启动Redis服务器步骤-谨慎" class="headerlink" title="启动Redis服务器步骤(谨慎):"></a>启动Redis服务器步骤(谨慎):</h5><pre class=" language-mysql"><code class="language-mysql">1.修改Redis配置文件redis.conf(安装文件目录下)
     cp redis-4.0.11/redis.conf redis.conf
     # redis-server --post -- requirepass   ----- 也可以修改配置
     vim redis.conf
@@ -437,7 +437,7 @@ Server(Redis)远程字典服务器，为网站提供高速缓存服务
     requirepass 密码
     appendonly yes
 2.启动服务器
-    redis-server redis.conf(配置文件) &gt; redis.log &amp;
+    redis-server redis.conf(配置文件) > redis.log &
 3.启动客户端
     redis-cli -h ip地址(私用ip地址)
 4.验证身份
@@ -445,10 +445,10 @@ Server(Redis)远程字典服务器，为网站提供高速缓存服务
 5.停止服务器
    1.kill 进程号
    2.把进程放到前台，Ctrl c
-   3.客户端&gt;shutdown
+   3.客户端>shutdown
 6.测试连接输入ping 回应PONG表示连接成功
 </code></pre>
-<h5 id="操作命令-——-http-redisdoc-com"><a href="#操作命令-——-http-redisdoc-com" class="headerlink" title="操作命令  ——- http://redisdoc.com/"></a>操作命令  ——- <a href="http://redisdoc.com/" target="_blank" rel="noopener">http://redisdoc.com/</a></h5><pre><code class="mysql">操作:
+<h5 id="操作命令-——-http-redisdoc-com"><a href="#操作命令-——-http-redisdoc-com" class="headerlink" title="操作命令  ——- http://redisdoc.com/"></a>操作命令  ——- <a href="http://redisdoc.com/" target="_blank" rel="noopener">http://redisdoc.com/</a></h5><pre class=" language-mysql"><code class="language-mysql">操作:
     keys *  查看所有键
     select 1切换到1号数据库
     select 15切换到15号数据库
@@ -822,8 +822,9 @@ import pymysql
 
 
 def main():
-    no = int(input(&#39;部门编号：&#39;))
-    name = input(&#39;部门名称：&</div>
+    no = int(input('部门编号：'))
+    name = input('部门名称：')
+    loc = </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-22

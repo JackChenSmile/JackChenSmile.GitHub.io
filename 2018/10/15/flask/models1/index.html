@@ -32,7 +32,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -450,45 +450,45 @@
 <li>注意: db.session.add(对象)这句话可写可不写</li>
 </ul>
 <p><strong>查</strong></p>
-<pre><code class="python">filter：模型.query.filter(模型.字段 == 值)
-filter_by: 模型.query.filter_by(字段 = 值)
-get: 获取主键所在行的数据:  模型.query.get(主键值)
-all:
-    - 查询所有结果，返回结果为列表
-    - 模型.query.all()
-order_by:
-    - 升序：模型.query.order_by(&#39;字段&#39;)/模型.query.order_by(&#39;字段 asc&#39;)
-    - 降序：模型.query.order_by(&#39;-字段&#39;)/模型.query.order_by(&#39;字段 desc&#39;)
-offset/limit:模型.query.offset(跳过几条数据).limit(截取几条数据)
-first: 
-    获取第一个: 模型.query.filter_by().first()
+<pre class=" language-python"><code class="language-python">filter：模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>模型<span class="token punctuation">.</span>字段 <span class="token operator">==</span> 值<span class="token punctuation">)</span>
+filter_by<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter_by<span class="token punctuation">(</span>字段 <span class="token operator">=</span> 值<span class="token punctuation">)</span>
+get<span class="token punctuation">:</span> 获取主键所在行的数据<span class="token punctuation">:</span>  模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>get<span class="token punctuation">(</span>主键值<span class="token punctuation">)</span>
+all<span class="token punctuation">:</span>
+    <span class="token operator">-</span> 查询所有结果，返回结果为列表
+    <span class="token operator">-</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span>
+order_by<span class="token punctuation">:</span>
+    <span class="token operator">-</span> 升序：模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>order_by<span class="token punctuation">(</span><span class="token string">'字段'</span><span class="token punctuation">)</span><span class="token operator">/</span>模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>order_by<span class="token punctuation">(</span><span class="token string">'字段 asc'</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span> 降序：模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>order_by<span class="token punctuation">(</span><span class="token string">'-字段'</span><span class="token punctuation">)</span><span class="token operator">/</span>模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>order_by<span class="token punctuation">(</span><span class="token string">'字段 desc'</span><span class="token punctuation">)</span>
+offset<span class="token operator">/</span>limit<span class="token punctuation">:</span>模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>offset<span class="token punctuation">(</span>跳过几条数据<span class="token punctuation">)</span><span class="token punctuation">.</span>limit<span class="token punctuation">(</span>截取几条数据<span class="token punctuation">)</span>
+first<span class="token punctuation">:</span> 
+    获取第一个<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter_by<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
 模糊查询：
-    contains: 模型.query.filter(模型.字段.contains(值))
-    startswith: 模型.query.filter(模型.字段.startswith(值))
-    endswith: 模型.query.filter(模型.字段.endswith(值))
-    like: _ 占位 / %通配符 / 
-        模型.query.filter(模型.字段.like(&#39;_值%&#39;)
-in_: 范围之内: 模型.query.filter(模型.字段.in_([1,2,3,4,5]))
-比较：gt大于/ge大于等于/lt小于/le小于等于
-    模型.query.filter(模型.字段.__gt__(21))
-    模型.query.filter(模型.字段 &gt; 值)
+    contains<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>模型<span class="token punctuation">.</span>字段<span class="token punctuation">.</span>contains<span class="token punctuation">(</span>值<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    startswith<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>模型<span class="token punctuation">.</span>字段<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span>值<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    endswith<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>模型<span class="token punctuation">.</span>字段<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span>值<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    like<span class="token punctuation">:</span> _ 占位 <span class="token operator">/</span> <span class="token operator">%</span>通配符 <span class="token operator">/</span> 
+        模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>模型<span class="token punctuation">.</span>字段<span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'_值%'</span><span class="token punctuation">)</span>
+in_<span class="token punctuation">:</span> 范围之内<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>模型<span class="token punctuation">.</span>字段<span class="token punctuation">.</span>in_<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+比较：gt大于<span class="token operator">/</span>ge大于等于<span class="token operator">/</span>lt小于<span class="token operator">/</span>le小于等于
+    模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>模型<span class="token punctuation">.</span>字段<span class="token punctuation">.</span>__gt__<span class="token punctuation">(</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>模型<span class="token punctuation">.</span>字段 <span class="token operator">></span> 值<span class="token punctuation">)</span>
 与或非：
-    - from sqlalchemy import and_,not_, or_
-    - 且: 模型.query.filter(and_(条件1，条件2，条件3))
-    - 或: 模型.query.filter(or_(条件1，条件2，条件3))
-    - 非: 模型.query.filter(not_(条件1))
+    <span class="token operator">-</span> <span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> and_<span class="token punctuation">,</span>not_<span class="token punctuation">,</span> or_
+    <span class="token operator">-</span> 且<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>and_<span class="token punctuation">(</span>条件<span class="token number">1</span>，条件<span class="token number">2</span>，条件<span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span> 或<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>or_<span class="token punctuation">(</span>条件<span class="token number">1</span>，条件<span class="token number">2</span>，条件<span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span> 非<span class="token punctuation">:</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>not_<span class="token punctuation">(</span>条件<span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 分页：
-    - 查询: pg = 模型.query.paginate(哪一页, 每一页的数据条数)
-    - 获取数据: pg.items
-    - 上一页判断: pg.has_prev
-    - 上一页脚码: pg.prev_num
-    - 下一页判断: pg.has_next
-    - 下一页脚码: pg.next_num
-    - 共多少页: pg.pages
-    - 当前页: pg.page
-    - 共多少数据: pg.total
-    - 脚码: pg.iter_pages()
+    <span class="token operator">-</span> 查询<span class="token punctuation">:</span> pg <span class="token operator">=</span> 模型<span class="token punctuation">.</span>query<span class="token punctuation">.</span>paginate<span class="token punctuation">(</span>哪一页<span class="token punctuation">,</span> 每一页的数据条数<span class="token punctuation">)</span>
+    <span class="token operator">-</span> 获取数据<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>items
+    <span class="token operator">-</span> 上一页判断<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>has_prev
+    <span class="token operator">-</span> 上一页脚码<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>prev_num
+    <span class="token operator">-</span> 下一页判断<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>has_next
+    <span class="token operator">-</span> 下一页脚码<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>next_num
+    <span class="token operator">-</span> 共多少页<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>pages
+    <span class="token operator">-</span> 当前页<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>page
+    <span class="token operator">-</span> 共多少数据<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>total
+    <span class="token operator">-</span> 脚码<span class="token punctuation">:</span> pg<span class="token punctuation">.</span>iter_pages<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 

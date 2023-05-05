@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -413,29 +413,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一、复习"><a href="#一、复习" class="headerlink" title="一、复习"></a>一、复习</h4><h5 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h5><h5 id="a-由字母数字下划线组成，python3中可以是中文。b-数字不能开头。c-大小写敏感"><a href="#a-由字母数字下划线组成，python3中可以是中文。b-数字不能开头。c-大小写敏感" class="headerlink" title="a.由字母数字下划线组成，python3中可以是中文。b.数字不能开头。c.大小写敏感"></a>a.由字母数字下划线组成，python3中可以是中文。b.数字不能开头。c.大小写敏感</h5><h5 id="3-行与缩进：python中对缩进有严格的要求"><a href="#3-行与缩进：python中对缩进有严格的要求" class="headerlink" title="3.行与缩进：python中对缩进有严格的要求"></a>3.行与缩进：python中对缩进有严格的要求</h5><h5 id="4-多行显示：加反斜杠"><a href="#4-多行显示：加反斜杠" class="headerlink" title="4.多行显示：加反斜杠"></a>4.多行显示：加反斜杠</h5><h5 id="5-python中的基本数据类型：类型（int）、浮点类型（float）、布尔（bool）、字符串（str-ect"><a href="#5-python中的基本数据类型：类型（int）、浮点类型（float）、布尔（bool）、字符串（str-ect" class="headerlink" title="5.python中的基本数据类型：类型（int）、浮点类型（float）、布尔（bool）、字符串（str)ect."></a>5.python中的基本数据类型：类型（int）、浮点类型（float）、布尔（bool）、字符串（str)ect.</h5><pre><code class="python">ste = 123 + 425\
-      + 15552
+                <h4 id="一、复习"><a href="#一、复习" class="headerlink" title="一、复习"></a>一、复习</h4><h5 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h5><h5 id="a-由字母数字下划线组成，python3中可以是中文。b-数字不能开头。c-大小写敏感"><a href="#a-由字母数字下划线组成，python3中可以是中文。b-数字不能开头。c-大小写敏感" class="headerlink" title="a.由字母数字下划线组成，python3中可以是中文。b.数字不能开头。c.大小写敏感"></a>a.由字母数字下划线组成，python3中可以是中文。b.数字不能开头。c.大小写敏感</h5><h5 id="3-行与缩进：python中对缩进有严格的要求"><a href="#3-行与缩进：python中对缩进有严格的要求" class="headerlink" title="3.行与缩进：python中对缩进有严格的要求"></a>3.行与缩进：python中对缩进有严格的要求</h5><h5 id="4-多行显示：加反斜杠"><a href="#4-多行显示：加反斜杠" class="headerlink" title="4.多行显示：加反斜杠"></a>4.多行显示：加反斜杠</h5><h5 id="5-python中的基本数据类型：类型（int）、浮点类型（float）、布尔（bool）、字符串（str-ect"><a href="#5-python中的基本数据类型：类型（int）、浮点类型（float）、布尔（bool）、字符串（str-ect" class="headerlink" title="5.python中的基本数据类型：类型（int）、浮点类型（float）、布尔（bool）、字符串（str)ect."></a>5.python中的基本数据类型：类型（int）、浮点类型（float）、布尔（bool）、字符串（str)ect.</h5><pre class=" language-python"><code class="language-python">ste <span class="token operator">=</span> <span class="token number">123</span> <span class="token operator">+</span> <span class="token number">425</span>\
+      <span class="token operator">+</span> <span class="token number">15552</span>
 </code></pre>
 <h6 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h6><ul>
 <li>1.变量名 = 值</li>
 <li>2.变量名：标识符，不能是关键字，PEP8：（字母全是小写，多个单词之间用下划线隔开），见名知义</li>
 <li>3.变量生命的写法</li>
-<li>4.声明变量/给变量赋值的原理<pre><code class="python">a = 100
-a = b = 10
-a = 10;b = 20
-a,b = 10,20   #元组
+<li>4.声明变量/给变量赋值的原理<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">100</span>
+a <span class="token operator">=</span> b <span class="token operator">=</span> <span class="token number">10</span>
+a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>b <span class="token operator">=</span> <span class="token number">20</span>
+a<span class="token punctuation">,</span>b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span>   <span class="token comment" spellcheck="true">#元组</span>
 </code></pre>
-<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><pre><code class="python">+，-，*，/，%，//，**
-&gt;,&lt;,==,&gt;=,&lt;=,!=
-and,or,not
-=,+=,-=,*=,/=,%=,//=,**=
+<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><pre class=" language-python"><code class="language-python"><span class="token operator">+</span>，<span class="token operator">-</span>，<span class="token operator">*</span>，<span class="token operator">/</span>，<span class="token operator">%</span>，<span class="token operator">//</span>，<span class="token operator">**</span>
+<span class="token operator">></span><span class="token punctuation">,</span><span class="token operator">&lt;</span><span class="token punctuation">,</span><span class="token operator">==</span><span class="token punctuation">,</span><span class="token operator">>=</span><span class="token punctuation">,</span><span class="token operator">&lt;=</span><span class="token punctuation">,</span><span class="token operator">!=</span>
+<span class="token operator">and</span><span class="token punctuation">,</span><span class="token operator">or</span><span class="token punctuation">,</span><span class="token operator">not</span>
+<span class="token operator">=</span><span class="token punctuation">,</span><span class="token operator">+=</span><span class="token punctuation">,</span><span class="token operator">-=</span><span class="token punctuation">,</span><span class="token operator">*=</span><span class="token punctuation">,</span><span class="token operator">/=</span><span class="token punctuation">,</span><span class="token operator">%=</span><span class="token punctuation">,</span><span class="token operator">//=</span><span class="token punctuation">,</span><span class="token operator">**=</span>
 运算符的优先级：可以通过括号改变 
 </code></pre>
-<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><pre><code class="python">1.字符串长什么样
-2.字符编码（Unicodde),chr(),ord()
-3.获取单个或者部分字符：字符串[index],字符串[下标1：下标2：步进]
-4.字符串的相关的运算：+，*，比较运算，in，not in,len()
-5.相关的方法
+<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><pre class=" language-python"><code class="language-python"><span class="token number">1</span><span class="token punctuation">.</span>字符串长什么样
+<span class="token number">2</span><span class="token punctuation">.</span>字符编码（Unicodde<span class="token punctuation">)</span><span class="token punctuation">,</span>chr<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ord<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token number">3</span><span class="token punctuation">.</span>获取单个或者部分字符：字符串<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span>字符串<span class="token punctuation">[</span>下标<span class="token number">1</span>：下标<span class="token number">2</span>：步进<span class="token punctuation">]</span>
+<span class="token number">4</span><span class="token punctuation">.</span>字符串的相关的运算：<span class="token operator">+</span>，<span class="token operator">*</span>，比较运算，<span class="token keyword">in</span>，<span class="token operator">not</span> <span class="token keyword">in</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token number">5</span><span class="token punctuation">.</span>相关的方法
 </code></pre>
 <h5 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h5></li>
 <li><p>1.if 条件语句:<br>​    执行语句</p>
@@ -451,9 +451,9 @@ and,or,not
 <li>3.break，continue,else<br>break和continue写在循环体中的，else写在循环外（循环中遇到break，else的语句不会执行）<h4 id="二、认识列表"><a href="#二、认识列表" class="headerlink" title="二、认识列表"></a>二、认识列表</h4><code>list1 = [1,2,3]</code><h5 id="list-列表"><a href="#list-列表" class="headerlink" title="list (列表)"></a>list (列表)</h5></li>
 <li>a.列表是python中的容器类型。有序的，可变的容器(可变指的是列表中的元素位置，个数可变的)<br>有序–&gt; 可以通过下标来获取元素<br>可变–&gt;列表中的元素可以（增删改查）</li>
 <li>b.元素：指的是列表中的每一个内容(列表中的元素可以是任意类型的数据)<h6 id="1-列表的声明"><a href="#1-列表的声明" class="headerlink" title="1.列表的声明"></a>1.列表的声明</h6></li>
-<li>a.声明变量赋一个列表值<pre><code class="python">声明了一个列表，列表中有5个元素，分别是90,80,97,67,55
-scores = [90,80,97,67,55]
-print(scores,type(scores))
+<li>a.声明变量赋一个列表值<pre class=" language-python"><code class="language-python">声明了一个列表，列表中有<span class="token number">5</span>个元素，分别是<span class="token number">90</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token number">97</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">55</span>
+scores <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">90</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token number">97</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>scores<span class="token punctuation">,</span>type<span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <code>`</code>python<br>声明了一个列表，列表中有三个元素，分别是’sth’,16,’男’（一个列表中的内容类型可以不一样）<br>person = [‘sth’,16,’男’]<br>print(person)</li>
 </ul>
@@ -465,14 +465,14 @@ print(names,type(names))
 </code></pre><ul>
 <li>b.将其他的数据类型转换成列表(只有序列才能转换成列表：字符串和range，字典、元组、集合、生成式和迭代器）</li>
 </ul>
-<pre><code class="python">chars = list (&#39;123456&#39;)
-print(chars)
+<pre class=" language-python"><code class="language-python">chars <span class="token operator">=</span> list <span class="token punctuation">(</span><span class="token string">'123456'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
 
-numbers = list (range(10))
-print(numbers)
+numbers <span class="token operator">=</span> list <span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span>
 
-list1  = [&#39;静夜思  李白  床前明月光  疑是地上霜  举头望明月  低头思故乡&#39;]
-print(list1)
+list1  <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'静夜思  李白  床前明月光  疑是地上霜  举头望明月  低头思故乡'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span>
 
 </code></pre>
 

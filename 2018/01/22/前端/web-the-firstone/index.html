@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -527,13 +527,13 @@ virtualenv --no-site-package  环境名
 <p><code>pip install pymysql</code></p>
 </li>
 <li><p>初始化数据库的驱动<strong>__</strong>init__.py</p>
-<pre><code class="python">import pymysql
-pymysql.install__as__mysqldb()
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
+pymysql<span class="token punctuation">.</span>install__as__mysqldb<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
 <li><p>设置Django后台账户和密码</p>
-<pre><code class="python">python manage.py createsuperuser
-python manage.py changepassword
+<pre class=" language-python"><code class="language-python">python manage<span class="token punctuation">.</span>py createsuperuser
+python manage<span class="token punctuation">.</span>py changepassword
 </code></pre>
 </li>
 </ul>

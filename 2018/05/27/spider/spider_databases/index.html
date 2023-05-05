@@ -38,7 +38,7 @@ __ init __">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -447,275 +447,275 @@ __ init __">
 </li>
 </ul>
 <p><strong>items</strong></p>
-<pre><code class="python"># -*- coding: utf-8 -*-
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
 
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://doc.scrapy.org/en/latest/topics/items.html
+<span class="token comment" spellcheck="true"># Define here the models for your scraped items</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># See documentation in:</span>
+<span class="token comment" spellcheck="true"># https://doc.scrapy.org/en/latest/topics/items.html</span>
 
-import scrapy
-
-
-class YouyaoqiItem(scrapy.Item):
-    # define the fields for your item here like:
-    comic_id = scrapy.Field()
-    name = scrapy.Field()
-    cover = scrapy.Field()
-    update_type = scrapy.Field()
-    line1 = scrapy.Field()
-    line2 = scrapy.Field()
+<span class="token keyword">import</span> scrapy
 
 
-class U17DetailItem(scrapy.Item):
-    name = scrapy.Field()
-    # u_id = scrapy.Field()
+<span class="token keyword">class</span> <span class="token class-name">YouyaoqiItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># define the fields for your item here like:</span>
+    comic_id <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    name <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cover <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    update_type <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    line1 <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    line2 <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">U17DetailItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># u_id = scrapy.Field()</span>
 
 </code></pre>
 <p><strong>pipelines.py</strong></p>
-<pre><code class="python"># -*- coding: utf-8 -*-
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
 
-# Define your item pipelines here
-#
-# Don&#39;t forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-import pymysql
-from scrapy import Request
-from scrapy.exceptions import DropItem
-from scrapy.pipelines.images import ImagesPipeline
-
-
-class ImagePipeline(ImagesPipeline):
-    def file_path(self, request, response=None, info=None):
-        url = request.url
-        file_name = url.split(&#39;/&#39;)[-1]
-        return file_name
-
-    def item_completed(self, results, item, info):
-        image_paths = [x[&#39;path&#39;] for ok, x in results if ok]
-        if not image_paths:
-            raise DropItem(&#39;Image Downloaded Failed&#39;)
-        return item
-
-    def get_media_requests(self, item, info):
-        yield Request(item[&#39;cover&#39;])
+<span class="token comment" spellcheck="true"># Define your item pipelines here</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># Don't forget to add your pipeline to the ITEM_PIPELINES setting</span>
+<span class="token comment" spellcheck="true"># See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html</span>
+<span class="token keyword">import</span> pymysql
+<span class="token keyword">from</span> scrapy <span class="token keyword">import</span> Request
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>exceptions <span class="token keyword">import</span> DropItem
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>pipelines<span class="token punctuation">.</span>images <span class="token keyword">import</span> ImagesPipeline
 
 
-class YouyaoqiMysqlPipeline(object):
-    def __init__(self, host, port, database, username, password):
-        self.host = host
-        self.port = port
-        self.database = database
-        self.username = username
-        self.password = password
+<span class="token keyword">class</span> <span class="token class-name">ImagePipeline</span><span class="token punctuation">(</span>ImagesPipeline<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">file_path</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> response<span class="token operator">=</span>None<span class="token punctuation">,</span> info<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        url <span class="token operator">=</span> request<span class="token punctuation">.</span>url
+        file_name <span class="token operator">=</span> url<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> file_name
+
+    <span class="token keyword">def</span> <span class="token function">item_completed</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> results<span class="token punctuation">,</span> item<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        image_paths <span class="token operator">=</span> <span class="token punctuation">[</span>x<span class="token punctuation">[</span><span class="token string">'path'</span><span class="token punctuation">]</span> <span class="token keyword">for</span> ok<span class="token punctuation">,</span> x <span class="token keyword">in</span> results <span class="token keyword">if</span> ok<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> image_paths<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> DropItem<span class="token punctuation">(</span><span class="token string">'Image Downloaded Failed'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> item
+
+    <span class="token keyword">def</span> <span class="token function">get_media_requests</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">yield</span> Request<span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'cover'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">YouyaoqiMysqlPipeline</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> host<span class="token punctuation">,</span> port<span class="token punctuation">,</span> database<span class="token punctuation">,</span> username<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>host <span class="token operator">=</span> host
+        self<span class="token punctuation">.</span>port <span class="token operator">=</span> port
+        self<span class="token punctuation">.</span>database <span class="token operator">=</span> database
+        self<span class="token punctuation">.</span>username <span class="token operator">=</span> username
+        self<span class="token punctuation">.</span>password <span class="token operator">=</span> password
 
     @classmethod
-    def from_crawler(cls, crawler):
-        return cls(
-            host=crawler.settings.get(&#39;MYSQL_HOST&#39;),
-            port=crawler.settings.get(&#39;MYSQL_PORT&#39;),
-            database=crawler.settings.get(&#39;MYSQL_DATABASE&#39;),
-            username=crawler.settings.get(&#39;MYSQL_USERNAME&#39;),
-            password=crawler.settings.get(&#39;MYSQL_PASSWORD&#39;),
-        )
+    <span class="token keyword">def</span> <span class="token function">from_crawler</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> crawler<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> cls<span class="token punctuation">(</span>
+            host<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MYSQL_HOST'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            port<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MYSQL_PORT'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            database<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MYSQL_DATABASE'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            username<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MYSQL_USERNAME'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            password<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MYSQL_PASSWORD'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
 
-    def open_spider(self, spider):
-        # 获取数据库连接
-        self.db = pymysql.connect(self.host, self.username, self.password, self.database, charset=&#39;utf8&#39;,
-                                  port=self.port)
-        self.cursor = self.db.cursor()
+    <span class="token keyword">def</span> <span class="token function">open_spider</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 获取数据库连接</span>
+        self<span class="token punctuation">.</span>db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>self<span class="token punctuation">.</span>host<span class="token punctuation">,</span> self<span class="token punctuation">.</span>username<span class="token punctuation">,</span> self<span class="token punctuation">.</span>password<span class="token punctuation">,</span> self<span class="token punctuation">.</span>database<span class="token punctuation">,</span> charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">,</span>
+                                  port<span class="token operator">=</span>self<span class="token punctuation">.</span>port<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>cursor <span class="token operator">=</span> self<span class="token punctuation">.</span>db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    def close_spider(self, spider):
-        # 释放数据库连接
-        self.db.close()
+    <span class="token keyword">def</span> <span class="token function">close_spider</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 释放数据库连接</span>
+        self<span class="token punctuation">.</span>db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    def process_item(self, item, spider):
-        # 插入item数据
-        sql = &#39;insert into company (comic_id, name, cover, update_type, line1, line2) values (%s, %s, %s, %s, %s, %s)&#39;
-        self.cursor.execute(sql, (item[&#39;comic_id&#39;], item[&#39;name&#39;], item[&#39;cover&#39;], item[&#39;update_type&#39;], item[&#39;line1&#39;], item[&#39;line2&#39;]))
-        self.db.commit()
+    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 插入item数据</span>
+        sql <span class="token operator">=</span> <span class="token string">'insert into company (comic_id, name, cover, update_type, line1, line2) values (%s, %s, %s, %s, %s, %s)'</span>
+        self<span class="token punctuation">.</span>cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">,</span> <span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'comic_id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'cover'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'update_type'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'line1'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> item<span class="token punctuation">[</span><span class="token string">'line2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-        return item
+        <span class="token keyword">return</span> item
 
 </code></pre>
 <p><strong>settings.py</strong></p>
-<pre><code class="python"># -*- coding: utf-8 -*-
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
 
-# Scrapy settings for youyaoqi project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://doc.scrapy.org/en/latest/topics/settings.html
-#     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+<span class="token comment" spellcheck="true"># Scrapy settings for youyaoqi project</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># For simplicity, this file contains only settings considered important or</span>
+<span class="token comment" spellcheck="true"># commonly used. You can find more settings consulting the documentation:</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true">#     https://doc.scrapy.org/en/latest/topics/settings.html</span>
+<span class="token comment" spellcheck="true">#     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html</span>
+<span class="token comment" spellcheck="true">#     https://doc.scrapy.org/en/latest/topics/spider-middleware.html</span>
 
-BOT_NAME = &#39;youyaoqi&#39;
+BOT_NAME <span class="token operator">=</span> <span class="token string">'youyaoqi'</span>
 
-SPIDER_MODULES = [&#39;youyaoqi.spiders&#39;]
-NEWSPIDER_MODULE = &#39;youyaoqi.spiders&#39;
+SPIDER_MODULES <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'youyaoqi.spiders'</span><span class="token punctuation">]</span>
+NEWSPIDER_MODULE <span class="token operator">=</span> <span class="token string">'youyaoqi.spiders'</span>
 
 
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = &#39;youyaoqi (+http://www.yourdomain.com)&#39;
+<span class="token comment" spellcheck="true"># Crawl responsibly by identifying yourself (and your website) on the user-agent</span>
+<span class="token comment" spellcheck="true">#USER_AGENT = 'youyaoqi (+http://www.yourdomain.com)'</span>
 
-# Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+<span class="token comment" spellcheck="true"># Obey robots.txt rules</span>
+ROBOTSTXT_OBEY <span class="token operator">=</span> <span class="token boolean">False</span>
 
-# Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+<span class="token comment" spellcheck="true"># Configure maximum concurrent requests performed by Scrapy (default: 16)</span>
+<span class="token comment" spellcheck="true">#CONCURRENT_REQUESTS = 32</span>
 
-# Configure a delay for requests for the same website (default: 0)
-# See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
-# See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
-# The download delay setting will honor only one of:
-#CONCURRENT_REQUESTS_PER_DOMAIN = 16
-#CONCURRENT_REQUESTS_PER_IP = 16
+<span class="token comment" spellcheck="true"># Configure a delay for requests for the same website (default: 0)</span>
+<span class="token comment" spellcheck="true"># See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay</span>
+<span class="token comment" spellcheck="true"># See also autothrottle settings and docs</span>
+<span class="token comment" spellcheck="true">#DOWNLOAD_DELAY = 3</span>
+<span class="token comment" spellcheck="true"># The download delay setting will honor only one of:</span>
+<span class="token comment" spellcheck="true">#CONCURRENT_REQUESTS_PER_DOMAIN = 16</span>
+<span class="token comment" spellcheck="true">#CONCURRENT_REQUESTS_PER_IP = 16</span>
 
-# Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+<span class="token comment" spellcheck="true"># Disable cookies (enabled by default)</span>
+<span class="token comment" spellcheck="true">#COOKIES_ENABLED = False</span>
 
-# Disable Telnet Console (enabled by default)
-#TELNETCONSOLE_ENABLED = False
+<span class="token comment" spellcheck="true"># Disable Telnet Console (enabled by default)</span>
+<span class="token comment" spellcheck="true">#TELNETCONSOLE_ENABLED = False</span>
 
-# Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
-#   &#39;Accept&#39;: &#39;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#39;,
-#   &#39;Accept-Language&#39;: &#39;en&#39;,
-#}
+<span class="token comment" spellcheck="true"># Override the default request headers:</span>
+<span class="token comment" spellcheck="true">#DEFAULT_REQUEST_HEADERS = {</span>
+<span class="token comment" spellcheck="true">#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',</span>
+<span class="token comment" spellcheck="true">#   'Accept-Language': 'en',</span>
+<span class="token comment" spellcheck="true">#}</span>
 
-# Enable or disable spider middlewares
-# See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    &#39;youyaoqi.middlewares.YouyaoqiSpiderMiddleware&#39;: 543,
-#}
+<span class="token comment" spellcheck="true"># Enable or disable spider middlewares</span>
+<span class="token comment" spellcheck="true"># See https://doc.scrapy.org/en/latest/topics/spider-middleware.html</span>
+<span class="token comment" spellcheck="true">#SPIDER_MIDDLEWARES = {</span>
+<span class="token comment" spellcheck="true">#    'youyaoqi.middlewares.YouyaoqiSpiderMiddleware': 543,</span>
+<span class="token comment" spellcheck="true">#}</span>
 
-# Enable or disable downloader middlewares
-# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    &#39;youyaoqi.middlewares.YouyaoqiDownloaderMiddleware&#39;: 543,
-#}
+<span class="token comment" spellcheck="true"># Enable or disable downloader middlewares</span>
+<span class="token comment" spellcheck="true"># See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html</span>
+<span class="token comment" spellcheck="true">#DOWNLOADER_MIDDLEWARES = {</span>
+<span class="token comment" spellcheck="true">#    'youyaoqi.middlewares.YouyaoqiDownloaderMiddleware': 543,</span>
+<span class="token comment" spellcheck="true">#}</span>
 
-# Enable or disable extensions
-# See https://doc.scrapy.org/en/latest/topics/extensions.html
-#EXTENSIONS = {
-#    &#39;scrapy.extensions.telnet.TelnetConsole&#39;: None,
-#}
+<span class="token comment" spellcheck="true"># Enable or disable extensions</span>
+<span class="token comment" spellcheck="true"># See https://doc.scrapy.org/en/latest/topics/extensions.html</span>
+<span class="token comment" spellcheck="true">#EXTENSIONS = {</span>
+<span class="token comment" spellcheck="true">#    'scrapy.extensions.telnet.TelnetConsole': None,</span>
+<span class="token comment" spellcheck="true">#}</span>
 
-# Configure item pipelines
-# See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   # &#39;youyaoqi.pipelines.YouyaoqiMysqlPipeline&#39;: 300,
-   # &#39;youyaoqi.pipelines.ImagePipeline&#39;: 300,
-}
+<span class="token comment" spellcheck="true"># Configure item pipelines</span>
+<span class="token comment" spellcheck="true"># See https://doc.scrapy.org/en/latest/topics/item-pipeline.html</span>
+ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"># 'youyaoqi.pipelines.YouyaoqiMysqlPipeline': 300,</span>
+   <span class="token comment" spellcheck="true"># 'youyaoqi.pipelines.ImagePipeline': 300,</span>
+<span class="token punctuation">}</span>
 
-# Enable and configure the AutoThrottle extension (disabled by default)
-# See https://doc.scrapy.org/en/latest/topics/autothrottle.html
-#AUTOTHROTTLE_ENABLED = True
-# The initial download delay
-#AUTOTHROTTLE_START_DELAY = 5
-# The maximum download delay to be set in case of high latencies
-#AUTOTHROTTLE_MAX_DELAY = 60
-# The average number of requests Scrapy should be sending in parallel to
-# each remote server
-#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
-# Enable showing throttling stats for every response received:
-#AUTOTHROTTLE_DEBUG = False
+<span class="token comment" spellcheck="true"># Enable and configure the AutoThrottle extension (disabled by default)</span>
+<span class="token comment" spellcheck="true"># See https://doc.scrapy.org/en/latest/topics/autothrottle.html</span>
+<span class="token comment" spellcheck="true">#AUTOTHROTTLE_ENABLED = True</span>
+<span class="token comment" spellcheck="true"># The initial download delay</span>
+<span class="token comment" spellcheck="true">#AUTOTHROTTLE_START_DELAY = 5</span>
+<span class="token comment" spellcheck="true"># The maximum download delay to be set in case of high latencies</span>
+<span class="token comment" spellcheck="true">#AUTOTHROTTLE_MAX_DELAY = 60</span>
+<span class="token comment" spellcheck="true"># The average number of requests Scrapy should be sending in parallel to</span>
+<span class="token comment" spellcheck="true"># each remote server</span>
+<span class="token comment" spellcheck="true">#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0</span>
+<span class="token comment" spellcheck="true"># Enable showing throttling stats for every response received:</span>
+<span class="token comment" spellcheck="true">#AUTOTHROTTLE_DEBUG = False</span>
 
-# Enable and configure HTTP caching (disabled by default)
-# See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
-#HTTPCACHE_ENABLED = True
-#HTTPCACHE_EXPIRATION_SECS = 0
-#HTTPCACHE_DIR = &#39;httpcache&#39;
-#HTTPCACHE_IGNORE_HTTP_CODES = []
-#HTTPCACHE_STORAGE = &#39;scrapy.extensions.httpcache.FilesystemCacheStorage&#39;
-FEED_EXPORT_ENCODING = &#39;utf-8&#39;
-MAX_PAGE = 500
+<span class="token comment" spellcheck="true"># Enable and configure HTTP caching (disabled by default)</span>
+<span class="token comment" spellcheck="true"># See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings</span>
+<span class="token comment" spellcheck="true">#HTTPCACHE_ENABLED = True</span>
+<span class="token comment" spellcheck="true">#HTTPCACHE_EXPIRATION_SECS = 0</span>
+<span class="token comment" spellcheck="true">#HTTPCACHE_DIR = 'httpcache'</span>
+<span class="token comment" spellcheck="true">#HTTPCACHE_IGNORE_HTTP_CODES = []</span>
+<span class="token comment" spellcheck="true">#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'</span>
+FEED_EXPORT_ENCODING <span class="token operator">=</span> <span class="token string">'utf-8'</span>
+MAX_PAGE <span class="token operator">=</span> <span class="token number">500</span>
 
-# IMAGES_STORE = &#39;./images&#39;
+<span class="token comment" spellcheck="true"># IMAGES_STORE = './images'</span>
 
-# mysql settings
-MYSQL_HOST = &#39;127.0.0.1&#39;
-MYSQL_PORT = 3306
-MYSQL_USERNAME = &#39;root&#39;
-MYSQL_PASSWORD = &#39;123456&#39;
-MYSQL_DATABASE = &#39;u17&#39;
+<span class="token comment" spellcheck="true"># mysql settings</span>
+MYSQL_HOST <span class="token operator">=</span> <span class="token string">'127.0.0.1'</span>
+MYSQL_PORT <span class="token operator">=</span> <span class="token number">3306</span>
+MYSQL_USERNAME <span class="token operator">=</span> <span class="token string">'root'</span>
+MYSQL_PASSWORD <span class="token operator">=</span> <span class="token string">'123456'</span>
+MYSQL_DATABASE <span class="token operator">=</span> <span class="token string">'u17'</span>
 
 </code></pre>
 <p><strong>cartoon.py</strong></p>
-<pre><code class="python"># -*- coding: utf-8 -*-
-import json
-import scrapy
-from youyaoqi.items import YouyaoqiItem, U17DetailItem
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> youyaoqi<span class="token punctuation">.</span>items <span class="token keyword">import</span> YouyaoqiItem<span class="token punctuation">,</span> U17DetailItem
 
 
-class CartoonSpider(scrapy.Spider):
-    name = &#39;cartoon&#39;
-    allowed_domains = [&#39;www.u17.com&#39;]
-    start_urls = [&#39;http://www.u17.com/&#39;]
+<span class="token keyword">class</span> <span class="token class-name">CartoonSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'cartoon'</span>
+    allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'www.u17.com'</span><span class="token punctuation">]</span>
+    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'http://www.u17.com/'</span><span class="token punctuation">]</span>
 
-    def start_requests(self):
-        data = {&#39;data[group_id]&#39;: &#39;no&#39;, &#39;data[theme_id]&#39;: &#39;no&#39;, &#39;data[is_vip]&#39;: &#39;no&#39;, &#39;data[accredit]&#39;: &#39;no&#39;, &#39;data[color]&#39;: &#39;no&#39;, &#39;data[comic_type]&#39;: &#39;no&#39;, &#39;data[series_status]&#39;: &#39;no&#39;, &#39;data[order]&#39;: &#39;2&#39;, &#39;data[page_num]&#39;: &#39;1&#39;, &#39;data[read_mode]&#39;: &#39;no&#39; }
-        headers = {
-            &#39;Referer&#39;: &#39;http://www.u17.com/comic_list/th99_gr99_ca99_ss99_ob0_ac0_as0_wm0_co99_ct99_p1.html?order=2&#39;,
-            &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko&#39;,
-            &#39;Host&#39;: &#39;www.u17.com&#39;,
-            &#39;Accept&#39;: &#39;application/json, text/plain, */*&#39;,
-            &#39;Accept-Encoding&#39;: &#39;gzip, deflate, sdch&#39;,
-            &#39;Accept-Language&#39;: &#39;zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4,zh-TW;q=0.2,mt;q=0.2&#39;,
-            &#39;Connection&#39;: &#39;keep-alive&#39;,
-            &#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;,
-        }
-        max_page = self.settings.get(&#39;MAX_PAGE&#39;)
-        base_url = &#39;http://www.u17.com/comic/ajax.php?mod=comic_list&amp;act=comic_list_new_fun&amp;a=get_comic_list&#39;
-        for page in range(2, max_page):
-            data[&#39;data[page_num]&#39;] = str(page)
-            yield scrapy.FormRequest(url=base_url, headers=headers, method=&#39;POST&#39;, formdata=data, callback=self.parse)
+    <span class="token keyword">def</span> <span class="token function">start_requests</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'data[group_id]'</span><span class="token punctuation">:</span> <span class="token string">'no'</span><span class="token punctuation">,</span> <span class="token string">'data[theme_id]'</span><span class="token punctuation">:</span> <span class="token string">'no'</span><span class="token punctuation">,</span> <span class="token string">'data[is_vip]'</span><span class="token punctuation">:</span> <span class="token string">'no'</span><span class="token punctuation">,</span> <span class="token string">'data[accredit]'</span><span class="token punctuation">:</span> <span class="token string">'no'</span><span class="token punctuation">,</span> <span class="token string">'data[color]'</span><span class="token punctuation">:</span> <span class="token string">'no'</span><span class="token punctuation">,</span> <span class="token string">'data[comic_type]'</span><span class="token punctuation">:</span> <span class="token string">'no'</span><span class="token punctuation">,</span> <span class="token string">'data[series_status]'</span><span class="token punctuation">:</span> <span class="token string">'no'</span><span class="token punctuation">,</span> <span class="token string">'data[order]'</span><span class="token punctuation">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'data[page_num]'</span><span class="token punctuation">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'data[read_mode]'</span><span class="token punctuation">:</span> <span class="token string">'no'</span> <span class="token punctuation">}</span>
+        headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'http://www.u17.com/comic_list/th99_gr99_ca99_ss99_ob0_ac0_as0_wm0_co99_ct99_p1.html?order=2'</span><span class="token punctuation">,</span>
+            <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko'</span><span class="token punctuation">,</span>
+            <span class="token string">'Host'</span><span class="token punctuation">:</span> <span class="token string">'www.u17.com'</span><span class="token punctuation">,</span>
+            <span class="token string">'Accept'</span><span class="token punctuation">:</span> <span class="token string">'application/json, text/plain, */*'</span><span class="token punctuation">,</span>
+            <span class="token string">'Accept-Encoding'</span><span class="token punctuation">:</span> <span class="token string">'gzip, deflate, sdch'</span><span class="token punctuation">,</span>
+            <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4,zh-TW;q=0.2,mt;q=0.2'</span><span class="token punctuation">,</span>
+            <span class="token string">'Connection'</span><span class="token punctuation">:</span> <span class="token string">'keep-alive'</span><span class="token punctuation">,</span>
+            <span class="token string">'X-Requested-With'</span><span class="token punctuation">:</span> <span class="token string">'XMLHttpRequest'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        max_page <span class="token operator">=</span> self<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MAX_PAGE'</span><span class="token punctuation">)</span>
+        base_url <span class="token operator">=</span> <span class="token string">'http://www.u17.com/comic/ajax.php?mod=comic_list&amp;act=comic_list_new_fun&amp;a=get_comic_list'</span>
+        <span class="token keyword">for</span> page <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> max_page<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            data<span class="token punctuation">[</span><span class="token string">'data[page_num]'</span><span class="token punctuation">]</span> <span class="token operator">=</span> str<span class="token punctuation">(</span>page<span class="token punctuation">)</span>
+            <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>FormRequest<span class="token punctuation">(</span>url<span class="token operator">=</span>base_url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token string">'POST'</span><span class="token punctuation">,</span> formdata<span class="token operator">=</span>data<span class="token punctuation">,</span> callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse<span class="token punctuation">)</span>
 
-    def get_headers(self):
-        headers = {
-            &#39;User-Agent&#39;: &#39;Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)&#39;,
-            &#39;Host&#39;: &#39;www.u17.com&#39;,
-            &#39;Accept&#39;: &#39;application/json, text/plain, */*&#39;,
-            &#39;Accept-Encoding&#39;: &#39;gzip, deflate, sdch&#39;,
-            &#39;Accept-Language&#39;: &#39;zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4,zh-TW;q=0.2,mt;q=0.2&#39;,
-            &#39;Connection&#39;: &#39;keep-alive&#39;,
-            &#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;,
-            &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded; charset=UTF-8&#39;,
-        }
-        return headers
+    <span class="token keyword">def</span> <span class="token function">get_headers</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)'</span><span class="token punctuation">,</span>
+            <span class="token string">'Host'</span><span class="token punctuation">:</span> <span class="token string">'www.u17.com'</span><span class="token punctuation">,</span>
+            <span class="token string">'Accept'</span><span class="token punctuation">:</span> <span class="token string">'application/json, text/plain, */*'</span><span class="token punctuation">,</span>
+            <span class="token string">'Accept-Encoding'</span><span class="token punctuation">:</span> <span class="token string">'gzip, deflate, sdch'</span><span class="token punctuation">,</span>
+            <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4,zh-TW;q=0.2,mt;q=0.2'</span><span class="token punctuation">,</span>
+            <span class="token string">'Connection'</span><span class="token punctuation">:</span> <span class="token string">'keep-alive'</span><span class="token punctuation">,</span>
+            <span class="token string">'X-Requested-With'</span><span class="token punctuation">:</span> <span class="token string">'XMLHttpRequest'</span><span class="token punctuation">,</span>
+            <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/x-www-form-urlencoded; charset=UTF-8'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> headers
 
-    def parse(self, response):
-        result_json = json.loads(response.text)
-        data_list = result_json[&#39;comic_list&#39;]
-        for data in data_list:
-            item = YouyaoqiItem()
-            item[&#39;comic_id&#39;] = data[&#39;comic_id&#39;]
-            item[&#39;name&#39;] = data[&#39;name&#39;]
-            item[&#39;cover&#39;] = data[&#39;cover&#39;]
-            item[&#39;update_type&#39;] = data[&#39;update_type&#39;]
-            item[&#39;line1&#39;] = data[&#39;line1&#39;]
-            item[&#39;line2&#39;] = data[&#39;line2&#39;]
-            yield item
+    <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        result_json <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+        data_list <span class="token operator">=</span> result_json<span class="token punctuation">[</span><span class="token string">'comic_list'</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> data <span class="token keyword">in</span> data_list<span class="token punctuation">:</span>
+            item <span class="token operator">=</span> YouyaoqiItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            item<span class="token punctuation">[</span><span class="token string">'comic_id'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'comic_id'</span><span class="token punctuation">]</span>
+            item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>
+            item<span class="token punctuation">[</span><span class="token string">'cover'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'cover'</span><span class="token punctuation">]</span>
+            item<span class="token punctuation">[</span><span class="token string">'update_type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'update_type'</span><span class="token punctuation">]</span>
+            item<span class="token punctuation">[</span><span class="token string">'line1'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'line1'</span><span class="token punctuation">]</span>
+            item<span class="token punctuation">[</span><span class="token string">'line2'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'line2'</span><span class="token punctuation">]</span>
+            <span class="token keyword">yield</span> item
 
-            detail_url = &#39;http://www.u17.com/comic/%s.html&#39; % item[&#39;comic_id&#39;]
-            yield scrapy.Request(url=detail_url, headers=self.get_headers(), callback=self.parse_detail)
+            detail_url <span class="token operator">=</span> <span class="token string">'http://www.u17.com/comic/%s.html'</span> <span class="token operator">%</span> item<span class="token punctuation">[</span><span class="token string">'comic_id'</span><span class="token punctuation">]</span>
+            <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token operator">=</span>detail_url<span class="token punctuation">,</span> headers<span class="token operator">=</span>self<span class="token punctuation">.</span>get_headers<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse_detail<span class="token punctuation">)</span>
 
-    def parse_detail(self, response):
-        results = response.css(&#39;#chapter li&#39;)
-        for item in results:
-            detail_item = U17DetailItem()
-            name_list = item.xpath(&#39;./a/text()&#39;).extract()
-            for name in name_list:
-                detail_item[&#39;name&#39;] = name.replace(&#39;&quot;&#39;, &#39;&#39;).strip()
-            # detail_item[&#39;u_id&#39;] = title.replace
-            # detail_item[&#39;name&#39;] = item.replace(&#39;&quot;&#39;, &#39;&#39;).strip()
-                yield detail_item
-            # a_url_list = item.css(&#39;./a::attr(href)&#39;).extract()
-            # for a_url in a_url_list:
-            #     detail_item[&#39;url&#39;] = a_url
-            #     yield detail_item
+    <span class="token keyword">def</span> <span class="token function">parse_detail</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        results <span class="token operator">=</span> response<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'#chapter li'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> item <span class="token keyword">in</span> results<span class="token punctuation">:</span>
+            detail_item <span class="token operator">=</span> U17DetailItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            name_list <span class="token operator">=</span> item<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./a/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> name <span class="token keyword">in</span> name_list<span class="token punctuation">:</span>
+                detail_item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> name<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'"'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># detail_item['u_id'] = title.replace</span>
+            <span class="token comment" spellcheck="true"># detail_item['name'] = item.replace('"', '').strip()</span>
+                <span class="token keyword">yield</span> detail_item
+            <span class="token comment" spellcheck="true"># a_url_list = item.css('./a::attr(href)').extract()</span>
+            <span class="token comment" spellcheck="true"># for a_url in a_url_list:</span>
+            <span class="token comment" spellcheck="true">#     detail_item['url'] = a_url</span>
+            <span class="token comment" spellcheck="true">#     yield detail_item</span>
 
 </code></pre>
 
@@ -902,11 +902,14 @@ class CartoonSpider(scrapy.Spider):
                 <div class="card-content article-content">
                     <div class="summary">分鱼#!/usr/bin/python3
 
-&quot;&quot;&quot;
+"""
 穷举法:穷尽所有可能直到找到正确答案
-&quot;&quot;&quot;
+"""
 def main():
-   &quot;&quot;&quot;分鱼&quot;</div>
+   """分鱼"""
+   fish = 1
+   while True:
+         enough = Tr</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-06-03
@@ -953,7 +956,8 @@ def main():
                     <div class="summary">#获取直接子节点：contents、children
 #获取父节点：parent
 #获取兄弟节点：next_siblings、next_sibling、previous_siblings、previous_sibling
-&#39;&#39</div>
+'''
+&lt;h</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-24

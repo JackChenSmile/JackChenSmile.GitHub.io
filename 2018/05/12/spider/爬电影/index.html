@@ -12,7 +12,7 @@ import requests
 
 
 def parse_page(html):
-    patters = re.compile(&amp;#3">
+    patters = re.compile(&#39;va">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -35,7 +35,7 @@ def parse_page(html):
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -425,35 +425,35 @@ def parse_page(html):
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="爬电影"><a href="#爬电影" class="headerlink" title="爬电影"></a>爬电影</h3><p>获取的是电影的种子，将这个链接发给迅雷，可以直接下载</p>
-<pre><code class="python">import json
-import re
-import requests
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">import</span> re
+<span class="token keyword">import</span> requests
 
 
-def parse_page(html):
-    patters = re.compile(&#39;var downurls=&quot;福.*?mp4$(.*?)/#&quot;&#39;, re.S)
-    patter = re.findall(patters, html)
-    print(patter)
+<span class="token keyword">def</span> <span class="token function">parse_page</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    patters <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'var downurls="福.*?mp4$(.*?)/#"'</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>
+    patter <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>patters<span class="token punctuation">,</span> html<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>patter<span class="token punctuation">)</span>
 
-# 取页面HTML
-def get_one_page(url):
+<span class="token comment" spellcheck="true"># 取页面HTML</span>
+<span class="token keyword">def</span> <span class="token function">get_one_page</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    headers =  {
-        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b13pre) Gecko/20110307 Firefox/4.0b13pre&quot;
-    }
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        text = response.content.decode(&#39;utf-8&#39;)
-        return text
-    return None
+    headers <span class="token operator">=</span>  <span class="token punctuation">{</span>
+        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b13pre) Gecko/20110307 Firefox/4.0b13pre"</span>
+    <span class="token punctuation">}</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+        text <span class="token operator">=</span> response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> text
+    <span class="token keyword">return</span> None
 
-def main():
-    url = &quot;https://www.mkv99.com/vod-detail-id-12479.html&quot;
-    html = get_one_page(url)
-    movie = parse_page(html)
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    url <span class="token operator">=</span> <span class="token string">"https://www.mkv99.com/vod-detail-id-12479.html"</span>
+    html <span class="token operator">=</span> get_one_page<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    movie <span class="token operator">=</span> parse_page<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    main()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 
@@ -640,11 +640,14 @@ if __name__ == &#39;__main__&#39;:
                 <div class="card-content article-content">
                     <div class="summary">practice1_fish#!/usr/bin/python3
 
-&quot;&quot;&quot;
+"""
 穷举法:穷尽所有可能直到找到正确答案
-&quot;&quot;&quot;
+"""
 def main():
-   &quot;&quot;&q</div>
+   """分鱼"""
+   fish = 1
+   while True:
+        </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-14

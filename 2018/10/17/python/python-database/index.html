@@ -35,7 +35,7 @@ class Dept(object):
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -427,115 +427,115 @@ class Dept(object):
                 <h2 id="数据库的微操做"><a href="#数据库的微操做" class="headerlink" title="数据库的微操做"></a>数据库的微操做</h2><p>进行数据的增加，修改，删除，查看</p>
 <p>在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。</p>
 <p>—– 从删库，到跑路额！</p>
-<pre><code class="python">import pymysql
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
 
 
-class Dept(object):
-    def __init__(self, no, name, location):
-        self.no = no
-        self.name = name
-        self.location = location
+<span class="token keyword">class</span> <span class="token class-name">Dept</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> no<span class="token punctuation">,</span> name<span class="token punctuation">,</span> location<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>no <span class="token operator">=</span> no
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>location <span class="token operator">=</span> location
 
 
-def main():
-    &#39;&#39;&#39;
-    no = int(input(&#39;部门编号：&#39;))
-    name = input(&#39;部门名称：&#39;)
-    location = input(&#39;部门地址：&#39;)
-    &#39;&#39;&#39;
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    no = int(input('部门编号：'))
+    name = input('部门名称：')
+    location = input('部门地址：')
+    '''</span>
 
-    # 1.创建数据库连接
-    conn = pymysql.connect(host=&#39;localhost&#39;, port=3306,
-                           db=&#39;hrs&#39;, user=&#39;root&#39;,
-                           charset=&#39;utf8&#39;, password=&#39;123456&#39;,
-                           autocommit=True,
-                           cursorclass=pymysql.cursors.DictCursor)
-    print(conn)
-    try:
-        # 2.获得游标对象
-        with conn.cursor() as cursor:
-            # 3.向数据库服务器发出SQL
-            # cursor 游标，上下文语法
-            &#39;&#39;&#39;
+    <span class="token comment" spellcheck="true"># 1.创建数据库连接</span>
+    conn <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>
+                           db<span class="token operator">=</span><span class="token string">'hrs'</span><span class="token punctuation">,</span> user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>
+                           charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">,</span> password<span class="token operator">=</span><span class="token string">'123456'</span><span class="token punctuation">,</span>
+                           autocommit<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+                           cursorclass<span class="token operator">=</span>pymysql<span class="token punctuation">.</span>cursors<span class="token punctuation">.</span>DictCursor<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 2.获得游标对象</span>
+        <span class="token keyword">with</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cursor<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 3.向数据库服务器发出SQL</span>
+            <span class="token comment" spellcheck="true"># cursor 游标，上下文语法</span>
+            <span class="token triple-quoted-string string">'''
             # 删除
             result = cursor.execute(
-                &#39;delete from TbDept where dno=40&#39;)
+                'delete from TbDept where dno=40')
             if result == 1:
-                print(&#39;删除成功!&#39;)
-           &#39;&#39;&#39;
+                print('删除成功!')
+           '''</span>
 
-            &#39;&#39;&#39;
+            <span class="token triple-quoted-string string">'''
             # 添加
             result = cursor.execute(
                 args=(no, name, location),
-                query=&quot;insert into TbDept values (%s, %s, %s)&quot;)
+                query="insert into TbDept values (%s, %s, %s)")
             if result == 1:
-                print(&#39;添加成功!&#39;)
-            &#39;&#39;&#39;
+                print('添加成功!')
+            '''</span>
 
-            &#39;&#39;&#39;
+            <span class="token triple-quoted-string string">'''
             如果没有添加autocommit这个属性，就可以添加下面这一段代码来提交数据
             try:
                 result
                 conn.commit()
             except:
                 conn.rollback()
-            &#39;&#39;&#39;
+            '''</span>
 
-            &#39;&#39;&#39;
+            <span class="token triple-quoted-string string">'''
             # 修改
             result = cursor.execute(
                 args=(name, location, no),
-                query=&quot;update TbDept set dname=%s, dloc=%s where dno=%s&quot;)
+                query="update TbDept set dname=%s, dloc=%s where dno=%s")
             if result == 1:
-                print(&#39;修改成功！&#39;)
-            &#39;&#39;&#39;
-            &#39;&#39;&#39;
+                print('修改成功！')
+            '''</span>
+            <span class="token triple-quoted-string string">'''
             # 命名占位符
             result = cursor.execute(
-                args={&#39;no&#39;:no, &#39;name&#39;:name, &#39;loc&#39;:location},
-                query=&quot;update TbDept set dname=%(name)s, dloc=%(loc)s where dno=%(no)s&quot;)
+                args={'no':no, 'name':name, 'loc':location},
+                query="update TbDept set dname=%(name)s, dloc=%(loc)s where dno=%(no)s")
             if result == 1:
-                print(&#39;修改成功！&#39;)
-            &#39;&#39;&#39;
-            &#39;&#39;&#39;
+                print('修改成功！')
+            '''</span>
+            <span class="token triple-quoted-string string">'''
             # 查看信息1
             cursor.execute(
-                &quot;select dno, dname, dloc from TbDept&quot;)
+                "select dno, dname, dloc from TbDept")
             for row in cursor.fetchall():
-                print(f&#39;部门编号：{row[0]}&#39;)
-                print(f&#39;部门名称：{row[1]}&#39;)
-                print(f&#39;部门地址：{row[2]}&#39;)
-                print(&#39;-&#39; * 20)
-            &#39;&#39;&#39;
-            &#39;&#39;&#39;
+                print(f'部门编号：{row[0]}')
+                print(f'部门名称：{row[1]}')
+                print(f'部门地址：{row[2]}')
+                print('-' * 20)
+            '''</span>
+            <span class="token triple-quoted-string string">'''
             # 查看信息2
-            cursor.execute(&quot;select dno as no, dname as name, dloc as loc from TbDept&quot;)
-            print(&#39;-&#39; * 20)
+            cursor.execute("select dno as no, dname as name, dloc as loc from TbDept")
+            print('-' * 20)
             for row in cursor.fetchall():
-                print(row[&#39;no&#39;], end=&#39;\t&#39;)
-                print(row[&#39;name&#39;], end=&#39;\t&#39;)
-                print(row[&#39;loc&#39;])
-            &#39;&#39;&#39;
-            # 查看信息3
-            cursor.execute(&quot; select dno as no, dname as name, dloc as location &quot;
-                           &quot; from TbDept&quot;)
+                print(row['no'], end='\t')
+                print(row['name'], end='\t')
+                print(row['loc'])
+            '''</span>
+            <span class="token comment" spellcheck="true"># 查看信息3</span>
+            cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">" select dno as no, dname as name, dloc as location "</span>
+                           <span class="token string">" from TbDept"</span><span class="token punctuation">)</span>
 
-            print(&#39;-&#39; * 20)
-            for row in cursor.fetchall():
-                print(row)
-                dept = Dept(**row)
-                print(dept.no, end=&#39;\t&#39;)
-                print(dept.name, end=&#39;\t&#39;)
-                print(dept.location)
-            print(&#39;-&#39; * 20)
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span> <span class="token operator">*</span> <span class="token number">20</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> row <span class="token keyword">in</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span>
+                dept <span class="token operator">=</span> Dept<span class="token punctuation">(</span><span class="token operator">**</span>row<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>dept<span class="token punctuation">.</span>no<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>dept<span class="token punctuation">.</span>name<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>dept<span class="token punctuation">.</span>location<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span> <span class="token operator">*</span> <span class="token number">20</span><span class="token punctuation">)</span>
 
-    finally:
-        conn.close()
+    <span class="token keyword">finally</span><span class="token punctuation">:</span>
+        conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-if __name__ == &#39;__main__&#39;:
-    main()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>
@@ -724,8 +724,8 @@ if __name__ == &#39;__main__&#39;:
 
 def add_con(con):
     while True:
-        telname = input(&#39;联系人姓名：&#39;)
-        relation </div>
+        telname = input('联系人姓名：')
+        relation = input(</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-20

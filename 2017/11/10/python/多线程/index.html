@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -414,42 +414,42 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h4 id="01-多线程技术"><a href="#01-多线程技术" class="headerlink" title="01-多线程技术"></a>01-多线程技术</h4><p>1.主线程<br>每个进程默认都会有一个线程，这个线程我们一般叫作主线程<br>默认情况下，我们所有的代码都在主线程中执行的<br>2.子线程<br>一个进程可以有多个线程，除了主线程以外，其它的线程需要手动添加<br>3.threading是Python中的一个内置模块，用来支持多线程<br>a.Thread类<br>Thread类的对象就是线程对象，需要线程的时候，就创建这个类或者这个类的子类对象<br>b.threading.currentThread()—》用来获取当前线程对象</p>
-<pre><code class="python">
-import threading
-import datetime
-import time
-# 下载两个电影
-def download(file):
-    print(file + &#39;开始下载：&#39;, datetime.datetime.now())
-    # 让线程阻塞10秒
-    time.sleep(10)
-    print(file+&#39;下载结束&#39;, datetime.datetime.now())
+<pre class=" language-python"><code class="language-python">
+<span class="token keyword">import</span> threading
+<span class="token keyword">import</span> datetime
+<span class="token keyword">import</span> time
+<span class="token comment" spellcheck="true"># 下载两个电影</span>
+<span class="token keyword">def</span> <span class="token function">download</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>file <span class="token operator">+</span> <span class="token string">'开始下载：'</span><span class="token punctuation">,</span> datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 让线程阻塞10秒</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>file<span class="token operator">+</span><span class="token string">'下载结束'</span><span class="token punctuation">,</span> datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    # threading.Thread
-    print(&#39;主线程中的代码&#39;)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># threading.Thread</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'主线程中的代码'</span><span class="token punctuation">)</span>
 
-    print(threading.currentThread())
+    <span class="token keyword">print</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>currentThread<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    # 1.在主线程中下载两个电影：用时20s
-    # download(&#39;西虹市首富&#39;)
-    download(&#39;沉默的羔羊&#39;)
+    <span class="token comment" spellcheck="true"># 1.在主线程中下载两个电影：用时20s</span>
+    <span class="token comment" spellcheck="true"># download('西虹市首富')</span>
+    download<span class="token punctuation">(</span><span class="token string">'沉默的羔羊'</span><span class="token punctuation">)</span>
 
-    # 2.在子线程中下载两个电影:用时10s
-    &#39;&#39;&#39;
+    <span class="token comment" spellcheck="true"># 2.在子线程中下载两个电影:用时10s</span>
+    <span class="token triple-quoted-string string">'''
     Tread(target,args)
     target:需要在子线程中调用的函数的函数名
     args:函数的实参
     返回值：创建好的线程对象
-    &#39;&#39;&#39;
-    t1 = threading.Thread(target= download,args=(&#39;西虹市首富&#39;,))
-    # 开始执行t1对应的线程任务
-    t1.start()
+    '''</span>
+    t1 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span> download<span class="token punctuation">,</span>args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'西虹市首富'</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 开始执行t1对应的线程任务</span>
+    t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    # t2 = threading.Thread(target= download,args=(&#39;沉默的羔羊&#39;,))
-    # # 想要在子线程中执行任务，必须通过线程对象调用start方法才行
-    # t2.start()
-    print(&#39;==========&#39;)
+    <span class="token comment" spellcheck="true"># t2 = threading.Thread(target= download,args=('沉默的羔羊',))</span>
+    <span class="token comment" spellcheck="true"># # 想要在子线程中执行任务，必须通过线程对象调用start方法才行</span>
+    <span class="token comment" spellcheck="true"># t2.start()</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'=========='</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="02-面向对象的多线程技术"><a href="#02-面向对象的多线程技术" class="headerlink" title="02-面向对象的多线程技术"></a>02-面向对象的多线程技术</h4><ul>
 <li><p>1.声明一个类继承自Thread类</p>
@@ -459,129 +459,129 @@ if __name__ == &#39;__main__&#39;:
 <li><p>3.在需要子线程的位置去创建这个类的对象，然后用对象调用start方法去执行run中的任务</p>
 </li>
 </ul>
-<pre><code class="python">from threading import Thread
-import datetime
-import time
-from random import randint
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
+<span class="token keyword">import</span> datetime
+<span class="token keyword">import</span> time
+<span class="token keyword">from</span> random <span class="token keyword">import</span> randint
 
 注意：继承的时候可以继承自己写的类，也可以继承别人写的类或者系统写的类
-class DownloadThread(Thread):
-    &#39;&#39;&#39;下载线程类&#39;&#39;&#39;
-    def __init__(self,file):
-        super().__init__()
-        self.file = file
+<span class="token keyword">class</span> <span class="token class-name">DownloadThread</span><span class="token punctuation">(</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''下载线程类'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>file <span class="token operator">=</span> file
 
-    def run(self):
-        print(self.file + &#39;开始下载：&#39;,datetime.datetime.now())
-        time.sleep(randint(5,10))
-        print(self.file + &#39;下载结束：&#39;,datetime.datetime.now())
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>file <span class="token operator">+</span> <span class="token string">'开始下载：'</span><span class="token punctuation">,</span>datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span>randint<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>file <span class="token operator">+</span> <span class="token string">'下载结束：'</span><span class="token punctuation">,</span>datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    print(&#39;==========&#39;)
-    t1 = DownloadThread(&#39;西虹市首富&#39;)
-    t1.start()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'=========='</span><span class="token punctuation">)</span>
+    t1 <span class="token operator">=</span> DownloadThread<span class="token punctuation">(</span><span class="token string">'西虹市首富'</span><span class="token punctuation">)</span>
+    t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    t2 = DownloadThread(&#39;黑客帝国&#39;)
-    t2.start()
+    t2 <span class="token operator">=</span> DownloadThread<span class="token punctuation">(</span><span class="token string">'黑客帝国'</span><span class="token punctuation">)</span>
+    t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    print(&#39;+-+-+-+-+-&#39;)
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'+-+-+-+-+-'</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="03-join方法的使用"><a href="#03-join方法的使用" class="headerlink" title="03-join方法的使用"></a>03-join方法的使用</h4><p>如果希望某个线程结束后才进行的操作，就用那个线程调用join函数</p>
-<pre><code class="python">from threading import Thread
-from random import randint
-import time
-import datetime
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
+<span class="token keyword">from</span> random <span class="token keyword">import</span> randint
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> datetime
 
-class DownloadThread(Thread):
-    def __init__(self,file):
-        super().__init__()
-        self.file = file
+<span class="token keyword">class</span> <span class="token class-name">DownloadThread</span><span class="token punctuation">(</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>file <span class="token operator">=</span> file
 
-    def run(self):
-        print(self.file+&#39;开始下载&#39;,datetime.datetime.now())
-        time.sleep(randint(5,15))
-        print(self.file+&#39;下载结束&#39;,datetime.datetime.now())
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>file<span class="token operator">+</span><span class="token string">'开始下载'</span><span class="token punctuation">,</span>datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span>randint<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>file<span class="token operator">+</span><span class="token string">'下载结束'</span><span class="token punctuation">,</span>datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 
-if __name__ == &#39;__main__&#39;:
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
 
-    t1 = DownloadThread(&#39;美丽人生&#39;)
-    t2 = DownloadThread(&#39;怦然心动&#39;)
+    t1 <span class="token operator">=</span> DownloadThread<span class="token punctuation">(</span><span class="token string">'美丽人生'</span><span class="token punctuation">)</span>
+    t2 <span class="token operator">=</span> DownloadThread<span class="token punctuation">(</span><span class="token string">'怦然心动'</span><span class="token punctuation">)</span>
 
-    start = time.time()
+    start <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    tim1 = t1.start()
-    tim2 = t2.start()
+    tim1 <span class="token operator">=</span> t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    tim2 <span class="token operator">=</span> t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# 在两个子线程中下载两个电影，在主线程中统计两个电影下载的总时间
+<span class="token comment" spellcheck="true"># 在两个子线程中下载两个电影，在主线程中统计两个电影下载的总时间</span>
 
-# 系统t1和t2中的代码结束后才执行下面的代码
-    t1.join()  # 这句代码后面的代码在t1对应的线程结束后才执行
-    t2.join()
-    end = time.time()
-    print(end-start)
+<span class="token comment" spellcheck="true"># 系统t1和t2中的代码结束后才执行下面的代码</span>
+    t1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 这句代码后面的代码在t1对应的线程结束后才执行</span>
+    t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    end <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>end<span class="token operator">-</span>start<span class="token punctuation">)</span>
 </code></pre>
 <h4 id="04-线程间的数据共享"><a href="#04-线程间的数据共享" class="headerlink" title="04-线程间的数据共享"></a>04-线程间的数据共享</h4><p>同步锁（RLock）和互斥锁(Lock)<br>模拟多个人对同一个账号进行操作</p>
-<pre><code class="python">import time
-from threading import Thread,Lock
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> time
+<span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread<span class="token punctuation">,</span>Lock
 
-class Account:
-    &#39;&#39;&#39;账号类&#39;&#39;&#39;
-    def __init__(self,balance):
-        # 余额
-        self.balance = balance
-        # 创建锁的对象
-        self.lock = Lock()
+<span class="token keyword">class</span> <span class="token class-name">Account</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''账号类'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>balance<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 余额</span>
+        self<span class="token punctuation">.</span>balance <span class="token operator">=</span> balance
+        <span class="token comment" spellcheck="true"># 创建锁的对象</span>
+        self<span class="token punctuation">.</span>lock <span class="token operator">=</span> Lock<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    # 存钱过程：读出原来的余额，确定钱的一系列操作，将原来的余额加上存的钱，产生新的余额，再保存
-    def save_money(self,amount):
-        &#39;&#39;&#39;存钱&#39;&#39;&#39;
-        print(&#39;开始存钱&#39;)
+    <span class="token comment" spellcheck="true"># 存钱过程：读出原来的余额，确定钱的一系列操作，将原来的余额加上存的钱，产生新的余额，再保存</span>
+    <span class="token keyword">def</span> <span class="token function">save_money</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>amount<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''存钱'''</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'开始存钱'</span><span class="token punctuation">)</span>
         加锁
-        self.lock.acquire()
-        # 获取原来的余额
-        old_amount =  self.balance
-        # 模拟时间消耗
-        time.sleep(5)
-        # 修改余额
-        self.balance = old_amount + amount
-        print(&#39;存钱成功，余额是：&#39;,self.balance)
+        self<span class="token punctuation">.</span>lock<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取原来的余额</span>
+        old_amount <span class="token operator">=</span>  self<span class="token punctuation">.</span>balance
+        <span class="token comment" spellcheck="true"># 模拟时间消耗</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 修改余额</span>
+        self<span class="token punctuation">.</span>balance <span class="token operator">=</span> old_amount <span class="token operator">+</span> amount
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'存钱成功，余额是：'</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>balance<span class="token punctuation">)</span>
         解锁
-        self.lock.release()
+        self<span class="token punctuation">.</span>lock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    def get_money(self,amount):
-        &#39;&#39;&#39;取钱&#39;&#39;&#39;
-        print(&#39;开始取钱&#39;)
+    <span class="token keyword">def</span> <span class="token function">get_money</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>amount<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''取钱'''</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'开始取钱'</span><span class="token punctuation">)</span>
         加锁
-        self.lock.acquire()
-        # 获取原来的余额
-        old_amount = self.balance
-        if old_amount &lt; amount:
-            print(&#39;余额不足&#39;)
-            return
-        time.sleep(5)
-        self.balance = old_amount - amount
-        print(&#39;取钱成功,余额是：&#39;,self.balance)
+        self<span class="token punctuation">.</span>lock<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取原来的余额</span>
+        old_amount <span class="token operator">=</span> self<span class="token punctuation">.</span>balance
+        <span class="token keyword">if</span> old_amount <span class="token operator">&lt;</span> amount<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'余额不足'</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>balance <span class="token operator">=</span> old_amount <span class="token operator">-</span> amount
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'取钱成功,余额是：'</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>balance<span class="token punctuation">)</span>
         解锁
-        self.lock.release()
+        self<span class="token punctuation">.</span>lock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    def show_balance(self):
-        print(&#39;当前余额：%d&#39;% self.balance)
+    <span class="token keyword">def</span> <span class="token function">show_balance</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'当前余额：%d'</span><span class="token operator">%</span> self<span class="token punctuation">.</span>balance<span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    # 创建账号
-    account = Account(1000)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 创建账号</span>
+    account <span class="token operator">=</span> Account<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
 
-    # account.save_money(200)
-    # account.save_money(100)
-    # account.show_balance()
+    <span class="token comment" spellcheck="true"># account.save_money(200)</span>
+    <span class="token comment" spellcheck="true"># account.save_money(100)</span>
+    <span class="token comment" spellcheck="true"># account.show_balance()</span>
     当多个线程对一个数据进行操作时，可能会出现数据混乱的问题
 
-    t1 = Thread(target= account.save_money,args= (200,))
-    t2 = Thread(target=account.save_money, args=(300,))
+    t1 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span> account<span class="token punctuation">.</span>save_money<span class="token punctuation">,</span>args<span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    t2 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>account<span class="token punctuation">.</span>save_money<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    t1.start()
-    t2.start()
+    t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 

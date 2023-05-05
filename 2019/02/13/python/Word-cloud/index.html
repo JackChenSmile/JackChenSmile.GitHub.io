@@ -32,7 +32,7 @@ from scip">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -417,34 +417,34 @@ from scip">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="获取词云的代码"><a href="#获取词云的代码" class="headerlink" title="获取词云的代码"></a>获取词云的代码</h3><pre><code class="python">import jieba
-import matplotlib.pyplot as plt
-from collections import Counter
-import jieba.posseg as psg
-from scipy.misc import imread
-from wordcloud import WordCloud, ImageColorGenerator
+                <h3 id="获取词云的代码"><a href="#获取词云的代码" class="headerlink" title="获取词云的代码"></a>获取词云的代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> jieba
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
+<span class="token keyword">import</span> jieba<span class="token punctuation">.</span>posseg <span class="token keyword">as</span> psg
+<span class="token keyword">from</span> scipy<span class="token punctuation">.</span>misc <span class="token keyword">import</span> imread
+<span class="token keyword">from</span> wordcloud <span class="token keyword">import</span> WordCloud<span class="token punctuation">,</span> ImageColorGenerator
 
 
-artic = open(&#39;2.txt&#39;, &#39;r&#39;, encoding=&#39;utf8&#39;).read()
-# 取到不需要的字符
-r=&#39;!.:;\n？“。，……”\u3000：的！,    &#39;
-for i in r:
-    artic = artic.replace(i, &#39;&#39;)
-# 生成词组
-cut =&#39;,&#39;.join(jieba.cut(artic))
-lcut = jieba.lcut(artic)
-# 统计数量
-count = Counter(lcut).most_common(20)
-print(cut)
+artic <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'2.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 取到不需要的字符</span>
+r<span class="token operator">=</span><span class="token string">'!.:;\n？“。，……”\u3000：的！,    '</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> r<span class="token punctuation">:</span>
+    artic <span class="token operator">=</span> artic<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 生成词组</span>
+cut <span class="token operator">=</span><span class="token string">','</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>jieba<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>artic<span class="token punctuation">)</span><span class="token punctuation">)</span>
+lcut <span class="token operator">=</span> jieba<span class="token punctuation">.</span>lcut<span class="token punctuation">(</span>artic<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 统计数量</span>
+count <span class="token operator">=</span> Counter<span class="token punctuation">(</span>lcut<span class="token punctuation">)</span><span class="token punctuation">.</span>most_common<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cut<span class="token punctuation">)</span>
 
 
-path_of_font = &#39;./arialuni.ttf&#39;
-bg_path = &#39;C:/Users/Administrator/Pictures/map1.jpg&#39;
-bg_img = imread(bg_path)
-my_wordcloud = WordCloud(font_path=path_of_font,max_font_size=100,mask=bg_img).generate(cut)
-plt.imshow(my_wordcloud)
-plt.axis(&quot;off&quot;)
-plt.show()
+path_of_font <span class="token operator">=</span> <span class="token string">'./arialuni.ttf'</span>
+bg_path <span class="token operator">=</span> <span class="token string">'C:/Users/Administrator/Pictures/map1.jpg'</span>
+bg_img <span class="token operator">=</span> imread<span class="token punctuation">(</span>bg_path<span class="token punctuation">)</span>
+my_wordcloud <span class="token operator">=</span> WordCloud<span class="token punctuation">(</span>font_path<span class="token operator">=</span>path_of_font<span class="token punctuation">,</span>max_font_size<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span>mask<span class="token operator">=</span>bg_img<span class="token punctuation">)</span><span class="token punctuation">.</span>generate<span class="token punctuation">(</span>cut<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>my_wordcloud<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token string">"off"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h3><p><img src="/2019/02/13/python/Word-cloud/Figure_2.png" alt="Figure_2"></p>
 

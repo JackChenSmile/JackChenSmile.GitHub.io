@@ -32,7 +32,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -421,85 +421,85 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="novel"><a href="#novel" class="headerlink" title="novel"></a>novel</h3><h5 id="爬取到小说的具体内容，要进行滤除处理，完整的代码"><a href="#爬取到小说的具体内容，要进行滤除处理，完整的代码" class="headerlink" title="爬取到小说的具体内容，要进行滤除处理，完整的代码"></a>爬取到小说的具体内容，要进行滤除处理，完整的代码</h5><pre><code class="python"># -*- coding:UTF-8 -*-
-    from bs4 import BeautifulSoup
-    import requests
+                <h3 id="novel"><a href="#novel" class="headerlink" title="novel"></a>novel</h3><h5 id="爬取到小说的具体内容，要进行滤除处理，完整的代码"><a href="#爬取到小说的具体内容，要进行滤除处理，完整的代码" class="headerlink" title="爬取到小说的具体内容，要进行滤除处理，完整的代码"></a>爬取到小说的具体内容，要进行滤除处理，完整的代码</h5><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding:UTF-8 -*-</span>
+    <span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+    <span class="token keyword">import</span> requests
 
-    if __name__ == &quot;__main__&quot;:
-        target = &#39;http://www.biqukan.com/1_1094/5403177.html&#39;
-        req = requests.get(url = target)
-        html = req.text
-        bf = BeautifulSoup(html)
-        texts = bf.find_all(&#39;div&#39;, class_ = &#39;showtxt&#39;)
-        print(texts[0].text.replace(&#39;\xa0&#39;*8,&#39;\n\n&#39;))
+    <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+        target <span class="token operator">=</span> <span class="token string">'http://www.biqukan.com/1_1094/5403177.html'</span>
+        req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url <span class="token operator">=</span> target<span class="token punctuation">)</span>
+        html <span class="token operator">=</span> req<span class="token punctuation">.</span>text
+        bf <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+        texts <span class="token operator">=</span> bf<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> class_ <span class="token operator">=</span> <span class="token string">'showtxt'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>texts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>text<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\xa0'</span><span class="token operator">*</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">'\n\n'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>正文</p>
-<pre><code class="python">import json
-from bs4 import BeautifulSoup
-import requests
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">import</span> requests
 
 
-def strips(contents):
-    result_list =  []
-    list1 = []
-    matter = contents[::2][::2]
-    for item in matter:
-        result_list.append(item)
-    for i in result_list:
-        list1.append(i.strip())
-    return list1
+<span class="token keyword">def</span> <span class="token function">strips</span><span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    result_list <span class="token operator">=</span>  <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    matter <span class="token operator">=</span> contents<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> matter<span class="token punctuation">:</span>
+        result_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> result_list<span class="token punctuation">:</span>
+        list1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> list1
 
-# 保存json数据
-def save_json(article, num):
-    fiction_json_str = json.dumps(article, ensure_ascii=False)
-    with open(str(num)+&#39;.json&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
-        f.write(fiction_json_str)
+<span class="token comment" spellcheck="true"># 保存json数据</span>
+<span class="token keyword">def</span> <span class="token function">save_json</span><span class="token punctuation">(</span>article<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fiction_json_str <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>article<span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span>str<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'.json'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>fiction_json_str<span class="token punctuation">)</span>
 
-# 取页面HTML
-def get_one_page(url):
+<span class="token comment" spellcheck="true"># 取页面HTML</span>
+<span class="token keyword">def</span> <span class="token function">get_one_page</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    headers =  {
-        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b13pre) Gecko/20110307 Firefox/4.0b13pre&quot;
-    }
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        text = response.content.decode(&#39;utf-8&#39;)
-        return text
-    return None
+    headers <span class="token operator">=</span>  <span class="token punctuation">{</span>
+        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0b13pre) Gecko/20110307 Firefox/4.0b13pre"</span>
+    <span class="token punctuation">}</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+        text <span class="token operator">=</span> response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> text
+    <span class="token keyword">return</span> None
 
-def parse_with_bs4(html):
-    all_list = []
-    all_dic = {}
-    soup = BeautifulSoup(html, &#39;lxml&#39;)
-    title = soup.select(&#39;.content_read .box_con .bookname h1&#39;)[0].string
-    contents = soup.select(&#39;.content_read .box_con #content&#39;)[0].contents
-    content = strips(contents)
-    all_dic[&#39;title&#39;] = title
-    all_dic[&#39;content&#39;] = content
-    all_list.append(all_dic)
-    return all_list
+<span class="token keyword">def</span> <span class="token function">parse_with_bs4</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    all_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    all_dic <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
+    title <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.content_read .box_con .bookname h1'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>string
+    contents <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.content_read .box_con #content'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>contents
+    content <span class="token operator">=</span> strips<span class="token punctuation">(</span>contents<span class="token punctuation">)</span>
+    all_dic<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span> <span class="token operator">=</span> title
+    all_dic<span class="token punctuation">[</span><span class="token string">'content'</span><span class="token punctuation">]</span> <span class="token operator">=</span> content
+    all_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>all_dic<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> all_list
 
-def next_url(html):
-    soup = BeautifulSoup(html, &#39;lxml&#39;)
-    # 下一章的后缀路由
-    next_url = soup.select(&#39;.content_read .box_con .bookname .bottem1 a&#39;)[3][&#39;href&#39;]
-    nexts_url = &#39;http://www.xbiquge.la&#39; + next_url
-    return nexts_url
+<span class="token keyword">def</span> <span class="token function">next_url</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 下一章的后缀路由</span>
+    next_url <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.content_read .box_con .bookname .bottem1 a'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span>
+    nexts_url <span class="token operator">=</span> <span class="token string">'http://www.xbiquge.la'</span> <span class="token operator">+</span> next_url
+    <span class="token keyword">return</span> nexts_url
 
-def main():
-    num = 1
-    url = &quot;http://www.xbiquge.la/2/2823/1790661.html&quot;
-    while True:
-        html = get_one_page(url)
-        article = parse_with_bs4(html)
-        save_json(article, num)
-        url = next_url(html)
-        if url == &#39;http://www.xbiquge.la/2/2823/&#39;:
-            break
-        num += 1
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    num <span class="token operator">=</span> <span class="token number">1</span>
+    url <span class="token operator">=</span> <span class="token string">"http://www.xbiquge.la/2/2823/1790661.html"</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        html <span class="token operator">=</span> get_one_page<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+        article <span class="token operator">=</span> parse_with_bs4<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+        save_json<span class="token punctuation">(</span>article<span class="token punctuation">,</span> num<span class="token punctuation">)</span>
+        url <span class="token operator">=</span> next_url<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> url <span class="token operator">==</span> <span class="token string">'http://www.xbiquge.la/2/2823/'</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+        num <span class="token operator">+=</span> <span class="token number">1</span>
 
-if __name__ == &#39;__main__&#39;:
-    main()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 
@@ -740,7 +740,7 @@ import random
 def get_random_agent():
 
     agent_list = [
-    &quot;Mozilla/4.0 (compatible; MSIE 6.0;</div>
+    "Mozilla/4.0 (compatible; MSIE 6.0; Wind</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-09

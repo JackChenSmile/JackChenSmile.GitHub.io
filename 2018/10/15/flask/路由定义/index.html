@@ -32,7 +32,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -421,64 +421,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h3><pre><code class="python">创建: virtualenv --no-site-packages -p D:\python3\python.exe flaskenv7
+                <h3 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h3><pre class=" language-python"><code class="language-python">创建<span class="token punctuation">:</span> virtualenv <span class="token operator">-</span><span class="token operator">-</span>no<span class="token operator">-</span>site<span class="token operator">-</span>packages <span class="token operator">-</span>p D<span class="token punctuation">:</span>\python3\python<span class="token punctuation">.</span>exe flaskenv7
 
-安装flask: pip install flask
+安装flask<span class="token punctuation">:</span> pip install flask
 </code></pre>
-<h3 id="最简单web框架结构"><a href="#最简单web框架结构" class="headerlink" title="最简单web框架结构"></a>最简单web框架结构</h3><pre><code class="python">from flask import Flask
-from flask_script import Manager
+<h3 id="最简单web框架结构"><a href="#最简单web框架结构" class="headerlink" title="最简单web框架结构"></a>最简单web框架结构</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask
+<span class="token keyword">from</span> flask_script <span class="token keyword">import</span> Manager
 
-app = Flask(__name__)
+app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
 
-@app.route(&#39;/&#39;)
-def gello_world():
-    return &#39;Hello World&#39;
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">gello_world</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello World'</span>
 
-@app.route(&#39;/stu/&lt;id&gt;/&#39;)
-def stu(id):
-    # 接收的参数id是一个字符串，用尖括号定义的，这个参数的类型可以强行改变[int,float,string,path(接收路由后面的全部参数),get_uuid]
-    return &#39;stu id: %s&#39; % id
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/stu/&lt;id>/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">stu</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 接收的参数id是一个字符串，用尖括号定义的，这个参数的类型可以强行改变[int,float,string,path(接收路由后面的全部参数),get_uuid]</span>
+    <span class="token keyword">return</span> <span class="token string">'stu id: %s'</span> <span class="token operator">%</span> id
 
-@app.rout(&#39;/grade/&lt;int:id&gt;/&#39;)
-def grade(id):
-    # 接收id参数是整型
-    return &#39;grade id: %d&#39; % id
+@app<span class="token punctuation">.</span>rout<span class="token punctuation">(</span><span class="token string">'/grade/&lt;int:id>/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">grade</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 接收id参数是整型</span>
+    <span class="token keyword">return</span> <span class="token string">'grade id: %d'</span> <span class="token operator">%</span> id
 
-if __name__ == &#39;__main__&#39;:
-    # app.run(host=&#39;0.0.0.0&#39;, port=8888, debug=True)
-    manage = Manager(app)
-    # 在命令行输入以下配置，启动项目
-    # python hello.py runserver -h 0.0.0.0 -p 8888 -d
-    manage.run()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># app.run(host='0.0.0.0', port=8888, debug=True)</span>
+    manage <span class="token operator">=</span> Manager<span class="token punctuation">(</span>app<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 在命令行输入以下配置，启动项目</span>
+    <span class="token comment" spellcheck="true"># python hello.py runserver -h 0.0.0.0 -p 8888 -d</span>
+    manage<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="最小flask框架"><a href="#最小flask框架" class="headerlink" title="最小flask框架"></a>最小flask框架</h3><p>默认IP：127.0.0.1</p>
 <p>默认端口：5000</p>
 <p>默认启动命令：<br>app.run(host=’127.0.0.1’, port=8000, debug=True)</p>
-<pre><code class="python">from falsk import Flask
-app = Flask(__name__)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> falsk <span class="token keyword">import</span> Flask
+app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
 
-@app.route(&#39;/&#39;)
-def hell0_word():
-    return &#39;Hello World!&#39;
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">hell0_word</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello World!'</span>
 
-if __name__ == &#39;__main__&#39;:
-    app.run()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="flask"><a href="#flask" class="headerlink" title="flask"></a>flask</h3><p><strong>flask-script</strong></p>
-<pre><code class="python">安装: pip install flask-script
-启动命令: python xxxx.py runserver -h 0.0.0.0 -p 8080 -d
+<pre class=" language-python"><code class="language-python">安装<span class="token punctuation">:</span> pip install flask<span class="token operator">-</span>script
+启动命令<span class="token punctuation">:</span> python xxxx<span class="token punctuation">.</span>py runserver <span class="token operator">-</span>h <span class="token number">0.0</span><span class="token punctuation">.</span><span class="token number">0.0</span> <span class="token operator">-</span>p <span class="token number">8080</span> <span class="token operator">-</span>d
 </code></pre>
 <p><strong>flask-blueprint</strong></p>
-<pre><code class="python">安装: pip install flask-blueprint
+<pre class=" language-python"><code class="language-python">安装<span class="token punctuation">:</span> pip install flask<span class="token operator">-</span>blueprint
 使用：
-    1. 生成实例化对象: blue = Blueprint(&#39;first&#39;, __name__)
-    2. 管理路由blue.route(&#39;/hello/&#39;)
-    3. 注册：3. 注册: app.register_blueprint(blueprint=blue, url_prefix=&#39;/app&#39;)
+    <span class="token number">1</span><span class="token punctuation">.</span> 生成实例化对象<span class="token punctuation">:</span> blue <span class="token operator">=</span> Blueprint<span class="token punctuation">(</span><span class="token string">'first'</span><span class="token punctuation">,</span> __name__<span class="token punctuation">)</span>
+    <span class="token number">2</span><span class="token punctuation">.</span> 管理路由blue<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/hello/'</span><span class="token punctuation">)</span>
+    <span class="token number">3</span><span class="token punctuation">.</span> 注册：<span class="token number">3</span><span class="token punctuation">.</span> 注册<span class="token punctuation">:</span> app<span class="token punctuation">.</span>register_blueprint<span class="token punctuation">(</span>blueprint<span class="token operator">=</span>blue<span class="token punctuation">,</span> url_prefix<span class="token operator">=</span><span class="token string">'/app'</span><span class="token punctuation">)</span>
         blueprint参数：指定蓝图对象
         url_prefix参数：指定URL前缀
 跳转方式：
-    无参跳转：redirect(url_for(&#39;生成蓝图对象的第一个参数.跳转的函数名&#39;))
-    有参跳转：redirec(url_for(&#39;生成蓝图对象的第一个参数.跳转的函数名&#39;, 参数=值))
+    无参跳转：redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'生成蓝图对象的第一个参数.跳转的函数名'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    有参跳转：redirec<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'生成蓝图对象的第一个参数.跳转的函数名'</span><span class="token punctuation">,</span> 参数<span class="token operator">=</span>值<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>

@@ -11,7 +11,7 @@ import random
 def get_random_agent():
 
     agent_list = [
-    &amp;quot;Mozilla/4.0 (compatible; MSIE 6.0;">
+    &#34;Mozilla/4.0 (compatible; MSIE 6.0; Wind">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -34,7 +34,7 @@ def get_random_agent():
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -424,150 +424,150 @@ def get_random_agent():
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="蘑菇街"><a href="#蘑菇街" class="headerlink" title="蘑菇街"></a>蘑菇街</h3><p>agent_list.py</p>
-<pre><code class="python">import random
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> random
 
-def get_random_agent():
+<span class="token keyword">def</span> <span class="token function">get_random_agent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    agent_list = [
-    &quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)&quot;,
-        &quot;Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)&quot;,
-        &quot;Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.35; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)&quot;,
-        &quot;Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)&quot;,
-        &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)&quot;,
-        &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 1.0.3705; .NET CLR 1.1.4322)&quot;,
-        &quot;Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30)&quot;,
-        &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.3 (Change: 287 c9dfb30)&quot;,
-        &quot;Mozilla/5.0 (X11; U; Linux; en-US) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.6&quot;,
-        &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.2pre) Gecko/20070215 K-Ninja/2.1.1&quot;,
-        &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9) Gecko/20080705 Firefox/3.0 Kapiko/3.0&quot;,
-        &quot;Mozilla/5.0 (X11; Linux i686; U;) Gecko/20070322 Kazehakase/0.4.5&quot;,
-        &quot;Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.8) Gecko Fedora/1.9.0.8-1.fc10 Kazehakase/0.5.6&quot;,
-        &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11&quot;,
-        &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20&quot;,
-        &quot;Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52&quot;,
-    ]
+    agent_list <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.35; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 1.0.3705; .NET CLR 1.1.4322)"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30)"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.3 (Change: 287 c9dfb30)"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (X11; U; Linux; en-US) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.6"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.2pre) Gecko/20070215 K-Ninja/2.1.1"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9) Gecko/20080705 Firefox/3.0 Kapiko/3.0"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (X11; Linux i686; U;) Gecko/20070322 Kazehakase/0.4.5"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.8) Gecko Fedora/1.9.0.8-1.fc10 Kazehakase/0.5.6"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20"</span><span class="token punctuation">,</span>
+        <span class="token string">"Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
 
-    agent = random.choice(agent_list)
-    return agent
+    agent <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>agent_list<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> agent
 
-if __name__ == &#39;__main__&#39;:
-    agent = get_random_agent()
-    print(agent)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    agent <span class="token operator">=</span> get_random_agent<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>agent<span class="token punctuation">)</span>
 </code></pre>
 <p>数据库中创建的字段</p>
-<pre><code class="python">from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint, Index
-from sqlalchemy.orm import sessionmaker, relationship
-import pymysql
-from sqlalchemy import create_engine
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy<span class="token punctuation">.</span>ext<span class="token punctuation">.</span>declarative <span class="token keyword">import</span> declarative_base
+<span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> Column<span class="token punctuation">,</span> Integer<span class="token punctuation">,</span> String<span class="token punctuation">,</span> ForeignKey<span class="token punctuation">,</span> UniqueConstraint<span class="token punctuation">,</span> Index
+<span class="token keyword">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword">import</span> sessionmaker<span class="token punctuation">,</span> relationship
+<span class="token keyword">import</span> pymysql
+<span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine
 
-engine = create_engine(&quot;mysql+pymysql://root:123456@127.0.0.1:3306/maoyan_db?charset=utf8&quot;, max_overflow=5,encoding=&#39;utf-8&#39;)
-Base = declarative_base()
+engine <span class="token operator">=</span> create_engine<span class="token punctuation">(</span><span class="token string">"mysql+pymysql://root:123456@127.0.0.1:3306/maoyan_db?charset=utf8"</span><span class="token punctuation">,</span> max_overflow<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+Base <span class="token operator">=</span> declarative_base<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-class MoguProduct(Base):
-    __tablename__ = &#39;mogu&#39;
-    id = Column(Integer, primary_key=True, autoincrement=True)    #主键，自增
-    tradeitemid = Column(String(128))
-    img = Column(String(1024))
-    clienturl = Column(String(1024))
-    link = Column(String(1024))
-    title = Column(String(512))
-    orgprice = Column(String(128))
-    price = Column(String(128))
-    similarityurl = Column(String(1024))
+<span class="token keyword">class</span> <span class="token class-name">MoguProduct</span><span class="token punctuation">(</span>Base<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">'mogu'</span>
+    id <span class="token operator">=</span> Column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> autoincrement<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#主键，自增</span>
+    tradeitemid <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    img <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    clienturl <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    link <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    title <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    orgprice <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    price <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    similarityurl <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 py
 </code></pre>
 <p>运行的程序</p>
-<pre><code class="python">import json
-import requests
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from agent_helper import get_random_agent
-from models import MoguProduct
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine
+<span class="token keyword">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword">import</span> sessionmaker
+<span class="token keyword">from</span> agent_helper <span class="token keyword">import</span> get_random_agent
+<span class="token keyword">from</span> models <span class="token keyword">import</span> MoguProduct
 
 
-engine = create_engine(&quot;mysql+pymysql://root:123456@127.0.0.1/mogudb?charset=utf8&quot;, max_overflow=5)
-session_maker = sessionmaker(bind=engine)
-session = session_maker()
+engine <span class="token operator">=</span> create_engine<span class="token punctuation">(</span><span class="token string">"mysql+pymysql://root:123456@127.0.0.1/mogudb?charset=utf8"</span><span class="token punctuation">,</span> max_overflow<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+session_maker <span class="token operator">=</span> sessionmaker<span class="token punctuation">(</span>bind<span class="token operator">=</span>engine<span class="token punctuation">)</span>
+session <span class="token operator">=</span> session_maker<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-# 取页面HTML
-def get_one_page(url, page):
-    agent = get_random_agent()
-    # referer = &quot;https://list.mogujie.com/s?page=&quot; + page + &quot;&amp;q=%E8%A1%A3%E6%9C%8D&amp;sort=pop&amp;ppath=&amp;ptp=1.5y18ub.0.0.d9fJkbZi&quot;
-    referer = &quot;https://list.mogujie.com/s?page=&quot; + str(page) + &quot;&amp;q=%E8%A1%A3%E6%9C%8D&amp;sort=pop&amp;ppath=&amp;ptp=1.5y18ub.0.0.wVFuR4dg&quot;
-    headers = {
-        &#39;Referer&#39;: referer,
-        &#39;User-Agent&#39;: agent,
-        &#39;Host&#39;: &#39;list.mogujie.com&#39;,
-        &#39;Accept&#39;: &#39;text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01&#39;,
-        &#39;Accept-Encoding&#39;: &#39;gzip, deflate, br&#39;,
-        &#39;Accept-Language&#39;: &#39;en-US,en;q=0.9&#39;,
-        &#39;Connection&#39;: &#39;keep-alive&#39;,
-        &#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;,
-    }
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        text = response.content.decode(&#39;utf-8&#39;)
-        return text
-    return None
+<span class="token comment" spellcheck="true"># 取页面HTML</span>
+<span class="token keyword">def</span> <span class="token function">get_one_page</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> page<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    agent <span class="token operator">=</span> get_random_agent<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># referer = "https://list.mogujie.com/s?page=" + page + "&amp;q=%E8%A1%A3%E6%9C%8D&amp;sort=pop&amp;ppath=&amp;ptp=1.5y18ub.0.0.d9fJkbZi"</span>
+    referer <span class="token operator">=</span> <span class="token string">"https://list.mogujie.com/s?page="</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"&amp;q=%E8%A1%A3%E6%9C%8D&amp;sort=pop&amp;ppath=&amp;ptp=1.5y18ub.0.0.wVFuR4dg"</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'Referer'</span><span class="token punctuation">:</span> referer<span class="token punctuation">,</span>
+        <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> agent<span class="token punctuation">,</span>
+        <span class="token string">'Host'</span><span class="token punctuation">:</span> <span class="token string">'list.mogujie.com'</span><span class="token punctuation">,</span>
+        <span class="token string">'Accept'</span><span class="token punctuation">:</span> <span class="token string">'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01'</span><span class="token punctuation">,</span>
+        <span class="token string">'Accept-Encoding'</span><span class="token punctuation">:</span> <span class="token string">'gzip, deflate, br'</span><span class="token punctuation">,</span>
+        <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'en-US,en;q=0.9'</span><span class="token punctuation">,</span>
+        <span class="token string">'Connection'</span><span class="token punctuation">:</span> <span class="token string">'keep-alive'</span><span class="token punctuation">,</span>
+        <span class="token string">'X-Requested-With'</span><span class="token punctuation">:</span> <span class="token string">'XMLHttpRequest'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+        text <span class="token operator">=</span> response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> text
+    <span class="token keyword">return</span> None
 
-# 解析JSON数据
-def parse_json(html):
-    # 匹配出现的第一个（
-    start = html.index(&#39;(&#39;) + 1
-    html = html[start:-2]
-    json_data = json.loads(html)
-    result_list = json_data[&#39;result&#39;][&#39;wall&#39;][&#39;docs&#39;]
-    for item in result_list:
-        mogu = MoguProduct()
-        mogu.tradeitemid = item[&#39;tradeItemId&#39;]
-        mogu.img = item[&#39;img&#39;]
-        mogu.clienturl = item[&#39;clientUrl&#39;]
-        mogu.link = item[&#39;link&#39;]
-        mogu.title = item[&#39;title&#39;]
-        mogu.orgprice = item[&#39;orgPrice&#39;]
-        mogu.price = item[&#39;price&#39;]
-        mogu.similarityurl = item[&#39;similarityUrl&#39;]
-        # todo 保存数据库
-        try:
-            session.add(mogu)
-            session.commit()
-        except Exception as e:
-            pass
+<span class="token comment" spellcheck="true"># 解析JSON数据</span>
+<span class="token keyword">def</span> <span class="token function">parse_json</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 匹配出现的第一个（</span>
+    start <span class="token operator">=</span> html<span class="token punctuation">.</span>index<span class="token punctuation">(</span><span class="token string">'('</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+    html <span class="token operator">=</span> html<span class="token punctuation">[</span>start<span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span>
+    json_data <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+    result_list <span class="token operator">=</span> json_data<span class="token punctuation">[</span><span class="token string">'result'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'wall'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'docs'</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> result_list<span class="token punctuation">:</span>
+        mogu <span class="token operator">=</span> MoguProduct<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        mogu<span class="token punctuation">.</span>tradeitemid <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'tradeItemId'</span><span class="token punctuation">]</span>
+        mogu<span class="token punctuation">.</span>img <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'img'</span><span class="token punctuation">]</span>
+        mogu<span class="token punctuation">.</span>clienturl <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'clientUrl'</span><span class="token punctuation">]</span>
+        mogu<span class="token punctuation">.</span>link <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'link'</span><span class="token punctuation">]</span>
+        mogu<span class="token punctuation">.</span>title <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span>
+        mogu<span class="token punctuation">.</span>orgprice <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'orgPrice'</span><span class="token punctuation">]</span>
+        mogu<span class="token punctuation">.</span>price <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'price'</span><span class="token punctuation">]</span>
+        mogu<span class="token punctuation">.</span>similarityurl <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'similarityUrl'</span><span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true"># todo 保存数据库</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            session<span class="token punctuation">.</span>add<span class="token punctuation">(</span>mogu<span class="token punctuation">)</span>
+            session<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            <span class="token keyword">pass</span>
 
-def main():
-    for i in range(69):
-        page = i
-        print(i)
-        url = &quot;https://list.mogujie.com/search?callback=jQuery211032322620930865265_1546578701309&amp;_version=8193&amp;ratio=3%3A4&amp;cKey=43&amp;sort=pop&amp;page=&quot; + str(i+1) + &quot;&amp;q=%25E8%25A1%25A3%25E6%259C%258D&amp;minPrice=&amp;maxPrice=&amp;ppath=&amp;cpc_offset=&amp;ptp=1.5y18ub.0.0.y3JjPAiS&amp;_=1546578701310&quot;
-        # url = &quot;https://list.mogujie.com/search?callback=jQuery211046561435892064384_1546568094492&amp;_version=8193&amp;ratio=3%3A4&amp;cKey=43&amp;sort=pop&amp;page=&quot; + str(i+1) + &quot;&amp;q=%25E8%25A3%25A4%2    5E5%25AD%2590&amp;minPrice=&amp;maxPrice=&amp;ppath=&amp;cpc_offset=&amp;ptp=1.5y18ub.0.0.k1OJRbUq&amp;_=1546568094493&quot;
-        html = get_one_page(url, page)
-        print(html)
-        parse_json(html)
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">69</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        page <span class="token operator">=</span> i
+        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        url <span class="token operator">=</span> <span class="token string">"https://list.mogujie.com/search?callback=jQuery211032322620930865265_1546578701309&amp;_version=8193&amp;ratio=3%3A4&amp;cKey=43&amp;sort=pop&amp;page="</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"&amp;q=%25E8%25A1%25A3%25E6%259C%258D&amp;minPrice=&amp;maxPrice=&amp;ppath=&amp;cpc_offset=&amp;ptp=1.5y18ub.0.0.y3JjPAiS&amp;_=1546578701310"</span>
+        <span class="token comment" spellcheck="true"># url = "https://list.mogujie.com/search?callback=jQuery211046561435892064384_1546568094492&amp;_version=8193&amp;ratio=3%3A4&amp;cKey=43&amp;sort=pop&amp;page=" + str(i+1) + "&amp;q=%25E8%25A3%25A4%2    5E5%25AD%2590&amp;minPrice=&amp;maxPrice=&amp;ppath=&amp;cpc_offset=&amp;ptp=1.5y18ub.0.0.k1OJRbUq&amp;_=1546568094493"</span>
+        html <span class="token operator">=</span> get_one_page<span class="token punctuation">(</span>url<span class="token punctuation">,</span> page<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+        parse_json<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
 
 
-if __name__ == &quot;__main__&quot;:
-    main()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>数据库建模语句，SQL语句</p>
-<pre><code class="python">create database mogudb default character set=utf8;
+<pre class=" language-python"><code class="language-python">create database mogudb default character set<span class="token operator">=</span>utf8<span class="token punctuation">;</span>
 
-use mogudb;
+use mogudb<span class="token punctuation">;</span>
 
-create table mogu (
-    id integer auto_increment primary key,
-    tradeitemid varchar(128),
-    img varchar(1024),
-    clienturl varchar(1024),
-    link varchar(1024),
-    title varchar(512),
-    orgprice varchar(128),
-    price varchar(128),
-    similarityurl varchar(1024)
-);
+create table mogu <span class="token punctuation">(</span>
+    id integer auto_increment primary key<span class="token punctuation">,</span>
+    tradeitemid varchar<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    img varchar<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    clienturl varchar<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    link varchar<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    title varchar<span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    orgprice varchar<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    price varchar<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    similarityurl varchar<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-create unique index ux_mogu_tradeitemid on mogu(tradeitemid);
+create unique index ux_mogu_tradeitemid on mogu<span class="token punctuation">(</span>tradeitemid<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 </code></pre>
 
@@ -801,15 +801,16 @@ create unique index ux_mogu_tradeitemid on mogu(tradeitemid);
                 </a>
                 <div class="card-content article-content">
                     <div class="summary"># coding=utf-8
-&#39;&#39;&#39;
+'''
 爬取wy音乐榜单
-&#39;&#39;&#39;
+'''
 # 导入需要使用的模块
 import os
 import csv
 import time
 import random
-impor</div>
+import requests
+import thread</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-07

@@ -29,7 +29,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -420,7 +420,7 @@
             <div id="articleContent">
                 <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>行为样式表，console.log（内容）在控制台打印内容</p>
 <p>注意：js中修改css样式表通过xxx.style.属性，其中属性如果通过连接符连接改成大写；js可以临时添加属性，xxx.新属性，和python一样是动态弱类型语言，都可以添加属性，删除属性</p>
-<pre><code class="python">evt.target.index = i
+<pre class=" language-python"><code class="language-python">evt<span class="token punctuation">.</span>target<span class="token punctuation">.</span>index <span class="token operator">=</span> i
 </code></pre>
 <p>index 就是一个新属性</p>
 <h3 id="JS介绍"><a href="#JS介绍" class="headerlink" title="JS介绍"></a>JS介绍</h3><p>1.专门用来处理网页中的行为的脚本语言，也是 web 标准中的行为标准<br>2.位置</p>
@@ -486,9 +486,9 @@
 <li><p>初值：声明的时候可以赋初值，也可以不赋</p>
 </li>
 <li><p>可以同时声明多个变量</p>
-<pre><code class="python">var age; var name
-var age1, name1, studyId
-var age2=10, name2, studyId2
+<pre class=" language-python"><code class="language-python">var age<span class="token punctuation">;</span> var name
+var age1<span class="token punctuation">,</span> name1<span class="token punctuation">,</span> studyId
+var age2<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> name2<span class="token punctuation">,</span> studyId2
 </code></pre>
 </li>
 <li><p>一个变量可以存储多种类型的值<br>注意：变量一定要先声明再使用</p>
@@ -517,9 +517,9 @@ var age2=10, name2, studyId2
 </ul>
 </li>
 <li><p>赋值的时候，++/–写在变量的后面，是先赋值，然后再让变量的值加1/减1。++/–写变量的前面，就先加1/减1，然后再赋值</p>
-<pre><code class="python">var a1=10,a2=10, b, c
-b = a1++   // b = a1, a1 += 1  --- b=10, a1=11
-c = ++a2   // a2 += 1, c = a2  --- a2=11, c=11
+<pre class=" language-python"><code class="language-python">var a1<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span>a2<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> b<span class="token punctuation">,</span> c
+b <span class="token operator">=</span> a1<span class="token operator">+</span><span class="token operator">+</span>   <span class="token operator">//</span> b <span class="token operator">=</span> a1<span class="token punctuation">,</span> a1 <span class="token operator">+=</span> <span class="token number">1</span>  <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span> b<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> a1<span class="token operator">=</span><span class="token number">11</span>
+c <span class="token operator">=</span> <span class="token operator">+</span><span class="token operator">+</span>a2   <span class="token operator">//</span> a2 <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">,</span> c <span class="token operator">=</span> a2  <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span> a2<span class="token operator">=</span><span class="token number">11</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">11</span>
 </code></pre>
 </li>
 </ul>
@@ -549,117 +549,117 @@ c = ++a2   // a2 += 1, c = a2  --- a2=11, c=11
 <li><p>&lt;&lt;左移: 1&lt;&lt;3 表示 1*(2^3)</p>
 </li>
 <li><p><em>&gt;&gt;</em>右移: 1&gt;&gt;3 表示 1//(2^3)</p>
-<pre><code class="python">&lt;&lt;运算符使指定值的二进制所有位都左移规定的次数，对于其移动规则只需记住丢弃最高位，0补最低位即按二进制形式把所有的数字向左移动对应的位数，高位移出(舍弃)，低位的空位补零。
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;&lt;</span>运算符使指定值的二进制所有位都左移规定的次数，对于其移动规则只需记住丢弃最高位，<span class="token number">0</span>补最低位即按二进制形式把所有的数字向左移动对应的位数，高位移出<span class="token punctuation">(</span>舍弃<span class="token punctuation">)</span>，低位的空位补零。
 
-&gt;&gt;运算符使指定值的二进制所有位都右移规定的次数，对于其移动规则只需记住符号位不变，左边补上符号位即按二进制形式把所有的数字向右移动对应的位数，低位移出(舍弃)，高位的空位补符号位，即正数补零，负数补1。
+<span class="token operator">>></span>运算符使指定值的二进制所有位都右移规定的次数，对于其移动规则只需记住符号位不变，左边补上符号位即按二进制形式把所有的数字向右移动对应的位数，低位移出<span class="token punctuation">(</span>舍弃<span class="token punctuation">)</span>，高位的空位补符号位，即正数补零，负数补<span class="token number">1</span>。
 </code></pre>
 <p><img src="/2018/04/02/前端/JavaScript-one/位运算.png" alt="位运算"></p>
 </li>
 </ul>
 <p>7.运算顺序：和 python 基本一致(数学&gt;比较&gt;逻辑&gt;赋值)，也可以通过加括号来改变运算顺序</p>
 <h4 id="JS分支结构"><a href="#JS分支结构" class="headerlink" title="JS分支结构"></a>JS分支结构</h4><p><strong>1.if语句</strong></p>
-<pre><code class="python"> a.if结构： 
-  if(条件语句)
-  {
+<pre class=" language-python"><code class="language-python"> a<span class="token punctuation">.</span><span class="token keyword">if</span>结构： 
+  <span class="token keyword">if</span><span class="token punctuation">(</span>条件语句<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
        代码段
-  }
- *执行过程: 先判断条件语句是否为true，为true就执行代码段
+  <span class="token punctuation">}</span>
+ <span class="token operator">*</span>执行过程<span class="token punctuation">:</span> 先判断条件语句是否为true，为true就执行代码段
 
-b.if-else结构：
- if(条件语句){
-     代码段1
- }else{
-     代码段2
- }
+b<span class="token punctuation">.</span><span class="token keyword">if</span><span class="token operator">-</span><span class="token keyword">else</span>结构：
+ <span class="token keyword">if</span><span class="token punctuation">(</span>条件语句<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     代码段<span class="token number">1</span>
+ <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+     代码段<span class="token number">2</span>
+ <span class="token punctuation">}</span>
 
- c.if-else if-else: (这儿的 else if 相当于 python 中的 elif)
- if(条件语句1){
-     代码段1
- }else if(条件语句2){
-     代码段2
- }else{
-     代码段3
- }
+ c<span class="token punctuation">.</span><span class="token keyword">if</span><span class="token operator">-</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token operator">-</span><span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>这儿的 <span class="token keyword">else</span> <span class="token keyword">if</span> 相当于 python 中的 <span class="token keyword">elif</span><span class="token punctuation">)</span>
+ <span class="token keyword">if</span><span class="token punctuation">(</span>条件语句<span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     代码段<span class="token number">1</span>
+ <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>条件语句<span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     代码段<span class="token number">2</span>
+ <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+     代码段<span class="token number">3</span>
+ <span class="token punctuation">}</span>
 </code></pre>
 <p><strong>2.switch</strong></p>
-<pre><code class="python">a.结构:
- switch(表达式){
-     case 值1:{
-         代码段1
+<pre class=" language-python"><code class="language-python">a<span class="token punctuation">.</span>结构<span class="token punctuation">:</span>
+ switch<span class="token punctuation">(</span>表达式<span class="token punctuation">)</span><span class="token punctuation">{</span>
+     case 值<span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+         代码段<span class="token number">1</span>
 
-     }
-     case 值2:{
-         代码段2
+     <span class="token punctuation">}</span>
+     case 值<span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+         代码段<span class="token number">2</span>
 
-     }
-     ...
-     default:{
-         代码段3
-     }
- }
+     <span class="token punctuation">}</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+     default<span class="token punctuation">:</span><span class="token punctuation">{</span>
+         代码段<span class="token number">3</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
 
-b.执行过程:先计算表达式的值，然后再用这个值去和后边case关键字后面的值一一对比，看是否相等。
-         找到第一个和表达式的值相等的case,然后将这个case作为入口，一次执行后边所有的代码，
-         直到遇到break或者switch结束。如果没有找到和表达式的值相等的case就执行default后面的代码
+b<span class="token punctuation">.</span>执行过程<span class="token punctuation">:</span>先计算表达式的值，然后再用这个值去和后边case关键字后面的值一一对比，看是否相等。
+         找到第一个和表达式的值相等的case<span class="token punctuation">,</span>然后将这个case作为入口，一次执行后边所有的代码，
+         直到遇到<span class="token keyword">break</span>或者switch结束。如果没有找到和表达式的值相等的case就执行default后面的代码
 
-c.注意:default可有可无，case可以有若干个
+c<span class="token punctuation">.</span>注意<span class="token punctuation">:</span>default可有可无，case可以有若干个
 </code></pre>
 <h4 id="JS循环结构"><a href="#JS循环结构" class="headerlink" title="JS循环结构"></a>JS循环结构</h4><p>1.for-in循环:(和python的for循环一样)</p>
-<pre><code class="python"> for(var 变量 in 序列)
- {
+<pre class=" language-python"><code class="language-python"> <span class="token keyword">for</span><span class="token punctuation">(</span>var 变量 <span class="token keyword">in</span> 序列<span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
      循环体
- }
+ <span class="token punctuation">}</span>
 
-执行过程: 依次从序列中取元素对应的索引(下标)，取完为止，每取一个执行一次循环体
+执行过程<span class="token punctuation">:</span> 依次从序列中取元素对应的索引<span class="token punctuation">(</span>下标<span class="token punctuation">)</span>，取完为止，每取一个执行一次循环体
 
 取值：遍历字符串，取的是字符对应的下标；遍历列表，取的是元素对应的下标；遍历对象，取的是属性名（key）
 </code></pre>
 <p>2.for循环:(和C语言的for循环一样)</p>
-<pre><code class="python"> for(表达式1；表达式2；表达式3){
+<pre class=" language-python"><code class="language-python"> <span class="token keyword">for</span><span class="token punctuation">(</span>表达式<span class="token number">1</span>；表达式<span class="token number">2</span>；表达式<span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
      循环体
- }
+ <span class="token punctuation">}</span>
 
-执行过程:先执行表达式1，然后再判断表达式2的结果是否为true,如果为true，就执行循环体，执行完循环体再执行        表达式3；然后再判断表达式2的结果是否为true，如果为true，又执行循环体，执行完循环体再执行表达式       3；一直循环，直到表达式2的结果为false，然后跳出循环
+执行过程<span class="token punctuation">:</span>先执行表达式<span class="token number">1</span>，然后再判断表达式<span class="token number">2</span>的结果是否为true<span class="token punctuation">,</span>如果为true，就执行循环体，执行完循环体再执行        表达式<span class="token number">3</span>；然后再判断表达式<span class="token number">2</span>的结果是否为true，如果为true，又执行循环体，执行完循环体再执行表达式       <span class="token number">3</span>；一直循环，直到表达式<span class="token number">2</span>的结果为false，然后跳出循环
 </code></pre>
 <p>举例：</p>
-<pre><code class="python">计算1到100的和
-for (var i = 1, sum=0; i&lt;=100; i++) {
-    sum += i
-}
-console.log(sum)
+<pre class=" language-python"><code class="language-python">计算<span class="token number">1</span>到<span class="token number">100</span>的和
+<span class="token keyword">for</span> <span class="token punctuation">(</span>var i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> i
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>sum<span class="token punctuation">)</span>
 
-var sum = 0
-var i = 1
-for (;i&lt;=100;) {
-    sum += i
-    i++
-}
-console.log(sum)  
+var sum <span class="token operator">=</span> <span class="token number">0</span>
+var i <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">100</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> i
+    i<span class="token operator">+</span><span class="token operator">+</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>sum<span class="token punctuation">)</span>  
 
 </code></pre>
 <p>3.while循环:(和python一样)</p>
-<pre><code class="python"> while(条件语句){
+<pre class=" language-python"><code class="language-python"> <span class="token keyword">while</span><span class="token punctuation">(</span>条件语句<span class="token punctuation">)</span><span class="token punctuation">{</span>
      循环体
- }
+ <span class="token punctuation">}</span>
 </code></pre>
 <p>4.do-while：</p>
-<pre><code class="python">do{
+<pre class=" language-python"><code class="language-python">do<span class="token punctuation">{</span>
     循环体
-}while(条件语句)
+<span class="token punctuation">}</span><span class="token keyword">while</span><span class="token punctuation">(</span>条件语句<span class="token punctuation">)</span>
 
-执行：先执行一次循环体，然后再判断条件语句是否为true,为true又执行循环体，依次类推，直到条件语句为false，循环就结束
+执行：先执行一次循环体，然后再判断条件语句是否为true<span class="token punctuation">,</span>为true又执行循环体，依次类推，直到条件语句为false，循环就结束
 
 </code></pre>
 <h4 id="JS函数"><a href="#JS函数" class="headerlink" title="JS函数"></a>JS函数</h4><p>1.函数的声明</p>
-<pre><code class="python">function 函数名(参数列表){
+<pre class=" language-python"><code class="language-python">function 函数名<span class="token punctuation">(</span>参数列表<span class="token punctuation">)</span><span class="token punctuation">{</span>
     函数体
-}
+<span class="token punctuation">}</span>
 
 说明：
-a.function: 是js中声明函数的关键字
-b.函数名: 标识符，不能是关键字;见名知义，驼峰式命名
-c.参数列表: 参数名1,参数名2...; 形参；将数据从函数的外面传到函数中
-d.函数体：实现函数的功能
+a<span class="token punctuation">.</span>function<span class="token punctuation">:</span> 是js中声明函数的关键字
+b<span class="token punctuation">.</span>函数名<span class="token punctuation">:</span> 标识符，不能是关键字<span class="token punctuation">;</span>见名知义，驼峰式命名
+c<span class="token punctuation">.</span>参数列表<span class="token punctuation">:</span> 参数名<span class="token number">1</span><span class="token punctuation">,</span>参数名<span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span> 形参；将数据从函数的外面传到函数中
+d<span class="token punctuation">.</span>函数体：实现函数的功能
 
 注意：函数体只有在函数调用的时候才执行
 
@@ -677,15 +677,15 @@ d.函数体：实现函数的功能
 </ul>
 <p>4.js中，函数也可以作为变量</p>
 <p>5.另外一种声明函数的方式</p>
-<pre><code class="python">var 变量 = function(参数列表){
+<pre class=" language-python"><code class="language-python">var 变量 <span class="token operator">=</span> function<span class="token punctuation">(</span>参数列表<span class="token punctuation">)</span><span class="token punctuation">{</span>
     函数体
-}
+<span class="token punctuation">}</span>
 </code></pre>
 <h4 id="JS数据类型"><a href="#JS数据类型" class="headerlink" title="JS数据类型"></a>JS数据类型</h4><p><strong>new 类型名(值) —&gt; 可以将其他的类型的数据转换成相应类型的值</strong><br>1.数字类型(Number)：所有的数字对应的类型不能转换的结果是NaN</p>
-<pre><code class="python">console.log(typeof(10))
-var num1 = 100
-var num2 = new Number(false)
-console.log(num2,num1)
+<pre class=" language-python"><code class="language-python">console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>typeof<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+var num1 <span class="token operator">=</span> <span class="token number">100</span>
+var num2 <span class="token operator">=</span> new Number<span class="token punctuation">(</span>false<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>num2<span class="token punctuation">,</span>num1<span class="token punctuation">)</span>
 </code></pre>
 <p>2.布尔(Boolean): true和fasle</p>
 <ul>
@@ -693,8 +693,8 @@ console.log(num2,num1)
 <li>字符串-&gt;布尔: 空串是false，其他的是true</li>
 <li>总结:所有为0为空的转换成布尔是false，NaN,null和undefined都是false;其他的都是true</li>
 </ul>
-<pre><code class="python">var bool = new Boolean(undefined)
-console.log(bool)
+<pre class=" language-python"><code class="language-python">var bool <span class="token operator">=</span> new Boolean<span class="token punctuation">(</span>undefined<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>bool<span class="token punctuation">)</span>
 </code></pre>
 <p>3.字符串(String):unicode编码</p>
 <ul>
@@ -706,13 +706,13 @@ console.log(bool)
 </ul>
 </li>
 </ul>
-<pre><code class="python">var str1 = &#39;abcde&#39;
-console.log(str1[3])
+<pre class=" language-python"><code class="language-python">var str1 <span class="token operator">=</span> <span class="token string">'abcde'</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>str1<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>d.长度: 字符串.length</li>
 </ul>
-<pre><code class="python">console.log(str1.length)
+<pre class=" language-python"><code class="language-python">console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>str1<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>e.运算符：比较和+<ul>
@@ -721,60 +721,60 @@ console.log(str1[3])
 </ul>
 </li>
 </ul>
-<pre><code class="python">console.log(&#39;abc&#39;+&#39;123&#39;)   // &#39;abc123&#39;
-console.log(123+&#39;abc&#39;)  //&#39;123abc&#39;
+<pre class=" language-python"><code class="language-python">console<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">'abc'</span><span class="token operator">+</span><span class="token string">'123'</span><span class="token punctuation">)</span>   <span class="token operator">//</span> <span class="token string">'abc123'</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token number">123</span><span class="token operator">+</span><span class="token string">'abc'</span><span class="token punctuation">)</span>  <span class="token operator">//</span><span class="token string">'123abc'</span>
 </code></pre>
 <ul>
 <li>f.其他的方法(自己查)<br>String对象方法: 字符串.方法()</li>
 </ul>
-<pre><code class="python">console.log(&#39;abcde&#39;.charCodeAt(1))
+<pre class=" language-python"><code class="language-python">console<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">'abcde'</span><span class="token punctuation">.</span>charCodeAt<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>4.数组(相当于python中的列表)<br>有序，可变的，元素的类型可以是任意类型的数据</p>
-<pre><code class="python">var array = [1, &#39;abc&#39;, true, [1,2,3]]
+<pre class=" language-python"><code class="language-python">var array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'abc'</span><span class="token punctuation">,</span> true<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 </code></pre>
 <ul>
 <li>a.查</li>
 </ul>
-<pre><code class="python">console.log(array[1])
+<pre class=" language-python"><code class="language-python">console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>b.增</li>
 </ul>
-<pre><code class="python">array.push(&#39;aa&#39;)
-console.log(array)
+<pre class=" language-python"><code class="language-python">array<span class="token punctuation">.</span>push<span class="token punctuation">(</span><span class="token string">'aa'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>array<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>c.删除</li>
 </ul>
-<pre><code class="python">pop():删除最后一个元素
-array.pop()
-console.log(array)
+<pre class=" language-python"><code class="language-python">pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>删除最后一个元素
+array<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>array<span class="token punctuation">)</span>
 
-shift():删除第一个元素
-array.shift()
-console.log(array)
+shift<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>删除第一个元素
+array<span class="token punctuation">.</span>shift<span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>array<span class="token punctuation">)</span>
 
-splice(删除的开始下标, 删除的元素的个数)
-var array = [1, &#39;abc&#39;, true, [1,2,3]]
-array.splice(1,1)
-console.log(array)
+splice<span class="token punctuation">(</span>删除的开始下标<span class="token punctuation">,</span> 删除的元素的个数<span class="token punctuation">)</span>
+var array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'abc'</span><span class="token punctuation">,</span> true<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+array<span class="token punctuation">.</span>splice<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>array<span class="token punctuation">)</span>
 
-splice(被删除的下标/添加的开始下标, 添加个数,     被添加的元素列表)
-var array = [1, &#39;abc&#39;, true, [1,2,3]]
-array.splice(4,2,&#39;aa&#39;,&#39;bb&#39;)
-console.log(array)
+splice<span class="token punctuation">(</span>被删除的下标<span class="token operator">/</span>添加的开始下标<span class="token punctuation">,</span> 添加个数<span class="token punctuation">,</span>     被添加的元素列表<span class="token punctuation">)</span>
+var array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'abc'</span><span class="token punctuation">,</span> true<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+array<span class="token punctuation">.</span>splice<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'aa'</span><span class="token punctuation">,</span><span class="token string">'bb'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>array<span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li>d.改</li>
 </ul>
-<pre><code class="python">var array = [1, &#39;abc&#39;, true, [1,2,3]]
-array[0] = 100
-console.log(arra
+<pre class=" language-python"><code class="language-python">var array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'abc'</span><span class="token punctuation">,</span> true<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span>
+console<span class="token punctuation">.</span>log<span class="token punctuation">(</span>arra
 </code></pre>
 <h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>构造方法：用来创建对象<br>function 函数名（形参）：<br>​    this.属性 = 属性值</p>
-<pre><code class="python">this.变量名 = function（）{
+<pre class=" language-python"><code class="language-python">this<span class="token punctuation">.</span>变量名 <span class="token operator">=</span> function（）<span class="token punctuation">{</span>
     实现方法
-    }
+    <span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -981,12 +981,12 @@ querySelectorAll()    查</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/" target="_blank">
-                        <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
                     <a href="/tags/tag/" target="_blank">
                         <span class="chip bg-color">tag</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>

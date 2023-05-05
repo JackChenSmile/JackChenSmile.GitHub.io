@@ -31,7 +31,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -428,123 +428,123 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code class="markdown">    ### Odoo结构
-    - 数据层、逻辑层、展示层
-        - 数据层：是最底端一层，负责数据持久化存储，Odoo借助PostgreSQL来实现。
-        - 逻辑层：负责与数据层的所有交互，并由Odoo服务完成。通常，底端数据库不应通过这一层获取，只有这样才能保证权限控制和数据一致性。在Odoo的核心代码中包含供这一接口使用的ORM（对象关系映射Object-relational Mapping）引擎。ORM提供插件模块与数据交互的API。
-        - 展示层：用于展示数据并与用户交互，通过客户端实现用户体验。客户端与ORM API交互来读、写、验证或执行其他操作；通过RPC调用ORM API方法。这些操作发往Odoo服务器端操作，然后结果发送回客户端做进一步处理。
+                <pre class=" language-markdown"><code class="language-markdown"><span class="token code keyword">    ### Odoo结构</span>
+<span class="token code keyword">    - 数据层、逻辑层、展示层</span>
+<span class="token code keyword">        - 数据层：是最底端一层，负责数据持久化存储，Odoo借助PostgreSQL来实现。</span>
+<span class="token code keyword">        - 逻辑层：负责与数据层的所有交互，并由Odoo服务完成。通常，底端数据库不应通过这一层获取，只有这样才能保证权限控制和数据一致性。在Odoo的核心代码中包含供这一接口使用的ORM（对象关系映射Object-relational Mapping）引擎。ORM提供插件模块与数据交互的API。</span>
+<span class="token code keyword">        - 展示层：用于展示数据并与用户交互，通过客户端实现用户体验。客户端与ORM API交互来读、写、验证或执行其他操作；通过RPC调用ORM API方法。这些操作发往Odoo服务器端操作，然后结果发送回客户端做进一步处理。</span>
 
-    注：Odoo自带全面功能的web客户端
+<span class="token code keyword">    注：Odoo自带全面功能的web客户端</span>
 
-    ### 视图列表
-    - 视图类型分类
-        - 表单视图（Form）
-        - 树状列表视图（Tree）[**列表视图（List）**]
-        - 搜索视图（Search）：指右上角搜索框中的过滤选项
-        - 看板视图（Kanban）
-    - 继承视图：每个base视图都可以有多个扩展，称为继承视图。每个继承视图可以对base视图添加修改，如对已有表单添加字段。（继承视图自身也可以被其它视图继承，这时最外层继承在内层继承执行后作用于base视图）
+<span class="token code keyword">    ### 视图列表</span>
+<span class="token code keyword">    - 视图类型分类</span>
+<span class="token code keyword">        - 表单视图（Form）</span>
+<span class="token code keyword">        - 树状列表视图（Tree）[**列表视图（List）**]</span>
+<span class="token code keyword">        - 搜索视图（Search）：指右上角搜索框中的过滤选项</span>
+<span class="token code keyword">        - 看板视图（Kanban）</span>
+<span class="token code keyword">    - 继承视图：每个base视图都可以有多个扩展，称为继承视图。每个继承视图可以对base视图添加修改，如对已有表单添加字段。（继承视图自身也可以被其它视图继承，这时最外层继承在内层继承执行后作用于base视图）</span>
 
-    ### 创建第一个Odoo应用
-    - 创建新的插件模块
-        - 一个插件模块是包含实现一些Odoo功能的文件，可以添加新的功能或修改已有的功能。插件目录必须含有一个声明或描述文件_manifest_.py,以及其它模块文件。
-            - 创建新模块，需求：
-                - 确保操作的目录是Odoo的addons路径（添加自定义模块应放在Odoo同级创建目录）
-                    - odoo/addons ----- 自带官方应用插件路径
-                    - odoo/odoo/addons ------ 目录中提供核心功能的base模块
-                - 创建模块目录，并包含声明文件
-                    - 通过命令行，添加一个空的__init__.py文件来初始化模块：
-                        ```Linux
-                        mkdir -p ~/odoo-dev/custom-addons/library_app
-                        touch ~/odoo-dev/custom-addons/library_app/__init__.py
+<span class="token code keyword">    ### 创建第一个Odoo应用</span>
+<span class="token code keyword">    - 创建新的插件模块</span>
+<span class="token code keyword">        - 一个插件模块是包含实现一些Odoo功能的文件，可以添加新的功能或修改已有的功能。插件目录必须含有一个声明或描述文件_manifest_.py,以及其它模块文件。</span>
+<span class="token code keyword">            - 创建新模块，需求：</span>
+<span class="token code keyword">                - 确保操作的目录是Odoo的addons路径（添加自定义模块应放在Odoo同级创建目录）</span>
+<span class="token code keyword">                    - odoo/addons ----- 自带官方应用插件路径</span>
+<span class="token code keyword">                    - odoo/odoo/addons ------ 目录中提供核心功能的base模块</span>
+<span class="token code keyword">                - 创建模块目录，并包含声明文件</span>
+<span class="token code keyword">                    - 通过命令行，添加一个空的__init__.py文件来初始化模块：</span>
+<span class="token code keyword">                        ```Linux</span>
+<span class="token code keyword">                        mkdir -p ~/odoo-dev/custom-addons/library_app</span>
+<span class="token code keyword">                        touch ~/odoo-dev/custom-addons/library_app/__init__.py</span>
 </code></pre>
-<pre><code class="markdown">                - 添加声明文件,几个重要的属性
-                    ```Python
-                {
-                    # 插件模块标题字符串
-                    &#39;name&#39;: &#39;Library Management&#39;,
-                    # 功能描述长文件，通常为RST格式
-                    &#39;description&#39;: &#39;Manage library book catalogue and lending.&#39;,
-                    # 作者姓名，本处为一个字符串，可以是逗号分隔的一系列姓名
-                    &#39;author&#39;: &#39;Alan Hou&#39;,
-                    # 一个依赖插件模块列表，在模块安装时会先安装这些插件
-                    &#39;depends&#39;: [&#39;base&#39;],
-                    # 一个布尔型标记，代表模块是否在应用列表中以APP展现
-                    &#39;application&#39;: True,
-                }
-                    ```
-                - 和Odoo相关的其他属性名，建议使用
-                    - summary：显示为模块副标题的字符串
-                    - version：默认为1.0，应遵守版本号规则。建议在模块版本号前加上Odoo版本号，如12.0.1.0
-                    - license：默认为LGPL-3
-                    - website：了解模块更多信息的URL，可以帮助人们查看更多文档或提供文件bug和建议跟踪
-                    - category：带有模块功能性分类字符串，缺省为Uncategorized。
-            - 可选择为模块添加一个图标
+<pre class=" language-markdown"><code class="language-markdown"><span class="token code keyword">                - 添加声明文件,几个重要的属性</span>
+<span class="token code keyword">                    ```Python</span>
+<span class="token code keyword">                {</span>
+<span class="token code keyword">                    # 插件模块标题字符串</span>
+<span class="token code keyword">                    'name': 'Library Management',</span>
+<span class="token code keyword">                    # 功能描述长文件，通常为RST格式</span>
+<span class="token code keyword">                    'description': 'Manage library book catalogue and lending.',</span>
+<span class="token code keyword">                    # 作者姓名，本处为一个字符串，可以是逗号分隔的一系列姓名</span>
+<span class="token code keyword">                    'author': 'Alan Hou',</span>
+<span class="token code keyword">                    # 一个依赖插件模块列表，在模块安装时会先安装这些插件</span>
+<span class="token code keyword">                    'depends': ['base'],</span>
+<span class="token code keyword">                    # 一个布尔型标记，代表模块是否在应用列表中以APP展现</span>
+<span class="token code keyword">                    'application': True,</span>
+<span class="token code keyword">                }</span>
+<span class="token code keyword">                    ```</span>
+<span class="token code keyword">                - 和Odoo相关的其他属性名，建议使用</span>
+<span class="token code keyword">                    - summary：显示为模块副标题的字符串</span>
+<span class="token code keyword">                    - version：默认为1.0，应遵守版本号规则。建议在模块版本号前加上Odoo版本号，如12.0.1.0</span>
+<span class="token code keyword">                    - license：默认为LGPL-3</span>
+<span class="token code keyword">                    - website：了解模块更多信息的URL，可以帮助人们查看更多文档或提供文件bug和建议跟踪</span>
+<span class="token code keyword">                    - category：带有模块功能性分类字符串，缺省为Uncategorized。</span>
+<span class="token code keyword">            - 可选择为模块添加一个图标</span>
 
-                - 要添加图标，需要在模块中添加static/description/icon.png文件。
-            - 如打算对外发布，为模块选择一个证书
-                - Odoo常用的协议是LGPL第三版和AGPL。
-                - LGPL授权更广，它允许在无需分享相应源码的情况下对代码进行做出商业修改；AGPL则是一个更严格的开源证书，它要求派生代码及服务托管者分享源码。
-    - 添加模型字段时需进行升级。修改Python代码时需要重启服务
-    - 修改XML或CSV文件时，需进行升级。在不确定时，同事重启服务并升级模块
-- 添加自动化测试
-    - 测试代码文件名应以test-开头，并通过tests/__ init__.py引用。但测试目录（Python子模块）不应在模块的外层__init__.py中引入，因为仅测试执行时才会自动查找和加载它。
-    - 测试应放在tests/子目录中，在tests/__ init__.py中添加代码
-      `from . import test_book`
-    - 在tests/test_book.py文件中添加实际的测试代码（创建一本新书并检测active字段的值是否正确）
-    ```Python
-    from odoo.tests.common import TransactionCase
+<span class="token code keyword">                - 要添加图标，需要在模块中添加static/description/icon.png文件。</span>
+<span class="token code keyword">            - 如打算对外发布，为模块选择一个证书</span>
+<span class="token code keyword">                - Odoo常用的协议是LGPL第三版和AGPL。</span>
+<span class="token code keyword">                - LGPL授权更广，它允许在无需分享相应源码的情况下对代码进行做出商业修改；AGPL则是一个更严格的开源证书，它要求派生代码及服务托管者分享源码。</span>
+<span class="token code keyword">    - 添加模型字段时需进行升级。修改Python代码时需要重启服务</span>
+<span class="token code keyword">    - 修改XML或CSV文件时，需进行升级。在不确定时，同事重启服务并升级模块</span>
+<span class="token list punctuation">-</span> 添加自动化测试
+<span class="token code keyword">    - 测试代码文件名应以test-开头，并通过tests/__ init__.py引用。但测试目录（Python子模块）不应在模块的外层__init__.py中引入，因为仅测试执行时才会自动查找和加载它。</span>
+<span class="token code keyword">    - 测试应放在tests/子目录中，在tests/__ init__.py中添加代码</span>
+<span class="token code keyword">      `from . import test_book`</span>
+<span class="token code keyword">    - 在tests/test_book.py文件中添加实际的测试代码（创建一本新书并检测active字段的值是否正确）</span>
+<span class="token code keyword">    ```Python</span>
+<span class="token code keyword">    from odoo.tests.common import TransactionCase</span>
 
-    class TestBook(TransactionCase):
-        def setUp(self, *args, **kwargs):
-            result = super().setUp(*args, **kwargs)
-            self.Book = self.env[&#39;library.book&#39;]
-            self.book_ode = self.Book.create({
-                &#39;name&#39;: &#39;Odoo Development Essentials&#39;,
-                &#39;isbn&#39;: &#39;879-1-78439-279-6&#39;})
-            return result
-        def test_create(self):
-            &quot;Test Books are active by default&quot;
-            self.assertEqual(self.book_ode.active, True)
-    ```
-    - 使用-test-enable参数在安装或升级模块时进行测试
-      `~/odoo-dev/odoo/odoo-bin -d dev12 -u library_app --test-enable`
-    - Odoo服务会在升级的模块中查找tests/子目录并运行。
-### 模型层
-- 创建数据模型
-    - 明确Python所需引用的模型目录，在__ init__.py文件中添加：`from . import models`
-    - 要引用创建的Python代码文件，在models/__ init__.py文件中添加：`from . import library_book.py`(library_book是模型的名字)
-    - 在models/library_book.py中加入内容
-        ```python
-        from odoo import fileds, models
+<span class="token code keyword">    class TestBook(TransactionCase):</span>
+<span class="token code keyword">        def setUp(self, *args, **kwargs):</span>
+<span class="token code keyword">            result = super().setUp(*args, **kwargs)</span>
+<span class="token code keyword">            self.Book = self.env['library.book']</span>
+<span class="token code keyword">            self.book_ode = self.Book.create({</span>
+<span class="token code keyword">                'name': 'Odoo Development Essentials',</span>
+<span class="token code keyword">                'isbn': '879-1-78439-279-6'})</span>
+<span class="token code keyword">            return result</span>
+<span class="token code keyword">        def test_create(self):</span>
+<span class="token code keyword">            "Test Books are active by default"</span>
+<span class="token code keyword">            self.assertEqual(self.book_ode.active, True)</span>
+<span class="token code keyword">    ```</span>
+<span class="token code keyword">    - 使用-test-enable参数在安装或升级模块时进行测试</span>
+<span class="token code keyword">      `~/odoo-dev/odoo/odoo-bin -d dev12 -u library_app --test-enable`</span>
+<span class="token code keyword">    - Odoo服务会在升级的模块中查找tests/子目录并运行。</span>
+<span class="token title important"><span class="token punctuation">###</span> 模型层</span>
+<span class="token list punctuation">-</span> 创建数据模型
+<span class="token code keyword">    - 明确Python所需引用的模型目录，在__ init__.py文件中添加：`from . import models`</span>
+<span class="token code keyword">    - 要引用创建的Python代码文件，在models/__ init__.py文件中添加：`from . import library_book.py`(library_book是模型的名字)</span>
+<span class="token code keyword">    - 在models/library_book.py中加入内容</span>
+<span class="token code keyword">        ```python</span>
+<span class="token code keyword">        from odoo import fileds, models</span>
 
-        class Book(models.Model):
-            # 模型的标识符
-            _name = &#39;library.book&#39;
-            _description = &#39;Book&#39;
-            name = fields.Char(&#39;Title&#39;, required=True)
-            isbn = fields.Char(&#39;ISBN&#39;)
-            active = fields.Boolean(&#39;Active?&#39;, default=True)
-            date_published = fields.Date()
-            image = fields.Binary(&#39;Cover&#39;)
-            publisher_id = fields.Many2one(&#39;res.partner&#39;, string=&#39;Publisher&#39;)
-            author_ids = fields.Many2many(&#39;res.partner&#39;, string=&#39;Authors&#39;)
-        ```
-- 设置访问权限
-- 行级权限规则
+<span class="token code keyword">        class Book(models.Model):</span>
+<span class="token code keyword">            # 模型的标识符</span>
+<span class="token code keyword">            _name = 'library.book'</span>
+<span class="token code keyword">            _description = 'Book'</span>
+<span class="token code keyword">            name = fields.Char('Title', required=True)</span>
+<span class="token code keyword">            isbn = fields.Char('ISBN')</span>
+<span class="token code keyword">            active = fields.Boolean('Active?', default=True)</span>
+<span class="token code keyword">            date_published = fields.Date()</span>
+<span class="token code keyword">            image = fields.Binary('Cover')</span>
+<span class="token code keyword">            publisher_id = fields.Many2one('res.partner', string='Publisher')</span>
+<span class="token code keyword">            author_ids = fields.Many2many('res.partner', string='Authors')</span>
+<span class="token code keyword">        ```</span>
+<span class="token list punctuation">-</span> 设置访问权限
+<span class="token list punctuation">-</span> 行级权限规则
 
-### 视图层
-- 添加菜单项
-- 创建表单视图XML文件
-- 业务文件表单视图
-- 添加操作按钮
-- 使用组来组织表单
-- 完整表单视图
-- 添加列表视图和搜索视图
+<span class="token title important"><span class="token punctuation">###</span> 视图层</span>
+<span class="token list punctuation">-</span> 添加菜单项
+<span class="token list punctuation">-</span> 创建表单视图XML文件
+<span class="token list punctuation">-</span> 业务文件表单视图
+<span class="token list punctuation">-</span> 添加操作按钮
+<span class="token list punctuation">-</span> 使用组来组织表单
+<span class="token list punctuation">-</span> 完整表单视图
+<span class="token list punctuation">-</span> 添加列表视图和搜索视图
 
-### 业务逻辑层
-- 添加业务逻辑（通过在模型Python类中编写方法来实现）
-- 网页和控制器
-    - QWeb模板是一个视图类型，其中的template元素用于声明QWeb模板
+<span class="token title important"><span class="token punctuation">###</span> 业务逻辑层</span>
+<span class="token list punctuation">-</span> 添加业务逻辑（通过在模型Python类中编写方法来实现）
+<span class="token list punctuation">-</span> 网页和控制器
+<span class="token code keyword">    - QWeb模板是一个视图类型，其中的template元素用于声明QWeb模板</span>
 </code></pre>
 
             </div>

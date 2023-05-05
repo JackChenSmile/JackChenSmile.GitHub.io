@@ -30,7 +30,7 @@ result = a + b            会自动将a转">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -423,40 +423,40 @@ result = a + b            会自动将a转">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、数据类型转换"><a href="#一、数据类型转换" class="headerlink" title="一、数据类型转换"></a>一、数据类型转换</h2><h4 id="1-数据类型自动转换"><a href="#1-数据类型自动转换" class="headerlink" title="1.数据类型自动转换"></a>1.数据类型自动转换</h4><pre><code class="python">a = 10                    整型（in）
-b = 12.5                  浮点型（float）
-result = a + b            会自动将a转换成浮点型，再计算
-print (type(result))
+                <h2 id="一、数据类型转换"><a href="#一、数据类型转换" class="headerlink" title="一、数据类型转换"></a>一、数据类型转换</h2><h4 id="1-数据类型自动转换"><a href="#1-数据类型自动转换" class="headerlink" title="1.数据类型自动转换"></a>1.数据类型自动转换</h4><pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">10</span>                    整型（<span class="token keyword">in</span>）
+b <span class="token operator">=</span> <span class="token number">12.5</span>                  浮点型（float）
+result <span class="token operator">=</span> a <span class="token operator">+</span> b            会自动将a转换成浮点型，再计算
+<span class="token keyword">print</span> <span class="token punctuation">(</span>type<span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-result2 = a + True        会自动将布尔型转换成1
-print (result2,type(result2))
+result2 <span class="token operator">=</span> a <span class="token operator">+</span> <span class="token boolean">True</span>        会自动将布尔型转换成<span class="token number">1</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>result2<span class="token punctuation">,</span>type<span class="token punctuation">(</span>result2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>运行</p>
-<pre><code class="python">&lt;class &#39;float&#39;&gt;
-11 &lt;class &#39;int&#39;&gt;
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'float'</span><span class="token operator">></span>
+<span class="token number">11</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">></span>
 </code></pre>
 <h4 id="2-强制转换"><a href="#2-强制转换" class="headerlink" title="2.强制转换"></a>2.强制转换</h4><ul>
-<li>基本语法：类型名（需要转换的数据）<h6 id="a-将其他数据转换成int型：浮点型、布尔和部分字符串"><a href="#a-将其他数据转换成int型：浮点型、布尔和部分字符串" class="headerlink" title="a.将其他数据转换成int型：浮点型、布尔和部分字符串"></a>a.将其他数据转换成int型：浮点型、布尔和部分字符串</h6><pre><code class="python">print (int(12.5))        float---&gt;int:去掉小数点和小数点后面的数
-print (int(True),int(False))    bool---&gt;int: 1   0
+<li>基本语法：类型名（需要转换的数据）<h6 id="a-将其他数据转换成int型：浮点型、布尔和部分字符串"><a href="#a-将其他数据转换成int型：浮点型、布尔和部分字符串" class="headerlink" title="a.将其他数据转换成int型：浮点型、布尔和部分字符串"></a>a.将其他数据转换成int型：浮点型、布尔和部分字符串</h6><pre class=" language-python"><code class="language-python"><span class="token keyword">print</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token number">12.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>        float<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span>int<span class="token punctuation">:</span>去掉小数点和小数点后面的数
+<span class="token keyword">print</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>int<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    bool<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span>int<span class="token punctuation">:</span> <span class="token number">1</span>   <span class="token number">0</span>
 </code></pre>
-运行<pre><code class="python">12
-1 0
-</code></pre>
-</li>
-<li>去掉字符串的引号后，字符串的内容本身就是一个整数的时候，才能被转换成整型<pre><code class="python">print (int(&#39;123&#39;))
-print (int(&#39;-123&#39;))
-print (int(&#39;122.5&#39;))     错误
-print (int(&#39;123a&#39;))      错误
-</code></pre>
-运行<pre><code class="python">123
--123
-</code></pre>
-<h6 id="b-将其他的数据类型转换成flaot类型：整数、布尔和部分字符串"><a href="#b-将其他的数据类型转换成flaot类型：整数、布尔和部分字符串" class="headerlink" title="b.将其他的数据类型转换成flaot类型：整数、布尔和部分字符串"></a>b.将其他的数据类型转换成flaot类型：整数、布尔和部分字符串</h6><pre><code class="python">print (float(10))             i
-nt----&gt;float:在整数后加.0
-print (float(True))           bool---&gt;float:True:1.0,False:0.1
+运行<pre class=" language-python"><code class="language-python"><span class="token number">12</span>
+<span class="token number">1</span> <span class="token number">0</span>
 </code></pre>
 </li>
-<li>去掉括号后，字符串的内容本身就是一个整数或者浮点数的时候，才能被转换成浮点型<pre><code class="python">print (float(&#39;2e3&#39;),float(&#39;-12.3&#39;),float(&#39;10&#39;))
+<li>去掉字符串的引号后，字符串的内容本身就是一个整数的时候，才能被转换成整型<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token string">'-123'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token string">'122.5'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     错误
+<span class="token keyword">print</span> <span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token string">'123a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>      错误
+</code></pre>
+运行<pre class=" language-python"><code class="language-python"><span class="token number">123</span>
+<span class="token operator">-</span><span class="token number">123</span>
+</code></pre>
+<h6 id="b-将其他的数据类型转换成flaot类型：整数、布尔和部分字符串"><a href="#b-将其他的数据类型转换成flaot类型：整数、布尔和部分字符串" class="headerlink" title="b.将其他的数据类型转换成flaot类型：整数、布尔和部分字符串"></a>b.将其他的数据类型转换成flaot类型：整数、布尔和部分字符串</h6><pre class=" language-python"><code class="language-python"><span class="token keyword">print</span> <span class="token punctuation">(</span>float<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>             i
+nt<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span>float<span class="token punctuation">:</span>在整数后加<span class="token punctuation">.</span><span class="token number">0</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>float<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>           bool<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span>float<span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">:</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token boolean">False</span><span class="token punctuation">:</span><span class="token number">0.1</span>
+</code></pre>
+</li>
+<li>去掉括号后，字符串的内容本身就是一个整数或者浮点数的时候，才能被转换成浮点型<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span> <span class="token punctuation">(</span>float<span class="token punctuation">(</span><span class="token string">'2e3'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>float<span class="token punctuation">(</span><span class="token string">'-12.3'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>float<span class="token punctuation">(</span><span class="token string">'10'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h6 id="c-将其他数据类型转换成bool："><a href="#c-将其他数据类型转换成bool：" class="headerlink" title="c.将其他数据类型转换成bool："></a>c.将其他数据类型转换成bool：</h6></li>
 <li>所有的数据类型都可以转换成bool</li>
@@ -466,11 +466,11 @@ print (float(True))           bool---&gt;float:True:1.0,False:0.1
 </ul>
 </li>
 <li><p>总结：所有为空、为0的值全是False,否则就是True</p>
-<pre><code class="python">print (bool(1),bool(-1),bool(1.1),bool(-1.25))
-print (bool(0),bool(0.0))
-print (bool(None),bool([]))
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span> <span class="token punctuation">(</span>bool<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>bool<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>bool<span class="token punctuation">(</span><span class="token number">1.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>bool<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1.25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>bool<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>bool<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>bool<span class="token punctuation">(</span>None<span class="token punctuation">)</span><span class="token punctuation">,</span>bool<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
-<h5 id="d-其他数据类型转换成字符串，转换的时候就是在数据外面加引号"><a href="#d-其他数据类型转换成字符串，转换的时候就是在数据外面加引号" class="headerlink" title="d.其他数据类型转换成字符串，转换的时候就是在数据外面加引号"></a>d.其他数据类型转换成字符串，转换的时候就是在数据外面加引号</h5><pre><code class="python">print (str(100),str(1.2),str(True),str([1,2,3]))
+<h5 id="d-其他数据类型转换成字符串，转换的时候就是在数据外面加引号"><a href="#d-其他数据类型转换成字符串，转换的时候就是在数据外面加引号" class="headerlink" title="d.其他数据类型转换成字符串，转换的时候就是在数据外面加引号"></a>d.其他数据类型转换成字符串，转换的时候就是在数据外面加引号</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">print</span> <span class="token punctuation">(</span>str<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>str<span class="token punctuation">(</span><span class="token number">1.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>str<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>str<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="二、if语句"><a href="#二、if语句" class="headerlink" title="二、if语句"></a>二、if语句</h2></li>
 </ul>
@@ -486,12 +486,12 @@ print (bool(None),bool([]))
 </ul>
 </li>
 <li><p>执行过程：先判断条件语句的结果是否为True，如果是就执行冒号后面的语句块。否则，直接执行if模块后的其他语句</p>
-<pre><code class="python">练习：用一个变量保存一个学生的成绩，要求：大学生
-  成绩大于90的时候，打印优秀，无论成绩多少，都打印
-grade = 100
-if grade &gt; 90:
- print(&#39;优秀&#39;)
-print (&#39;%d&#39; % (grade))
+<pre class=" language-python"><code class="language-python">练习：用一个变量保存一个学生的成绩，要求：大学生
+  成绩大于<span class="token number">90</span>的时候，打印优秀，无论成绩多少，都打印
+grade <span class="token operator">=</span> <span class="token number">100</span>
+<span class="token keyword">if</span> grade <span class="token operator">></span> <span class="token number">90</span><span class="token punctuation">:</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'优秀'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'%d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>grade<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="2-if——else"><a href="#2-if——else" class="headerlink" title="2.if——else"></a>2.if——else</h4><p>语法：<br>if 条件语句：<br>——执行语句块1<br>else：<br>——执行语句块2<br>其他语句</p>
 <p>说明：</p>
@@ -536,43 +536,43 @@ if age &gt;= 18:
 else:
     print (&#39;未成年&#39;)
 </code></pre><h4 id="4-if语句的嵌套"><a href="#4-if语句的嵌套" class="headerlink" title="4.if语句的嵌套"></a>4.if语句的嵌套</h4><ul>
-<li>每个if分支中都可以嵌套其他的if语句<br>if 条件1：<br>——执行语句1<br>——if 条件2：<br>  ——执行语句2<br>——else：<br>  ——执行语句3<br>else：<br>——执行语句4<pre><code class="python">成绩和年龄：如果成绩大于90并且年龄是18以上 就获奖100万；
-            年龄小于18岁，就获取奖金200万
-            成绩小于90，打印没有奖金
-grade = 90
-age = 18
-if grade &gt;= 90:
-  if age &gt;=18:
-      print (&#39;100万&#39;)
-  else:
-      print (&#39;200万&#39;)
-else:
-  print (&#39;没有奖金&#39;)
+<li>每个if分支中都可以嵌套其他的if语句<br>if 条件1：<br>——执行语句1<br>——if 条件2：<br>  ——执行语句2<br>——else：<br>  ——执行语句3<br>else：<br>——执行语句4<pre class=" language-python"><code class="language-python">成绩和年龄：如果成绩大于<span class="token number">90</span>并且年龄是<span class="token number">18</span>以上 就获奖<span class="token number">100</span>万；
+            年龄小于<span class="token number">18</span>岁，就获取奖金<span class="token number">200</span>万
+            成绩小于<span class="token number">90</span>，打印没有奖金
+grade <span class="token operator">=</span> <span class="token number">90</span>
+age <span class="token operator">=</span> <span class="token number">18</span>
+<span class="token keyword">if</span> grade <span class="token operator">>=</span> <span class="token number">90</span><span class="token punctuation">:</span>
+  <span class="token keyword">if</span> age <span class="token operator">>=</span><span class="token number">18</span><span class="token punctuation">:</span>
+      <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'100万'</span><span class="token punctuation">)</span>
+  <span class="token keyword">else</span><span class="token punctuation">:</span>
+      <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'200万'</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'没有奖金'</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
 <li>练习：产生一个随机数(0-100)，判断随机数是否是偶数，如果是打印偶数，否则打印奇数；如果能被4整除，再打印能被4整除</li>
 </ul>
-<pre><code class="python">import random
-number = random.randint(0,100)
-print (&#39;随机数是：%d&#39; % (number))
-if number % 2 == 0:
-    print (&#39;偶数&#39;)
-    if number % 4 == 0:
-        print (&#39;能被4整除&#39;)
-else:
-    print (&#39;奇数&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> random
+number <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'随机数是：%d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> number <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'偶数'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> number <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'能被4整除'</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'奇数'</span><span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li><p>补充：</p>
 <p> import是python中导入模块或者模块中内容的关键字<br> random是python内置的产生随机数模块</p>
-<pre><code class="python">import random
-number = random.randint(10,20)    产生一个10到20的随机数，并且存到number中
-print (number)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> random
+number <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span>    产生一个<span class="token number">10</span>到<span class="token number">20</span>的随机数，并且存到number中
+<span class="token keyword">print</span> <span class="token punctuation">(</span>number<span class="token punctuation">)</span>
 </code></pre>
 <h2 id="三、条件语句的简写"><a href="#三、条件语句的简写" class="headerlink" title="三、条件语句的简写"></a>三、条件语句的简写</h2><ul>
-<li>判断一个数是否是偶数的两种写法<pre><code class="python">number = 10
-if number %2 == 0:
-print (&#39;偶数&#39;)
+<li>判断一个数是否是偶数的两种写法<pre class=" language-python"><code class="language-python">number <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token keyword">if</span> number <span class="token operator">%</span><span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'偶数'</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
 </ul>
@@ -588,10 +588,10 @@ if str ==&#39;&#39;:
 else:
     print (&#39;不是空串&#39;)
 </code></pre><ul>
-<li>推荐<pre><code class="python">if str:
-  print (&#39;不是空串&#39;)
-else:
-  print (&#39;是空串&#39;)
+<li>推荐<pre class=" language-python"><code class="language-python"><span class="token keyword">if</span> str<span class="token punctuation">:</span>
+  <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'不是空串'</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+  <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'是空串'</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="四、for的循环"><a href="#四、for的循环" class="headerlink" title="四、for的循环"></a>四、for的循环</h2></li>
 </ul>
@@ -605,88 +605,88 @@ else:
 <p>d.序列：容器（数据本身是有多个数据组成），例如：字符串、列表、字典、元祖、range、生成式和生成器</p>
 <p>e.循环体：需要重复执行的代码</p>
 <p>执行过程：让变量去序列中一个一个取数据，取完为止。每取一次数据，执行一次循环体</p>
-<pre><code class="python">for x in (&#39;123&#39;):
-    print (x)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 </code></pre>
 <p>range函数是python中内置函数，作用是产生指定范围中的数字</p>
 <p>xrange是python2中的函数，python3中用range来代替<br><strong>range(N):产生0~N-1的所有整数</strong><br><strong>range(N,M):产生N~M-1的所有整数</strong><br><strong>range(N,M,step):产生从N开始，每step产生一个整数，到M之前</strong></p>
-<pre><code class="python">print (&#39;==========&#39;)
-for x in range (10):
-    print (x)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'=========='</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 
-print (&#39;==========&#39;)
-for n in range (10,15):
-    print (n)
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'=========='</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> n <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>
 
-print (&#39;=========&#39;)
-for x in range (1,11,2):
-    print (x)
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'========='</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 </code></pre>
 <ul>
-<li>练习：计算1+2+3+。。。+100<pre><code class="python">number = 0
-for x in range (1,101):
-  number += x
-  print (number)
+<li>练习：计算1+2+3+。。。+100<pre class=" language-python"><code class="language-python">number <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  number <span class="token operator">+=</span> x
+  <span class="token keyword">print</span> <span class="token punctuation">(</span>number<span class="token punctuation">)</span>
 </code></pre>
 </li>
 <li>练习：统计1~1000中能够被三整除的数的个数</li>
 </ul>
-<pre><code class="python">ste = 0
-for x in range (1,1001):
-    if x %3 == 0:
-        print (&#39;%d 可以被三整除&#39; % (x))
-        ste += 1
-print (&#39;1~1000中能被三整除的个数：%d&#39; % (ste))
+<pre class=" language-python"><code class="language-python">ste <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> x <span class="token operator">%</span><span class="token number">3</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'%d 可以被三整除'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        ste <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'1~1000中能被三整除的个数：%d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>ste<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <ul>
-<li>注意：for 循环中用来获取序列值的变量，在循环体不是一定要使用. 如果不用，那么变量名可以声明为_<br>打印50行”***”<pre><code class="python">for _ in range(50):
- print (&#39;***&#39;)
+<li>注意：for 循环中用来获取序列值的变量，在循环体不是一定要使用. 如果不用，那么变量名可以声明为_<br>打印50行”***”<pre class=" language-python"><code class="language-python"><span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+ <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'***'</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
-<li>1~10000中能被5整除的个数<pre><code class="python">sum = 0
-for x in range (1,10001):
-  if x %5 ==0:
-      sum += 1
-print (&#39;1~10000中能被5整除的数的个数是：%d&#39; % (sum))
+<li>1~10000中能被5整除的个数<pre class=" language-python"><code class="language-python">sum <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10001</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">if</span> x <span class="token operator">%</span><span class="token number">5</span> <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+      sum <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'1~10000中能被5整除的数的个数是：%d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
 </ul>
-<pre><code class="python"> (1,200)     7     个数
+<pre class=" language-python"><code class="language-python"> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span>     <span class="token number">7</span>     个数
 
-dob = 0
-for x in range (1,201):
-    if x %7 == 0:
-        dob += 1
-print (dob)
+dob <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> x <span class="token operator">%</span><span class="token number">7</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        dob <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>dob<span class="token punctuation">)</span>
 </code></pre>
 <h2 id="五、while循环"><a href="#五、while循环" class="headerlink" title="五、while循环"></a>五、while循环</h2><p><img src="https://upload-images.jianshu.io/upload_images/13692239-896ce7deb5a34539.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ截图20180823160402.png"></p>
 <h6 id="1-结构："><a href="#1-结构：" class="headerlink" title="1.结构："></a>1.结构：</h6><p>while 条件语句:<br>​    循环体</p>
 <h6 id="2-说明："><a href="#2-说明：" class="headerlink" title="2.说明："></a>2.说明：</h6><p>while: 关键字<br>条件语句：结果是True或者False<br>循环体：要重复执行代码</p>
 <h6 id="3-执行过程："><a href="#3-执行过程：" class="headerlink" title="3.执行过程："></a>3.执行过程：</h6><pre><code>判断条件语句的结果是否为True，如果为True就执行循环体，执行完循环体再判断条件语句是否为True。。。。。，直到结果为False为止
-</code></pre><pre><code class="python"> 1+2+3+...+100
-n = 0
-x = 1
-while x &lt;= 100:
-    n += x
-    x += 1
-print (n)
+</code></pre><pre class=" language-python"><code class="language-python"> <span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">3</span><span class="token operator">+</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">+</span><span class="token number">100</span>
+n <span class="token operator">=</span> <span class="token number">0</span>
+x <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">while</span> x <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">:</span>
+    n <span class="token operator">+=</span> x
+    x <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span>
 </code></pre>
-<pre><code class="python">x = 1,n = 0
-1 &lt;= 100   True;n += x  0+1=n;x+=1  1+x=2
-x = 2,n = 0+1
-2 &lt;=100    True;n=0+1+x=0+1+2;x=1+x=3
+<pre class=" language-python"><code class="language-python">x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>n <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token number">1</span> <span class="token operator">&lt;=</span> <span class="token number">100</span>   <span class="token boolean">True</span><span class="token punctuation">;</span>n <span class="token operator">+=</span> x  <span class="token number">0</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">=</span>n<span class="token punctuation">;</span>x<span class="token operator">+=</span><span class="token number">1</span>  <span class="token number">1</span><span class="token operator">+</span>x<span class="token operator">=</span><span class="token number">2</span>
+x <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>n <span class="token operator">=</span> <span class="token number">0</span><span class="token operator">+</span><span class="token number">1</span>
+<span class="token number">2</span> <span class="token operator">&lt;=</span><span class="token number">100</span>    <span class="token boolean">True</span><span class="token punctuation">;</span>n<span class="token operator">=</span><span class="token number">0</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span>x<span class="token operator">=</span><span class="token number">0</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span>x<span class="token operator">=</span><span class="token number">1</span><span class="token operator">+</span>x<span class="token operator">=</span><span class="token number">3</span>
 。。。
-x = 100，n = 0+1+2+...+99
-x &lt;= 100   True;n=0+1+。。。+100；x=1+x=101
+x <span class="token operator">=</span> <span class="token number">100</span>，n <span class="token operator">=</span> <span class="token number">0</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token operator">+</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">+</span><span class="token number">99</span>
+x <span class="token operator">&lt;=</span> <span class="token number">100</span>   <span class="token boolean">True</span><span class="token punctuation">;</span>n<span class="token operator">=</span><span class="token number">0</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span>。。。<span class="token operator">+</span><span class="token number">100</span>；x<span class="token operator">=</span><span class="token number">1</span><span class="token operator">+</span>x<span class="token operator">=</span><span class="token number">101</span>
 </code></pre>
 <ul>
 <li><p>练习：循环结束，x的值和n的值，分别是多少     x = 6, n = 2+3+4+5+6</p>
-<pre><code class="python">x = 1
-n = 0
-while x &lt;= 5:
-  x += 1
-  n += x
-print (n,x)
+<pre class=" language-python"><code class="language-python">x <span class="token operator">=</span> <span class="token number">1</span>
+n <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> x <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">:</span>
+  x <span class="token operator">+=</span> <span class="token number">1</span>
+  n <span class="token operator">+=</span> x
+<span class="token keyword">print</span> <span class="token punctuation">(</span>n<span class="token punctuation">,</span>x<span class="token punctuation">)</span>
 </code></pre>
 <p>for 循环与while循环的比较<br><strong>for循环的循环次数是有限的，并且是确定的；while循环的循环次数不确定
 </strong> for循环：1.遍历序列中的值 2. 循环次数确定<br>while循环：1.死循环 2.循环次数不确定</p>

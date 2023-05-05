@@ -35,7 +35,7 @@ from se">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -425,386 +425,386 @@ from se">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="使用验证平台-超级鹰-https-www-chaojiying-com"><a href="#使用验证平台-超级鹰-https-www-chaojiying-com" class="headerlink" title="使用验证平台   超级鹰(https://www.chaojiying.com/)"></a>使用验证平台   超级鹰(<a href="https://www.chaojiying.com/" target="_blank" rel="noopener">https://www.chaojiying.com/</a>)</h2><h3 id="字母数字验证码"><a href="#字母数字验证码" class="headerlink" title="字母数字验证码"></a>字母数字验证码</h3><p>code</p>
-<pre><code class="python">
+<pre class=" language-python"><code class="language-python">
 
-import time
-from io import BytesIO
+<span class="token keyword">import</span> time
+<span class="token keyword">from</span> io <span class="token keyword">import</span> BytesIO
 
-from PIL import Image
-from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>common<span class="token punctuation">.</span>exceptions <span class="token keyword">import</span> TimeoutException
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support<span class="token punctuation">.</span>ui <span class="token keyword">import</span> WebDriverWait
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support <span class="token keyword">import</span> expected_conditions <span class="token keyword">as</span> EC
 
-from chaojiying import main1
+<span class="token keyword">from</span> chaojiying <span class="token keyword">import</span> main1
 
-chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument(&#39;--headless&#39;)
-browser = webdriver.Chrome(chrome_options=chrome_options)
+chrome_options <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>ChromeOptions<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># chrome_options.add_argument('--headless')</span>
+browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>chrome_options<span class="token operator">=</span>chrome_options<span class="token punctuation">)</span>
 
-# browser = webdriver.Chrome()
-browser.set_window_size(1200, 700)
-# 显式等待 针对某个节点的等待
-wait = WebDriverWait(browser, 10)
-
-
-def get_big_image():
-    browser.execute_script(&#39;window.scrollTo(0, 300)&#39;)
-    screenshot = browser.get_screenshot_as_png()
-    screenshot = Image.open(BytesIO(screenshot))
-    return screenshot
-
-def get_captcha_position():
-    captcha = wait.until(EC.presence_of_element_located
-                         ((By.CSS_SELECTOR, &#39;#captchaImg&#39;)))
-    location = captcha.location
-    size = captcha.size
-    x1 = location[&#39;x&#39;]
-    y1 = location[&#39;y&#39;] - 130
-    width = size[&#39;width&#39;]
-    height = size[&#39;height&#39;]
-    x2 = x1 + width
-    y2 = y1 + height
-    print(x1, y1, x2, y2)
-    return (x1, y1, x2, y2)
-
-def get_page():
-    url = &#39;https://login.10086.cn/html/login/login.html?channelID=12002&amp;backUrl=https%3A%2F%2Fshop.10086.cn%2Fmall_280_280.html%3Fforcelogin%3D1&#39;
-    browser.get(url)
-
-    button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, &#39;#mail_login_2&#39;)))
-    button.click()
-
-    username = &#39;1484815087@qq.com&#39;
-    password = &#39;518420..&#39;
-
-    input_username = wait.until(EC.presence_of_element_located
-                                ((By.CSS_SELECTOR, &#39;#e_name&#39;)))
-    input_password = wait.until(EC.presence_of_element_located
-                                ((By.CSS_SELECTOR, &#39;#e_pwd&#39;)))
-
-    input_username.clear()
-    input_username.send_keys(username)
-    input_password.clear()
-    input_password.send_keys(password)
-    time.sleep(3)
-
-    full_screen_img = get_big_image()
-    full_screen_img.save(&#39;mobile_login.png&#39;)
-
-    # 获取验证码左上角和右下角的坐标
-    x1, y1, x2, y2 = get_captcha_position()
-    captcha_img = full_screen_img.crop((x1, y1, x2, y2))
-    captcha_img.save(&#39;mobile_captcha.png&#39;)
-    captcha_str = main1(&#39;mobile_captcha.png&#39;)
-    print(captcha_str)
-
-    input_code = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, &#39;#inputCode&#39;)))
-    input_code.clear()
-    input_code.send_keys(captcha_str)
-
-    button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, &#39;#submit_bt&#39;)))
-    button.click()
-
-    # return html
-
-def main():
-    html = get_page()
-    # parse_html(html)
+<span class="token comment" spellcheck="true"># browser = webdriver.Chrome()</span>
+browser<span class="token punctuation">.</span>set_window_size<span class="token punctuation">(</span><span class="token number">1200</span><span class="token punctuation">,</span> <span class="token number">700</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 显式等待 针对某个节点的等待</span>
+wait <span class="token operator">=</span> WebDriverWait<span class="token punctuation">(</span>browser<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
 
 
-if __name__ == &#39;__main__&#39;:
-    main()
+<span class="token keyword">def</span> <span class="token function">get_big_image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    browser<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">'window.scrollTo(0, 300)'</span><span class="token punctuation">)</span>
+    screenshot <span class="token operator">=</span> browser<span class="token punctuation">.</span>get_screenshot_as_png<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    screenshot <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span>BytesIO<span class="token punctuation">(</span>screenshot<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> screenshot
+
+<span class="token keyword">def</span> <span class="token function">get_captcha_position</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    captcha <span class="token operator">=</span> wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>presence_of_element_located
+                         <span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'#captchaImg'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    location <span class="token operator">=</span> captcha<span class="token punctuation">.</span>location
+    size <span class="token operator">=</span> captcha<span class="token punctuation">.</span>size
+    x1 <span class="token operator">=</span> location<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span>
+    y1 <span class="token operator">=</span> location<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">130</span>
+    width <span class="token operator">=</span> size<span class="token punctuation">[</span><span class="token string">'width'</span><span class="token punctuation">]</span>
+    height <span class="token operator">=</span> size<span class="token punctuation">[</span><span class="token string">'height'</span><span class="token punctuation">]</span>
+    x2 <span class="token operator">=</span> x1 <span class="token operator">+</span> width
+    y2 <span class="token operator">=</span> y1 <span class="token operator">+</span> height
+    <span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">,</span> y1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> y2<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>x1<span class="token punctuation">,</span> y1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> y2<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">get_page</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    url <span class="token operator">=</span> <span class="token string">'https://login.10086.cn/html/login/login.html?channelID=12002&amp;backUrl=https%3A%2F%2Fshop.10086.cn%2Fmall_280_280.html%3Fforcelogin%3D1'</span>
+    browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+    button <span class="token operator">=</span> wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>element_to_be_clickable<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'#mail_login_2'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    button<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    username <span class="token operator">=</span> <span class="token string">'1484815087@qq.com'</span>
+    password <span class="token operator">=</span> <span class="token string">'518420..'</span>
+
+    input_username <span class="token operator">=</span> wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>presence_of_element_located
+                                <span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'#e_name'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    input_password <span class="token operator">=</span> wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>presence_of_element_located
+                                <span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'#e_pwd'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    input_username<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    input_username<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>username<span class="token punctuation">)</span>
+    input_password<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    input_password<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>password<span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+    full_screen_img <span class="token operator">=</span> get_big_image<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    full_screen_img<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'mobile_login.png'</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 获取验证码左上角和右下角的坐标</span>
+    x1<span class="token punctuation">,</span> y1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> y2 <span class="token operator">=</span> get_captcha_position<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    captcha_img <span class="token operator">=</span> full_screen_img<span class="token punctuation">.</span>crop<span class="token punctuation">(</span><span class="token punctuation">(</span>x1<span class="token punctuation">,</span> y1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> y2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    captcha_img<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'mobile_captcha.png'</span><span class="token punctuation">)</span>
+    captcha_str <span class="token operator">=</span> main1<span class="token punctuation">(</span><span class="token string">'mobile_captcha.png'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>captcha_str<span class="token punctuation">)</span>
+
+    input_code <span class="token operator">=</span> wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>presence_of_element_located<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'#inputCode'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    input_code<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    input_code<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>captcha_str<span class="token punctuation">)</span>
+
+    button <span class="token operator">=</span> wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>element_to_be_clickable<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'#submit_bt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    button<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># return html</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    html <span class="token operator">=</span> get_page<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># parse_html(html)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 <p>验证方式的平台</p>
-<pre><code class="python">import requests
-from hashlib import md5
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">from</span> hashlib <span class="token keyword">import</span> md5
 
-class Chaojiying_Client(object):
+<span class="token keyword">class</span> <span class="token class-name">Chaojiying_Client</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def __init__(self, username, password, soft_id):
-        self.username = username
-        password =  password.encode(&#39;utf8&#39;)
-        self.password = md5(password).hexdigest()
-        self.soft_id = soft_id
-        self.base_params = {
-            &#39;user&#39;: self.username,
-            &#39;pass2&#39;: self.password,
-            &#39;softid&#39;: self.soft_id,
-        }
-        self.headers = {
-            &#39;Connection&#39;: &#39;Keep-Alive&#39;,
-            &#39;User-Agent&#39;: &#39;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)&#39;,
-        }
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> username<span class="token punctuation">,</span> password<span class="token punctuation">,</span> soft_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>username <span class="token operator">=</span> username
+        password <span class="token operator">=</span>  password<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>password <span class="token operator">=</span> md5<span class="token punctuation">(</span>password<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>soft_id <span class="token operator">=</span> soft_id
+        self<span class="token punctuation">.</span>base_params <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'user'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>username<span class="token punctuation">,</span>
+            <span class="token string">'pass2'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>password<span class="token punctuation">,</span>
+            <span class="token string">'softid'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>soft_id<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        self<span class="token punctuation">.</span>headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'Connection'</span><span class="token punctuation">:</span> <span class="token string">'Keep-Alive'</span><span class="token punctuation">,</span>
+            <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
 
-    def PostPic(self, im, codetype):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">PostPic</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> im<span class="token punctuation">,</span> codetype<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         im: 图片字节
         codetype: 题目类型 参考 http://www.chaojiying.com/price.html
-        &quot;&quot;&quot;
-        params = {
-            &#39;codetype&#39;: codetype,
-        }
-        params.update(self.base_params)
-        files = {&#39;userfile&#39;: (&#39;ccc.jpg&#39;, im)}
-        r = requests.post(&#39;http://upload.chaojiying.net/Upload/Processing.php&#39;, data=params, files=files, headers=self.headers)
-        return r.json()
+        """</span>
+        params <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'codetype'</span><span class="token punctuation">:</span> codetype<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        params<span class="token punctuation">.</span>update<span class="token punctuation">(</span>self<span class="token punctuation">.</span>base_params<span class="token punctuation">)</span>
+        files <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'userfile'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token string">'ccc.jpg'</span><span class="token punctuation">,</span> im<span class="token punctuation">)</span><span class="token punctuation">}</span>
+        r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'http://upload.chaojiying.net/Upload/Processing.php'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>params<span class="token punctuation">,</span> files<span class="token operator">=</span>files<span class="token punctuation">,</span> headers<span class="token operator">=</span>self<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> r<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    def ReportError(self, im_id):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">ReportError</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> im_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         im_id:报错题目的图片ID
-        &quot;&quot;&quot;
-        params = {
-            &#39;id&#39;: im_id,
-        }
-        params.update(self.base_params)
-        r = requests.post(&#39;http://upload.chaojiying.net/Upload/ReportError.php&#39;, data=params, headers=self.headers)
-        return r.json()
+        """</span>
+        params <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'id'</span><span class="token punctuation">:</span> im_id<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        params<span class="token punctuation">.</span>update<span class="token punctuation">(</span>self<span class="token punctuation">.</span>base_params<span class="token punctuation">)</span>
+        r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'http://upload.chaojiying.net/Upload/ReportError.php'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>self<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> r<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-def main1(urlstr):
-    chaojiying = Chaojiying_Client(&#39;carmack&#39;, &#39;Vff635241&#39;, &#39;96001&#39;) 
-    im = open(urlstr, &#39;rb&#39;).read()                                                 
-    return chaojiying.PostPic(im, 1902)[&#39;pic_str&#39;]                                           
+<span class="token keyword">def</span> <span class="token function">main1</span><span class="token punctuation">(</span>urlstr<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    chaojiying <span class="token operator">=</span> Chaojiying_Client<span class="token punctuation">(</span><span class="token string">'carmack'</span><span class="token punctuation">,</span> <span class="token string">'Vff635241'</span><span class="token punctuation">,</span> <span class="token string">'96001'</span><span class="token punctuation">)</span> 
+    im <span class="token operator">=</span> open<span class="token punctuation">(</span>urlstr<span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>                                                 
+    <span class="token keyword">return</span> chaojiying<span class="token punctuation">.</span>PostPic<span class="token punctuation">(</span>im<span class="token punctuation">,</span> <span class="token number">1902</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'pic_str'</span><span class="token punctuation">]</span>                                           
 
-if __name__ == &#39;__main__&#39;:
-    chaojiying = Chaojiying_Client(&#39;carmack&#39;, &#39;Vff635241&#39;, &#39;96001&#39;)    
-    im = open(&#39;CaptchaImg.png&#39;, &#39;rb&#39;).read()                                                    
-    print(chaojiying.PostPic(im, 1902))                                                
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    chaojiying <span class="token operator">=</span> Chaojiying_Client<span class="token punctuation">(</span><span class="token string">'carmack'</span><span class="token punctuation">,</span> <span class="token string">'Vff635241'</span><span class="token punctuation">,</span> <span class="token string">'96001'</span><span class="token punctuation">)</span>    
+    im <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'CaptchaImg.png'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>                                                    
+    <span class="token keyword">print</span><span class="token punctuation">(</span>chaojiying<span class="token punctuation">.</span>PostPic<span class="token punctuation">(</span>im<span class="token punctuation">,</span> <span class="token number">1902</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                                                
 
 
 </code></pre>
 <h3 id="滑动图片验证码"><a href="#滑动图片验证码" class="headerlink" title="滑动图片验证码"></a>滑动图片验证码</h3><p>step1. 模拟点击验证按钮</p>
 <p>step2. 识别滑动缺⼝位置<br>遍历没有缺⼝和有缺⼝的两张图⽚，找出相同位置像素差距超过指定值的像素点，即缺⼝位置<br>（⽬前极验已经改进了算法）</p>
 <p>step3. 模拟拖动滑块</p>
-<pre><code class="python">import time
-from io import BytesIO
-from PIL import Image
-from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> time
+<span class="token keyword">from</span> io <span class="token keyword">import</span> BytesIO
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver <span class="token keyword">import</span> ActionChains
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support<span class="token punctuation">.</span>ui <span class="token keyword">import</span> WebDriverWait
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support <span class="token keyword">import</span> expected_conditions <span class="token keyword">as</span> EC
 
-EMAIL = &#39;1963298993@qq.com&#39;
-PASSWORD = &#39;yicijiuhao0&#39;
-BORDER = 6
-INIT_LEFT = 60
+EMAIL <span class="token operator">=</span> <span class="token string">'1963298993@qq.com'</span>
+PASSWORD <span class="token operator">=</span> <span class="token string">'yicijiuhao0'</span>
+BORDER <span class="token operator">=</span> <span class="token number">6</span>
+INIT_LEFT <span class="token operator">=</span> <span class="token number">60</span>
 
 
-class CrackBilibili():
-    def __init__(self):
-        self.url = &#39;https://passport.bilibili.com/login&#39;
-        self.browser = webdriver.Chrome()
-        self.wait = WebDriverWait(self.browser, 10)
-        self.email = EMAIL
-        self.password = PASSWORD
+<span class="token keyword">class</span> <span class="token class-name">CrackBilibili</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>url <span class="token operator">=</span> <span class="token string">'https://passport.bilibili.com/login'</span>
+        self<span class="token punctuation">.</span>browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>wait <span class="token operator">=</span> WebDriverWait<span class="token punctuation">(</span>self<span class="token punctuation">.</span>browser<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>email <span class="token operator">=</span> EMAIL
+        self<span class="token punctuation">.</span>password <span class="token operator">=</span> PASSWORD
 
-    def __del__(self):
-        self.browser.close()
+    <span class="token keyword">def</span> <span class="token function">__del__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    def get_geetest_button(self):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">get_geetest_button</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         获取初始验证按钮
         :return:
-        &quot;&quot;&quot;
-        button = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, &#39;.gt_slider_knob.gt_show&#39;)))
-        return button
+        """</span>
+        button <span class="token operator">=</span> self<span class="token punctuation">.</span>wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>element_to_be_clickable<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'.gt_slider_knob.gt_show'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> button
 
-    def get_position(self):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">get_position</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         获取验证码位置
         :return: 验证码位置元组
-        &quot;&quot;&quot;
-        img = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, &#39;.gt_cut_fullbg.gt_show&#39;)))
-        time.sleep(2)
-        location = img.location
-        size = img.size
-        top, bottom, left, right = location[&#39;y&#39;], location[&#39;y&#39;] + size[&#39;height&#39;], location[&#39;x&#39;], location[&#39;x&#39;] + size[
-            &#39;width&#39;]
-        return (top, bottom, left, right)
+        """</span>
+        img <span class="token operator">=</span> self<span class="token punctuation">.</span>wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>presence_of_element_located<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'.gt_cut_fullbg.gt_show'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        location <span class="token operator">=</span> img<span class="token punctuation">.</span>location
+        size <span class="token operator">=</span> img<span class="token punctuation">.</span>size
+        top<span class="token punctuation">,</span> bottom<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right <span class="token operator">=</span> location<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> location<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">+</span> size<span class="token punctuation">[</span><span class="token string">'height'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> location<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> location<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">+</span> size<span class="token punctuation">[</span>
+            <span class="token string">'width'</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>top<span class="token punctuation">,</span> bottom<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
 
-    def get_screenshot(self):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">get_screenshot</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         获取网页截图
         :return: 截图对象
-        &quot;&quot;&quot;
-        screenshot = self.browser.get_screenshot_as_png()
-        screenshot = Image.open(BytesIO(screenshot))
-        return screenshot
+        """</span>
+        screenshot <span class="token operator">=</span> self<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>get_screenshot_as_png<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        screenshot <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span>BytesIO<span class="token punctuation">(</span>screenshot<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> screenshot
 
-    def get_slider(self):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">get_slider</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         获取滑块
         :return: 滑块对象
-        &quot;&quot;&quot;
-        slider = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, &#39;.gt_slider_knob.gt_show&#39;)))
-        return slider
+        """</span>
+        slider <span class="token operator">=</span> self<span class="token punctuation">.</span>wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>element_to_be_clickable<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'.gt_slider_knob.gt_show'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> slider
 
-    def get_geetest_image(self, name=&#39;captcha.png&#39;):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">get_geetest_image</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'captcha.png'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         获取验证码图片
         :return: 图片对象
-        &quot;&quot;&quot;
-        top, bottom, left, right = self.get_position()
-        print(&#39;验证码位置&#39;, top, bottom, left, right)
-        screenshot = self.get_screenshot()
-        captcha = screenshot.crop((left, top, right, bottom))
-        captcha.save(name)
-        return captcha
+        """</span>
+        top<span class="token punctuation">,</span> bottom<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right <span class="token operator">=</span> self<span class="token punctuation">.</span>get_position<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'验证码位置'</span><span class="token punctuation">,</span> top<span class="token punctuation">,</span> bottom<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
+        screenshot <span class="token operator">=</span> self<span class="token punctuation">.</span>get_screenshot<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        captcha <span class="token operator">=</span> screenshot<span class="token punctuation">.</span>crop<span class="token punctuation">(</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> top<span class="token punctuation">,</span> right<span class="token punctuation">,</span> bottom<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        captcha<span class="token punctuation">.</span>save<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> captcha
 
-    def open(self):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">open</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         打开网页输入用户名密码
         :return: None
-        &quot;&quot;&quot;
-        self.browser.get(self.url)
-        email = self.wait.until(EC.presence_of_element_located((By.ID, &#39;login-username&#39;)))
-        password = self.wait.until(EC.presence_of_element_located((By.ID, &#39;login-passwd&#39;)))
-        email.clear()
-        password.clear()
-        email.send_keys(self.email)
-        password.send_keys(self.password)
+        """</span>
+        self<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>self<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+        email <span class="token operator">=</span> self<span class="token punctuation">.</span>wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>presence_of_element_located<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'login-username'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        password <span class="token operator">=</span> self<span class="token punctuation">.</span>wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>presence_of_element_located<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'login-passwd'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        email<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        password<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        email<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>self<span class="token punctuation">.</span>email<span class="token punctuation">)</span>
+        password<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>self<span class="token punctuation">.</span>password<span class="token punctuation">)</span>
 
-    def get_gap(self, image1, image2):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">get_gap</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> image1<span class="token punctuation">,</span> image2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         获取缺口偏移量
         :param image1: 不带缺口图片
         :param image2: 带缺口图片
         :return:
-        &quot;&quot;&quot;
-        left = 60
-        print(&#39;******大小*****&#39;)
-        print(image1.size)
-        for i in range(left, image1.size[0]):
-            for j in range(image1.size[1]):
-                if not self.is_pixel_equal(image1, image2, i, j):
-                    left = i
-                    return left
-        return left
+        """</span>
+        left <span class="token operator">=</span> <span class="token number">60</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'******大小*****'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>image1<span class="token punctuation">.</span>size<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>left<span class="token punctuation">,</span> image1<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>image1<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>is_pixel_equal<span class="token punctuation">(</span>image1<span class="token punctuation">,</span> image2<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    left <span class="token operator">=</span> i
+                    <span class="token keyword">return</span> left
+        <span class="token keyword">return</span> left
 
-    def is_pixel_equal(self, image1, image2, x, y):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">is_pixel_equal</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> image1<span class="token punctuation">,</span> image2<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         判断两个像素是否相同
         :param image1: 图片1
         :param image2: 图片2
         :param x: 位置x
         :param y: 位置y
         :return: 像素是否相同
-        &quot;&quot;&quot;
-        # 取两个图片的像素点
-        pixel1 = image1.load()[x, y]
-        pixel2 = image2.load()[x, y]
-        threshold = 60
-        if abs(pixel1[0] - pixel2[0]) &lt; threshold and abs(pixel1[1] - pixel2[1]) &lt; threshold and abs(
-                pixel1[2] - pixel2[2]) &lt; threshold:
-            return True
-        else:
-            return False
+        """</span>
+        <span class="token comment" spellcheck="true"># 取两个图片的像素点</span>
+        pixel1 <span class="token operator">=</span> image1<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span>
+        pixel2 <span class="token operator">=</span> image2<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span>
+        threshold <span class="token operator">=</span> <span class="token number">60</span>
+        <span class="token keyword">if</span> abs<span class="token punctuation">(</span>pixel1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> pixel2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> threshold <span class="token operator">and</span> abs<span class="token punctuation">(</span>pixel1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> pixel2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> threshold <span class="token operator">and</span> abs<span class="token punctuation">(</span>
+                pixel1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> pixel2<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> threshold<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
 
-    def get_track(self, distance):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">get_track</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> distance<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         根据偏移量获取移动轨迹
         :param distance: 偏移量
         :return: 移动轨迹
-        &quot;&quot;&quot;
-        # 移动轨迹
-        track = []
-        # 当前位移
-        current = 0
-        # 减速阈值
-        mid = distance * 3 / 5
-        # 计算间隔
-        t = 0.5
-        # 初速度
-        v = 0
+        """</span>
+        <span class="token comment" spellcheck="true"># 移动轨迹</span>
+        track <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true"># 当前位移</span>
+        current <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token comment" spellcheck="true"># 减速阈值</span>
+        mid <span class="token operator">=</span> distance <span class="token operator">*</span> <span class="token number">3</span> <span class="token operator">/</span> <span class="token number">5</span>
+        <span class="token comment" spellcheck="true"># 计算间隔</span>
+        t <span class="token operator">=</span> <span class="token number">0.5</span>
+        <span class="token comment" spellcheck="true"># 初速度</span>
+        v <span class="token operator">=</span> <span class="token number">0</span>
 
-        while current &lt; distance:
-            if current &lt; mid:
-                # 加速度为正2
-                a = 2
-            else:
-                # 加速度为负3
-                a = -3
-            # 初速度v0
-            v0 = v
-            # 当前速度v = v0 + at
-            v = v0 + a * t
-            # 移动距离x = v0t + 1/2 * a * t^2
-            move = v0 * t + 1 / 2 * a * t * t
-            # 当前位移
-            current += move
-            # 加入轨迹
-            track.append(round(move))
-        return track
+        <span class="token keyword">while</span> current <span class="token operator">&lt;</span> distance<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> current <span class="token operator">&lt;</span> mid<span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true"># 加速度为正2</span>
+                a <span class="token operator">=</span> <span class="token number">2</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true"># 加速度为负3</span>
+                a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">3</span>
+            <span class="token comment" spellcheck="true"># 初速度v0</span>
+            v0 <span class="token operator">=</span> v
+            <span class="token comment" spellcheck="true"># 当前速度v = v0 + at</span>
+            v <span class="token operator">=</span> v0 <span class="token operator">+</span> a <span class="token operator">*</span> t
+            <span class="token comment" spellcheck="true"># 移动距离x = v0t + 1/2 * a * t^2</span>
+            move <span class="token operator">=</span> v0 <span class="token operator">*</span> t <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">*</span> a <span class="token operator">*</span> t <span class="token operator">*</span> t
+            <span class="token comment" spellcheck="true"># 当前位移</span>
+            current <span class="token operator">+=</span> move
+            <span class="token comment" spellcheck="true"># 加入轨迹</span>
+            track<span class="token punctuation">.</span>append<span class="token punctuation">(</span>round<span class="token punctuation">(</span>move<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> track
 
-    def move_to_gap(self, slider, track):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">move_to_gap</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> slider<span class="token punctuation">,</span> track<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         拖动滑块到缺口处
         :param slider: 滑块
         :param track: 轨迹
         :return:
-        &quot;&quot;&quot;
-        ActionChains(self.browser).click_and_hold(slider).perform()
-        for x in track:
-            ActionChains(self.browser).move_by_offset(xoffset=x, yoffset=0).perform()
-        time.sleep(0.5)
-        ActionChains(self.browser).release().perform()
+        """</span>
+        ActionChains<span class="token punctuation">(</span>self<span class="token punctuation">.</span>browser<span class="token punctuation">)</span><span class="token punctuation">.</span>click_and_hold<span class="token punctuation">(</span>slider<span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> x <span class="token keyword">in</span> track<span class="token punctuation">:</span>
+            ActionChains<span class="token punctuation">(</span>self<span class="token punctuation">.</span>browser<span class="token punctuation">)</span><span class="token punctuation">.</span>move_by_offset<span class="token punctuation">(</span>xoffset<span class="token operator">=</span>x<span class="token punctuation">,</span> yoffset<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+        ActionChains<span class="token punctuation">(</span>self<span class="token punctuation">.</span>browser<span class="token punctuation">)</span><span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    def login(self):
-        &quot;&quot;&quot;
+    <span class="token keyword">def</span> <span class="token function">login</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
         登录
         :return: None
-        &quot;&quot;&quot;
-        submit = self.wait.until(EC.element_to_be_clickable((By.CLASS_NAME, &#39;login-btn&#39;)))
-        submit.click()
-        time.sleep(10)
-        print(&#39;登录成功&#39;)
+        """</span>
+        submit <span class="token operator">=</span> self<span class="token punctuation">.</span>wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>EC<span class="token punctuation">.</span>element_to_be_clickable<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CLASS_NAME<span class="token punctuation">,</span> <span class="token string">'login-btn'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        submit<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'登录成功'</span><span class="token punctuation">)</span>
 
-    def crack(self):
-        # 输入用户名密码
-        self.open()
-        # 点击验证按钮
-        button = self.get_geetest_button()
-        print(button)
-        time.sleep(2)
-        ActionChains(self.browser).move_to_element(button).perform()
-        time.sleep(2)
-        # # 获取验证码图片(没有缺口的图)
-        image1 = self.get_geetest_image(&#39;captcha1.png&#39;)
-        # 点按呼出缺口
-        slider = self.get_slider()
-        slider.click()
-        time.sleep(2)
-        # 获取带缺口的验证码图片
-        image2 = self.get_geetest_image(&#39;captcha2.png&#39;)
-        # 获取缺口位置
-        gap = self.get_gap(image1, image2)
-        print(&#39;缺口位置&#39;, gap)
-        # 减去缺口位移
-        gap -= BORDER
-        # 获取移动轨迹
-        track = self.get_track(gap)
-        print(&#39;滑动轨迹&#39;, track)
-        # 拖动滑块
-        self.move_to_gap(slider, track)
+    <span class="token keyword">def</span> <span class="token function">crack</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 输入用户名密码</span>
+        self<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 点击验证按钮</span>
+        button <span class="token operator">=</span> self<span class="token punctuation">.</span>get_geetest_button<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>button<span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        ActionChains<span class="token punctuation">(</span>self<span class="token punctuation">.</span>browser<span class="token punctuation">)</span><span class="token punctuation">.</span>move_to_element<span class="token punctuation">(</span>button<span class="token punctuation">)</span><span class="token punctuation">.</span>perform<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># # 获取验证码图片(没有缺口的图)</span>
+        image1 <span class="token operator">=</span> self<span class="token punctuation">.</span>get_geetest_image<span class="token punctuation">(</span><span class="token string">'captcha1.png'</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 点按呼出缺口</span>
+        slider <span class="token operator">=</span> self<span class="token punctuation">.</span>get_slider<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        slider<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取带缺口的验证码图片</span>
+        image2 <span class="token operator">=</span> self<span class="token punctuation">.</span>get_geetest_image<span class="token punctuation">(</span><span class="token string">'captcha2.png'</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取缺口位置</span>
+        gap <span class="token operator">=</span> self<span class="token punctuation">.</span>get_gap<span class="token punctuation">(</span>image1<span class="token punctuation">,</span> image2<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'缺口位置'</span><span class="token punctuation">,</span> gap<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 减去缺口位移</span>
+        gap <span class="token operator">-=</span> BORDER
+        <span class="token comment" spellcheck="true"># 获取移动轨迹</span>
+        track <span class="token operator">=</span> self<span class="token punctuation">.</span>get_track<span class="token punctuation">(</span>gap<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'滑动轨迹'</span><span class="token punctuation">,</span> track<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 拖动滑块</span>
+        self<span class="token punctuation">.</span>move_to_gap<span class="token punctuation">(</span>slider<span class="token punctuation">,</span> track<span class="token punctuation">)</span>
 
-        # 验证结点里面是否包含此文字
-        success = self.wait.until(
-            EC.text_to_be_present_in_element((By.CLASS_NAME, &#39;gt_info_type&#39;), &#39;验证通过&#39;))
-        print(success)
-        time.sleep(5)
-        # 失败后重试
-        if not success:
-            self.crack()
-        # else:
-        #     self.login()
+        <span class="token comment" spellcheck="true"># 验证结点里面是否包含此文字</span>
+        success <span class="token operator">=</span> self<span class="token punctuation">.</span>wait<span class="token punctuation">.</span>until<span class="token punctuation">(</span>
+            EC<span class="token punctuation">.</span>text_to_be_present_in_element<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CLASS_NAME<span class="token punctuation">,</span> <span class="token string">'gt_info_type'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'验证通过'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>success<span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 失败后重试</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> success<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>crack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># else:</span>
+        <span class="token comment" spellcheck="true">#     self.login()</span>
 
 
-if __name__ == &#39;__main__&#39;:
-    crack = CrackBilibili()
-    crack.crack()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    crack <span class="token operator">=</span> CrackBilibili<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    crack<span class="token punctuation">.</span>crack<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 
@@ -991,7 +991,8 @@ if __name__ == &#39;__main__&#39;:
                     <div class="summary">#获取直接子节点：contents、children
 #获取父节点：parent
 #获取兄弟节点：next_siblings、next_sibling、previous_siblings、previous_sibling
-&#39;&#39</div>
+'''
+&lt;h</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-24

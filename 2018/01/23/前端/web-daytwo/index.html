@@ -37,7 +37,7 @@ Run -&amp;gt; Debug Con">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -480,52 +480,52 @@ Run -&amp;gt; Debug Con">
 <h4 id="表格中的操作"><a href="#表格中的操作" class="headerlink" title="表格中的操作"></a>表格中的操作</h4><ul>
 <li>添加表格的列（定义字段）都写在models.py中创建的模型（类）中，定义字段，就表示定义这个类的对象的属性，然后执行上面的第三、四步骤就创建好了</li>
 </ul>
-<pre><code class="python">  from django.db import models
+<pre class=" language-python"><code class="language-python">  <span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
 
-  # Create your models here.
-  class Student(models.Model):
-      # 定义s_name字段，varchar类型，最长不超过6字符，唯一
-      s_name = models.CharField(max_length=6, unique=True)
-      # 定义s_age字段，int类型
-      s_age = models.IntegerField(default=18)
-      # 定义s_gender字段，bool型
-      s_gender = models.BooleanField(default=1)
-      # 定义create_time字段，创建时间
-      create_time = models.DateTimeField(auto_now_add=True, null=True)
-      # 定义operate_time字段，修改时间
-      operate_time = models.DateTimeField(auto_now=True, null=True)
+  <span class="token comment" spellcheck="true"># Create your models here.</span>
+  <span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      <span class="token comment" spellcheck="true"># 定义s_name字段，varchar类型，最长不超过6字符，唯一</span>
+      s_name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">,</span> unique<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true"># 定义s_age字段，int类型</span>
+      s_age <span class="token operator">=</span> models<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true"># 定义s_gender字段，bool型</span>
+      s_gender <span class="token operator">=</span> models<span class="token punctuation">.</span>BooleanField<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true"># 定义create_time字段，创建时间</span>
+      create_time <span class="token operator">=</span> models<span class="token punctuation">.</span>DateTimeField<span class="token punctuation">(</span>auto_now_add<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+      <span class="token comment" spellcheck="true"># 定义operate_time字段，修改时间</span>
+      operate_time <span class="token operator">=</span> models<span class="token punctuation">.</span>DateTimeField<span class="token punctuation">(</span>auto_now<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 
 
-      class Meta:
-          # 定义模型迁移到数据库中的表格
-          db_table = &#39;student&#39;
+      <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+          <span class="token comment" spellcheck="true"># 定义模型迁移到数据库中的表格</span>
+          db_table <span class="token operator">=</span> <span class="token string">'student'</span>
 </code></pre>
 <h5 id="（增）创建表格中的数据（1）："><a href="#（增）创建表格中的数据（1）：" class="headerlink" title="（增）创建表格中的数据（1）："></a>（增）创建表格中的数据（1）：</h5><ul>
 <li><p><strong>1.url路由</strong></p>
 <p>在urls.py –&gt; urlpatterns中添加一个url（正则表达式，调用views中的方法）</p>
 </li>
 </ul>
-<pre><code class="python">    from app import views
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">from</span> app <span class="token keyword">import</span> views
 
-    urlpatterns = [
-        # 127.0.0.1:8080/admin/
-        url(r&#39;^admin/&#39;, admin.site.urls),
-        # 127.0.0.1/8080/hello/
-        url(r&#39;^hello/&#39;, views.hello),
-        # 127.0.0.1:8080/create_stu/
-        url(r&#39;^create_stu&#39;, views.create_stu)
+    urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token comment" spellcheck="true"># 127.0.0.1:8080/admin/</span>
+        url<span class="token punctuation">(</span>r<span class="token string">'^admin/'</span><span class="token punctuation">,</span> admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true"># 127.0.0.1/8080/hello/</span>
+        url<span class="token punctuation">(</span>r<span class="token string">'^hello/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>hello<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true"># 127.0.0.1:8080/create_stu/</span>
+        url<span class="token punctuation">(</span>r<span class="token string">'^create_stu'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>create_stu<span class="token punctuation">)</span>
 </code></pre>
-<pre><code class="python">    def hello(request):
-        return HttpResponse(&#39;你好， hello！&#39;)
+<pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'你好， hello！'</span><span class="token punctuation">)</span>
 
 
-    def create_stu(request):
-        # 创建学生
-        stu = Student()
-        stu.s_name = &#39;李二狗&#39;
-        stu.s_age = 20
-        stu.save()
-        return HttpResponse(&#39;创建成功&#39;)
+    <span class="token keyword">def</span> <span class="token function">create_stu</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 创建学生</span>
+        stu <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        stu<span class="token punctuation">.</span>s_name <span class="token operator">=</span> <span class="token string">'李二狗'</span>
+        stu<span class="token punctuation">.</span>s_age <span class="token operator">=</span> <span class="token number">20</span>
+        stu<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'创建成功'</span><span class="token punctuation">)</span>
 </code></pre>
 <ul>
 <li><p><strong>2.运行程序</strong></p>
@@ -533,72 +533,72 @@ Run -&amp;gt; Debug Con">
 <p><img src="/2018/01/23/前端/web-daytwo/QQ截图20181023122235.png" alt="QQ截图20181023122235"></p>
 </li>
 </ul>
-<h5 id="创建表格中的数据（2）"><a href="#创建表格中的数据（2）" class="headerlink" title="创建表格中的数据（2）"></a>创建表格中的数据（2）</h5><pre><code class="python">def create_stu(request):
-    Student.objects.create(s_name=&#39;小明&#39;)
-    return HttpResponse(&#39;创建成功&#39;)
+<h5 id="创建表格中的数据（2）"><a href="#创建表格中的数据（2）" class="headerlink" title="创建表格中的数据（2）"></a>创建表格中的数据（2）</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">create_stu</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>create<span class="token punctuation">(</span>s_name<span class="token operator">=</span><span class="token string">'小明'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'创建成功'</span><span class="token punctuation">)</span>
 </code></pre>
 <h5 id="（查）查询数据-："><a href="#（查）查询数据-：" class="headerlink" title="（查）查询数据 ："></a>（查）查询数据 ：</h5><p><strong>准确查询</strong></p>
-<pre><code class="python">def sel_stu(request):
-    # 实现查询
-    # 查询所有的数据
-    stus = Student.objects.all()
-    # filter() 过滤
-    stus = Student.objects.filter(s_name=&#39;小明&#39;)
-    # first()获取第一个
-    # last()获取最后一个
-    stus = Student.objects.filter(s_age=20).first()
-    # get拿不到值和拿到多个值都会报错，filter不会报错，会取到空值
-    stus = Student.objects.get(s_age=20)
-    # 查询多个条件
-    stus = Student.objects.filter(s_age=20).filter(s_gender=1)
-    stus = Student.objects.filter(s_age=20, s_gender=1)
-    print(stu_names)
-    return HttpResponse(&#39;查询成功&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sel_stu</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 实现查询</span>
+    <span class="token comment" spellcheck="true"># 查询所有的数据</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># filter() 过滤</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_name<span class="token operator">=</span><span class="token string">'小明'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># first()获取第一个</span>
+    <span class="token comment" spellcheck="true"># last()获取最后一个</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># get拿不到值和拿到多个值都会报错，filter不会报错，会取到空值</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>get<span class="token punctuation">(</span>s_age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 查询多个条件</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_gender<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> s_gender<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>stu_names<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'查询成功'</span><span class="token punctuation">)</span>
 </code></pre>
 <p><strong>模糊查询</strong></p>
-<pre><code class="python">def sel_stu(request):
-# 模糊查询 like &#39;%xxx%&#39; &#39;_xx&#39;
-    # 名字中含有&#39;吴&#39;字
-    stus = Student.objects.filter(s_name__contains=&#39;吴&#39;)
-    # 以小开头
-    stus = Student.objects.filter(s_name__startswith=&#39;小&#39;)
-    # 以小字结尾
-    stus = Student.objects.filter(s_name__endswith=&#39;小&#39;)
-    stu_names = [stu.s_name for stu in stus]
-    print(stu_names)
-    return HttpResponse(&#39;查询成功&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sel_stu</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true"># 模糊查询 like '%xxx%' '_xx'</span>
+    <span class="token comment" spellcheck="true"># 名字中含有'吴'字</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_name__contains<span class="token operator">=</span><span class="token string">'吴'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 以小开头</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_name__startswith<span class="token operator">=</span><span class="token string">'小'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 以小字结尾</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_name__endswith<span class="token operator">=</span><span class="token string">'小'</span><span class="token punctuation">)</span>
+    stu_names <span class="token operator">=</span> <span class="token punctuation">[</span>stu<span class="token punctuation">.</span>s_name <span class="token keyword">for</span> stu <span class="token keyword">in</span> stus<span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>stu_names<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'查询成功'</span><span class="token punctuation">)</span>
 </code></pre>
 <p><strong>其它查询</strong></p>
-<pre><code class="python">def sel_stu(request):
-    # 大于 gt/gte  小于 lt/lte
-    stus = Student.objects.filter(s_age__gt=18)
-    stus = Student.objects.filter(s_age__lt=18)
-    stus = Student.objects.filter(s_age__gte=18)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sel_stu</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 大于 gt/gte  小于 lt/lte</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_age__gt<span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">)</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_age__lt<span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">)</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>s_age__gte<span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">)</span>
 
-    # 排序 order_by()
-    # 升序
-    stus = Student.objects.order_by(&#39;id&#39;)
-    # 降序
-    stus = Student.objects.order_by(&#39;-id&#39;)
+    <span class="token comment" spellcheck="true"># 排序 order_by()</span>
+    <span class="token comment" spellcheck="true"># 升序</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>order_by<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 降序</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>order_by<span class="token punctuation">(</span><span class="token string">'-id'</span><span class="token punctuation">)</span>
 
-    # 查询部满足条件的数据
-    stus = Student.objects.exclude(s_age=20)
+    <span class="token comment" spellcheck="true"># 查询部满足条件的数据</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>exclude<span class="token punctuation">(</span>s_age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
 
-    # 计数方法count(),len()
-    print(len(stus))
-    stus_count = stus.count()
-    print(stus_count)
+    <span class="token comment" spellcheck="true"># 计数方法count(),len()</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>stus<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    stus_count <span class="token operator">=</span> stus<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>stus_count<span class="token punctuation">)</span>
 
-    # values()
-    stus_values = stus.values()
+    <span class="token comment" spellcheck="true"># values()</span>
+    stus_values <span class="token operator">=</span> stus<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    # id=pk
-    stus = Student.objects.filter(id=2)
-    stus = Student.objects.filter(pk=2)
+    <span class="token comment" spellcheck="true"># id=pk</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>id<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+    stus <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>pk<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
 
-    stu_names = [stu.s_name for stu in stus]
-    print(stu_names)
-    return HttpResponse(&#39;查询成功&#39;)
+    stu_names <span class="token operator">=</span> <span class="token punctuation">[</span>stu<span class="token punctuation">.</span>s_name <span class="token keyword">for</span> stu <span class="token keyword">in</span> stus<span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>stu_names<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'查询成功'</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>
@@ -782,9 +782,9 @@ Run -&amp;gt; Debug Con">
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">下载jQuery库&lt;!--加载本地的jQuery文件适合开发和测试使用--&gt;
-        &lt;script src=&quot;js/jQuery.min.js&quot;&gt;&lt;/script&gt;
-&lt;</div>
+                    <div class="summary">下载jQuery库&lt;!--加载本地的jQuery文件适合开发和测试使用-->
+        &lt;script src="js/jQuery.min.js">&lt;/script>
+&lt;!--下面的适合商业项目通过CDN服务</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-02

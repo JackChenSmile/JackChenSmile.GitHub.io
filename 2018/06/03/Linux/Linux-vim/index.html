@@ -7,11 +7,14 @@
     <meta name="keywords" content="Linux_vim, 微笑看你">
     <meta name="description" content="分鱼#!/usr/bin/python3
 
-&amp;quot;&amp;quot;&amp;quot;
+&#34;&#34;&#34;
 穷举法:穷尽所有可能直到找到正确答案
-&amp;quot;&amp;quot;&amp;quot;
+&#34;&#34;&#34;
 def main():
-   &amp;quot;&amp;quot;&amp;quot;分鱼&amp;quot;">
+   &#34;&#34;&#34;分鱼&#34;&#34;&#34;
+   fish = 1
+   while True:
+         enough = Tr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -34,7 +37,7 @@ def main():
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -423,46 +426,46 @@ def main():
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="分鱼"><a href="#分鱼" class="headerlink" title="分鱼"></a>分鱼</h3><pre><code class="python">#!/usr/bin/python3
+                <h3 id="分鱼"><a href="#分鱼" class="headerlink" title="分鱼"></a>分鱼</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
 
-&quot;&quot;&quot;
+<span class="token triple-quoted-string string">"""
 穷举法:穷尽所有可能直到找到正确答案
-&quot;&quot;&quot;
-def main():
-   &quot;&quot;&quot;分鱼&quot;&quot;&quot;
-   fish = 1
-   while True:
-         enough = True
-         total = fish
-         for _ in range(5):
-             if (total - 1) % 5 == 0:
-                 total = (total - 1) // 5 *4
-             else:
-                 enough = False
-                 break
-         if enough:
-             print(fish)
-             break
-         fish += 1
+"""</span>
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token triple-quoted-string string">"""分鱼"""</span>
+   fish <span class="token operator">=</span> <span class="token number">1</span>
+   <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+         enough <span class="token operator">=</span> <span class="token boolean">True</span>
+         total <span class="token operator">=</span> fish
+         <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+             <span class="token keyword">if</span> <span class="token punctuation">(</span>total <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">5</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                 total <span class="token operator">=</span> <span class="token punctuation">(</span>total <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">5</span> <span class="token operator">*</span><span class="token number">4</span>
+             <span class="token keyword">else</span><span class="token punctuation">:</span>
+                 enough <span class="token operator">=</span> <span class="token boolean">False</span>
+                 <span class="token keyword">break</span>
+         <span class="token keyword">if</span> enough<span class="token punctuation">:</span>
+             <span class="token keyword">print</span><span class="token punctuation">(</span>fish<span class="token punctuation">)</span>
+             <span class="token keyword">break</span>
+         fish <span class="token operator">+=</span> <span class="token number">1</span>
 
 
- if __name__ == &quot;__main__&quot;:
-     main()
+ <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h3 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h3><pre><code class="python">#!/usr/bin/python3
+<h3 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
 
-&quot;&quot;&quot;穷举法&quot;&quot;&quot;
-def main():
-   &quot;&quot;&quot;主函数&quot;&quot;&quot;
-   for cock in range(0, 21):
-       for hen in range(0, 34):
-           chick = 100 - cock - hen
-           if chick % 3 == 0 and cock * 5 + hen * 3 + chick // 3 == 100:
-                 print(f&quot;公鸡: {cock}只, 母鸡: {hen}只, 小鸡: {chick}只&quot;)
+<span class="token triple-quoted-string string">"""穷举法"""</span>
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token triple-quoted-string string">"""主函数"""</span>
+   <span class="token keyword">for</span> cock <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+       <span class="token keyword">for</span> hen <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">34</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+           chick <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">-</span> cock <span class="token operator">-</span> hen
+           <span class="token keyword">if</span> chick <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">and</span> cock <span class="token operator">*</span> <span class="token number">5</span> <span class="token operator">+</span> hen <span class="token operator">*</span> <span class="token number">3</span> <span class="token operator">+</span> chick <span class="token operator">//</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">100</span><span class="token punctuation">:</span>
+                 <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"公鸡: {cock}只, 母鸡: {hen}只, 小鸡: {chick}只"</span><span class="token punctuation">)</span>
 
 
-if __name__ == &quot;__main__&quot;:
-    main()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>

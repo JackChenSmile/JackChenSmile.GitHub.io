@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="响应, 微笑看你">
     <meta name="description" content="session会话第一种方式：Flask自带的存储方式，数据存储在客户端第二种方式：使用Flask-Session进行储存，将数据库保存在redis中
-请求接收HTTP请求方式：@app.route(&amp;#39;/&amp;#39;, methods">
+请求接收HTTP请求方式：@app.route(&#39;/&#39;, methods=[&#39;GET&#39;,">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -29,7 +29,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -419,34 +419,34 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="session会话"><a href="#session会话" class="headerlink" title="session会话"></a>session会话</h3><p>第一种方式：Flask自带的存储方式，数据存储在客户端<br>第二种方式：使用Flask-Session进行储存，将数据库保存在redis中</p>
-<h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><pre><code class="python">接收HTTP请求方式：@app.route(&#39;/&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PATCH&#39;, &#39;PUT&#39;])
+<h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><pre class=" language-python"><code class="language-python">接收HTTP请求方式：@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'POST'</span><span class="token punctuation">,</span> <span class="token string">'DELETE'</span><span class="token punctuation">,</span> <span class="token string">'PATCH'</span><span class="token punctuation">,</span> <span class="token string">'PUT'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-判断当前请求的方式：request.method
+判断当前请求的方式：request<span class="token punctuation">.</span>method
 
-获取GET请求传递的参数：request.args
-    获取值：request.args.get(key)
-    获取多值：request.args.getlist(key)
+获取GET请求传递的参数：request<span class="token punctuation">.</span>args
+    获取值：request<span class="token punctuation">.</span>args<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    获取多值：request<span class="token punctuation">.</span>args<span class="token punctuation">.</span>getlist<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
 
-获取POST请求传递的参数：request.form
-    获取值：request.form.get(key)
-    获取多值：request.form.getlist(key)
+获取POST请求传递的参数：request<span class="token punctuation">.</span>form
+    获取值：request<span class="token punctuation">.</span>form<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    获取多值：request<span class="token punctuation">.</span>form<span class="token punctuation">.</span>getlist<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
 
-获取路径：request.path
+获取路径：request<span class="token punctuation">.</span>path
 
-获取文件：request.files
+获取文件：request<span class="token punctuation">.</span>files
 </code></pre>
-<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><pre><code class="python">生成响应对象：返回的页面
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><pre class=" language-python"><code class="language-python">生成响应对象：返回的页面
 
 设置cookie：
-    响应对象res.set_cookie(key, value, max_age, expires)
-        key:键值对中的键
+    响应对象res<span class="token punctuation">.</span>set_cookie<span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> max_age<span class="token punctuation">,</span> expires<span class="token punctuation">)</span>
+        key<span class="token punctuation">:</span>键值对中的键
         value：键值对中的值
         max_age：过期时间，单位为秒
-        expires:过期时间，datetime为单位
+        expires<span class="token punctuation">:</span>过期时间，datetime为单位
 
-删除cookie:
-    delete_cookie：响应对象res.selete_cookie(key)
-    set_cookie:响应对象res.set_cookie(key, value, max_age=0)
+删除cookie<span class="token punctuation">:</span>
+    delete_cookie：响应对象res<span class="token punctuation">.</span>selete_cookie<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    set_cookie<span class="token punctuation">:</span>响应对象res<span class="token punctuation">.</span>set_cookie<span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> max_age<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
 </code></pre>
 
             </div>

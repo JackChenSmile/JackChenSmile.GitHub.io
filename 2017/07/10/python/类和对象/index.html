@@ -34,7 +34,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -448,49 +448,49 @@
 <li>c.静态方法</li>
 </ul>
 <p>4.创建对象<br>创建类的时候，系统会默认给我们创建这个类对应的构造方法<br>构造方法：类名（）–》创建类对应的对象</p>
-<pre><code class="python">
-# 创建一个类
-class Person:
-    &#39;&#39;&#39;人类&#39;&#39;&#39;
-    def eat(self):
-        print(&#39;人吃饭&#39;)
+<pre class=" language-python"><code class="language-python">
+<span class="token comment" spellcheck="true"># 创建一个类</span>
+<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''人类'''</span>
+    <span class="token keyword">def</span> <span class="token function">eat</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'人吃饭'</span><span class="token punctuation">)</span>
 
 
 
-if __name__ == &#39;__main__&#39;:
-    # 创建对象
-    p1 = Person()    # 创建Person类的对象，并且将对象地址存到p1中
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 创建对象</span>
+    p1 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 创建Person类的对象，并且将对象地址存到p1中</span>
 
-    # 一个类可以有多个对象
-    p2 = Person()
-    # 只有在调用构造方法的时候才会产生新的对象
-    p3 = p2
-    print(id(p1),id(p2),id(p3))
+    <span class="token comment" spellcheck="true"># 一个类可以有多个对象</span>
+    p2 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 只有在调用构造方法的时候才会产生新的对象</span>
+    p3 <span class="token operator">=</span> p2
+    <span class="token keyword">print</span><span class="token punctuation">(</span>id<span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">,</span>id<span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">,</span>id<span class="token punctuation">(</span>p3<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    # 2.调用对象
-    # 通过对象调用对象方法，默认参数self不需要传参，系统自动传参
-    p1.eat()
+    <span class="token comment" spellcheck="true"># 2.调用对象</span>
+    <span class="token comment" spellcheck="true"># 通过对象调用对象方法，默认参数self不需要传参，系统自动传参</span>
+    p1<span class="token punctuation">.</span>eat<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="构造方法和init方法"><a href="#构造方法和init方法" class="headerlink" title="构造方法和init方法"></a>构造方法和init方法</h3><p>1.构造方法：系统自动创建，方法名和类名一样，用来创建对象<br>2.<strong>init</strong>:init方法的功能是用来做初始化和添加对象属性的<br>当我们通过构造方法去创建对象的时候，系统会自动调用init方法(不用主动调用init方法)</p>
-<pre><code class="python">class Dog:
-    def __init__(self):
-        print(&#39;init方法&#39;)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Dog</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'init方法'</span><span class="token punctuation">)</span>
 
-class Person:
-    # init方法可以添加参数
-    def __init__(self,name,age = 18):
-        print(name,age)
-        print(&#39;人类的init方法&#39;)
+<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># init方法可以添加参数</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'人类的init方法'</span><span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    # 创建对象的过程：调用构造方法在内存中开辟空间创造一个对象，然后用新建的这个对象去调用init方法，
-    #                 来初始化对象的属性，最后才将对象返回
-    dog1 = Dog()
-    dog2 = Dog()
-    # 如果类的init方法有参数，通过给构造方法传参类init方法传参
-    p1 = Person(&#39;小明&#39;)
-    p2 = Person(&#39;小红&#39;,20)
-    p3 = Person(age = 20,name = &#39;东东&#39;)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 创建对象的过程：调用构造方法在内存中开辟空间创造一个对象，然后用新建的这个对象去调用init方法，</span>
+    <span class="token comment" spellcheck="true">#                 来初始化对象的属性，最后才将对象返回</span>
+    dog1 <span class="token operator">=</span> Dog<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    dog2 <span class="token operator">=</span> Dog<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 如果类的init方法有参数，通过给构造方法传参类init方法传参</span>
+    p1 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">'小明'</span><span class="token punctuation">)</span>
+    p2 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">'小红'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span>
+    p3 <span class="token operator">=</span> Person<span class="token punctuation">(</span>age <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span>name <span class="token operator">=</span> <span class="token string">'东东'</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h3><p>类中的内容：属性和方法<br>1.属性:(保存值的)</p>
 <ul>
@@ -503,113 +503,113 @@ if __name__ == &#39;__main__&#39;:
 <li>b.类方法</li>
 <li>c.静态方法</li>
 </ul>
-<pre><code class="python">
-class Student:
-    &#39;&#39;&#39;学生类&#39;&#39;&#39;
-    def __init__(self):
-        # 声明对象属性name,age,id
-        self.name = &#39;李青&#39;
-        self.age = 0
-        self.id = &#39;001&#39;
+<pre class=" language-python"><code class="language-python">
+<span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''学生类'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 声明对象属性name,age,id</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'李青'</span>
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span>
+        self<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'001'</span>
 
-class Dog:
-    &#39;&#39;&#39;狗类&#39;&#39;&#39;
-    # 创建Dog的对象的时候，必须传类型和颜色
-    def __init__(self,type1,color1):
-        self.type = type1
-        self.color = color1
+<span class="token keyword">class</span> <span class="token class-name">Dog</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''狗类'''</span>
+    <span class="token comment" spellcheck="true"># 创建Dog的对象的时候，必须传类型和颜色</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>type1<span class="token punctuation">,</span>color1<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>type <span class="token operator">=</span> type1
+        self<span class="token punctuation">.</span>color <span class="token operator">=</span> color1
 
-class Computer:
-    &#39;&#39;&#39;电脑类&#39;&#39;&#39;
-    # 创建对象的时候可以使用默认值，也可以使用自己传的值
-    def __init__(self,color= &#39;白色&#39;,memory= 0):
-        self.color = &#39;&#39;
-        self.memory = 1000
+<span class="token keyword">class</span> <span class="token class-name">Computer</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''电脑类'''</span>
+    <span class="token comment" spellcheck="true"># 创建对象的时候可以使用默认值，也可以使用自己传的值</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>color<span class="token operator">=</span> <span class="token string">'白色'</span><span class="token punctuation">,</span>memory<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">''</span>
+        self<span class="token punctuation">.</span>memory <span class="token operator">=</span> <span class="token number">1000</span>
 
-class  rectangle:
-    def __init__(self,long= 100,width= 50):
-        self.long = long
-        self.width = width
-
-
-if __name__ == &#39;__main__&#39;:
-    # stu1就是Student类的对象
-    stu1 = Student()
-    # 通过对象去使用对象的属性
-    print(stu1.name,stu1.age,stu1.id)
-    # 通过对象去修改对象的属性
-    stu1.name = &#39;SB&#39;
-    print(stu1.name)
-    dog1 = Dog(&#39;土狗&#39;,&#39;黄色&#39;)
-    print(dog1.type,dog1.color)
-    dog2 =Dog(&#39;斗狗&#39;,&#39;黑色&#39;)
-    print(dog2.type,dog2.color)
+<span class="token keyword">class</span>  <span class="token class-name">rectangle</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>long<span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span>width<span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>long <span class="token operator">=</span> long
+        self<span class="token punctuation">.</span>width <span class="token operator">=</span> width
 
 
-    comp1 = Computer()
-    print(comp1.color,comp1.memory)
-    comp2 = Computer(&#39;黑色&#39;,512)
-    print(comp2.color,comp2.memory)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># stu1就是Student类的对象</span>
+    stu1 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 通过对象去使用对象的属性</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>stu1<span class="token punctuation">.</span>name<span class="token punctuation">,</span>stu1<span class="token punctuation">.</span>age<span class="token punctuation">,</span>stu1<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 通过对象去修改对象的属性</span>
+    stu1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'SB'</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>stu1<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    dog1 <span class="token operator">=</span> Dog<span class="token punctuation">(</span><span class="token string">'土狗'</span><span class="token punctuation">,</span><span class="token string">'黄色'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>dog1<span class="token punctuation">.</span>type<span class="token punctuation">,</span>dog1<span class="token punctuation">.</span>color<span class="token punctuation">)</span>
+    dog2 <span class="token operator">=</span>Dog<span class="token punctuation">(</span><span class="token string">'斗狗'</span><span class="token punctuation">,</span><span class="token string">'黑色'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>dog2<span class="token punctuation">.</span>type<span class="token punctuation">,</span>dog2<span class="token punctuation">.</span>color<span class="token punctuation">)</span>
 
-    sq =  rectangle()
-    print(sq.long,sq.width)
-    sq =  rectangle(10,5)
-    print(sq.long,sq.width)
+
+    comp1 <span class="token operator">=</span> Computer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>comp1<span class="token punctuation">.</span>color<span class="token punctuation">,</span>comp1<span class="token punctuation">.</span>memory<span class="token punctuation">)</span>
+    comp2 <span class="token operator">=</span> Computer<span class="token punctuation">(</span><span class="token string">'黑色'</span><span class="token punctuation">,</span><span class="token number">512</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>comp2<span class="token punctuation">.</span>color<span class="token punctuation">,</span>comp2<span class="token punctuation">.</span>memory<span class="token punctuation">)</span>
+
+    sq <span class="token operator">=</span>  rectangle<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>sq<span class="token punctuation">.</span>long<span class="token punctuation">,</span>sq<span class="token punctuation">.</span>width<span class="token punctuation">)</span>
+    sq <span class="token operator">=</span>  rectangle<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>sq<span class="token punctuation">.</span>long<span class="token punctuation">,</span>sq<span class="token punctuation">.</span>width<span class="token punctuation">)</span>
 </code></pre>
 <h3 id="对象属性的增删改查"><a href="#对象属性的增删改查" class="headerlink" title="对象属性的增删改查"></a>对象属性的增删改查</h3><p>Python是动态语言，Python中类的对象的属性可以进行增删的操作</p>
-<pre><code class="python">class Person:
-    &#39;&#39;&#39;人类&#39;&#39;&#39;
-    def __init__(self):
-        self.name = &#39;李四&#39;
-        self.age = 18
-        self.height = 160
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''人类'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'李四'</span>
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">18</span>
+        self<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token number">160</span>
 </code></pre>
 <h5 id="1-查"><a href="#1-查" class="headerlink" title="1.查"></a>1.查</h5><p>方法一：对象.属性<br>方法二：def getattr(对象，属性名，default=None)<br>方法三：对象._ <em>getattribute</em> _(‘height’)</p>
-<pre><code class="python">print(p1.name)
-    # print(p1.nmae2)      # 属性不存在会报错
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(p1.nmae2)      # 属性不存在会报错</span>
 
-print(getattr(p1,&#39;age2&#39;,0))    # 属性不存在可以通过设置默认值，让程序不崩溃，并且返回默认值
+<span class="token keyword">print</span><span class="token punctuation">(</span>getattr<span class="token punctuation">(</span>p1<span class="token punctuation">,</span><span class="token string">'age2'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 属性不存在可以通过设置默认值，让程序不崩溃，并且返回默认值</span>
 
- height = p1.__getattribute__(&#39;height&#39;)
-    print(height)
+ height <span class="token operator">=</span> p1<span class="token punctuation">.</span>__getattribute__<span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span>
 </code></pre>
 <h5 id="2-改（修改属性的值，属性存在）"><a href="#2-改（修改属性的值，属性存在）" class="headerlink" title="2.改（修改属性的值，属性存在）"></a>2.改（修改属性的值，属性存在）</h5><p>方法一：对象.属性 = 新值</p>
-<pre><code class="python">p1.name = &#39;张三&#39;
-    print(p1.name)
+<pre class=" language-python"><code class="language-python">p1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'张三'</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
 </code></pre>
 <p>方法二：def setattr(对象，属性名，新值）</p>
-<pre><code class="python">setattr(p1,&#39;age&#39;,20)
-    print(p1.age)
+<pre class=" language-python"><code class="language-python">setattr<span class="token punctuation">(</span>p1<span class="token punctuation">,</span><span class="token string">'age'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
 </code></pre>
 <p>方法三：对象._ <em>setattr</em> _(属性名，新值）</p>
-<pre><code class="python"> p1.__setattr__(&#39;height&#39;,170)
-    print(p1.height)
+<pre class=" language-python"><code class="language-python"> p1<span class="token punctuation">.</span>__setattr__<span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span><span class="token number">170</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
 </code></pre>
 <h5 id="3-增（增加属性）"><a href="#3-增（增加属性）" class="headerlink" title="3.增（增加属性）"></a>3.增（增加属性）</h5><p>注意：添加只能给某一个对象添加对应的属性<br>方法一：对象.属性 = 新值</p>
-<pre><code class="python">p1.sex = &#39;女&#39;
-    print(p1.sex)
+<pre class=" language-python"><code class="language-python">p1<span class="token punctuation">.</span>sex <span class="token operator">=</span> <span class="token string">'女'</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>sex<span class="token punctuation">)</span>
 </code></pre>
 <p>方法二：def setattr(对象，属性名，新值)</p>
-<pre><code class="python"> setattr(p1,&#39;weight&#39;,55)
-    print(p1.weight)
+<pre class=" language-python"><code class="language-python"> setattr<span class="token punctuation">(</span>p1<span class="token punctuation">,</span><span class="token string">'weight'</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>weight<span class="token punctuation">)</span>
 </code></pre>
 <p>方法三：对象.<strong>setattr</strong>(属性名，新值)</p>
-<pre><code class="python">p1.__setattr__(&#39;color&#39;, &#39;绿色&#39;)
-    print(p1.color)
-    # print(p2.sex)        # 添加只影响一个对象
+<pre class=" language-python"><code class="language-python">p1<span class="token punctuation">.</span>__setattr__<span class="token punctuation">(</span><span class="token string">'color'</span><span class="token punctuation">,</span> <span class="token string">'绿色'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>color<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(p2.sex)        # 添加只影响一个对象</span>
 </code></pre>
 <h5 id="4-删（删除对象属性）"><a href="#4-删（删除对象属性）" class="headerlink" title="4.删（删除对象属性）"></a>4.删（删除对象属性）</h5><p>注意：删除只针对指定的对象<br>方法一：del 对象.属性</p>
-<pre><code class="python">del p1.name
-    # print(p1.name)      可行
+<pre class=" language-python"><code class="language-python"><span class="token keyword">del</span> p1<span class="token punctuation">.</span>name
+    <span class="token comment" spellcheck="true"># print(p1.name)      可行</span>
 </code></pre>
 <p>方法二：delattr(对象，属性名)</p>
-<pre><code class="python"> delattr(p1,&#39;age&#39;)
-    # print(p1.age)       可行
+<pre class=" language-python"><code class="language-python"> delattr<span class="token punctuation">(</span>p1<span class="token punctuation">,</span><span class="token string">'age'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(p1.age)       可行</span>
 </code></pre>
 <p>方法三：对象._ <em>delattr</em> _(属性名）</p>
-<pre><code class="python"> p1.__delattr__(&#39;height&#39;)
-    # print(p1.height)     可行
-    print(p2.name,p2.age)
+<pre class=" language-python"><code class="language-python"> p1<span class="token punctuation">.</span>__delattr__<span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(p1.height)     可行</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p2<span class="token punctuation">.</span>name<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
 </code></pre>
 <h3 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h3><p>1.对象方法：</p>
 <ul>
@@ -617,43 +617,43 @@ print(getattr(p1,&#39;age2&#39;,0))    # 属性不存在可以通过设置默认
 <li>b.对象方法要通过对象来调用：对象.对象方法（）</li>
 <li>c.对象方法中的默认参数self不需要传参，因为在调用这个方法的时候，<br>系统会自动将当前对象传给self，那个对象调用方法，self就指向谁</li>
 </ul>
-<pre><code class="python">import math
-class Circle:
-    &#39;&#39;&#39;圆类&#39;&#39;&#39;
-    def __init__(self,radius1):
-        self.radius = radius1
-    # 声明了一个对象方法area
-    # 在这，self就是调用area方法的对象，对象能做的事情，self都可以做
-    def area(self):
-        # print(id(self))
-        # print(&#39;求圆的面积&#39;)
-        return math.pi * self.radius **2
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> math
+<span class="token keyword">class</span> <span class="token class-name">Circle</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''圆类'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>radius1<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>radius <span class="token operator">=</span> radius1
+    <span class="token comment" spellcheck="true"># 声明了一个对象方法area</span>
+    <span class="token comment" spellcheck="true"># 在这，self就是调用area方法的对象，对象能做的事情，self都可以做</span>
+    <span class="token keyword">def</span> <span class="token function">area</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># print(id(self))</span>
+        <span class="token comment" spellcheck="true"># print('求圆的面积')</span>
+        <span class="token keyword">return</span> math<span class="token punctuation">.</span>pi <span class="token operator">*</span> self<span class="token punctuation">.</span>radius <span class="token operator">**</span><span class="token number">2</span>
 </code></pre>
 <ul>
-<li>练习1：写一个矩形类，有属性长和宽,有两个功能，分别是求周长和面积<pre><code class="python">class Rectangle:
-  &#39;&#39;&#39;矩形类&#39;&#39;&#39;
-  def __init__(self,long,width):
-      self.long = long
-      self.width =width
-  # 对象方法是否需要额外参数，看实现函数的功能需不需要除了对象属性以外的其他数据
-  def area(self):
-      return self.long * self.width
-  def perimeter(self):
-      return (self.width + self.long) *2
+<li>练习1：写一个矩形类，有属性长和宽,有两个功能，分别是求周长和面积<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Rectangle</span><span class="token punctuation">:</span>
+  <span class="token triple-quoted-string string">'''矩形类'''</span>
+  <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>long<span class="token punctuation">,</span>width<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      self<span class="token punctuation">.</span>long <span class="token operator">=</span> long
+      self<span class="token punctuation">.</span>width <span class="token operator">=</span>width
+  <span class="token comment" spellcheck="true"># 对象方法是否需要额外参数，看实现函数的功能需不需要除了对象属性以外的其他数据</span>
+  <span class="token keyword">def</span> <span class="token function">area</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> self<span class="token punctuation">.</span>long <span class="token operator">*</span> self<span class="token punctuation">.</span>width
+  <span class="token keyword">def</span> <span class="token function">perimeter</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>width <span class="token operator">+</span> self<span class="token punctuation">.</span>long<span class="token punctuation">)</span> <span class="token operator">*</span><span class="token number">2</span>
 </code></pre>
 </li>
-<li>练习2：写一个班级类，班级里面有多个学生的一门成绩，班级名，可以获取班级成绩中的最高分<pre><code class="python">class Grade:
-  &#39;&#39;&#39;班级类&#39;&#39;&#39;
-  def __init__(self,class_name,*grade):
-      self.class_name = class_name
-      self.grade = grade
-      # self.grade = []
-  def top_score(self):
-      # if not self.grade:
-      #     return None
-      # max（序列）----》获取序列中元素的最大值
-      # min (序列）----》获取序列中元素的最小值
-      return max(self.grade)
+<li>练习2：写一个班级类，班级里面有多个学生的一门成绩，班级名，可以获取班级成绩中的最高分<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Grade</span><span class="token punctuation">:</span>
+  <span class="token triple-quoted-string string">'''班级类'''</span>
+  <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>class_name<span class="token punctuation">,</span><span class="token operator">*</span>grade<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      self<span class="token punctuation">.</span>class_name <span class="token operator">=</span> class_name
+      self<span class="token punctuation">.</span>grade <span class="token operator">=</span> grade
+      <span class="token comment" spellcheck="true"># self.grade = []</span>
+  <span class="token keyword">def</span> <span class="token function">top_score</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      <span class="token comment" spellcheck="true"># if not self.grade:</span>
+      <span class="token comment" spellcheck="true">#     return None</span>
+      <span class="token comment" spellcheck="true"># max（序列）----》获取序列中元素的最大值</span>
+      <span class="token comment" spellcheck="true"># min (序列）----》获取序列中元素的最小值</span>
+      <span class="token keyword">return</span> max<span class="token punctuation">(</span>self<span class="token punctuation">.</span>grade<span class="token punctuation">)</span>
 </code></pre>
 <code>`</code>python<br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>  c1 = Circle(3)<br>  print(id(c1))<br>  print(‘c1的面积’,c1.area())</li>
 </ul>
@@ -683,21 +683,21 @@ class Person:
     # number就是类的字段
     number = 10
 </code></pre><p>练习：写一个球类，用一个属性来保存这个类的创建对象的个数</p>
-<pre><code class="python">class Ball:
-     count = 0
-     # 每次创建球的对象都会调用init方法，所以调用init方法的次数就是Ball创建的对象的个数
-     def __init__(self):
-         Ball.count += 1
-ball1 = Ball()
-ball2 = Ball()
-print(Ball.count)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Ball</span><span class="token punctuation">:</span>
+     count <span class="token operator">=</span> <span class="token number">0</span>
+     <span class="token comment" spellcheck="true"># 每次创建球的对象都会调用init方法，所以调用init方法的次数就是Ball创建的对象的个数</span>
+     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         Ball<span class="token punctuation">.</span>count <span class="token operator">+=</span> <span class="token number">1</span>
+ball1 <span class="token operator">=</span> Ball<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ball2 <span class="token operator">=</span> Ball<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Ball<span class="token punctuation">.</span>count<span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    # 通过类获取类的字段的值
-    print(Person.number)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 通过类获取类的字段的值</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>number<span class="token punctuation">)</span>
 
-    Person.number = 70
-    print(Person.number)
+    Person<span class="token punctuation">.</span>number <span class="token operator">=</span> <span class="token number">70</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>number<span class="token punctuation">)</span>
 </code></pre>
 <h3 id="类的方法"><a href="#类的方法" class="headerlink" title="类的方法"></a>类的方法</h3><p>类中的方法</p>
 <ul>
@@ -743,126 +743,126 @@ class Person:
 Person.show_number1()
 Person.show_number2()
 </code></pre><h3 id="内置类属性"><a href="#内置类属性" class="headerlink" title="内置类属性"></a>内置类属性</h3><p>内置类属性就是魔法属性<br>魔法属性：属性名的前面和后面都有两个下划线<br>魔法方法：方法的前后都有两个下划线</p>
-<pre><code class="python">import datetime
-class Person:
-    &#39;&#39;&#39;人的类&#39;&#39;&#39;
-    # 类的字段
-    number = 61
-    def __init__(self,name1,age1,height1):
-        # 对象的属性
-        self.name = name1
-        self.age = age1
-        self.height =height1
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> datetime
+<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''人的类'''</span>
+    <span class="token comment" spellcheck="true"># 类的字段</span>
+    number <span class="token operator">=</span> <span class="token number">61</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name1<span class="token punctuation">,</span>age1<span class="token punctuation">,</span>height1<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 对象的属性</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name1
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age1
+        self<span class="token punctuation">.</span>height <span class="token operator">=</span>height1
 
-    def run(self):
-        print(&#39;%s在跑步&#39;% (self.name))
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s在跑步'</span><span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    #类方法
+    <span class="token comment" spellcheck="true">#类方法</span>
     @classmethod
-    def show_number(cls):
-        print(&#39;人类的数量为：%d亿&#39;% (cls.number))
+    <span class="token keyword">def</span> <span class="token function">show_number</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'人类的数量为：%d亿'</span><span class="token operator">%</span> <span class="token punctuation">(</span>cls<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    # 静态方法
+    <span class="token comment" spellcheck="true"># 静态方法</span>
     @staticmethod
-    def destroy():
-        print(&#39;人类在破坏环境!&#39;)
+    <span class="token keyword">def</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'人类在破坏环境!'</span><span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    p1 = Person(&#39;张三丰&#39;,20,173)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    p1 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">'张三丰'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">173</span><span class="token punctuation">)</span>
 </code></pre>
-<h5 id="1-name属性-—-类的名字（是字符串）"><a href="#1-name属性-—-类的名字（是字符串）" class="headerlink" title="1.name属性  — 类的名字（是字符串）"></a>1.<strong>name</strong>属性  — 类的名字（是字符串）</h5><pre><code class="python">    # 类的属性
-    name = Person.__name__
-    print(name,type(name))
+<h5 id="1-name属性-—-类的名字（是字符串）"><a href="#1-name属性-—-类的名字（是字符串）" class="headerlink" title="1.name属性  — 类的名字（是字符串）"></a>1.<strong>name</strong>属性  — 类的名字（是字符串）</h5><pre class=" language-python"><code class="language-python">    <span class="token comment" spellcheck="true"># 类的属性</span>
+    name <span class="token operator">=</span> Person<span class="token punctuation">.</span>__name__
+    <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>type<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
-<h5 id="2-class属性-—-获取对象对应类（是一个类）"><a href="#2-class属性-—-获取对象对应类（是一个类）" class="headerlink" title="2.class属性 — 获取对象对应类（是一个类）"></a>2.<strong>class</strong>属性 — 获取对象对应类（是一个类）</h5><pre><code class="python">    # 对象的属性
-    # my_classs是一个类，之前类能做的事情他都能做
-    my_class = p1.__class__
-    p2 = my_class(&#39;小明&#39;,20,100)
-    print(p2.name)
+<h5 id="2-class属性-—-获取对象对应类（是一个类）"><a href="#2-class属性-—-获取对象对应类（是一个类）" class="headerlink" title="2.class属性 — 获取对象对应类（是一个类）"></a>2.<strong>class</strong>属性 — 获取对象对应类（是一个类）</h5><pre class=" language-python"><code class="language-python">    <span class="token comment" spellcheck="true"># 对象的属性</span>
+    <span class="token comment" spellcheck="true"># my_classs是一个类，之前类能做的事情他都能做</span>
+    my_class <span class="token operator">=</span> p1<span class="token punctuation">.</span>__class__
+    p2 <span class="token operator">=</span> my_class<span class="token punctuation">(</span><span class="token string">'小明'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p2<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
 </code></pre>
-<h5 id="3-dict属性-—-将对象和类的属性及其对应的值转换成键值对存到一个字典中"><a href="#3-dict属性-—-将对象和类的属性及其对应的值转换成键值对存到一个字典中" class="headerlink" title="3.dict属性 — 将对象和类的属性及其对应的值转换成键值对存到一个字典中"></a>3.<strong>dict</strong>属性 — 将对象和类的属性及其对应的值转换成键值对存到一个字典中</h5><pre><code class="python">    # print(Person.__class__)
-    print(p1.__dict__)     #  {&#39;name&#39;: &#39;张三丰&#39;, &#39;age&#39;: 20, &#39;height&#39;: 173}
+<h5 id="3-dict属性-—-将对象和类的属性及其对应的值转换成键值对存到一个字典中"><a href="#3-dict属性-—-将对象和类的属性及其对应的值转换成键值对存到一个字典中" class="headerlink" title="3.dict属性 — 将对象和类的属性及其对应的值转换成键值对存到一个字典中"></a>3.<strong>dict</strong>属性 — 将对象和类的属性及其对应的值转换成键值对存到一个字典中</h5><pre class=" language-python"><code class="language-python">    <span class="token comment" spellcheck="true"># print(Person.__class__)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>__dict__<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">#  {'name': '张三丰', 'age': 20, 'height': 173}</span>
 </code></pre>
-<h5 id="4-doc属性—-获取类的说明文档"><a href="#4-doc属性—-获取类的说明文档" class="headerlink" title="4.doc属性—-获取类的说明文档"></a>4.<strong>doc</strong>属性—-获取类的说明文档</h5><pre><code class="python">    # 类的属性
-    doc = Person.__doc__
-    print(doc)
+<h5 id="4-doc属性—-获取类的说明文档"><a href="#4-doc属性—-获取类的说明文档" class="headerlink" title="4.doc属性—-获取类的说明文档"></a>4.<strong>doc</strong>属性—-获取类的说明文档</h5><pre class=" language-python"><code class="language-python">    <span class="token comment" spellcheck="true"># 类的属性</span>
+    doc <span class="token operator">=</span> Person<span class="token punctuation">.</span>__doc__
+    <span class="token keyword">print</span><span class="token punctuation">(</span>doc<span class="token punctuation">)</span>
 </code></pre>
-<h5 id="5-module属性-—-获取所有模块对应的名字"><a href="#5-module属性-—-获取所有模块对应的名字" class="headerlink" title="5.module属性 —- 获取所有模块对应的名字"></a>5.<strong>module</strong>属性 —- 获取所有模块对应的名字</h5><pre><code class="python">    print(Person.__module__)
-    print(datetime.datetime.__module__)
+<h5 id="5-module属性-—-获取所有模块对应的名字"><a href="#5-module属性-—-获取所有模块对应的名字" class="headerlink" title="5.module属性 —- 获取所有模块对应的名字"></a>5.<strong>module</strong>属性 —- 获取所有模块对应的名字</h5><pre class=" language-python"><code class="language-python">    <span class="token keyword">print</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>__module__<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>__module__<span class="token punctuation">)</span>
 </code></pre>
-<h5 id="6-bases属性-—获取当前类的父类"><a href="#6-bases属性-—获取当前类的父类" class="headerlink" title="6.bases属性 —获取当前类的父类"></a>6.<strong>bases</strong>属性 —获取当前类的父类</h5><pre><code class="python">    # 类的属性
-    print(Person.__bases__)
+<h5 id="6-bases属性-—获取当前类的父类"><a href="#6-bases属性-—获取当前类的父类" class="headerlink" title="6.bases属性 —获取当前类的父类"></a>6.<strong>bases</strong>属性 —获取当前类的父类</h5><pre class=" language-python"><code class="language-python">    <span class="token comment" spellcheck="true"># 类的属性</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>__bases__<span class="token punctuation">)</span>
 
 </code></pre>
-<h3 id="slots魔法"><a href="#slots魔法" class="headerlink" title="slots魔法"></a>slots魔法</h3><pre><code class="python">class Person:
-    &#39;&#39;&#39;人的类&#39;&#39;&#39;
-    # 通过__slots__中存的元素的属性的值来约束当前这个类的对象的属性，对象的属性只能比元组中的少，不能多
-    __slots__ = (&#39;name&#39;,&#39;age&#39;,&#39;face&#39;)
-    def __init__(self):
-        # 对象的属性
-        self.name = &#39;张三丰&#39;
-        self.age = 20
-        self.face = 80
-        # self.sex = &#39;boy&#39;     # __slots__中并没有sex
+<h3 id="slots魔法"><a href="#slots魔法" class="headerlink" title="slots魔法"></a>slots魔法</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''人的类'''</span>
+    <span class="token comment" spellcheck="true"># 通过__slots__中存的元素的属性的值来约束当前这个类的对象的属性，对象的属性只能比元组中的少，不能多</span>
+    __slots__ <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token string">'age'</span><span class="token punctuation">,</span><span class="token string">'face'</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 对象的属性</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'张三丰'</span>
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">20</span>
+        self<span class="token punctuation">.</span>face <span class="token operator">=</span> <span class="token number">80</span>
+        <span class="token comment" spellcheck="true"># self.sex = 'boy'     # __slots__中并没有sex</span>
 
-if __name__ == &#39;__main__&#39;:
-    p1 = Person()
-    # p1.sex = &#39;girl&#39;
-    # print(p1.sex)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    p1 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># p1.sex = 'girl'</span>
+    <span class="token comment" spellcheck="true"># print(p1.sex)</span>
 
-    # p1.name = &#39;小明&#39;
-    print(p1.name)
+    <span class="token comment" spellcheck="true"># p1.name = '小明'</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
 
-    # 注意：一旦在类中给__slots__属性赋了值，那么这个类的对象的__dict__属性就不能使用了
-    # print(p1.__dict__)
+    <span class="token comment" spellcheck="true"># 注意：一旦在类中给__slots__属性赋了值，那么这个类的对象的__dict__属性就不能使用了</span>
+    <span class="token comment" spellcheck="true"># print(p1.__dict__)</span>
 
 </code></pre>
 <h3 id="私有化"><a href="#私有化" class="headerlink" title="私有化"></a>私有化</h3><p>python中并没有真正的私有化<br>1.私有化的语法<br>a.类中的属性和方法都可以通过在属性名和方法名前加两个下划线，来让属性和方法变成私有的<br>b.私有的属性和方法只能在当前的类中使用<br>2.私有化的原理<br>在前面有两个下划线的属性名和方法名前添加了’_类名’来阻止外部直接访问属性名来使用属性</p>
-<pre><code class="python">cclass Dog:
-    # 字段
-    number = 100
-    __count = 200
+<pre class=" language-python"><code class="language-python">cclass Dog<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 字段</span>
+    number <span class="token operator">=</span> <span class="token number">100</span>
+    __count <span class="token operator">=</span> <span class="token number">200</span>
 
-    def __init__(self):
-        # 对象的属性
-        self.color = &#39;黄色&#39;
-        self.age = 3
-        self.name = &#39;大黄&#39;
-        self.__sex = &#39;公狗&#39;
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 对象的属性</span>
+        self<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'黄色'</span>
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">3</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'大黄'</span>
+        self<span class="token punctuation">.</span>__sex <span class="token operator">=</span> <span class="token string">'公狗'</span>
 
-    # 对象方法
-    def __eat(self):
-        print(&#39;%s啃骨头&#39;% (self.name))
+    <span class="token comment" spellcheck="true"># 对象方法</span>
+    <span class="token keyword">def</span> <span class="token function">__eat</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s啃骨头'</span><span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    def eat(self):
-        # 在类中可以使用私有的属性
-        self.__eat()
-        print(&#39;%s在吃屎·&#39; % (self.name))
+    <span class="token keyword">def</span> <span class="token function">eat</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 在类中可以使用私有的属性</span>
+        self<span class="token punctuation">.</span>__eat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s在吃屎·'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    # 类方法
+    <span class="token comment" spellcheck="true"># 类方法</span>
     @classmethod
-    def shout(cls):
-        print(&#39;count&#39;,cls.__count)
-        print(&#39;汪汪汪~~~&#39;)
+    <span class="token keyword">def</span> <span class="token function">shout</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'count'</span><span class="token punctuation">,</span>cls<span class="token punctuation">.</span>__count<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'汪汪汪~~~'</span><span class="token punctuation">)</span>
 
-    # 静态方法
+    <span class="token comment" spellcheck="true"># 静态方法</span>
     @staticmethod
-    def function():
-        print(&#39;看家!!&#39;)
+    <span class="token keyword">def</span> <span class="token function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'看家!!'</span><span class="token punctuation">)</span>
 
- # python的类中默认的属性和方法是公开的
-dog1 = Dog()
-print(Dog.number)
-print(dog1.name,dog1.color,dog1.age)
-dog1.eat()
-Dog.shout()
-Dog.function()
+ <span class="token comment" spellcheck="true"># python的类中默认的属性和方法是公开的</span>
+dog1 <span class="token operator">=</span> Dog<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Dog<span class="token punctuation">.</span>number<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dog1<span class="token punctuation">.</span>name<span class="token punctuation">,</span>dog1<span class="token punctuation">.</span>color<span class="token punctuation">,</span>dog1<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+dog1<span class="token punctuation">.</span>eat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+Dog<span class="token punctuation">.</span>shout<span class="token punctuation">(</span><span class="token punctuation">)</span>
+Dog<span class="token punctuation">.</span>function<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# 在类的外面不能使用私有属性
-# print(Dog.__count)                AttributeError: type object &#39;Dog&#39; has no attribute &#39;__count&#39;
-# print(dog1.__sex)               AttributeError: &#39;Dog&#39; object has no attribute &#39;__sex&#39;
-dog1.eat()
-print(dog1.__dict__)
+<span class="token comment" spellcheck="true"># 在类的外面不能使用私有属性</span>
+<span class="token comment" spellcheck="true"># print(Dog.__count)                AttributeError: type object 'Dog' has no attribute '__count'</span>
+<span class="token comment" spellcheck="true"># print(dog1.__sex)               AttributeError: 'Dog' object has no attribute '__sex'</span>
+dog1<span class="token punctuation">.</span>eat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dog1<span class="token punctuation">.</span>__dict__<span class="token punctuation">)</span>
 </code></pre>
 <h3 id="属性的getter和setter"><a href="#属性的getter和setter" class="headerlink" title="属性的getter和setter"></a>属性的getter和setter</h3><p>1.解释</p>
 <ul>
@@ -875,162 +875,162 @@ print(dog1.__dict__)
 <li>b.使用场景<br>场景一：如果想要获取对象的某个属性的值之前，想要做其他处理，就可以给这个属性添加getter<br>场景二：想要拿到某个属性被使用的时刻</li>
 </ul>
 <p>3.添加setter<br>添加setter就是声明一个有一个参数，但是没有返回值的参数，作用是给属性赋值<br>a.格式<br>b.使用场景<br>在给属性赋值前要进行其他操作，就给属性声明一个setter函数</p>
-<pre><code class="python">class Car:
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Car</span><span class="token punctuation">:</span>
 
-    def __init__(self):
-        self.color = &#39;黄色&#39;
-        self.type = &#39;自行车&#39;
-        # price是保护类型
-        self._price = 2000
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'黄色'</span>
+        self<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'自行车'</span>
+        <span class="token comment" spellcheck="true"># price是保护类型</span>
+        self<span class="token punctuation">.</span>_price <span class="token operator">=</span> <span class="token number">2000</span>
 
-    # 给_price属性添加getter
+    <span class="token comment" spellcheck="true"># 给_price属性添加getter</span>
     @property
-    def price(self):
-        print(&#39;在使用_price属性&#39;)
-        return self._price/1000
+    <span class="token keyword">def</span> <span class="token function">price</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'在使用_price属性'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_price<span class="token operator">/</span><span class="token number">1000</span>
 
-    # 想要给一个属性添加setter，就必须先给这个属性添加getter
-    @price.setter
-    def price(self,price):
-        if isinstance(price,int) or isinstance(price,float):
-            self.price
-        else:
-            self._price = 0
+    <span class="token comment" spellcheck="true"># 想要给一个属性添加setter，就必须先给这个属性添加getter</span>
+    @price<span class="token punctuation">.</span>setter
+    <span class="token keyword">def</span> <span class="token function">price</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>price<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>price<span class="token punctuation">,</span>int<span class="token punctuation">)</span> <span class="token operator">or</span> isinstance<span class="token punctuation">(</span>price<span class="token punctuation">,</span>float<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>price
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>_price <span class="token operator">=</span> <span class="token number">0</span>
 </code></pre>
-<h5 id="练习：声明一个员工类，其中一个属性是否已婚（bool），获取值之前根据存的值返回”已婚”-“未婚”"><a href="#练习：声明一个员工类，其中一个属性是否已婚（bool），获取值之前根据存的值返回”已婚”-“未婚”" class="headerlink" title="练习：声明一个员工类，其中一个属性是否已婚（bool），获取值之前根据存的值返回”已婚”/“未婚”"></a>练习：声明一个员工类，其中一个属性是否已婚（bool），获取值之前根据存的值返回”已婚”/“未婚”</h5><pre><code class="python">class Staff:
-    &#39;&#39;&#39;员工类&#39;&#39;&#39;
-    def __init__(self,name,age):
-        self.name =name
-        self.age = age
-        self._is_marry = False
+<h5 id="练习：声明一个员工类，其中一个属性是否已婚（bool），获取值之前根据存的值返回”已婚”-“未婚”"><a href="#练习：声明一个员工类，其中一个属性是否已婚（bool），获取值之前根据存的值返回”已婚”-“未婚”" class="headerlink" title="练习：声明一个员工类，其中一个属性是否已婚（bool），获取值之前根据存的值返回”已婚”/“未婚”"></a>练习：声明一个员工类，其中一个属性是否已婚（bool），获取值之前根据存的值返回”已婚”/“未婚”</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Staff</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''员工类'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span>name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+        self<span class="token punctuation">.</span>_is_marry <span class="token operator">=</span> <span class="token boolean">False</span>
 
     @property
-    def is_marry(self):
-        print(&#39;在使用_price属性&#39;)
-        if self._is_marry:
-            return &#39;已婚&#39;
-        return &#39;未婚&#39;
+    <span class="token keyword">def</span> <span class="token function">is_marry</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'在使用_price属性'</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>_is_marry<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">'已婚'</span>
+        <span class="token keyword">return</span> <span class="token string">'未婚'</span>
 
-    @is_marry.setter
-    def is_marry(self, marry):
-        self._is_marry = marry
+    @is_marry<span class="token punctuation">.</span>setter
+    <span class="token keyword">def</span> <span class="token function">is_marry</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> marry<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>_is_marry <span class="token operator">=</span> marry
 
-if __name__ == &#39;__main__&#39;:
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
 
-    car1 = Car()
-    print(car1.color,car1._price)
-    # 添加完getter后就通过getter去获取属性值，实质就是调用getter对应方法
-    # price就是属性_price的getter
-    print(car1.price,&#39;k&#39;)
+    car1 <span class="token operator">=</span> Car<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>car1<span class="token punctuation">.</span>color<span class="token punctuation">,</span>car1<span class="token punctuation">.</span>_price<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 添加完getter后就通过getter去获取属性值，实质就是调用getter对应方法</span>
+    <span class="token comment" spellcheck="true"># price就是属性_price的getter</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>car1<span class="token punctuation">.</span>price<span class="token punctuation">,</span><span class="token string">'k'</span><span class="token punctuation">)</span>
 
-    # 通过setter给属性赋值,实质是调用setter对应的方法
-    car1.price= &#39;abc&#39;
-    print(car1.price)
+    <span class="token comment" spellcheck="true"># 通过setter给属性赋值,实质是调用setter对应的方法</span>
+    car1<span class="token punctuation">.</span>price<span class="token operator">=</span> <span class="token string">'abc'</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>car1<span class="token punctuation">.</span>price<span class="token punctuation">)</span>
 
-    s1 = Staff(&#39;张三&#39;, 20)
-    print(s1.is_marry)
+    s1 <span class="token operator">=</span> Staff<span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>is_marry<span class="token punctuation">)</span>
 
-    s1.is_marry = True
-    print(s1.is_marry)
+    s1<span class="token punctuation">.</span>is_marry <span class="token operator">=</span> <span class="token boolean">True</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>is_marry<span class="token punctuation">)</span>
 </code></pre>
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>python中类可以继承，并且支持多继承<br>程序中的继承：就是让子类字节拥有父类的属性和方法（继承父类中的内容不会因为被继承而减少）</p>
 <p>1.继承的语法<br>class 子类（父类）：<br>​    类的内容<br>注意：如果声明类的时候没有写继承，那么这个类会自动继承python中的基类，object;相当于class 类名（object）：<br>​      python中所有的类都是直接和间接的继承自object<br>2.能继承那些东西<br>a.所有的属性和方法都能继承<br>b.<strong>slots</strong>的值不会继承，但是会影响子类对象的<strong>dict</strong>属性，不能获取父类继承下来的属性</p>
-<pre><code class="python">class Person:
-    &#39;&#39;&#39;人类&#39;&#39;&#39;
-    # 字段
-    number = 61
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''人类'''</span>
+    <span class="token comment" spellcheck="true"># 字段</span>
+    number <span class="token operator">=</span> <span class="token number">61</span>
 
-    # __slots__ = (&#39;name&#39;,&#39;age&#39;)
-    # 对象属性
-    def __init__(self,name=&#39;张三&#39;,age=18):
-        self.name = name
-        self.age = age
-        self._height = 173
+    <span class="token comment" spellcheck="true"># __slots__ = ('name','age')</span>
+    <span class="token comment" spellcheck="true"># 对象属性</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token operator">=</span><span class="token string">'张三'</span><span class="token punctuation">,</span>age<span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+        self<span class="token punctuation">.</span>_height <span class="token operator">=</span> <span class="token number">173</span>
 
-    # 对象方法
-    def show_message(self):
-        print(&#39;姓名：%s 年龄：%d&#39;% (self.name,self.age))
+    <span class="token comment" spellcheck="true"># 对象方法</span>
+    <span class="token keyword">def</span> <span class="token function">show_message</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'姓名：%s 年龄：%d'</span><span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span>self<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
     @classmethod
-    def show_number(cls):
-        print(&#39;人类的数量：%d亿&#39;% cls.number)
+    <span class="token keyword">def</span> <span class="token function">show_number</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'人类的数量：%d亿'</span><span class="token operator">%</span> cls<span class="token punctuation">.</span>number<span class="token punctuation">)</span>
 
     @staticmethod
-    def show_message():
-        print(&#39;人类殴打小动物!&#39;)
+    <span class="token keyword">def</span> <span class="token function">show_message</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'人类殴打小动物!'</span><span class="token punctuation">)</span>
 
-class Student(Person):
-    &#39;&#39;&#39;学生类&#39;&#39;&#39;
-    pass
+<span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''学生类'''</span>
+    <span class="token keyword">pass</span>
 
-#创建Person类的对象
-p = Person()
+<span class="token comment" spellcheck="true">#创建Person类的对象</span>
+p <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# 学生类
-stu1 = Student()
-print(Student.number)
-print(stu1.name)
-stu1.show_number()
-stu1.show_message()
-print(stu1.__dict__)
+<span class="token comment" spellcheck="true"># 学生类</span>
+stu1 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>Student<span class="token punctuation">.</span>number<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>stu1<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+stu1<span class="token punctuation">.</span>show_number<span class="token punctuation">(</span><span class="token punctuation">)</span>
+stu1<span class="token punctuation">.</span>show_message<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>stu1<span class="token punctuation">.</span>__dict__<span class="token punctuation">)</span>
 
-if __name__ == &#39;__main__&#39;:
-    pass
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
 </code></pre>
 <h3 id="方法的重写"><a href="#方法的重写" class="headerlink" title="方法的重写"></a>方法的重写</h3><p>子类继承父类，拥有父类的属性和方法以后，还可以添加自己的属性和方法<br>1.添加方法和类的字段<br>直接在子类中声明相应的字段和方法</p>
 <p>2.添加对象属性<br>对象的属性是通过继承父类的init方法而继承下来<br>如果想要保留父类的对象的同时添加自己的对象属性，需要在子类的init方法中通过super（）去调用父类的init方法</p>
 <p>3.方法的重写<br>在子类中重新实现父类的方法，就是重写<br>方式一：直接覆盖父类的实现<br>方式二：保留父类的功能再添加其他功能</p>
 <p>4.类中方法的调用过程<br>先在当前这个中的去找，没有找到就去父类中找，还是没找到就去，就去父类的父类中去找，以此类推，如果在基类中也没找到，才崩溃<br>在第一次找到的位置，去调用<br>注意：使用super的时候必须通过super（）来代替父类或者是父类的对象</p>
-<pre><code class="python">class Animal:
-    &#39;&#39;&#39;动物&#39;&#39;&#39;
-    def __init__(self):
-        self.age = 0
-        self.sex = &#39;雌&#39;
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Animal</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''动物'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">0</span>
+        self<span class="token punctuation">.</span>sex <span class="token operator">=</span> <span class="token string">'雌'</span>
 
-    def shout(self):
-        print(&#39;嗷嗷叫&#39;)
+    <span class="token keyword">def</span> <span class="token function">shout</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'嗷嗷叫'</span><span class="token punctuation">)</span>
 
-class Cat(Animal):
-    &#39;&#39;&#39;猫&#39;&#39;&#39;
-    def __init__(self):
-        # 调用父类的init方法
-        super().__init__()
-        self.name = &#39;小花&#39;
-    food = &#39;鱼&#39;
+<span class="token keyword">class</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span>Animal<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''猫'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 调用父类的init方法</span>
+        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'小花'</span>
+    food <span class="token operator">=</span> <span class="token string">'鱼'</span>
 
-    def shout(self):
-        print(&#39;喵喵喵~~~&#39;)
+    <span class="token keyword">def</span> <span class="token function">shout</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'喵喵喵~~~'</span><span class="token punctuation">)</span>
 
-class Dog(Animal):
-    &#39;&#39;&#39;狗&#39;&#39;&#39;
-    def shout(self):
-        # 通过super（）调用父类的方法，保留父类功能
-        super().shout()
-        print(&#39;汪汪汪~~~&#39;)
+<span class="token keyword">class</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span>Animal<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''狗'''</span>
+    <span class="token keyword">def</span> <span class="token function">shout</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 通过super（）调用父类的方法，保留父类功能</span>
+        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>shout<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'汪汪汪~~~'</span><span class="token punctuation">)</span>
 
-cat1 = Cat()
-print(cat1.name,cat1.age,cat1.sex)
-cat1.shout()
-dog1 = Dog()
-dog1.shout()
+cat1 <span class="token operator">=</span> Cat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cat1<span class="token punctuation">.</span>name<span class="token punctuation">,</span>cat1<span class="token punctuation">.</span>age<span class="token punctuation">,</span>cat1<span class="token punctuation">.</span>sex<span class="token punctuation">)</span>
+cat1<span class="token punctuation">.</span>shout<span class="token punctuation">(</span><span class="token punctuation">)</span>
+dog1 <span class="token operator">=</span> Dog<span class="token punctuation">(</span><span class="token punctuation">)</span>
+dog1<span class="token punctuation">.</span>shout<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 <h3 id="init方法的重写"><a href="#init方法的重写" class="headerlink" title="init方法的重写"></a>init方法的重写</h3><p>练习：写一个人类，拥有属性name,age,sex。要求创建Person对象的时候必须给name和age赋值，sex可赋可不赋，再写一个Staff类继承自Person类，要求保留Person中所有的属性，并且添加新的属性salary，要求创建Staff类的对象的时候，只能给name赋值（必须赋）</p>
-<pre><code class="python">class Person:
-    &#39;&#39;&#39;人类&#39;&#39;&#39;
-    def __init__(self,name,age,sex=&#39;boy&#39;):
-        self.name = name
-        self.age =age
-        self.sex = sex
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''人类'''</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">,</span>sex<span class="token operator">=</span><span class="token string">'boy'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span>age
+        self<span class="token punctuation">.</span>sex <span class="token operator">=</span> sex
 
-class Staff(Person):
-    def __init__(self,name):
-        super().__init__(name,20)
-        self.salary = &#39;10000&#39;
+<span class="token keyword">class</span> <span class="token class-name">Staff</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>salary <span class="token operator">=</span> <span class="token string">'10000'</span>
 
-if __name__ == &#39;__main__&#39;:
-    p1 = Person(&#39;张三&#39;,20)
-    s1 = Staff(&#39;李四&#39;)
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    p1 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span>
+    s1 <span class="token operator">=</span> Staff<span class="token punctuation">(</span><span class="token string">'李四'</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="运算符的重载"><a href="#运算符的重载" class="headerlink" title="运算符的重载"></a>运算符的重载</h3><p>如果希望类的对象支持相应的运算符（+，-，*，/，&gt;,&lt;ect），就必须实现相应的魔法方法<br>继承一样有用</p>
 <ul>

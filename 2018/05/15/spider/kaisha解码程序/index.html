@@ -10,7 +10,7 @@ import urllib
 from urllib import parse
 
 def str2url(s):
-    #s = &amp;#39;9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E8">
+    #s = &#39;9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E85.%f">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -33,7 +33,7 @@ def str2url(s):
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -423,36 +423,36 @@ def str2url(s):
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>用来破解一些加密文件</p>
-<pre><code class="python">import urllib
-from urllib import parse
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib
+<span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
 
-def str2url(s):
-    #s = &#39;9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E85.%fnF9742Em33e162_36pA.t6661983%x%6%%74%2i2%22735&#39;
-    num_loc = s.find(&#39;h&#39;)
-    rows = int(s[0:num_loc])
-    strlen = len(s) - num_loc
-    cols = int(strlen/rows)
-    right_rows = strlen % rows
-    new_s = list(s[num_loc:])
-    output = &#39;&#39;
-    for i in range(len(new_s)):
-        x = i % rows
-        y = i / rows
-        p = 0
-        if x &lt;= right_rows:
-            p = x * (cols + 1) + y
-        else:
-            p = right_rows * (cols + 1) + (x - right_rows) * cols + y
-        output += new_s[int(p)]
-    return parse.unquote(output).replace(&#39;^&#39;, &#39;0&#39;)
+<span class="token keyword">def</span> <span class="token function">str2url</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#s = '9hFaF2FF%_Et%m4F4%538t2i%795E%3pF.265E85.%fnF9742Em33e162_36pA.t6661983%x%6%%74%2i2%22735'</span>
+    num_loc <span class="token operator">=</span> s<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">)</span>
+    rows <span class="token operator">=</span> int<span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span>num_loc<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    strlen <span class="token operator">=</span> len<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-</span> num_loc
+    cols <span class="token operator">=</span> int<span class="token punctuation">(</span>strlen<span class="token operator">/</span>rows<span class="token punctuation">)</span>
+    right_rows <span class="token operator">=</span> strlen <span class="token operator">%</span> rows
+    new_s <span class="token operator">=</span> list<span class="token punctuation">(</span>s<span class="token punctuation">[</span>num_loc<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    output <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>new_s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> i <span class="token operator">%</span> rows
+        y <span class="token operator">=</span> i <span class="token operator">/</span> rows
+        p <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">if</span> x <span class="token operator">&lt;=</span> right_rows<span class="token punctuation">:</span>
+            p <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token punctuation">(</span>cols <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> y
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            p <span class="token operator">=</span> right_rows <span class="token operator">*</span> <span class="token punctuation">(</span>cols <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> right_rows<span class="token punctuation">)</span> <span class="token operator">*</span> cols <span class="token operator">+</span> y
+        output <span class="token operator">+=</span> new_s<span class="token punctuation">[</span>int<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> parse<span class="token punctuation">.</span>unquote<span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'^'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span>
 
 
-def main():
-    s = &quot;6hAFxn752E5F215234uy495-3741E8t%mie15F2E185E%6at%72E%7ba%13t21at27261734458%h3%%-5a885d5pF2m%%11799662E13_D55%E992E48%%8i222%4%59358.Fk1EE5-8bc%7632..FF%5%24_%9_mae58%E513e51&quot;
-    result_str = str2url(s)
-    print(result_str)
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    s <span class="token operator">=</span> <span class="token string">"6hAFxn752E5F215234uy495-3741E8t%mie15F2E185E%6at%72E%7ba%13t21at27261734458%h3%%-5a885d5pF2m%%11799662E13_D55%E992E48%%8i222%4%59358.Fk1EE5-8bc%7632..FF%5%24_%9_mae58%E513e51"</span>
+    result_str <span class="token operator">=</span> str2url<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>result_str<span class="token punctuation">)</span>
 
-main()
+main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 
@@ -638,11 +638,11 @@ main()
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">选择器
-一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示result = soup.select(&#39;.-live-layout-row.layout_sports_350_650&#39;)
+一个标签有多个类属性时，取到这个标签的时候，多个类属性之间用不用空格隔开，正常表示result = soup.select('.-live-layout-row.layout_sports_350_650')
 
 
 
-</div>
+清除数据库清除自</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-19
@@ -689,11 +689,14 @@ main()
                 <div class="card-content article-content">
                     <div class="summary">practice1_fish#!/usr/bin/python3
 
-&quot;&quot;&quot;
+"""
 穷举法:穷尽所有可能直到找到正确答案
-&quot;&quot;&quot;
+"""
 def main():
-   &quot;&quot;&q</div>
+   """分鱼"""
+   fish = 1
+   while True:
+        </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-14
