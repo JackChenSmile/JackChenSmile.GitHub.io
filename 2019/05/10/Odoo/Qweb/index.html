@@ -478,6 +478,7 @@
     rec_all  表示循环结束的标识
     rec_value 循环一个字典时，的键的值
 ```
+
 - 动态属性
 ```html
     &lt;div&gt;
@@ -514,198 +515,192 @@
     &lt;/t&gt;
     设置了变量foo 为 &lt;li&gt;ok&lt;/li&gt;
 ```
+</code></pre><ul>
+<li><p>设置属性</p>
+<pre><code class="html">  * t-att-$name
+  $name 是属性名
+  &lt;div t-att-a=&quot;66&quot; /&gt;
+  结果：
+    &lt;div a=&quot;66&quot;&gt;&lt;/div&gt;
 
-- 设置属性
-```html
-    * t-att-$name
-    $name 是属性名
-    &lt;div t-att-a=&quot;66&quot; /&gt;
-    结果：
-      &lt;div a=&quot;66&quot;&gt;&lt;/div&gt;
+  * t-attf-$name 用于混合,有字符串也有变量，变量用{{}}
+      &lt;t t-foreach=&quot;[1, 2, 3]&quot; t-as=&quot;item&quot;&gt;
+          &lt;li t-attf-class=&quot;row {{ item_parity }}&quot;&gt;&lt;t t-esc=&quot;item&quot;/&gt;&lt;/li&gt;
+      &lt;/t&gt;
 
-    * t-attf-$name 用于混合,有字符串也有变量，变量用{{}}
-        &lt;t t-foreach=&quot;[1, 2, 3]&quot; t-as=&quot;item&quot;&gt;
-            &lt;li t-attf-class=&quot;row {{ item_parity }}&quot;&gt;&lt;t t-esc=&quot;item&quot;/&gt;&lt;/li&gt;
-        &lt;/t&gt;
+  * t-att=mapping 键值对组成属性，主要用多对
+      &lt;div t-at=&quot;{&#39;a&#39;:1,&#39;b&#39;:2}&quot; /&gt;
+  结果：
+      &lt;div a=&quot;1&quot; b=&quot;2&quot;&gt;&lt;/div&gt;
 
-    * t-att=mapping 键值对组成属性，主要用多对
-        &lt;div t-at=&quot;{&#39;a&#39;:1,&#39;b&#39;:2}&quot; /&gt;
-    结果：
-        &lt;div a=&quot;1&quot; b=&quot;2&quot;&gt;&lt;/div&gt;
+  * t-att=pair 一对，这个对一个是键，后一个是值
+      &lt;div t-att=&quot;[&#39;a&#39;,&#39;b&#39;]&quot; /&gt;  &lt;=&gt;    &lt;div t-att=&quot;(&#39;a&#39;,&#39;b&#39;)&quot; /&gt;    
+  结果：
+      &lt;div a=&quot;b&quot;&gt;&lt;/div&gt;
 
-    * t-att=pair 一对，这个对一个是键，后一个是值
-        &lt;div t-att=&quot;[&#39;a&#39;,&#39;b&#39;]&quot; /&gt;  &lt;=&gt;    &lt;div t-att=&quot;(&#39;a&#39;,&#39;b&#39;)&quot; /&gt;    
-    结果：
-        &lt;div a=&quot;b&quot;&gt;&lt;/div&gt;
+  *   &lt;p t-att=&quot;{&#39;class&#39;: &#39;oe_bold&#39;, &#39;name&#39;: &#39;test1&#39;}&quot; /&gt;
+  结果:
+      &lt;p class=&quot;oe_bold&quot; name=&quot;test1&quot; /&gt;
 
-    *   &lt;p t-att=&quot;{&#39;class&#39;: &#39;oe_bold&#39;, &#39;name&#39;: &#39;test1&#39;}&quot; /&gt;
-    结果:
-        &lt;p class=&quot;oe_bold&quot; name=&quot;test1&quot; /&gt;
-
-    *  t-att 接受字典
-        &lt;p t-att=&quot;[&#39;class&#39;,&#39;oe_bold&#39;]&quot; /&gt;
-    结果:
-        &lt;p class=&quot;oe_bold&quot; /&gt;
-```
-- 包含其他模板
-```html
-    &lt;t t-name=&quot;follower_avatars&quot;&gt;
-        &lt;div&gt;
-            &lt;t t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, 3)&quot;
-            t-as=&quot;rec&quot;&gt;
-            &lt;img t-att-src=&quot;kanban_image(
-            &#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot;
-            class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
-            &lt;/t&gt;
-        &lt;/div&gt;
-    &lt;/t&gt;    
-    。。。
-    &lt;t t-call=&#39;follower_avatars&#39; /&gt;
-```
-
-- t-call 调用其它模板
-```html
-    &lt;template id=&quot;sub&quot;&gt;
-        &lt;t t-esc=&quot;identifier&quot; /&gt;
-    &lt;/template&gt;
-    &lt;template id=&quot;hello&quot;&gt;
-        &lt;p&gt;
-        hello,
-        &lt;t t-call=&quot;module.sub&quot;&gt;
-            &lt;t t-set=&quot;identifier&quot; t-value=&quot;name&quot; /&gt;
-        &lt;/t&gt;
-        &lt;/p&gt;
-    &lt;/template&gt;
-```
-- 复用灵活
-```html
-        &lt;t t-name=&quot;follower_avatars&quot;&gt;
-            &lt;div&gt;
-                &lt;t t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, arg_max)&quot;
-                t-as=&quot;rec&quot;&gt;
-                    &lt;img t-att-src=&quot;kanban_image(
-                        &#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot;
-                        class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
-                &lt;/t&gt;
-            &lt;/div&gt;
-        &lt;/t&gt;    
-        。。。
-        &lt;t t-call=&#39;follower_avatars&#39;&gt;
-           &lt;t t-set=&quot;arg_max&quot; t-value=&#39;3&#39; /&gt;
-        &lt;t/&gt; 
-```
-
-- 为文本加省略号
-```html
-    &lt;t t-esc=&quot;kanban_text_ellipsis(record.name.value, 32)&quot; /&gt;
-    过超32个字符就加... 不显示内容了
-```
-- 自定义CSS和JavaScript的资源
-```html
-    &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-    &lt;openerp&gt;
-    &lt;data&gt;
-        &lt;template id=&quot;assets_backend&quot;
-                  inherit_id=&quot;web.assets_backend&quot;
-                  name=&quot;Todo Kanban Assets&quot;&gt;
-            &lt;xpath expr=&quot;.&quot; position=&quot;inside&quot;&gt;
-                &lt;link rel=&quot;stylesheet&quot;
-                      href=&quot;/todo_kanban/static/src/css/todo_kanban.css&quot;
-                /&gt;
-                &lt;script type=&quot;text/javascript&quot;
-                        src=&quot;/todo_kanban/static/src/js/todo_kanban.js&quot;&gt;
-                &lt;/script&gt;
-            &lt;/xpath&gt;
-        &lt;/template&gt;
-    &lt;/data&gt;
-    &lt;/openerp&gt;
-```
-
-- 字段渲染
-```
-      @http.route(&#39;hello/&lt;model(&quot;res.users&quot;):user&#39; /&gt;)  # 给用户的id即可
-      def hello(self,user,**kw)
-        return http.request.render(&#39;module.hello&#39;,{&#39;user&#39;:user})
-    -------
-    &lt;template id=&quot;hello&quot;&gt;
-        &lt;p t-field=&quot;user.display_name&quot; /&gt;
-    &lt;/template&gt;
-```
-- 可用字段选择修饰
-```html
-     &lt;template id=&quot;hello&quot;&gt;
-        &lt;p t-field=&quot;user.creat_date&quot; /&gt;
-        &lt;p t-field=&quot;user.creat_date&quot;  t-filed-options=&#39;{&quot;format&quot;:&quot;long&quot;}&#39;/&gt;
-        &lt;p t-field=&quot;user.creat_date&quot;  t-filed-options=&#39;{&quot;format&quot;:&quot;EEE&quot;}&#39;/&gt;
-    &lt;/template&gt;
-    -------------
-    &lt;template id=&quot;hello&quot;&gt;
-        &lt;p t-field=&quot;user.wealth&quot; /&gt;
-        &lt;p t-field=&quot;user.wealth&quot;  t-filed-options=&#39;{
-             &quot;widget&quot;:&quot;monetary&quot;
-             &quot;display_currency&quot;:&quot;user.company_id.currency_id&quot;
-             }&#39;/&gt;
-    &lt;/template&gt;
-    ------------
-    &lt;template id=&quot;hello&quot;&gt;
-        &lt;p t-field=&quot;user.create_date&quot; t-field-options=&#39;{&quot;widget&quot;:relative}}&#39; /&gt;
-    &lt;/template&gt;
-```
-
-- 模板继承
-```html
-    &lt;template id=&quot;hello&quot;&gt;
-        &lt;p&gt; Base template &lt;/p&gt;
-    &lt;/template&gt;
-    &lt;template id=&quot;hello2&quot; inherit_id=&quot;hello&quot; name=&quot;Extender&quot;&gt;
-        &lt;xpath expr=&quot;//p&quot; position=&quot;before&quot;&gt;
-            &lt;h1&gt;Extended!&lt;/h1&gt;
-        &lt;/xpath&gt;    
-    &lt;/template&gt;
-```
-```html
-      得到的结果：
-       &lt;h1&gt;Extended!&lt;/h1&gt;
-       &lt;p&gt;Base template&lt;/p&gt;
-    --------------
-    &lt;template id=&quot;hello&quot;&gt;
-        &lt;p class=&quot;a&quot;&gt;A&lt;/p&gt;
-        &lt;p class=&quot;b&quot;&gt;B&lt;/p&gt;            
-    &lt;/template&gt;
-    &lt;template id=&quot;hello2&quot; inherit_id=&quot;hello&quot; name=&quot;Extender&quot;&gt;
-        &lt;xpath expr=&quot;//p[hasclass(&#39;b&#39;)]&quot; position=&quot;before&quot;&gt;
-            &lt;h1&gt;Extended!&lt;/h1&gt;
-        &lt;/xpath&gt;    
-    &lt;/template&gt;    
-      得到的结果：
-       &lt;p class=&quot;a&quot;&gt;A&lt;/p&gt;
-       &lt;h1&gt;Extended!&lt;/h1&gt;
-       &lt;p class=&quot;b&quot;&gt;B&lt;/p&gt;
-```
-- 调用系统的基础模板
-```html
-    &lt;template id=&quot;hello&quot;&gt;
-        &lt;t t-call=&quot;website.layout&quot;&gt;
-            &lt;p class=&quot;a&quot;&gt;A&lt;/p&gt;
-            &lt;p class=&quot;b&quot;&gt;B&lt;/p&gt;    
-        &lt;/t&gt;                
-    &lt;/template&gt;
-    &lt;template id=&quot;hello2&quot; inherit_id=&quot;hello&quot; name=&quot;Extender&quot;&gt;
-        &lt;xpath expr=&quot;//p[hasclass(&#39;b&#39;)]&quot; position=&quot;before&quot;&gt;
-            &lt;h1&gt;Extended!&lt;/h1&gt;
-        &lt;/xpath&gt;    
-    &lt;/template&gt; 
-    ```
-- 调试
-```html
-    t-debug
-
-    调用调试器使用PDB的set_trace API. 这个参数应该是一个模块的名称，在这个模块上set_trace 方法被调用：
-
-    &lt;t t-debug=&quot;pdb&quot;/&gt;
-    相当于importlib.import_module(&quot;pdb&quot;).set_trace()
-```
+  *  t-att 接受字典
+      &lt;p t-att=&quot;[&#39;class&#39;,&#39;oe_bold&#39;]&quot; /&gt;
+  结果:
+      &lt;p class=&quot;oe_bold&quot; /&gt;
 </code></pre>
+</li>
+<li><p>包含其他模板</p>
+<pre><code class="html">  &lt;t t-name=&quot;follower_avatars&quot;&gt;
+      &lt;div&gt;
+          &lt;t t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, 3)&quot;
+          t-as=&quot;rec&quot;&gt;
+          &lt;img t-att-src=&quot;kanban_image(
+          &#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot;
+          class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
+          &lt;/t&gt;
+      &lt;/div&gt;
+  &lt;/t&gt;    
+  。。。
+  &lt;t t-call=&#39;follower_avatars&#39; /&gt;
+</code></pre>
+</li>
+<li><p>t-call 调用其它模板</p>
+<pre><code class="html">  &lt;template id=&quot;sub&quot;&gt;
+      &lt;t t-esc=&quot;identifier&quot; /&gt;
+  &lt;/template&gt;
+  &lt;template id=&quot;hello&quot;&gt;
+      &lt;p&gt;
+      hello,
+      &lt;t t-call=&quot;module.sub&quot;&gt;
+          &lt;t t-set=&quot;identifier&quot; t-value=&quot;name&quot; /&gt;
+      &lt;/t&gt;
+      &lt;/p&gt;
+  &lt;/template&gt;
+</code></pre>
+</li>
+<li><p>复用灵活</p>
+<pre><code class="html">      &lt;t t-name=&quot;follower_avatars&quot;&gt;
+          &lt;div&gt;
+              &lt;t t-foreach=&quot;record.message_follower_ids.raw_value.slice(0, arg_max)&quot;
+              t-as=&quot;rec&quot;&gt;
+                  &lt;img t-att-src=&quot;kanban_image(
+                      &#39;res.partner&#39;, &#39;image_small&#39;, rec)&quot;
+                      class=&quot;oe_kanban_image oe_kanban_avatar_smallbox&quot;/&gt;
+              &lt;/t&gt;
+          &lt;/div&gt;
+      &lt;/t&gt;    
+      。。。
+      &lt;t t-call=&#39;follower_avatars&#39;&gt;
+         &lt;t t-set=&quot;arg_max&quot; t-value=&#39;3&#39; /&gt;
+      &lt;t/&gt; 
+</code></pre>
+</li>
+<li><p>为文本加省略号</p>
+<pre><code class="html">  &lt;t t-esc=&quot;kanban_text_ellipsis(record.name.value, 32)&quot; /&gt;
+  过超32个字符就加... 不显示内容了
+</code></pre>
+</li>
+<li><p>自定义CSS和JavaScript的资源</p>
+<pre><code class="html">  &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+  &lt;openerp&gt;
+  &lt;data&gt;
+      &lt;template id=&quot;assets_backend&quot;
+                inherit_id=&quot;web.assets_backend&quot;
+                name=&quot;Todo Kanban Assets&quot;&gt;
+          &lt;xpath expr=&quot;.&quot; position=&quot;inside&quot;&gt;
+              &lt;link rel=&quot;stylesheet&quot;
+                    href=&quot;/todo_kanban/static/src/css/todo_kanban.css&quot;
+              /&gt;
+              &lt;script type=&quot;text/javascript&quot;
+                      src=&quot;/todo_kanban/static/src/js/todo_kanban.js&quot;&gt;
+              &lt;/script&gt;
+          &lt;/xpath&gt;
+      &lt;/template&gt;
+  &lt;/data&gt;
+  &lt;/openerp&gt;
+</code></pre>
+</li>
+<li><p>字段渲染</p>
+<pre><code>    @http.route(&#39;hello/&lt;model(&quot;res.users&quot;):user&#39; /&gt;)  # 给用户的id即可
+    def hello(self,user,**kw)
+      return http.request.render(&#39;module.hello&#39;,{&#39;user&#39;:user})
+  -------
+  &lt;template id=&quot;hello&quot;&gt;
+      &lt;p t-field=&quot;user.display_name&quot; /&gt;
+  &lt;/template&gt;
+</code></pre></li>
+<li><p>可用字段选择修饰</p>
+<pre><code class="html">   &lt;template id=&quot;hello&quot;&gt;
+      &lt;p t-field=&quot;user.creat_date&quot; /&gt;
+      &lt;p t-field=&quot;user.creat_date&quot;  t-filed-options=&#39;{&quot;format&quot;:&quot;long&quot;}&#39;/&gt;
+      &lt;p t-field=&quot;user.creat_date&quot;  t-filed-options=&#39;{&quot;format&quot;:&quot;EEE&quot;}&#39;/&gt;
+  &lt;/template&gt;
+  -------------
+  &lt;template id=&quot;hello&quot;&gt;
+      &lt;p t-field=&quot;user.wealth&quot; /&gt;
+      &lt;p t-field=&quot;user.wealth&quot;  t-filed-options=&#39;{
+           &quot;widget&quot;:&quot;monetary&quot;
+           &quot;display_currency&quot;:&quot;user.company_id.currency_id&quot;
+           }&#39;/&gt;
+  &lt;/template&gt;
+  ------------
+  &lt;template id=&quot;hello&quot;&gt;
+      &lt;p t-field=&quot;user.create_date&quot; t-field-options=&#39;{&quot;widget&quot;:relative}}&#39; /&gt;
+  &lt;/template&gt;
+</code></pre>
+</li>
+<li><p>模板继承</p>
+<pre><code class="html">  &lt;template id=&quot;hello&quot;&gt;
+      &lt;p&gt; Base template &lt;/p&gt;
+  &lt;/template&gt;
+  &lt;template id=&quot;hello2&quot; inherit_id=&quot;hello&quot; name=&quot;Extender&quot;&gt;
+      &lt;xpath expr=&quot;//p&quot; position=&quot;before&quot;&gt;
+          &lt;h1&gt;Extended!&lt;/h1&gt;
+      &lt;/xpath&gt;    
+  &lt;/template&gt;
+</code></pre>
+<pre><code class="html">    得到的结果：
+     &lt;h1&gt;Extended!&lt;/h1&gt;
+     &lt;p&gt;Base template&lt;/p&gt;
+  --------------
+  &lt;template id=&quot;hello&quot;&gt;
+      &lt;p class=&quot;a&quot;&gt;A&lt;/p&gt;
+      &lt;p class=&quot;b&quot;&gt;B&lt;/p&gt;            
+  &lt;/template&gt;
+  &lt;template id=&quot;hello2&quot; inherit_id=&quot;hello&quot; name=&quot;Extender&quot;&gt;
+      &lt;xpath expr=&quot;//p[hasclass(&#39;b&#39;)]&quot; position=&quot;before&quot;&gt;
+          &lt;h1&gt;Extended!&lt;/h1&gt;
+      &lt;/xpath&gt;    
+  &lt;/template&gt;    
+    得到的结果：
+     &lt;p class=&quot;a&quot;&gt;A&lt;/p&gt;
+     &lt;h1&gt;Extended!&lt;/h1&gt;
+     &lt;p class=&quot;b&quot;&gt;B&lt;/p&gt;
+</code></pre>
+</li>
+<li>调用系统的基础模板<pre><code class="html">  &lt;template id=&quot;hello&quot;&gt;
+      &lt;t t-call=&quot;website.layout&quot;&gt;
+          &lt;p class=&quot;a&quot;&gt;A&lt;/p&gt;
+          &lt;p class=&quot;b&quot;&gt;B&lt;/p&gt;    
+      &lt;/t&gt;                
+  &lt;/template&gt;
+  &lt;template id=&quot;hello2&quot; inherit_id=&quot;hello&quot; name=&quot;Extender&quot;&gt;
+      &lt;xpath expr=&quot;//p[hasclass(&#39;b&#39;)]&quot; position=&quot;before&quot;&gt;
+          &lt;h1&gt;Extended!&lt;/h1&gt;
+      &lt;/xpath&gt;    
+  &lt;/template&gt; 
+</code></pre>
+</li>
+<li><p>调试</p>
+<pre><code class="html">  t-debug
+
+  调用调试器使用PDB的set_trace API. 这个参数应该是一个模块的名称，在这个模块上set_trace 方法被调用：
+
+  &lt;t t-debug=&quot;pdb&quot;/&gt;
+  相当于importlib.import_module(&quot;pdb&quot;).set_trace()
+</code></pre>
+</li>
+</ul>
+
             </div>
             <hr/>
 
