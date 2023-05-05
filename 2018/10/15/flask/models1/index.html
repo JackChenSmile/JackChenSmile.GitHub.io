@@ -663,17 +663,28 @@ in_: 范围之内: 模型.query.filter(模型.字段.in_([1,2,3,4,5]))
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/15/数据库/MySQL预习/">
+                <a href="/2018/10/15/flask/模板/">
                     <div class="card-image">
                         
-                        <img src="/images/Xia.jpg" class="responsive-img" alt="MySQL">
+                        <img src="/images/04.jpg" class="responsive-img" alt="template">
                         
-                        <span class="card-title">MySQL</span>
+                        <span class="card-title">template</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">MySQL的海豚标志的名字叫“sakila”，它是由MySQL AB的创始人从用户在“海豚命名”的竞赛中建议的大量的名字表中选出的。获胜的名字是由来自非洲斯威士兰的开源软件开发者Ambrose Twebaze提供。
-MySQL预习MySQL</div>
+                    <div class="summary">#### 父模板
+base.html
+
+#### 初始化
+base_main.html(每个模板中的相同部分)
+
+
+#### 继承
+
+{% extends 'base_main.html' %}
+
+
+#### 获取base_main模板坑里</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
@@ -682,13 +693,21 @@ MySQL预习MySQL</div>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/databases/" class="post-category" target="_blank">
-                                    databases
+                            <a href="/categories/flask/" class="post-category" target="_blank">
+                                    flask
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/template/" target="_blank">
+                        <span class="chip bg-color">template</span>
+                    </a>
+                    
                 </div>
                 
             </div>
