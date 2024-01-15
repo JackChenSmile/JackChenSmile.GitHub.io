@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>openpyxl报错</title>
-      <link href="/2024/01/15/%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99/openpyxl%E6%8A%A5%E9%94%99/"/>
-      <url>/2024/01/15/%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99/openpyxl%E6%8A%A5%E9%94%99/</url>
-      
-        <content type="html"><![CDATA[<pre class=" language-python"><code class="language-python">    <span class="token comment" spellcheck="true"># openpyxl库代码报错</span>    UserWarning<span class="token punctuation">:</span> Workbook contains no default style<span class="token punctuation">,</span> apply openpyxl<span class="token string">'s default'</span>    warn<span class="token punctuation">(</span><span class="token string">"Workbook contains no default style, apply openpyxl's default"</span></code></pre><ul><li>这是一个来自openpyxl库的警告。openpyxl是一个Python库，用于读取/写入Excel 2010 xlsx/xlsm/xltx/xltm文件。</li><li>这个警告的意思是，你正在处理的Excel工作簿没有包含默认的样式。在Excel中，样式是一种可以应用于单元格或整个工作表的属性，包括字体、颜色、对齐方式等。当一个工作簿没有默认样式时，openpyxl会使用它自己的默认样式。</li><li>这个警告通常不会影响你的程序运行，它只是告诉你，如果你在处理单元格或工作表时没有指定样式，openpyxl会使用它的默认样式。如果你对此不满意，你可以自定义你自己的样式并应用它们。<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 处理方法</span><span class="token keyword">import</span> warningswarnings<span class="token punctuation">.</span>filterwarnings<span class="token punctuation">(</span><span class="token string">"ignore"</span><span class="token punctuation">)</span></code></pre><strong>这将忽略所有的警告，包括这个来自openpyxl的警告。请注意，通常不建议忽略所有的警告，因为它们可能会提供有关你的代码可能存在的问题的重要信息。</strong></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 报错 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>EXCEL</title>
       <link href="/2023/05/05/blog/hexo%E9%83%A8%E7%BD%B2%E6%8A%A5%E9%94%99%E5%90%88%E9%9B%86/"/>
       <url>/2023/05/05/blog/hexo%E9%83%A8%E7%BD%B2%E6%8A%A5%E9%94%99%E5%90%88%E9%9B%86/</url>
