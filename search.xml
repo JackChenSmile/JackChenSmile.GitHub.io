@@ -8,7 +8,7 @@
       <link href="/2024/04/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98/Google/"/>
       <url>/2024/04/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98/Google/</url>
       
-        <content type="html"><![CDATA[<h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><ul><li>使用Google浏览器访问网页时，出现问题<br><b>ERR_SSL_PROTOCOL_ERROR<b></b></b></li></ul><p><img src="/2024/04/21/浏览器问题/Google/question1.png" alt="question1"></p><ul><li>使用Microsoft Edge浏览器访问网页时，出现问题<br><b>ERR_SSL_PROTOCOL_ERROR<b></b></b></li></ul><p><img src="/2024/04/21/浏览器问题/Google/question2.png" alt="question2"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><pre><code>1、浏览器中输入chrome://flags；2、搜索TLS 1.3 hybridized Kyber support；3、将模式改为disable后，重启Chrome浏览器，重新访问；</code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><ul><li>使用Google浏览器访问网页时，出现问题<br><b>ERR_SSL_PROTOCOL_ERROR<b></b></b></li></ul><p><img src="/2024/04/21/浏览器问题/Google/question1.png" alt="question1"></p><ul><li>使用Microsoft Edge浏览器访问网页时，出现问题<br><b>ERR_SSL_PROTOCOL_ERROR<b></b></b></li></ul><p><img src="/2024/04/21/浏览器问题/Google/question2.png" alt="question2"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="Chro内核版本更新，致使浏览器出现访问不了的问题"><a href="#Chro内核版本更新，致使浏览器出现访问不了的问题" class="headerlink" title="Chro内核版本更新，致使浏览器出现访问不了的问题"></a>Chro内核版本更新，致使浏览器出现访问不了的问题</h4><pre><code>1、浏览器中输入chrome://flags；2、搜索TLS 1.3 hybridized Kyber support；3、将模式改为disable后，重启Chrome浏览器，重新访问；</code></pre>]]></content>
       
       
       <categories>
